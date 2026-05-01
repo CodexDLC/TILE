@@ -23,8 +23,8 @@ def _can_access_model(app_label: str, model_name: str):
     return checker
 
 UNFOLD = {
-    "SITE_TITLE": os.environ.get("ADMIN_SITE_TITLE", f"{PROJECT_NAME.replace('_', ' ').title()} Admin"),
-    "SITE_HEADER": os.environ.get("ADMIN_SITE_HEADER", PROJECT_NAME.replace("_", " ").title()),
+    "SITE_TITLE": os.environ.get("ADMIN_SITE_TITLE", f"{PROJECT_NAME.replace('_', ' ').title()} Админка"),
+    "SITE_HEADER": os.environ.get("ADMIN_SITE_HEADER", f"{PROJECT_NAME.replace('_', ' ').title()} админка"),
     "SITE_SYMBOL": "dashboard",
     "COLORS": {
         "primary": {
@@ -43,53 +43,55 @@ UNFOLD = {
     },
     "SIDEBAR": {
         "show_search": True,
-        "show_all_applications": False,
+        "show_all_applications": True,
         "navigation": [
             {
-                "title": _("Workspace"),
+                "title": _("Основное"),
                 "items": [
                     {
-                        "title": _("Dashboard"),
-                        "icon": "dashboard",
-                        "link": reverse_lazy("admin:index"),
+                        "title": _("Страницы"),
+                        "icon": "article",
+                        "link": _admin_link("content", "page"),
+                        "permission": _can_access_model("content", "page"),
                     },
-                ],
-            },
-            {
-                "title": _("Workflows"),
-                "items": [
                     {
-                        "title": _("Message threads"),
+                        "title": _("Места"),
+                        "icon": "place",
+                        "link": _admin_link("places", "place"),
+                        "permission": _can_access_model("places", "place"),
+                    },
+                    {
+                        "title": _("Обращения"),
                         "icon": "forum",
                         "link": _admin_link("messaging", "thread"),
                         "permission": _can_access_model("messaging", "thread"),
                     },
                     {
-                        "title": _("Recipients"),
+                        "title": _("Получатели"),
                         "icon": "alternate_email",
                         "link": _admin_link("messaging", "systemrecipient"),
                         "permission": _can_access_model("messaging", "systemrecipient"),
                     },
                     {
-                        "title": _("Campaigns"),
+                        "title": _("Кампании"),
                         "icon": "campaign",
                         "link": _admin_link("messaging", "campaign"),
                         "permission": _can_access_model("messaging", "campaign"),
                     },
                     {
-                        "title": _("Email settings"),
+                        "title": _("Настройки email"),
                         "icon": "mail_lock",
                         "link": _admin_link("system", "emailsettings"),
                         "permission": _can_access_model("system", "emailsettings"),
                     },
                     {
-                        "title": _("Site settings"),
+                        "title": _("Настройки сайта"),
                         "icon": "settings",
                         "link": _admin_link("system", "sitesettings"),
                         "permission": _can_access_model("system", "sitesettings"),
                     },
                     {
-                        "title": _("SEO pages"),
+                        "title": _("SEO страниц"),
                         "icon": "search",
                         "link": _admin_link("system", "staticpageseo"),
                         "permission": _can_access_model("system", "staticpageseo"),
@@ -97,22 +99,22 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("People & Access"),
+                "title": _("Люди и доступ"),
                 "items": [
                     {
-                        "title": _("Users"),
+                        "title": _("Пользователи"),
                         "icon": "person",
                         "link": _admin_link("auth", "user"),
                         "permission": _can_access_model("auth", "user"),
                     },
                     {
-                        "title": _("User profiles"),
+                        "title": _("Профили пользователей"),
                         "icon": "badge",
                         "link": _admin_link("system", "userprofile"),
                         "permission": _can_access_model("system", "userprofile"),
                     },
                     {
-                        "title": _("Groups"),
+                        "title": _("Группы"),
                         "icon": "groups",
                         "link": _admin_link("auth", "group"),
                         "permission": _can_access_model("auth", "group"),
@@ -120,125 +122,63 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("All models"),
+                "title": _("Контент"),
                 "items": [
                     {
-                        "title": _("System domain"),
-                        "icon": "settings",
-                        "items": [
-                            {
-                                "title": _("Site settings"),
-                                "link": _admin_link("system", "sitesettings"),
-                                "permission": _can_access_model("system", "sitesettings"),
-                            },
-                            {
-                                "title": _("Email settings"),
-                                "link": _admin_link("system", "emailsettings"),
-                                "permission": _can_access_model("system", "emailsettings"),
-                            },
-                            {
-                                "title": _("SEO pages"),
-                                "link": _admin_link("system", "staticpageseo"),
-                                "permission": _can_access_model("system", "staticpageseo"),
-                            },
-                            {
-                                "title": _("Static translations"),
-                                "link": _admin_link("system", "statictranslation"),
-                                "permission": _can_access_model("system", "statictranslation"),
-                            },
-                            {
-                                "title": _("User profiles"),
-                                "link": _admin_link("system", "userprofile"),
-                                "permission": _can_access_model("system", "userprofile"),
-                            },
-                        ],
+                        "title": _("Страницы"),
+                        "icon": "article",
+                        "link": _admin_link("content", "page"),
+                        "permission": _can_access_model("content", "page"),
                     },
                     {
-                        "title": _("Messaging domain"),
-                        "icon": "mail",
-                        "items": [
-                            {
-                                "title": _("Threads"),
-                                "link": _admin_link("messaging", "thread"),
-                                "permission": _can_access_model("messaging", "thread"),
-                            },
-                            {
-                                "title": _("Messages"),
-                                "link": _admin_link("messaging", "message"),
-                                "permission": _can_access_model("messaging", "message"),
-                            },
-                            {
-                                "title": _("Replies"),
-                                "link": _admin_link("messaging", "messagereply"),
-                                "permission": _can_access_model("messaging", "messagereply"),
-                            },
-                            {
-                                "title": _("Recipients"),
-                                "link": _admin_link("messaging", "systemrecipient"),
-                                "permission": _can_access_model("messaging", "systemrecipient"),
-                            },
-                            {
-                                "title": _("Email logs"),
-                                "link": _admin_link("messaging", "emaillog"),
-                                "permission": _can_access_model("messaging", "emaillog"),
-                            },
-                            {
-                                "title": _("Campaigns"),
-                                "link": _admin_link("messaging", "campaign"),
-                                "permission": _can_access_model("messaging", "campaign"),
-                            },
-                            {
-                                "title": _("Campaign recipients"),
-                                "link": _admin_link("messaging", "campaignrecipient"),
-                                "permission": _can_access_model("messaging", "campaignrecipient"),
-                            },
-                        ],
+                        "title": _("Страны"),
+                        "icon": "public",
+                        "link": _admin_link("places", "country"),
+                        "permission": _can_access_model("places", "country"),
                     },
                     {
-                        "title": _("Accounts"),
-                        "icon": "manage_accounts",
-                        "items": [
-                            {
-                                "title": _("Users"),
-                                "link": _admin_link("auth", "user"),
-                                "permission": _can_access_model("auth", "user"),
-                            },
-                            {
-                                "title": _("Groups"),
-                                "link": _admin_link("auth", "group"),
-                                "permission": _can_access_model("auth", "group"),
-                            },
-                        ],
+                        "title": _("Регионы"),
+                        "icon": "travel_explore",
+                        "link": _admin_link("places", "region"),
+                        "permission": _can_access_model("places", "region"),
                     },
                     {
-                        "title": _("Editorial"),
-                        "icon": "edit_note",
-                        "items": [
-                            {
-                                "title": _("Static translations"),
-                                "link": _admin_link("system", "statictranslation"),
-                                "permission": _can_access_model("system", "statictranslation"),
-                            },
-                            {
-                                "title": _("SEO pages"),
-                                "link": _admin_link("system", "staticpageseo"),
-                                "permission": _can_access_model("system", "staticpageseo"),
-                            },
-                        ],
+                        "title": _("Города"),
+                        "icon": "location_city",
+                        "link": _admin_link("places", "city"),
+                        "permission": _can_access_model("places", "city"),
+                    },
+                    {
+                        "title": _("Места"),
+                        "icon": "place",
+                        "link": _admin_link("places", "place"),
+                        "permission": _can_access_model("places", "place"),
+                    },
+                    {
+                        "title": _("SEO страниц"),
+                        "icon": "search",
+                        "link": _admin_link("system", "staticpageseo"),
+                        "permission": _can_access_model("system", "staticpageseo"),
+                    },
+                    {
+                        "title": _("Статичные переводы"),
+                        "icon": "translate",
+                        "link": _admin_link("system", "statictranslation"),
+                        "permission": _can_access_model("system", "statictranslation"),
                     },
                 ],
             },
             {
-                "title": _("System & Settings"),
+                "title": _("Система и настройки"),
                 "items": [
                     {
-                        "title": _("Static translations"),
+                        "title": _("Статичные переводы"),
                         "icon": "translate",
                         "link": _admin_link("system", "statictranslation"),
                         "permission": _can_access_model("system", "statictranslation"),
                     },
                     {
-                        "title": _("Email logs"),
+                        "title": _("Логи email"),
                         "icon": "receipt_long",
                         "link": _admin_link("messaging", "emaillog"),
                         "permission": _can_access_model("messaging", "emaillog"),

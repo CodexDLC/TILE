@@ -64,7 +64,9 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now=True)),
                 (
                     "created_by",
-                    models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL),
+                    models.ForeignKey(
+                        null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL
+                    ),
                 ),
             ],
         ),
@@ -138,7 +140,9 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now=True)),
                 (
                     "thread",
-                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name="messages", to="messaging.thread"),
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, related_name="messages", to="messaging.thread"
+                    ),
                 ),
             ],
             options={"ordering": ["created_at"]},
@@ -162,7 +166,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "sent_by",
-                    models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL),
+                    models.ForeignKey(
+                        null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL
+                    ),
                 ),
             ],
             options={"ordering": ["sent_at"]},
@@ -186,7 +192,9 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now=True)),
                 (
                     "campaign",
-                    models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name="recipients", to="messaging.campaign"),
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, related_name="recipients", to="messaging.campaign"
+                    ),
                 ),
             ],
         ),

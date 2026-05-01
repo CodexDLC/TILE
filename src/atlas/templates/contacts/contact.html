@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block body_class %}page-contact{% endblock body_class %}
+
+{% block content %}
+    <section class="section">
+        <div class="container contact-shell">
+            <div class="contact-intro">
+                <p class="eyebrow">Contact</p>
+                <h1>Tell us what you are planning</h1>
+                <p class="lead">Send a note about editorial coverage, destination data, or partnership questions.</p>
+                <div class="contact-card">
+                    {% if site_settings.email %}
+                        <div class="contact-item">
+                            <span class="contact-icon">@</span>
+                            <a class="contact-link" href="mailto:{{ site_settings.email }}">{{ site_settings.email }}</a>
+                        </div>
+                    {% endif %}
+                    {% if site_settings.phone %}
+                        <div class="contact-item">
+                            <span class="contact-icon">T</span>
+                            <a class="contact-link" href="tel:{{ site_settings.phone }}">{{ site_settings.phone }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form method="post" class="form-stack">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-primary" type="submit">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

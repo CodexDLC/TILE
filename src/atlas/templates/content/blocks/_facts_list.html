@@ -1,0 +1,17 @@
+<section class="section section-paper block-facts-list">
+    <div class="container">
+        <div class="section-header">
+            {% if block.heading %}<h2>{{ block.heading }}</h2>{% endif %}
+            {% if block.intro %}<p class="lead">{{ block.intro }}</p>{% endif %}
+        </div>
+        <dl class="block-facts-grid">
+            {% for item in block.items.all %}
+                <div class="card block-fact">
+                    <dt>{{ item.label }}</dt>
+                    <dd>{{ item.value }}</dd>
+                    {% if item.note %}<p>{{ item.note }}</p>{% endif %}
+                </div>
+            {% endfor %}
+        </dl>
+    </div>
+</section>

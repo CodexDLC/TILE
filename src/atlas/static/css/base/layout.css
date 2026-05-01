@@ -17,7 +17,7 @@ main {
 .journey-inner,
 .footer-inner,
 .header-inner {
-    width: min(100% - (var(--section-pad-h) * 2), var(--content-max-w));
+    width: min(100% - (var(--atlas-page-pad) * 2), var(--content-max-w));
     margin-inline: auto;
 }
 

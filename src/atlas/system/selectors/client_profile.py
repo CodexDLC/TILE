@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from django.contrib.auth import get_user_model
+
 from system.models import UserProfile
 
 User = get_user_model()

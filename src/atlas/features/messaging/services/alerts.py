@@ -114,13 +114,7 @@ def _build_subject(thread) -> str:
 
 
 def _build_text_content(thread) -> str:
-    return _(
-        "From: %(name)s <%(email)s>\n"
-        "Topic: %(topic)s\n"
-        "Source: %(source)s\n"
-        "Channel: %(channel)s\n\n"
-        "%(body)s"
-    ) % {
+    return _("From: %(name)s <%(email)s>\nTopic: %(topic)s\nSource: %(source)s\nChannel: %(channel)s\n\n%(body)s") % {
         "name": thread.sender_name,
         "email": thread.sender_email,
         "topic": thread.topic,

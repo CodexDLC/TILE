@@ -1,0 +1,128 @@
+.eyebrow,
+.lead {
+    margin: 0;
+}
+
+.eyebrow {
+    color: var(--bronze-deep);
+    font-size: var(--text-label);
+    font-weight: var(--fw-semi);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+}
+
+.lead {
+    max-width: 42rem;
+    color: var(--ink-muted);
+    font-family: var(--font-serif);
+    font-size: var(--text-lead);
+    line-height: 1.5;
+}
+
+.block-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.block-align-center .block-hero-copy {
+    max-width: 54rem;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.block-align-center .hero-actions {
+    justify-content: center;
+}
+
+.block-rich-text .article-body,
+.block-pull-quote .pull-quote {
+    grid-column: 2;
+}
+
+.block-facts-grid,
+.block-gallery-grid,
+.block-tab-list {
+    display: grid;
+    gap: var(--card-gap);
+}
+
+.block-facts-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.block-fact dt {
+    color: var(--bronze-deep);
+    font-size: var(--text-meta);
+    font-weight: var(--fw-semi);
+    letter-spacing: var(--ls-meta);
+    text-transform: uppercase;
+}
+
+.block-fact dd {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-sub);
+}
+
+.block-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.block-gallery-item {
+    display: grid;
+    gap: var(--sp-3);
+    margin: 0;
+}
+
+.block-gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+}
+
+.block-gallery-item figcaption {
+    color: var(--ink-muted);
+    font-size: var(--text-meta);
+}
+
+.block-cta-actions {
+    justify-self: end;
+}
+
+.block-tab-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.block-related-places .destination-card-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.block-related-places .destination-card-title a:hover {
+    color: var(--bronze-deep);
+}
+
+.legal-page,
+.places-placeholder {
+    max-width: 48rem;
+}
+
+@media (max-width: 70rem) {
+    .block-rich-text .article-body,
+    .block-pull-quote .pull-quote {
+        grid-column: auto;
+    }
+
+    .block-facts-grid,
+    .block-gallery-grid,
+    .block-tab-list {
+        grid-template-columns: 1fr;
+    }
+
+    .block-cta-actions {
+        justify-self: start;
+    }
+}

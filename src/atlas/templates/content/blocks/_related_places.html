@@ -1,0 +1,27 @@
+<section class="section section-paper block-related-places">
+    <div class="container">
+        <div class="section-header">
+            {% if block.heading %}<h2>{{ block.heading }}</h2>{% endif %}
+            {% if block.intro %}<p class="lead">{{ block.intro }}</p>{% endif %}
+        </div>
+        <div class="destination-grid">
+            {% for place in block.places.all %}
+                <article class="destination-card">
+                    <div class="destination-card-body">
+                        <div class="destination-card-meta">
+                            <span>{{ place.city.name }}</span>
+                        </div>
+                        <h3 class="destination-card-title">
+                            {% if place.page %}
+                                <a href="{{ place.page.absolute_path }}">{{ place.name }}</a>
+                            {% else %}
+                                {{ place.name }}
+                            {% endif %}
+                        </h3>
+                        {% if place.intro %}<p class="destination-card-copy">{{ place.intro }}</p>{% endif %}
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -12,6 +12,8 @@ dependencies = [
     "codex-core",
     "codex-django[cli]",
     "django-unfold>=0.20.0",
+    "django-modeltranslation>=0.20.0",
+    "markdown-it-py>=4.0.0",
     "django-allauth[socialaccount]",
     "gunicorn>=21.0",
 ]
@@ -40,7 +42,7 @@ select = ["E", "F", "W", "I", "B", "S", "RUF"]
 ignore = ["S101", "E402"]
 
 [tool.ruff.lint.per-file-ignores]
-"src/*/features/**/migrations/*.py" = ["RUF012"]
+"src/**/migrations/*.py" = ["E501", "RUF012", "S608"]
 
 [tool.bandit]
 exclude_dirs = ["tests", "venv", ".venv"]

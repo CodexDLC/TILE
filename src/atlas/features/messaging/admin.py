@@ -90,7 +90,16 @@ class ThreadAdmin(ModelAdmin):
 
 @admin.register(Message)
 class MessageAdmin(ModelAdmin):
-    list_display = ("thread", "direction", "sender_email", "recipient_email", "subject", "source", "channel", "created_at")
+    list_display = (
+        "thread",
+        "direction",
+        "sender_email",
+        "recipient_email",
+        "subject",
+        "source",
+        "channel",
+        "created_at",
+    )
     list_filter = ("direction", "source", "channel", "created_at")
     search_fields = ("sender_name", "sender_email", "recipient_email", "subject", "body", "message_id_header")
     readonly_fields = ("created_at", "updated_at")

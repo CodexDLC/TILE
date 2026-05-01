@@ -4,6 +4,8 @@ from typing import Any
 from codex_django.cabinet.selector.dashboard import DashboardSelector
 from codex_django.cabinet.types.widgets import ListItem, ListWidgetData, MetricWidgetData
 from django.http import HttpRequest
+
+
 def _(message: str) -> str:
     return message
 
@@ -22,8 +24,12 @@ class AnalyticsService:
                 trend_direction="up",
                 icon="bi-currency-ruble",
             ),
-            "bookings": MetricWidgetData(
-                label="Записей за месяц", value="342", trend_value="+5%", trend_direction="up", icon="bi-calendar-check"
+            "inquiries": MetricWidgetData(
+                label="Обращений за месяц",
+                value="342",
+                trend_value="+5%",
+                trend_direction="up",
+                icon="bi-chat-square-text",
             ),
             "clients": MetricWidgetData(
                 label="Клиентов всего",
@@ -115,21 +121,21 @@ class AnalyticsService:
         ]
         staff_options = ["All team", "Elena S.", "Anna M.", "Olga K."]
         rows = [
-            {"label": "Week 1", "revenue_fmt": "35 000 ₽", "bookings": 42, "conversion": "68%"},
-            {"label": "Week 2", "revenue_fmt": "31 500 ₽", "bookings": 38, "conversion": "64%"},
-            {"label": "Week 3", "revenue_fmt": "40 000 ₽", "bookings": 47, "conversion": "72%"},
-            {"label": "Week 4", "revenue_fmt": "36 000 ₽", "bookings": 44, "conversion": "70%"},
+            {"label": "Week 1", "revenue_fmt": "35 000 ₽", "inquiries": 42, "conversion": "68%"},
+            {"label": "Week 2", "revenue_fmt": "31 500 ₽", "inquiries": 38, "conversion": "64%"},
+            {"label": "Week 3", "revenue_fmt": "40 000 ₽", "inquiries": 47, "conversion": "72%"},
+            {"label": "Week 4", "revenue_fmt": "36 000 ₽", "inquiries": 44, "conversion": "70%"},
         ]
         columns = [
             {"key": "label", "label": _("Period"), "bold": True},
             {"key": "revenue_fmt", "label": _("Revenue"), "align": "right"},
-            {"key": "bookings", "label": _("Bookings"), "align": "right"},
+            {"key": "inquiries", "label": _("Inquiries"), "align": "right"},
             {"key": "conversion", "label": _("Conversion"), "align": "right"},
         ]
         summary_row = {
             "label": _("Total"),
             "revenue_fmt": "142 500 ₽",
-            "bookings": 171,
+            "inquiries": 171,
             "conversion": "68%",
         }
         return {

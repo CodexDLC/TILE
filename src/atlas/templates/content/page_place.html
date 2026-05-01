@@ -1,0 +1,43 @@
+{% extends "content/page_base.html" %}
+
+{% block body_class %}page page-place page-editorial-detail{% endblock body_class %}
+
+{% block page_content %}
+    <section class="editorial-place-hero">
+        <div class="editorial-place-image"{% if domain_object.hero_image %} style="background-image: linear-gradient(to top, rgba(15, 24, 20, 0.86), rgba(15, 24, 20, 0.1)), url('{{ domain_object.hero_image.url }}');"{% endif %}></div>
+        <div class="editorial-place-overlay"></div>
+        <div class="editorial-place-content">
+            <div class="hero-place-badges">
+                <span class="hero-place-badge">{{ hero.eyebrow|default:"Place" }}</span>
+                {% if domain_object.seasonality %}<span class="hero-place-badge">{{ domain_object.seasonality }}</span>{% endif %}
+            </div>
+            <h1 class="hero-place-title">{{ hero.title|default:page.title }}</h1>
+            <p class="hero-place-sub">{{ hero.subtitle|default:page.intro }}</p>
+        </div>
+    </section>
+
+    {% with intro=rich_texts.0 quote=pull_quotes.0 facts=facts_lists.0 tabs=tabs_blocks.0 related=related_places_blocks.0 cta=cta_strips.0 %}
+        <section class="section">
+            <div class="layers-nav">{% for item in tabs.items.all %}<button class="layer-tab{% if forloop.first %} active{% endif %}" type="button"><span class="num">{{ forloop.counter }}</span>{{ item.label }}</button>{% endfor %}</div>
+            <div class="place-layout">
+                <div>
+                    <div class="section-label">What It Is</div>
+                    <h2 class="article-title">{{ intro.heading|default:page.title }}</h2>
+                    <div class="article-body">
+                        <p class="drop-cap">{{ intro.body|default:page.intro }}</p>
+                        {% if quote %}<div class="pull-quote">{{ quote.quote }}<cite>{{ quote.attribution }}</cite></div>{% endif %}
+                    </div>
+                    {% if tabs %}<div class="timeline">{% for item in tabs.items.all %}<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">{{ item.label }}</div><div class="timeline-title">{{ item.heading }}</div><div class="timeline-text">{{ item.body }}</div></div>{% endfor %}</div>{% endif %}
+                </div>
+                {% if facts %}
+                    <aside class="key-facts-card">
+                        <div class="key-facts-title">{{ facts.heading }}</div>
+                        {% for item in facts.items.all %}<div class="key-fact"><div class="key-fact-label">{{ item.label }}</div><div class="key-fact-val">{{ item.value }}{% if item.note %}<br>{{ item.note }}{% endif %}</div></div>{% endfor %}
+                    </aside>
+                {% endif %}
+            </div>
+        </section>
+        {% if related %}{% include "content/blocks/_related_places.html" with block=related slot=None page=page only %}{% endif %}
+        {% if cta %}<section class="journey-strip"><div class="journey-inner"><div><div class="journey-label">{{ cta.eyebrow }}</div><h2 class="journey-title">{{ cta.title }}</h2></div><div><p class="journey-text">{{ cta.text }}</p><a href="{{ cta.cta_url }}" class="journey-cta">{{ cta.cta_label }} →</a></div></div></section>{% endif %}
+    {% endwith %}
+{% endblock page_content %}

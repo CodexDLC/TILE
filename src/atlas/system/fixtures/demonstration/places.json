@@ -1,0 +1,283 @@
+{
+  "countries": [
+    {
+      "slug": "germany",
+      "name": "Germany",
+      "intro": "A country of federal states, old trade cities, forests, rivers, museums, castles, and regional identities that rarely agree with one another.",
+      "hero_image": "seed/countries/germany.jpg",
+      "seo_title": "Germany travel guide | Atlas",
+      "seo_description": "Germany as an editorial travel guide: all sixteen federal states, regional chapters, cities, places, and stories."
+    },
+    {
+      "slug": "austria",
+      "name": "Austria",
+      "intro": "A compact Alpine country of imperial cities, mountain valleys, lake regions, music rooms, borderlands, and quietly different provincial identities.",
+      "hero_image": "seed/countries/germany.jpg",
+      "seo_title": "Austria travel guide | Atlas",
+      "seo_description": "Austria as an editorial travel guide: federal states, city chapters, Alpine landscapes, museums, palaces, and places."
+    }
+  ],
+  "regions": [
+    {
+      "country": "germany",
+      "slug": "baden-wurttemberg",
+      "name": "Baden-Wurttemberg",
+      "intro": "Black Forest roads, university towns, Swabian kitchens, Lake Constance, and a practical southern confidence.",
+      "hero_image": "seed/regions/baden-wurttemberg.jpg",
+      "seo_title": "Baden-Wurttemberg travel guide | Atlas",
+      "seo_description": "Baden-Wurttemberg as an editorial regional guide: Black Forest, Stuttgart, Heidelberg, Lake Constance, and Swabian culture."
+    },
+    {
+      "country": "germany",
+      "slug": "bavaria",
+      "name": "Bavaria",
+      "intro": "Alpine lakes, beer gardens, royal castles, Franconian towns, and a stubborn sense of local identity.",
+      "hero_image": "seed/regions/bavaria.jpg",
+      "seo_title": "Bavaria travel guide | Atlas",
+      "seo_description": "Bavaria as an editorial regional guide: Munich, Fussen, Franconia, Alpine lakes, castles, and mountain routes."
+    },
+    {
+      "country": "germany",
+      "slug": "berlin",
+      "name": "Berlin",
+      "intro": "A city-state where the twentieth century remains visible in streets, museums, memorials, clubs, and courtyards.",
+      "hero_image": "seed/regions/berlin.jpg",
+      "seo_title": "Berlin travel guide | Atlas",
+      "seo_description": "Berlin as an editorial city-state guide: neighbourhoods, museums, memorials, food, nightlife, and urban history."
+    },
+    {
+      "country": "germany",
+      "slug": "brandenburg",
+      "name": "Brandenburg",
+      "intro": "Lakes, pine forests, palace parks, old garrison towns, and the quieter landscape surrounding Berlin.",
+      "hero_image": "seed/regions/brandenburg.jpg",
+      "seo_title": "Brandenburg travel guide | Atlas",
+      "seo_description": "Brandenburg as an editorial regional guide: Potsdam, lakes, forests, palace parks, and small towns around Berlin."
+    },
+    {
+      "country": "germany",
+      "slug": "bremen",
+      "name": "Bremen",
+      "intro": "A small Hanseatic state of river trade, brick facades, maritime memory, and civic independence.",
+      "hero_image": "seed/regions/bremen.jpg",
+      "seo_title": "Bremen travel guide | Atlas",
+      "seo_description": "Bremen as an editorial city-state guide: Hanseatic history, river quarters, markets, and maritime culture."
+    },
+    {
+      "country": "germany",
+      "slug": "hamburg",
+      "name": "Hamburg",
+      "intro": "A port city-state of warehouses, water, music, merchant money, and northern restraint.",
+      "hero_image": "seed/regions/hamburg.jpg",
+      "seo_title": "Hamburg travel guide | Atlas",
+      "seo_description": "Hamburg as an editorial city-state guide: harbour, Speicherstadt, canals, music, food, and northern neighbourhoods."
+    },
+    {
+      "country": "germany",
+      "slug": "hesse",
+      "name": "Hesse",
+      "intro": "Financial towers, spa towns, half-timbered villages, Grimm forests, and vineyard slopes along the Rhine.",
+      "hero_image": "seed/regions/hesse.jpg",
+      "seo_title": "Hesse travel guide | Atlas",
+      "seo_description": "Hesse as an editorial regional guide: Frankfurt, Wiesbaden, Kassel, Rhine vineyards, and half-timbered towns."
+    },
+    {
+      "country": "germany",
+      "slug": "lower-saxony",
+      "name": "Lower Saxony",
+      "intro": "North Sea islands, heathland, old trading towns, Harz mountains, and a wide northern horizon.",
+      "seo_title": "Lower Saxony travel guide | Atlas",
+      "seo_description": "Lower Saxony as an editorial regional guide: Hanover, Harz, Luneburg Heath, North Sea coast, and historic towns."
+    },
+    {
+      "country": "germany",
+      "slug": "mecklenburg-western-pomerania",
+      "name": "Mecklenburg-Western Pomerania",
+      "intro": "Baltic islands, chalk cliffs, resort towns, lake country, and a spacious northeastern quiet.",
+      "seo_title": "Mecklenburg-Western Pomerania travel guide | Atlas",
+      "seo_description": "Mecklenburg-Western Pomerania as an editorial regional guide: Baltic coast, Rugen, Usedom, lake country, and Hanseatic towns."
+    },
+    {
+      "country": "germany",
+      "slug": "north-rhine-westphalia",
+      "name": "North Rhine-Westphalia",
+      "intro": "A dense western state of cathedrals, industry, rivers, football cities, museums, and overlapping urban lives.",
+      "seo_title": "North Rhine-Westphalia travel guide | Atlas",
+      "seo_description": "North Rhine-Westphalia as an editorial regional guide: Cologne, Dusseldorf, Ruhr cities, rivers, industry, and museums."
+    },
+    {
+      "country": "germany",
+      "slug": "rhineland-palatinate",
+      "name": "Rhineland-Palatinate",
+      "intro": "Wine valleys, Roman memory, river castles, forest roads, and old towns along the Rhine and Moselle.",
+      "seo_title": "Rhineland-Palatinate travel guide | Atlas",
+      "seo_description": "Rhineland-Palatinate as an editorial regional guide: Rhine, Moselle, Trier, Mainz, wine villages, and castles."
+    },
+    {
+      "country": "germany",
+      "slug": "saarland",
+      "name": "Saarland",
+      "intro": "A compact borderland of industrial memory, French influence, forest walks, and the Saar river bend.",
+      "seo_title": "Saarland travel guide | Atlas",
+      "seo_description": "Saarland as an editorial regional guide: Saarbrucken, river landscapes, border culture, forests, and industrial heritage."
+    },
+    {
+      "country": "germany",
+      "slug": "saxony",
+      "name": "Saxony",
+      "intro": "Dresden, Leipzig, sandstone cliffs, music history, baroque reconstruction, and a complicated eastern memory.",
+      "seo_title": "Saxony travel guide | Atlas",
+      "seo_description": "Saxony as an editorial regional guide: Dresden, Leipzig, Saxon Switzerland, music, baroque towns, and eastern history."
+    },
+    {
+      "country": "germany",
+      "slug": "saxony-anhalt",
+      "name": "Saxony-Anhalt",
+      "intro": "Luther towns, Bauhaus experiments, Romanesque roads, Harz edges, and quiet landscapes with heavy history.",
+      "seo_title": "Saxony-Anhalt travel guide | Atlas",
+      "seo_description": "Saxony-Anhalt as an editorial regional guide: Magdeburg, Dessau, Wittenberg, Quedlinburg, Bauhaus, and Harz towns."
+    },
+    {
+      "country": "germany",
+      "slug": "schleswig-holstein",
+      "name": "Schleswig-Holstein",
+      "intro": "Two seas, flat horizons, lighthouses, islands, thatched villages, and northern borderland stories.",
+      "seo_title": "Schleswig-Holstein travel guide | Atlas",
+      "seo_description": "Schleswig-Holstein as an editorial regional guide: North Sea, Baltic coast, islands, Lubeck, Kiel, and borderland culture."
+    },
+    {
+      "country": "germany",
+      "slug": "thuringia",
+      "name": "Thuringia",
+      "intro": "Forest paths, Weimar classicism, Wartburg memory, old university towns, and a compact centre of German culture.",
+      "seo_title": "Thuringia travel guide | Atlas",
+      "seo_description": "Thuringia as an editorial regional guide: Weimar, Erfurt, Jena, Wartburg, Thuringian Forest, and cultural history."
+    },
+    {
+      "country": "austria",
+      "slug": "burgenland",
+      "name": "Burgenland",
+      "intro": "Lake light, wine villages, reed landscapes, borderland memory, and a slower eastern edge of Austria.",
+      "seo_title": "Burgenland travel guide | Atlas",
+      "seo_description": "Burgenland as an editorial regional guide: Neusiedler See, wine villages, Esterhazy memory, and eastern Austria."
+    },
+    {
+      "country": "austria",
+      "slug": "carinthia",
+      "name": "Carinthia",
+      "intro": "Southern lakes, mountain roads, Slovenian edges, warm summers, and a softer Alpine rhythm.",
+      "seo_title": "Carinthia travel guide | Atlas",
+      "seo_description": "Carinthia as an editorial regional guide: lakes, Klagenfurt, Alpine routes, and southern Austrian culture."
+    },
+    {
+      "country": "austria",
+      "slug": "lower-austria",
+      "name": "Lower Austria",
+      "intro": "Vineyard valleys, abbeys, Danube routes, old market towns, and the wide country around Vienna.",
+      "seo_title": "Lower Austria travel guide | Atlas",
+      "seo_description": "Lower Austria as an editorial regional guide: Wachau, St. Polten, abbeys, Danube towns, and wine landscapes."
+    },
+    {
+      "country": "austria",
+      "slug": "upper-austria",
+      "name": "Upper Austria",
+      "intro": "Danube industry, lake country, baroque monasteries, salt landscapes, and a practical central Austrian weight.",
+      "seo_title": "Upper Austria travel guide | Atlas",
+      "seo_description": "Upper Austria as an editorial regional guide: Linz, Salzkammergut, Danube routes, monasteries, and lakes."
+    },
+    {
+      "country": "austria",
+      "slug": "salzburg",
+      "name": "Salzburg",
+      "intro": "A compact state of music, baroque city views, lake districts, Alpine valleys, and polished mountain theatre.",
+      "seo_title": "Salzburg travel guide | Atlas",
+      "seo_description": "Salzburg as an editorial regional guide: Salzburg city, lakes, Alpine valleys, music, and baroque streets."
+    },
+    {
+      "country": "austria",
+      "slug": "styria",
+      "name": "Styria",
+      "intro": "Green hills, Graz courtyards, wine roads, thermal towns, and a generous southeastern texture.",
+      "seo_title": "Styria travel guide | Atlas",
+      "seo_description": "Styria as an editorial regional guide: Graz, wine roads, thermal landscapes, hills, and southeastern Austria."
+    },
+    {
+      "country": "austria",
+      "slug": "tyrol",
+      "name": "Tyrol",
+      "intro": "High valleys, passes, mountain towns, ski culture, painted facades, and a strong Alpine identity.",
+      "seo_title": "Tyrol travel guide | Atlas",
+      "seo_description": "Tyrol as an editorial regional guide: Innsbruck, Alpine valleys, passes, villages, and mountain culture."
+    },
+    {
+      "country": "austria",
+      "slug": "vorarlberg",
+      "name": "Vorarlberg",
+      "intro": "Western lake edges, timber architecture, Swiss-facing habits, mountain villages, and compact design culture.",
+      "seo_title": "Vorarlberg travel guide | Atlas",
+      "seo_description": "Vorarlberg as an editorial regional guide: Bregenz, Lake Constance, mountain villages, timber architecture, and western Austria."
+    },
+    {
+      "country": "austria",
+      "slug": "vienna",
+      "name": "Vienna",
+      "intro": "A federal city-state of palaces, museums, coffeehouses, imperial ceremony, social housing, and daily urban theatre.",
+      "seo_title": "Vienna travel guide | Atlas",
+      "seo_description": "Vienna as an editorial city-state guide: palaces, museums, coffeehouses, music, urban history, and districts."
+    }
+  ],
+  "cities": [
+    {"country": "germany", "region": "baden-wurttemberg", "slug": "stuttgart", "name": "Stuttgart", "intro": "A car-industry capital set between hills, vineyards, museums, and Swabian practicality.", "hero_image": "seed/regions/baden-wurttemberg.jpg", "seo_title": "Stuttgart travel guide | Atlas", "seo_description": "Stuttgart as an editorial city guide: museums, vineyards, architecture, food, and Baden-Wurttemberg context."},
+    {"country": "germany", "region": "bavaria", "slug": "munich", "name": "Munich", "intro": "The Bavarian capital reads best as museums, beer gardens, public squares, neighbourhoods, and day trips.", "hero_image": "seed/regions/bavaria.jpg", "seo_title": "Munich travel guide | Atlas", "seo_description": "Munich as an editorial city guide with neighbourhoods, museums, beer gardens, squares, and day trips."},
+    {"country": "germany", "region": "berlin", "slug": "berlin", "name": "Berlin", "intro": "A capital and city-state where history, food, nightlife, museums, and neighbourhood life overlap.", "hero_image": "seed/regions/berlin.jpg", "seo_title": "Berlin city guide | Atlas", "seo_description": "Berlin as an editorial city guide: neighbourhoods, museums, memorials, food, and urban history."},
+    {"country": "germany", "region": "brandenburg", "slug": "potsdam", "name": "Potsdam", "intro": "A palace city beside Berlin, built from parks, lakes, Prussian memory, and quiet streets.", "hero_image": "seed/regions/brandenburg.jpg", "seo_title": "Potsdam travel guide | Atlas", "seo_description": "Potsdam as an editorial city guide: Sanssouci, palace parks, lakes, and Prussian history."},
+    {"country": "germany", "region": "bremen", "slug": "bremen", "name": "Bremen", "intro": "A Hanseatic river city of brick facades, market squares, maritime memory, and civic independence.", "hero_image": "seed/regions/bremen.jpg", "seo_title": "Bremen city guide | Atlas", "seo_description": "Bremen as an editorial city guide: market square, Schnoor, river, Hanseatic history, and maritime culture."},
+    {"country": "germany", "region": "hamburg", "slug": "hamburg", "name": "Hamburg", "intro": "A port city of warehouses, canals, music, merchant money, and northern restraint.", "hero_image": "seed/regions/hamburg.jpg", "seo_title": "Hamburg city guide | Atlas", "seo_description": "Hamburg as an editorial city guide: harbour, Speicherstadt, canals, music, food, and northern neighbourhoods."},
+    {"country": "germany", "region": "hesse", "slug": "wiesbaden", "name": "Wiesbaden", "intro": "A spa capital of warm springs, villas, theatre, hills, and Rhine-side elegance.", "hero_image": "seed/regions/hesse.jpg", "seo_title": "Wiesbaden travel guide | Atlas", "seo_description": "Wiesbaden as an editorial city guide: spa architecture, thermal springs, villas, and Rhine context."},
+    {"country": "germany", "region": "lower-saxony", "slug": "hanover", "name": "Hanover", "intro": "A northern state capital of gardens, trade fairs, rebuilt streets, and access to wider Lower Saxony.", "seo_title": "Hanover travel guide | Atlas", "seo_description": "Hanover as an editorial city guide: Herrenhausen Gardens, museums, trade-fair city, and Lower Saxony context."},
+    {"country": "germany", "region": "mecklenburg-western-pomerania", "slug": "schwerin", "name": "Schwerin", "intro": "A small lake capital built around a theatrical castle, old streets, and northern water light.", "seo_title": "Schwerin travel guide | Atlas", "seo_description": "Schwerin as an editorial city guide: castle, lake landscape, old town, and Mecklenburg context."},
+    {"country": "germany", "region": "north-rhine-westphalia", "slug": "dusseldorf", "name": "Dusseldorf", "intro": "A Rhine-side capital of art, fashion, business, Altbier, and a compact old town.", "seo_title": "Dusseldorf travel guide | Atlas", "seo_description": "Dusseldorf as an editorial city guide: Rhine promenade, art museums, Altstadt, fashion, and NRW context."},
+    {"country": "germany", "region": "rhineland-palatinate", "slug": "mainz", "name": "Mainz", "intro": "A Rhine city of Roman memory, printing history, wine culture, and cathedral streets.", "seo_title": "Mainz travel guide | Atlas", "seo_description": "Mainz as an editorial city guide: cathedral, Gutenberg, Roman history, wine, and Rhine context."},
+    {"country": "germany", "region": "saarland", "slug": "saarbrucken", "name": "Saarbrucken", "intro": "A borderland capital shaped by the Saar, French influence, industrial memory, and relaxed street life.", "seo_title": "Saarbrucken travel guide | Atlas", "seo_description": "Saarbrucken as an editorial city guide: Saar river, border culture, food, and industrial heritage."},
+    {"country": "germany", "region": "saxony", "slug": "dresden", "name": "Dresden", "intro": "A baroque river city of reconstruction, museums, music, memory, and sandstone horizons nearby.", "seo_title": "Dresden travel guide | Atlas", "seo_description": "Dresden as an editorial city guide: old town, museums, Elbe, reconstruction, and Saxon context."},
+    {"country": "germany", "region": "saxony-anhalt", "slug": "magdeburg", "name": "Magdeburg", "intro": "An Elbe city of cathedral memory, modern rebuilding, Romanesque routes, and central German weight.", "seo_title": "Magdeburg travel guide | Atlas", "seo_description": "Magdeburg as an editorial city guide: cathedral, Elbe, Romanesque history, and Saxony-Anhalt context."},
+    {"country": "germany", "region": "schleswig-holstein", "slug": "kiel", "name": "Kiel", "intro": "A Baltic port capital of ferries, sailing, naval history, and northern sea air.", "seo_title": "Kiel travel guide | Atlas", "seo_description": "Kiel as an editorial city guide: Baltic port, sailing, ferries, naval history, and Schleswig-Holstein context."},
+    {"country": "germany", "region": "thuringia", "slug": "erfurt", "name": "Erfurt", "intro": "A compact old city of bridges, cathedral steps, medieval streets, and Thuringian centre of gravity.", "seo_title": "Erfurt travel guide | Atlas", "seo_description": "Erfurt as an editorial city guide: cathedral, Kramerbrucke, old town, and Thuringian context."},
+    {"country": "austria", "region": "burgenland", "slug": "eisenstadt", "name": "Eisenstadt", "intro": "A small capital shaped by Esterhazy memory, wine country, and the open eastern edge of Austria.", "seo_title": "Eisenstadt travel guide | Atlas", "seo_description": "Eisenstadt as an editorial city guide: Esterhazy Palace, wine country, and Burgenland context."},
+    {"country": "austria", "region": "carinthia", "slug": "klagenfurt", "name": "Klagenfurt", "intro": "A southern lake capital of courtyards, warm summers, bilingual edges, and access to Carinthian water landscapes.", "seo_title": "Klagenfurt travel guide | Atlas", "seo_description": "Klagenfurt as an editorial city guide: old town, Worthersee, southern Austria, and Carinthia context."},
+    {"country": "austria", "region": "lower-austria", "slug": "st-polten", "name": "St. Polten", "intro": "A modern state capital set near older Danube routes, abbeys, vineyards, and Lower Austrian market towns.", "seo_title": "St. Polten travel guide | Atlas", "seo_description": "St. Polten as an editorial city guide: Lower Austria, Danube routes, abbeys, and regional context."},
+    {"country": "austria", "region": "upper-austria", "slug": "linz", "name": "Linz", "intro": "A Danube city where industry, media art, baroque streets, and central Austrian practicality meet.", "seo_title": "Linz travel guide | Atlas", "seo_description": "Linz as an editorial city guide: Danube, Ars Electronica, old town, industry, and Upper Austria context."},
+    {"country": "austria", "region": "salzburg", "slug": "salzburg-city", "name": "Salzburg", "intro": "A baroque city of music, fortress views, river walks, festival memory, and Alpine proximity.", "seo_title": "Salzburg city guide | Atlas", "seo_description": "Salzburg as an editorial city guide: old town, fortress, music, river views, and Alpine context."},
+    {"country": "austria", "region": "styria", "slug": "graz", "name": "Graz", "intro": "A courtyard city of red roofs, university life, design culture, food markets, and Styrian hills nearby.", "seo_title": "Graz travel guide | Atlas", "seo_description": "Graz as an editorial city guide: old town, Schlossberg, courtyards, design, food, and Styria context."},
+    {"country": "austria", "region": "tyrol", "slug": "innsbruck", "name": "Innsbruck", "intro": "An Alpine city where imperial streets sit directly beneath high mountains and valley routes.", "seo_title": "Innsbruck travel guide | Atlas", "seo_description": "Innsbruck as an editorial city guide: old town, mountains, imperial memory, and Tyrol context."},
+    {"country": "austria", "region": "vorarlberg", "slug": "bregenz", "name": "Bregenz", "intro": "A Lake Constance city of festival stages, mountain lifts, timber design, and western Austrian edges.", "seo_title": "Bregenz travel guide | Atlas", "seo_description": "Bregenz as an editorial city guide: Lake Constance, Pfander, festival culture, and Vorarlberg context."},
+    {"country": "austria", "region": "vienna", "slug": "vienna-city", "name": "Vienna", "intro": "A capital of palaces, museums, coffeehouses, public housing, music rooms, and district-by-district urban life.", "seo_title": "Vienna city guide | Atlas", "seo_description": "Vienna as an editorial city guide: palaces, museums, coffeehouses, music, and urban history."}
+  ],
+  "places": [
+    {"country": "germany", "region": "baden-wurttemberg", "city": "stuttgart", "slug": "mercedes-benz-museum", "name": "Mercedes-Benz Museum", "intro": "A spiral museum of engineering, industry, speed, and modern German manufacturing memory.", "hero_image": "seed/regions/baden-wurttemberg.jpg", "long_form_story": "The Mercedes-Benz Museum turns car history into a social and industrial timeline, useful even for visitors who are not interested in engines.", "facts": {"type": "Museum", "city": "Stuttgart", "theme": "Automotive history"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "A reliable indoor anchor in any season.", "latitude": "48.788100", "longitude": "9.234200", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Mercedes-Benz Museum guide | Atlas", "seo_description": "A short editorial guide to the Mercedes-Benz Museum in Stuttgart."},
+    {"country": "germany", "region": "bavaria", "city": "munich", "slug": "marienplatz", "name": "Marienplatz", "intro": "Munich's civic heart since 1158, anchored by the New Town Hall and its daily Glockenspiel.", "hero_image": "seed/regions/bavaria.jpg", "long_form_story": "Marienplatz has been market, ceremonial ground, transport node, and default meeting place for nine centuries.", "facts": {"type": "City square", "founded": "1158", "transport": "U3/U6 Marienplatz"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Early morning is the calmest time. December brings Christmas market crowds.", "latitude": "48.137200", "longitude": "11.575500", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Marienplatz guide | Atlas", "seo_description": "A short editorial guide to Marienplatz in Munich."},
+    {"country": "germany", "region": "berlin", "city": "berlin", "slug": "museum-island", "name": "Museum Island", "intro": "A cluster of major museums on the Spree, where empire, archaeology, art, and reconstruction meet.", "hero_image": "seed/regions/berlin.jpg", "long_form_story": "Museum Island is less a single sight than a concentrated argument about collections, architecture, restoration, and cultural power.", "facts": {"type": "Museum district", "status": "UNESCO World Heritage", "city": "Berlin"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Book timed tickets for major museums and leave more time than expected.", "latitude": "52.516900", "longitude": "13.401900", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Museum Island guide | Atlas", "seo_description": "A short editorial guide to Museum Island in Berlin."},
+    {"country": "germany", "region": "brandenburg", "city": "potsdam", "slug": "sanssouci-park", "name": "Sanssouci Park", "intro": "A palace landscape of terraces, long views, Prussian theatre, and carefully staged leisure.", "hero_image": "seed/regions/brandenburg.jpg", "long_form_story": "Sanssouci is best read as a park before it is read as a palace: movement, gardens, architecture, and power arranged as scenery.", "facts": {"type": "Palace park", "status": "UNESCO World Heritage", "city": "Potsdam"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Gardens carry the visit; spring and autumn are especially good.", "latitude": "52.403300", "longitude": "13.038600", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Sanssouci Park guide | Atlas", "seo_description": "A short editorial guide to Sanssouci Park in Potsdam."},
+    {"country": "germany", "region": "bremen", "city": "bremen", "slug": "bremen-market-square", "name": "Bremen Market Square", "intro": "A compact civic stage framed by Hanseatic facades, the town hall, Roland, and merchant memory.", "hero_image": "seed/regions/bremen.jpg", "long_form_story": "Bremen's market square is the clearest way to understand the city's old independence and merchant self-image.", "facts": {"type": "Market square", "status": "UNESCO context", "city": "Bremen"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "December adds Christmas market crowds and atmosphere.", "latitude": "53.075900", "longitude": "8.807200", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Bremen Market Square guide | Atlas", "seo_description": "A short editorial guide to Bremen Market Square."},
+    {"country": "germany", "region": "hamburg", "city": "hamburg", "slug": "speicherstadt", "name": "Speicherstadt", "intro": "A warehouse district of brick, canals, bridges, trade memory, and modern reuse.", "hero_image": "seed/regions/hamburg.jpg", "long_form_story": "Speicherstadt is Hamburg's merchant history made walkable: red brick, water, storage, customs, and the afterlife of port architecture.", "facts": {"type": "Historic district", "status": "UNESCO World Heritage", "city": "Hamburg"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Evening light and wet weather both suit the brick and canals.", "latitude": "53.543600", "longitude": "9.994700", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Speicherstadt guide | Atlas", "seo_description": "A short editorial guide to Speicherstadt in Hamburg."},
+    {"country": "germany", "region": "hesse", "city": "wiesbaden", "slug": "kurhaus-wiesbaden", "name": "Kurhaus Wiesbaden", "intro": "A spa-era landmark of columns, ceremony, gambling rooms, and cultivated civic elegance.", "long_form_story": "The Kurhaus gives Wiesbaden its clearest architectural statement: a city built around health, display, and respectable leisure.", "facts": {"type": "Spa landmark", "city": "Wiesbaden", "theme": "Thermal culture"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Works in all seasons, especially as part of a slow walk through the spa district.", "latitude": "50.084300", "longitude": "8.245500", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Kurhaus Wiesbaden guide | Atlas", "seo_description": "A short editorial guide to the Kurhaus in Wiesbaden."},
+    {"country": "germany", "region": "lower-saxony", "city": "hanover", "slug": "herrenhausen-gardens", "name": "Herrenhausen Gardens", "intro": "A formal garden landscape where Hanover keeps its courtly memory visible.", "long_form_story": "Herrenhausen Gardens give Hanover a more graceful first impression than the rebuilt centre: geometry, fountains, old court taste, and seasonal walking.", "facts": {"type": "Gardens", "city": "Hanover", "theme": "Baroque landscape"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Best when the gardens are in full seasonal use.", "latitude": "52.391200", "longitude": "9.697000", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Herrenhausen Gardens guide | Atlas", "seo_description": "A short editorial guide to Herrenhausen Gardens in Hanover."},
+    {"country": "germany", "region": "mecklenburg-western-pomerania", "city": "schwerin", "slug": "schwerin-castle", "name": "Schwerin Castle", "intro": "A theatrical castle set on an island, reflected in lake water and northern light.", "long_form_story": "Schwerin Castle is both seat of parliament and fairy-tale image, a useful contradiction for understanding Mecklenburg's capital.", "facts": {"type": "Castle", "city": "Schwerin", "setting": "Lake island"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Best when the park and lake walks are part of the visit.", "latitude": "53.624600", "longitude": "11.418500", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Schwerin Castle guide | Atlas", "seo_description": "A short editorial guide to Schwerin Castle."},
+    {"country": "germany", "region": "north-rhine-westphalia", "city": "dusseldorf", "slug": "rhine-promenade", "name": "Rhine Promenade", "intro": "A riverside walk that turns Dusseldorf toward the water and links old town, art, bridges, and city life.", "long_form_story": "The Rhine Promenade is the easiest way to read Dusseldorf's balance of business, art, old-town sociability, and river-facing confidence.", "facts": {"type": "Urban promenade", "city": "Dusseldorf", "setting": "Rhine"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Best in late afternoon and evening.", "latitude": "51.226900", "longitude": "6.771600", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Rhine Promenade Dusseldorf guide | Atlas", "seo_description": "A short editorial guide to the Rhine Promenade in Dusseldorf."},
+    {"country": "germany", "region": "rhineland-palatinate", "city": "mainz", "slug": "mainz-cathedral", "name": "Mainz Cathedral", "intro": "A heavy Romanesque cathedral at the centre of a Rhine city shaped by bishops, printers, and wine.", "long_form_story": "Mainz Cathedral gives the city its gravity: stone, power, ceremony, and a long Rhine history gathered into one square.", "facts": {"type": "Cathedral", "city": "Mainz", "style": "Romanesque"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Pair with old-town lanes and the Gutenberg Museum.", "latitude": "49.999200", "longitude": "8.274700", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Mainz Cathedral guide | Atlas", "seo_description": "A short editorial guide to Mainz Cathedral."},
+    {"country": "germany", "region": "saarland", "city": "saarbrucken", "slug": "saarbrucken-castle", "name": "Saarbrucken Castle", "intro": "A rebuilt castle above the Saar, useful for reading the city's borderland layers.", "long_form_story": "Saarbrucken Castle is less about medieval romance than the layered identity of a city between German and French influences.", "facts": {"type": "Castle", "city": "Saarbrucken", "theme": "Borderland history"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Works as part of a compact city walk.", "latitude": "49.230900", "longitude": "6.994600", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Saarbrucken Castle guide | Atlas", "seo_description": "A short editorial guide to Saarbrucken Castle."},
+    {"country": "germany", "region": "saxony", "city": "dresden", "slug": "zwinger", "name": "Zwinger", "intro": "A baroque palace complex where Dresden performs splendour, reconstruction, and museum culture.", "long_form_story": "The Zwinger is not only ornament. It is Dresden's theatrical memory of court culture and the city's determination to rebuild beauty after destruction.", "facts": {"type": "Palace complex", "city": "Dresden", "style": "Baroque"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Courtyards are best in good weather; museums carry rainy days.", "latitude": "51.053100", "longitude": "13.733700", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Zwinger Dresden guide | Atlas", "seo_description": "A short editorial guide to the Zwinger in Dresden."},
+    {"country": "germany", "region": "saxony-anhalt", "city": "magdeburg", "slug": "magdeburg-cathedral", "name": "Magdeburg Cathedral", "intro": "A Gothic cathedral on the Elbe, tied to imperial memory and the city's long rebuildings.", "long_form_story": "Magdeburg Cathedral gives the city its deepest historical register: empire, religion, destruction, rebuilding, and the long line of central German memory.", "facts": {"type": "Cathedral", "city": "Magdeburg", "style": "Gothic"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Works in any season and pairs with an Elbe walk.", "latitude": "52.125100", "longitude": "11.634200", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Magdeburg Cathedral guide | Atlas", "seo_description": "A short editorial guide to Magdeburg Cathedral."},
+    {"country": "germany", "region": "schleswig-holstein", "city": "kiel", "slug": "kiel-fjord", "name": "Kiel Fjord", "intro": "A working Baltic waterway of ferries, sailing, naval memory, and northern light.", "long_form_story": "Kiel is best understood from the water. The fjord explains the city's scale, history, and daily orientation better than any single monument.", "facts": {"type": "Waterfront", "city": "Kiel", "theme": "Baltic maritime life"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Best in sailing season, especially around long summer evenings.", "latitude": "54.334000", "longitude": "10.151000", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Kiel Fjord guide | Atlas", "seo_description": "A short editorial guide to Kiel Fjord."},
+    {"country": "germany", "region": "thuringia", "city": "erfurt", "slug": "kramerbrucke", "name": "Kramerbrucke", "intro": "A medieval bridge lined with houses, still carrying shops, pedestrians, and Erfurt's old-town identity.", "long_form_story": "Kramerbrucke is small enough to cross quickly and rich enough to define the city's image: trade, craft, continuity, and lived medieval fabric.", "facts": {"type": "Historic bridge", "city": "Erfurt", "theme": "Medieval old town"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Best early or late before the bridge becomes crowded.", "latitude": "50.978700", "longitude": "11.030500", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Kramerbrucke guide | Atlas", "seo_description": "A short editorial guide to Kramerbrucke in Erfurt."},
+    {"country": "austria", "region": "burgenland", "city": "eisenstadt", "slug": "esterhazy-palace", "name": "Esterhazy Palace", "intro": "A princely palace that gives Eisenstadt its clearest architectural and musical centre.", "long_form_story": "Esterhazy Palace is the quickest way to understand Eisenstadt: court culture, Haydn memory, regional pride, and wine country gathered into one landmark.", "facts": {"type": "Palace", "city": "Eisenstadt", "theme": "Music and aristocratic history"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Works in any season and pairs naturally with Burgenland wine routes.", "latitude": "47.846600", "longitude": "16.520700", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Esterhazy Palace guide | Atlas", "seo_description": "A short editorial guide to Esterhazy Palace in Eisenstadt."},
+    {"country": "austria", "region": "carinthia", "city": "klagenfurt", "slug": "worthersee", "name": "Worthersee", "intro": "A warm southern lake that shapes Klagenfurt's summer rhythm and Carinthia's relaxed image.", "long_form_story": "Worthersee is less a single sight than a seasonal mood: lake light, swimming platforms, villas, boat routes, and an Austrian south that feels softer than the high Alps.", "facts": {"type": "Lake", "city": "Klagenfurt", "theme": "Summer landscape"}, "gallery": [], "seasonality": "Summer", "seasonality_text": "Best from late spring through early autumn.", "latitude": "46.626900", "longitude": "14.160000", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Worthersee guide | Atlas", "seo_description": "A short editorial guide to Worthersee near Klagenfurt."},
+    {"country": "austria", "region": "lower-austria", "city": "st-polten", "slug": "wachau-valley", "name": "Wachau Valley", "intro": "A Danube landscape of vineyards, abbeys, river towns, and slow Austrian travel.", "long_form_story": "The Wachau Valley is one of Lower Austria's best entry points: wine terraces, Melk Abbey, small towns, river movement, and a landscape built for unhurried routes.", "facts": {"type": "Cultural landscape", "status": "UNESCO World Heritage", "theme": "Danube and wine"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Best when vineyards and river routes are part of the day.", "latitude": "48.365600", "longitude": "15.434200", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Wachau Valley guide | Atlas", "seo_description": "A short editorial guide to the Wachau Valley in Lower Austria."},
+    {"country": "austria", "region": "upper-austria", "city": "linz", "slug": "ars-electronica-center", "name": "Ars Electronica Center", "intro": "A media-art landmark that gives Linz a sharper contemporary edge beside the Danube.", "long_form_story": "The Ars Electronica Center helps explain modern Linz: not only baroque streets and industry, but technology, art, education, and public experimentation on the river.", "facts": {"type": "Museum", "city": "Linz", "theme": "Media art and technology"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "A reliable indoor anchor in any season.", "latitude": "48.309700", "longitude": "14.284100", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Ars Electronica Center guide | Atlas", "seo_description": "A short editorial guide to the Ars Electronica Center in Linz."},
+    {"country": "austria", "region": "salzburg", "city": "salzburg-city", "slug": "hohensalzburg-fortress", "name": "Hohensalzburg Fortress", "intro": "A hilltop fortress that turns Salzburg's baroque old town and Alpine edge into one view.", "long_form_story": "Hohensalzburg Fortress is Salzburg's clearest vertical landmark: defensive history, prince-archbishop power, old-town theatre, and mountain horizon in a single climb.", "facts": {"type": "Fortress", "city": "Salzburg", "theme": "Old town and views"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Clear days make the view do most of the work.", "latitude": "47.795000", "longitude": "13.047700", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Hohensalzburg Fortress guide | Atlas", "seo_description": "A short editorial guide to Hohensalzburg Fortress in Salzburg."},
+    {"country": "austria", "region": "styria", "city": "graz", "slug": "schlossberg", "name": "Schlossberg", "intro": "A hill above Graz where clocktower, views, paths, and red roofs explain the city at once.", "long_form_story": "Schlossberg is the easiest way to read Graz: old town below, courtyards hidden in the grid, hills around the city, and a landmark that is both viewpoint and memory.", "facts": {"type": "Viewpoint", "city": "Graz", "theme": "Urban landscape"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Best at golden hour and in mild weather.", "latitude": "47.075600", "longitude": "15.437900", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Schlossberg Graz guide | Atlas", "seo_description": "A short editorial guide to Schlossberg in Graz."},
+    {"country": "austria", "region": "tyrol", "city": "innsbruck", "slug": "golden-roof", "name": "Golden Roof", "intro": "A small imperial landmark that anchors Innsbruck's old town beneath the mountains.", "long_form_story": "The Golden Roof is compact but useful: Maximilian memory, painted facades, old-town theatre, and the sudden presence of high mountains above the street.", "facts": {"type": "Historic landmark", "city": "Innsbruck", "theme": "Imperial old town"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Works in any season as part of an old-town walk.", "latitude": "47.268700", "longitude": "11.393300", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Golden Roof guide | Atlas", "seo_description": "A short editorial guide to the Golden Roof in Innsbruck."},
+    {"country": "austria", "region": "vorarlberg", "city": "bregenz", "slug": "pfander", "name": "Pfander", "intro": "A mountain above Bregenz with Lake Constance views and a clean western Austrian horizon.", "long_form_story": "Pfander gives Bregenz its vertical escape: lake below, Switzerland and Germany nearby, mountain paths above, and a compact sense of Vorarlberg's borderland geography.", "facts": {"type": "Mountain viewpoint", "city": "Bregenz", "theme": "Lake and Alps"}, "gallery": [], "seasonality": "Spring to autumn", "seasonality_text": "Best with clear weather for lake and mountain views.", "latitude": "47.504700", "longitude": "9.779700", "season_tags": ["spring", "summer", "autumn"], "seo_title": "Pfander guide | Atlas", "seo_description": "A short editorial guide to Pfander above Bregenz."},
+    {"country": "austria", "region": "vienna", "city": "vienna-city", "slug": "schonbrunn-palace", "name": "Schonbrunn Palace", "intro": "An imperial palace landscape that turns Vienna's monarchy, gardens, and visitor rituals into one route.", "long_form_story": "Schonbrunn Palace is one of Vienna's clearest large-scale entries: rooms, gardens, hill views, imperial choreography, and the question of how a capital performs memory.", "facts": {"type": "Palace", "status": "UNESCO World Heritage", "city": "Vienna"}, "gallery": [], "seasonality": "Year-round", "seasonality_text": "Gardens are strongest from spring through autumn; interiors carry winter.", "latitude": "48.184500", "longitude": "16.312200", "season_tags": ["spring", "summer", "autumn", "winter"], "seo_title": "Schonbrunn Palace guide | Atlas", "seo_description": "A short editorial guide to Schonbrunn Palace in Vienna."}
+  ]
+}

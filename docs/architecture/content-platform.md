@@ -52,6 +52,10 @@ These features may have their own routes, selectors, services, and templates, bu
 - reuse the same editorial content and metadata
 - avoid forking a second content model
 
+Map views are intentionally hidden from public navigation until the Atlas Map
+feature is useful. Keep coordinates on `Place`, but treat the map as a future
+MapLibre GL feature documented in [Atlas Map](./atlas-map.md).
+
 ## Routing Direction
 The content platform should support route resolution across the public hierarchy:
 

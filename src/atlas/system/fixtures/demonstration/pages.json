@@ -1,0 +1,459 @@
+{
+  "pages": [
+    {
+      "key": "home",
+      "page_type": "home",
+      "slug": "",
+      "title": "Atlas Editorial",
+      "intro": "Not dry listings. Not star ratings. A library of destinations told as literature.",
+      "seo_title": "Atlas Editorial | Long-form travel guide",
+      "seo_description": "Atlas is a structured editorial travel guide built around countries, regions, cities, and places.",
+      "blocks": [
+        {
+          "type": "hero",
+          "fields": {
+            "eyebrow": "A long-form encyclopedia of places",
+            "title": "Every place has a story worth telling.",
+            "subtitle": "Not dry listings. Not star ratings. A library of destinations told as literature: country by country, chapter by chapter.",
+            "cta_label": "Begin Exploring",
+            "cta_url": "/germany/",
+            "secondary_cta_label": "Search Places",
+            "secondary_cta_url": "/places/search/",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "card_grid",
+          "fields": {
+            "heading": "Four levels of depth. One continuous story.",
+            "intro": "The public hierarchy stays ready for country, region, city, and place pages, while the first editorial pass begins with Germany and its federal states."
+          },
+          "items": [
+            {
+              "eyebrow": "01 / Country",
+              "title": "Germany",
+              "text": "A country chapter with editorial introduction and all sixteen federal states.",
+              "url": "/germany/"
+            },
+            {
+              "eyebrow": "02 / Region",
+              "title": "Bavaria",
+              "text": "A regional chapter for castles, lakes, Alpine routes, cities, and practical context.",
+              "url": "/germany/bavaria/"
+            },
+            {
+              "eyebrow": "03 / City",
+              "title": "Cities",
+              "text": "City portraits will follow after the first country and region layer is stable.",
+              "url": "/places/search/"
+            },
+            {
+              "eyebrow": "04 / Place",
+              "title": "Places",
+              "text": "Castles, museums, squares, parks, lakes, and venues will become the next level of detail.",
+              "url": "/places/search/"
+            }
+          ]
+        },
+        {
+          "type": "rich_text",
+          "fields": {
+            "heading": "Start with one country. Keep the atlas shape.",
+            "body": "The first chapter focuses on Germany because it is broad enough to test the whole editorial system: federal states, regions, cities, castles, museums, landscapes, and practical travel notes. Other countries can join later without changing the structure."
+          }
+        },
+        {
+          "type": "pull_quote",
+          "fields": {
+            "quote": "A good guide does not make the world smaller. It gives the reader a better way to enter it.",
+            "attribution": "Atlas editorial note"
+          }
+        },
+        {
+          "type": "card_grid",
+          "fields": {
+            "heading": "One country open first.",
+            "intro": "The homepage keeps the larger editorial rhythm, but the live starter content begins with Germany."
+          },
+          "items": [
+            {
+              "eyebrow": "Chapter One / Central Europe",
+              "title": "Germany",
+              "text": "Sixteen federal states, forests, river cities, museums, castles, coastlines, and complicated histories.",
+              "url": "/germany/"
+            }
+          ]
+        },
+        {
+          "type": "card_grid",
+          "fields": {
+            "heading": "Sixteen German federal states.",
+            "intro": "The first layer below Germany is the full set of federal states, ready for editorial filling before city and place entries begin."
+          },
+          "items": [
+            {"eyebrow": "Southwest", "title": "Baden-Wurttemberg", "text": "Black Forest roads, university towns, Swabian kitchens, and Lake Constance.", "url": "/germany/baden-wurttemberg/"},
+            {"eyebrow": "South", "title": "Bavaria", "text": "Alpine lakes, royal castles, Franconian towns, and beer gardens.", "url": "/germany/bavaria/"},
+            {"eyebrow": "City-state", "title": "Berlin", "text": "Museums, memorials, courtyards, food, nightlife, and visible twentieth-century history.", "url": "/germany/berlin/"},
+            {"eyebrow": "Around Berlin", "title": "Brandenburg", "text": "Lakes, pine forests, palace parks, and old garrison towns.", "url": "/germany/brandenburg/"},
+            {"eyebrow": "Hanseatic", "title": "Bremen", "text": "River trade, brick facades, maritime memory, and civic independence.", "url": "/germany/bremen/"},
+            {"eyebrow": "Port city", "title": "Hamburg", "text": "Warehouses, water, music, merchant money, and northern restraint.", "url": "/germany/hamburg/"},
+            {"eyebrow": "Centre-west", "title": "Hesse", "text": "Financial towers, spa towns, half-timbered villages, and Grimm forests.", "url": "/germany/hesse/"},
+            {"eyebrow": "Northwest", "title": "Lower Saxony", "text": "North Sea islands, heathland, trading towns, and Harz mountains.", "url": "/germany/lower-saxony/"},
+            {"eyebrow": "Baltic", "title": "Mecklenburg-Western Pomerania", "text": "Baltic islands, chalk cliffs, lake country, and resort towns.", "url": "/germany/mecklenburg-western-pomerania/"},
+            {"eyebrow": "West", "title": "North Rhine-Westphalia", "text": "Cathedrals, industry, rivers, football cities, and dense museums.", "url": "/germany/north-rhine-westphalia/"},
+            {"eyebrow": "Wine rivers", "title": "Rhineland-Palatinate", "text": "Moselle villages, Rhine castles, Roman Trier, Mainz, and vineyards.", "url": "/germany/rhineland-palatinate/"},
+            {"eyebrow": "Borderland", "title": "Saarland", "text": "French influence, forest walks, industrial memory, and the Saar river bend.", "url": "/germany/saarland/"},
+            {"eyebrow": "East", "title": "Saxony", "text": "Dresden, Leipzig, sandstone cliffs, music history, and baroque memory.", "url": "/germany/saxony/"},
+            {"eyebrow": "Central-east", "title": "Saxony-Anhalt", "text": "Luther towns, Bauhaus experiments, Romanesque roads, and Harz edges.", "url": "/germany/saxony-anhalt/"},
+            {"eyebrow": "Far north", "title": "Schleswig-Holstein", "text": "Two seas, islands, lighthouses, thatched villages, and borderland stories.", "url": "/germany/schleswig-holstein/"},
+            {"eyebrow": "Cultural centre", "title": "Thuringia", "text": "Forest paths, Weimar classicism, Wartburg memory, and old university towns.", "url": "/germany/thuringia/"}
+          ]
+        },
+        {
+          "type": "cta_strip",
+          "fields": {
+            "eyebrow": "First editorial pass",
+            "title": "Begin with Germany.",
+            "text": "The first useful path is the country page, then the sixteen federal states. Cities and individual places come after that layer is filled.",
+            "cta_label": "Open Germany",
+            "cta_url": "/germany/"
+          }
+        }
+      ]
+    },
+    {
+      "key": "germany",
+      "page_type": "country",
+      "slug": "germany",
+      "title": "Germany, sixteen states and many ways to read a country.",
+      "intro": "A federal country where regional identity is not a detail but the main way the place explains itself.",
+      "seo_title": "Germany, sixteen states and many ways to read a country | Atlas",
+      "seo_description": "Germany as an editorial travel guide: all sixteen federal states, regional chapters, cities, places, and stories.",
+      "domain": {"model": "country", "slug": "germany"},
+      "blocks": [
+        {
+          "type": "hero",
+          "fields": {
+            "eyebrow": "Chapter One / Central Europe / Federal Republic",
+            "title": "Germany, sixteen states and many ways to read a country.",
+            "subtitle": "Forests, river cities, old trade routes, museums, coastlines, mountains, castles, and federal identities that shape every journey.",
+            "cta_label": "Open Bavaria",
+            "cta_url": "/germany/bavaria/",
+            "alignment": "left"
+          }
+        },
+        {
+          "type": "rich_text",
+          "fields": {
+            "heading": "A country that works best state by state.",
+            "body": "Germany is easiest to misunderstand when treated as one uniform destination. Bavaria does not read like Berlin; Saxony does not read like Hamburg; the Rhine wine villages do not explain the Baltic coast. Atlas starts with the federal states because they are the first useful editorial layer."
+          }
+        },
+        {
+          "type": "facts_list",
+          "fields": {
+            "heading": "Germany at a glance",
+            "intro": "A few anchors before the country opens into its regions."
+          },
+          "items": [
+            {"label": "Federal states", "value": "16", "note": "The first content layer below the country page."},
+            {"label": "Capital", "value": "Berlin", "note": "Also one of the sixteen federal states."},
+            {"label": "Highest peak", "value": "2,962m", "note": "Zugspitze in Bavaria."},
+            {"label": "Coasts", "value": "North Sea and Baltic Sea", "note": "A northern contrast to the Alpine south."}
+          ]
+        },
+        {
+          "type": "card_grid",
+          "fields": {
+            "heading": "The sixteen federal states.",
+            "intro": "Open any state as a regional chapter. City and place entries will be added after this layer is filled."
+          },
+          "items": [
+            {"eyebrow": "01 / Southwest", "title": "Baden-Wurttemberg", "text": "Black Forest, Stuttgart, Heidelberg, Lake Constance, and Swabian culture.", "url": "/germany/baden-wurttemberg/"},
+            {"eyebrow": "02 / South", "title": "Bavaria", "text": "Munich, Fussen, Franconia, Alpine lakes, castles, and mountain routes.", "url": "/germany/bavaria/"},
+            {"eyebrow": "03 / City-state", "title": "Berlin", "text": "Neighbourhoods, museums, memorials, food, nightlife, and urban history.", "url": "/germany/berlin/"},
+            {"eyebrow": "04 / Around Berlin", "title": "Brandenburg", "text": "Potsdam, lakes, forests, palace parks, and small towns around Berlin.", "url": "/germany/brandenburg/"},
+            {"eyebrow": "05 / Hanseatic", "title": "Bremen", "text": "Hanseatic history, river quarters, markets, and maritime culture.", "url": "/germany/bremen/"},
+            {"eyebrow": "06 / Port city", "title": "Hamburg", "text": "Harbour, Speicherstadt, canals, music, food, and northern neighbourhoods.", "url": "/germany/hamburg/"},
+            {"eyebrow": "07 / Centre-west", "title": "Hesse", "text": "Frankfurt, Wiesbaden, Kassel, Rhine vineyards, and half-timbered towns.", "url": "/germany/hesse/"},
+            {"eyebrow": "08 / Northwest", "title": "Lower Saxony", "text": "Hanover, Harz, Luneburg Heath, North Sea coast, and historic towns.", "url": "/germany/lower-saxony/"},
+            {"eyebrow": "09 / Baltic", "title": "Mecklenburg-Western Pomerania", "text": "Baltic coast, Rugen, Usedom, lake country, and Hanseatic towns.", "url": "/germany/mecklenburg-western-pomerania/"},
+            {"eyebrow": "10 / West", "title": "North Rhine-Westphalia", "text": "Cologne, Dusseldorf, Ruhr cities, rivers, industry, and museums.", "url": "/germany/north-rhine-westphalia/"},
+            {"eyebrow": "11 / Wine rivers", "title": "Rhineland-Palatinate", "text": "Rhine, Moselle, Trier, Mainz, wine villages, and castles.", "url": "/germany/rhineland-palatinate/"},
+            {"eyebrow": "12 / Borderland", "title": "Saarland", "text": "Saarbrucken, river landscapes, border culture, forests, and industrial heritage.", "url": "/germany/saarland/"},
+            {"eyebrow": "13 / East", "title": "Saxony", "text": "Dresden, Leipzig, Saxon Switzerland, music, baroque towns, and eastern history.", "url": "/germany/saxony/"},
+            {"eyebrow": "14 / Central-east", "title": "Saxony-Anhalt", "text": "Magdeburg, Dessau, Wittenberg, Quedlinburg, Bauhaus, and Harz towns.", "url": "/germany/saxony-anhalt/"},
+            {"eyebrow": "15 / Far north", "title": "Schleswig-Holstein", "text": "North Sea, Baltic coast, islands, Lubeck, Kiel, and borderland culture.", "url": "/germany/schleswig-holstein/"},
+            {"eyebrow": "16 / Cultural centre", "title": "Thuringia", "text": "Weimar, Erfurt, Jena, Wartburg, Thuringian Forest, and cultural history.", "url": "/germany/thuringia/"}
+          ]
+        },
+        {
+          "type": "cta_strip",
+          "fields": {
+            "eyebrow": "Next layer",
+            "title": "Fill the states before the cities.",
+            "text": "The country page is ready for a state-first workflow: regional chapters now, city and place entries later.",
+            "cta_label": "Open Bavaria",
+            "cta_url": "/germany/bavaria/"
+          }
+        }
+      ]
+    },
+    {
+      "key": "baden-wurttemberg",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "baden-wurttemberg",
+      "title": "Baden-Wurttemberg",
+      "intro": "Black Forest roads, university towns, Swabian kitchens, Lake Constance, and a practical southern confidence.",
+      "seo_title": "Baden-Wurttemberg travel guide | Atlas",
+      "seo_description": "Baden-Wurttemberg as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "baden-wurttemberg"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Southwest", "title": "Baden-Wurttemberg", "subtitle": "Black Forest roads, university towns, Swabian kitchens, and Lake Constance.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "The southwest as a first chapter.", "body": "Baden-Wurttemberg is a practical, prosperous, varied state: forest roads, old universities, car museums, lake towns, and a cuisine that speaks in Swabian accents."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Stuttgart", "note": ""}, {"label": "Landscape", "value": "Black Forest and Lake Constance", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "bavaria",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "bavaria",
+      "title": "Bavaria",
+      "intro": "Alpine lakes, beer gardens, royal castles, Franconian towns, and a stubborn sense of local identity.",
+      "seo_title": "Bavaria travel guide | Atlas",
+      "seo_description": "Bavaria as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "bavaria"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / South", "title": "Bavaria", "subtitle": "Alpine lakes, beer gardens, royal castles, Franconian towns, and mountain routes.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "A state large enough to be mistaken for a country.", "body": "Bavaria carries much of the outside world's image of Germany, but the state is not only Munich and castles. Franconia, Swabia, Alpine villages, lakes, and old bishopric towns all argue for their own version of the place."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Munich", "note": ""}, {"label": "Landscape", "value": "Alps, lakes, forests, and Franconian towns", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "berlin",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "berlin",
+      "title": "Berlin",
+      "intro": "A city-state where the twentieth century remains visible in streets, museums, memorials, clubs, and courtyards.",
+      "seo_title": "Berlin travel guide | Atlas",
+      "seo_description": "Berlin as an editorial city-state guide.",
+      "domain": {"model": "region", "slug": "berlin"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / City-state", "title": "Berlin", "subtitle": "Museums, memorials, courtyards, food, nightlife, and visible twentieth-century history.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "A capital that refuses to become one story.", "body": "Berlin is a federal state and a capital, a place of imperial memory, Cold War edges, immigrant food, and neighbourhood lives that rarely fit into a single guidebook category."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before neighbourhood and place entries are added."}, "items": [{"label": "Status", "value": "City-state", "note": ""}, {"label": "Core themes", "value": "Museums, memorials, neighbourhoods", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Neighbourhoods and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "brandenburg",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "brandenburg",
+      "title": "Brandenburg",
+      "intro": "Lakes, pine forests, palace parks, old garrison towns, and the quieter landscape surrounding Berlin.",
+      "seo_title": "Brandenburg travel guide | Atlas",
+      "seo_description": "Brandenburg as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "brandenburg"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Around Berlin", "title": "Brandenburg", "subtitle": "Lakes, pine forests, palace parks, and small towns around Berlin.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "The quiet ring around the capital.", "body": "Brandenburg works as Berlin's landscape memory: palace parks, lakes, old military towns, villages, canals, and long roads through pine forest."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Potsdam", "note": ""}, {"label": "Landscape", "value": "Lakes, forests, palace parks", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "bremen",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "bremen",
+      "title": "Bremen",
+      "intro": "A small Hanseatic state of river trade, brick facades, maritime memory, and civic independence.",
+      "seo_title": "Bremen travel guide | Atlas",
+      "seo_description": "Bremen as an editorial city-state guide.",
+      "domain": {"model": "region", "slug": "bremen"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Hanseatic", "title": "Bremen", "subtitle": "River trade, brick facades, maritime memory, and civic independence.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "A small state with a merchant memory.", "body": "Bremen's scale is compact, but its civic identity is old: a Hanseatic city, a river port, and a northern place with enough independence to feel larger than its map."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before place entries are added."}, "items": [{"label": "Status", "value": "City-state", "note": ""}, {"label": "Core themes", "value": "Hanseatic history and river trade", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Places will be added later."}]}
+      ]
+    },
+    {
+      "key": "hamburg",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "hamburg",
+      "title": "Hamburg",
+      "intro": "A port city-state of warehouses, water, music, merchant money, and northern restraint.",
+      "seo_title": "Hamburg travel guide | Atlas",
+      "seo_description": "Hamburg as an editorial city-state guide.",
+      "domain": {"model": "region", "slug": "hamburg"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Port city", "title": "Hamburg", "subtitle": "Harbour, Speicherstadt, canals, music, food, and northern neighbourhoods.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "A city built by water and trade.", "body": "Hamburg's identity begins at the harbour but does not end there: warehouse districts, lakes, concert halls, markets, old merchant streets, and a northern sense of self-control."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before neighbourhood and place entries are added."}, "items": [{"label": "Status", "value": "City-state", "note": ""}, {"label": "Core themes", "value": "Harbour, canals, music, trade", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Places will be added later."}]}
+      ]
+    },
+    {
+      "key": "hesse",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "hesse",
+      "title": "Hesse",
+      "intro": "Financial towers, spa towns, half-timbered villages, Grimm forests, and vineyard slopes along the Rhine.",
+      "seo_title": "Hesse travel guide | Atlas",
+      "seo_description": "Hesse as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "hesse"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Centre-west", "title": "Hesse", "subtitle": "Frankfurt towers, spa towns, Grimm forests, and Rhine vineyards.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Modern finance beside old spa towns.", "body": "Hesse moves between Frankfurt's towers, Wiesbaden's spa architecture, Kassel's art ambitions, small half-timbered towns, and forest landscapes tied to stories."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Wiesbaden", "note": ""}, {"label": "Largest city", "value": "Frankfurt am Main", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "lower-saxony",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "lower-saxony",
+      "title": "Lower Saxony",
+      "intro": "North Sea islands, heathland, old trading towns, Harz mountains, and a wide northern horizon.",
+      "seo_title": "Lower Saxony travel guide | Atlas",
+      "seo_description": "Lower Saxony as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "lower-saxony"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Northwest", "title": "Lower Saxony", "subtitle": "North Sea islands, heathland, trading towns, and Harz mountains.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Wide landscapes and old trade routes.", "body": "Lower Saxony stretches from island wind to mountain edge, with heathland, old towns, ports, and a sense of space that differs sharply from Germany's denser urban regions."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Hanover", "note": ""}, {"label": "Landscape", "value": "North Sea coast, heathland, Harz", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "mecklenburg-western-pomerania",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "mecklenburg-western-pomerania",
+      "title": "Mecklenburg-Western Pomerania",
+      "intro": "Baltic islands, chalk cliffs, resort towns, lake country, and a spacious northeastern quiet.",
+      "seo_title": "Mecklenburg-Western Pomerania travel guide | Atlas",
+      "seo_description": "Mecklenburg-Western Pomerania as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "mecklenburg-western-pomerania"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Baltic", "title": "Mecklenburg-Western Pomerania", "subtitle": "Baltic islands, chalk cliffs, lake country, and Hanseatic towns.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "The Baltic chapter.", "body": "Mecklenburg-Western Pomerania is Germany at its most spacious: islands, cliffs, lakes, seaside architecture, and small Hanseatic cities that slow the itinerary down."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Schwerin", "note": ""}, {"label": "Landscape", "value": "Baltic coast and lake country", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "north-rhine-westphalia",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "north-rhine-westphalia",
+      "title": "North Rhine-Westphalia",
+      "intro": "A dense western state of cathedrals, industry, rivers, football cities, museums, and overlapping urban lives.",
+      "seo_title": "North Rhine-Westphalia travel guide | Atlas",
+      "seo_description": "North Rhine-Westphalia as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "north-rhine-westphalia"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / West", "title": "North Rhine-Westphalia", "subtitle": "Cologne, Dusseldorf, Ruhr cities, rivers, industry, and museums.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Germany at its densest.", "body": "North Rhine-Westphalia is not one simple destination but a network: cathedral city, former industrial basin, riverside capital, football towns, migrant food, and museums built from industrial memory."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Dusseldorf", "note": ""}, {"label": "Largest city", "value": "Cologne", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "rhineland-palatinate",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "rhineland-palatinate",
+      "title": "Rhineland-Palatinate",
+      "intro": "Wine valleys, Roman memory, river castles, forest roads, and old towns along the Rhine and Moselle.",
+      "seo_title": "Rhineland-Palatinate travel guide | Atlas",
+      "seo_description": "Rhineland-Palatinate as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "rhineland-palatinate"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Wine rivers", "title": "Rhineland-Palatinate", "subtitle": "Rhine, Moselle, Trier, Mainz, wine villages, and castles.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Rivers, vines, and old stones.", "body": "Rhineland-Palatinate is a state of river corridors: Roman Trier, wine villages, castle views, Mainz, forest roads, and landscapes that reward slow travel."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Mainz", "note": ""}, {"label": "Landscape", "value": "Rhine, Moselle, vineyards", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "saarland",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "saarland",
+      "title": "Saarland",
+      "intro": "A compact borderland of industrial memory, French influence, forest walks, and the Saar river bend.",
+      "seo_title": "Saarland travel guide | Atlas",
+      "seo_description": "Saarland as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "saarland"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Borderland", "title": "Saarland", "subtitle": "French influence, forest walks, industrial memory, and the Saar river bend.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Small state, borderland texture.", "body": "Saarland is compact, but its identity is layered: industry, forest, France nearby, river landscapes, and food habits that make the border feel practical rather than abstract."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Saarbrucken", "note": ""}, {"label": "Landscape", "value": "Saar river, forests, industrial heritage", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "saxony",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "saxony",
+      "title": "Saxony",
+      "intro": "Dresden, Leipzig, sandstone cliffs, music history, baroque reconstruction, and a complicated eastern memory.",
+      "seo_title": "Saxony travel guide | Atlas",
+      "seo_description": "Saxony as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "saxony"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / East", "title": "Saxony", "subtitle": "Dresden, Leipzig, Saxon Switzerland, music, baroque towns, and eastern history.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Baroque memory and sandstone edges.", "body": "Saxony moves between Dresden's reconstruction, Leipzig's civic and musical confidence, and the sandstone cliffs of Saxon Switzerland. It is beautiful, dense, and historically complicated."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Dresden", "note": ""}, {"label": "Largest city", "value": "Leipzig", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "saxony-anhalt",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "saxony-anhalt",
+      "title": "Saxony-Anhalt",
+      "intro": "Luther towns, Bauhaus experiments, Romanesque roads, Harz edges, and quiet landscapes with heavy history.",
+      "seo_title": "Saxony-Anhalt travel guide | Atlas",
+      "seo_description": "Saxony-Anhalt as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "saxony-anhalt"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Central-east", "title": "Saxony-Anhalt", "subtitle": "Luther towns, Bauhaus experiments, Romanesque roads, and Harz edges.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "A compact archive of German history.", "body": "Saxony-Anhalt carries several different historical doors: Reformation towns, Bauhaus Dessau, Romanesque routes, Quedlinburg, Magdeburg, and the edge of the Harz."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Magdeburg", "note": ""}, {"label": "Core themes", "value": "Reformation, Bauhaus, Harz", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "schleswig-holstein",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "schleswig-holstein",
+      "title": "Schleswig-Holstein",
+      "intro": "Two seas, flat horizons, lighthouses, islands, thatched villages, and northern borderland stories.",
+      "seo_title": "Schleswig-Holstein travel guide | Atlas",
+      "seo_description": "Schleswig-Holstein as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "schleswig-holstein"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Far north", "title": "Schleswig-Holstein", "subtitle": "North Sea, Baltic coast, islands, Lubeck, Kiel, and borderland culture.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Between two seas.", "body": "Schleswig-Holstein is Germany's northern hinge: North Sea and Baltic, islands and ports, Danish edges, thatched villages, flat light, and maritime towns."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Kiel", "note": ""}, {"label": "Landscape", "value": "North Sea and Baltic coast", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    },
+    {
+      "key": "thuringia",
+      "parent": "germany",
+      "page_type": "region",
+      "slug": "thuringia",
+      "title": "Thuringia",
+      "intro": "Forest paths, Weimar classicism, Wartburg memory, old university towns, and a compact centre of German culture.",
+      "seo_title": "Thuringia travel guide | Atlas",
+      "seo_description": "Thuringia as an editorial regional guide.",
+      "domain": {"model": "region", "slug": "thuringia"},
+      "blocks": [
+        {"type": "hero", "fields": {"eyebrow": "Germany / Cultural centre", "title": "Thuringia", "subtitle": "Weimar, Erfurt, Jena, Wartburg, Thuringian Forest, and cultural history.", "alignment": "left"}},
+        {"type": "rich_text", "fields": {"heading": "Forest, classicism, and small-city culture.", "body": "Thuringia is compact but dense: Weimar, Erfurt, Jena, Wartburg, forest routes, and a cultural memory that turns small distances into a serious itinerary."}},
+        {"type": "facts_list", "fields": {"heading": "Regional anchors", "intro": "Useful points before city and place entries are added."}, "items": [{"label": "State capital", "value": "Erfurt", "note": ""}, {"label": "Core themes", "value": "Weimar, Wartburg, Thuringian Forest", "note": ""}, {"label": "Editorial status", "value": "Region chapter", "note": "Cities and places will be added later."}]}
+      ]
+    }
+  ]
+}

@@ -1,7 +1,5 @@
-from django.test import TestCase, override_settings
-
 from codex_django.messaging import messaging_event_registry
-
+from django.test import TestCase, override_settings
 from features.messaging.models import Message, Thread
 from features.messaging.services import create_reply
 

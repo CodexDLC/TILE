@@ -1,4 +1,6 @@
 from codex_django.system.mixins import AbstractStaticTranslation
+
+
 def _(message: str) -> str:
     return message
 

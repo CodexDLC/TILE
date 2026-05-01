@@ -1,8 +1,6 @@
-from django.core.mail import EmailMultiAlternatives
-
-from system.models import EmailSettings
-
 from codex_django.messaging import DjangoDirectAdapter
+from django.core.mail import EmailMultiAlternatives
+from system.models import EmailSettings
 
 
 class AtlasMessagingDirectAdapter(DjangoDirectAdapter):

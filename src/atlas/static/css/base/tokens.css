@@ -87,6 +87,8 @@
     --section-pad-v: clamp(4.5rem, 8vw, 7.5rem);
     --section-pad-h: clamp(1.5rem, 4vw, 2.5rem);
     --content-max-w: 87.5rem;
+    --atlas-page-w: 68.75rem;
+    --atlas-page-pad: clamp(1.25rem, 4vw, 2.5rem);
     --editorial-w: 42.5rem;
     --card-gap: 1.5rem;
     --header-height: 5.25rem;

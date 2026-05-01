@@ -15,6 +15,8 @@ from django.http import HttpRequest
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.text import format_lazy
+
+
 def _(message: str) -> str:
     return message
 

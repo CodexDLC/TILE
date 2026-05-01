@@ -1,11 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import get_object_or_404, redirect, render
-
+from django.shortcuts import redirect, render
 from system.models import EmailSettings
 
-from ..models import EmailLog, Thread
+from ..models import EmailLog
 from ..selectors import get_paginated_threads, get_status_counts, get_thread_or_404
 
 

@@ -1,6 +1,7 @@
 from typing import Any
 
 from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
@@ -32,8 +33,14 @@ urlpatterns += [
     path("system/", include("system.urls")),
     path("showcase/", include("codex_django.showcase.urls")),
     path("messaging/", include("features.messaging.urls")),
-    path("", include("features.main.urls")),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    path("contacts/", include("features.contacts.urls")),
+    path("places/", include("features.places.urls")),
+    path("", include("features.content.urls")),
+    prefix_default_language=False,
+)

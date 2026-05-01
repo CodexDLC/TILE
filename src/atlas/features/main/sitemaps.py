@@ -7,6 +7,7 @@ class YourModelSitemap(BaseSitemap):
     """
     Example of a model-based sitemap.
     """
+
     changefreq = "weekly"
     priority = 0.7
 

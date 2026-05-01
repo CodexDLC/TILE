@@ -2,6 +2,8 @@ from typing import Any, ClassVar
 
 from codex_django.system.mixins.seo import AbstractStaticPageSeo
 from django.db import models
+
+
 def _(message: str) -> str:
     return message
 

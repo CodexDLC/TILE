@@ -1,0 +1,14 @@
+<section class="journey-strip block-cta-strip">
+    <div class="journey-inner">
+        <div class="journey-copy">
+            {% if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow }}</p>{% endif %}
+            <h2 class="journey-title">{{ block.title }}</h2>
+            {% if block.text %}<p class="journey-text">{{ block.text }}</p>{% endif %}
+        </div>
+        {% if block.cta_label %}
+            <div class="block-cta-actions">
+                <a class="btn btn-ghost-on-dark btn-lg" href="{{ block.cta_url|default:'#' }}">{{ block.cta_label }}</a>
+            </div>
+        {% endif %}
+    </div>
+</section>

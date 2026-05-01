@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ active_locale|default:LANGUAGE_CODE|default:'en' }}">
 <head>
     {% include "includes/_meta.html" %}
     {% include "includes/_analytics_head.html" %}

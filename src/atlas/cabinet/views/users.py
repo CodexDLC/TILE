@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Any
 
-from cabinet.services.users import UserService
 from django.views.generic import TemplateView
+
+from cabinet.services.users import UserService
 
 
 class UserListView(TemplateView):

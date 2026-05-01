@@ -4,8 +4,12 @@ from dataclasses import dataclass
 from datetime import datetime
 
 from django.contrib.auth import get_user_model
+
+
 def _(message: str) -> str:
     return message
+
+
 from system.models import UserProfile
 from system.selectors.client_profile import ClientProfileSelector
 

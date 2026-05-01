@@ -1,8 +1,8 @@
+import secrets
 from typing import ClassVar
 
 from codex_django.messaging import AbstractThread
 from django.db import models
-import secrets
 
 
 def _(message: str) -> str:

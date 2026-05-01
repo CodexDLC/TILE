@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "country",
+    "slug": "germany",
+    "media_path": "seed/countries/germany.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Castle_Neuschwanstein.jpg",
+    "license_note": "Temporary prototype seed image from Wikimedia Commons. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "baden-wurttemberg",
+    "media_path": "seed/regions/baden-wurttemberg.jpg",
+    "source_url": "https://en.wikipedia.org/wiki/Baden-W%C3%BCrttemberg",
+    "license_note": "Temporary prototype seed image downloaded from Wikipedia/Wikimedia page image. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "bavaria",
+    "media_path": "seed/regions/bavaria.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Drawing,_Alpine_Landscape,_Bavaria_or_Switzerland,_1868_(CH_18196499).jpg",
+    "license_note": "Temporary prototype seed image from Wikimedia Commons. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "berlin",
+    "media_path": "seed/regions/berlin.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brandenburg_Gate.jpg",
+    "license_note": "Temporary prototype seed image from Wikimedia Commons. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "brandenburg",
+    "media_path": "seed/regions/brandenburg.jpg",
+    "source_url": "https://en.wikipedia.org/wiki/Brandenburg",
+    "license_note": "Temporary prototype seed image downloaded from Wikipedia/Wikimedia page image. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "bremen",
+    "media_path": "seed/regions/bremen.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Bremen-(Marktplatz)-Braun-Hogenberg.png",
+    "license_note": "Temporary prototype seed image from Wikimedia Commons. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "hamburg",
+    "media_path": "seed/regions/hamburg.jpg",
+    "source_url": "https://en.wikipedia.org/wiki/Hamburg",
+    "license_note": "Temporary prototype seed image downloaded from Wikipedia/Wikimedia page image. Replace with officially licensed project photo before production."
+  },
+  {
+    "kind": "region",
+    "slug": "hesse",
+    "media_path": "seed/regions/hesse.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Luthmer_V_-_220_-_Wiesbaden_altes_Kurhaus_Fassade.jpg",
+    "license_note": "Temporary prototype seed image from Wikimedia Commons. Replace with officially licensed project photo before production."
+  }
+]

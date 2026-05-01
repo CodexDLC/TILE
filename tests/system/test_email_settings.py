@@ -1,5 +1,4 @@
 from django.test import TestCase
-
 from system.models import EmailSettings, SiteSettings
 
 

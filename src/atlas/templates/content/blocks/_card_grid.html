@@ -1,0 +1,20 @@
+<section class="section block-card-grid">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                {% if block.heading %}<h2>{{ block.heading }}</h2>{% endif %}
+            </div>
+            {% if block.intro %}<p class="lead">{{ block.intro }}</p>{% endif %}
+        </div>
+        <div class="grid">
+            {% for item in block.items.all %}
+                <article class="card col-span-4">
+                    {% if item.eyebrow %}<p class="card-index">{{ item.eyebrow }}</p>{% endif %}
+                    <h3 class="card-title">{{ item.title }}</h3>
+                    {% if item.text %}<p class="card-description">{{ item.text }}</p>{% endif %}
+                    {% if item.url %}<a class="btn btn-outline" href="{{ item.url }}">Read more</a>{% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

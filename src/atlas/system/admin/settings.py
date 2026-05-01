@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from unfold.admin import ModelAdmin
+from system.admin.translation import UnfoldTabbedTranslationAdmin
 
 from ..models.settings import SiteSettings
 
 
 @admin.register(SiteSettings)
-class SiteSettingsAdmin(ModelAdmin):
+class SiteSettingsAdmin(UnfoldTabbedTranslationAdmin):
     """
     Admin for site settings.
     Only one record is expected (Singleton pattern).
@@ -27,7 +27,15 @@ class SiteSettingsAdmin(ModelAdmin):
                     "address_postal_code",
                     "contact_person",
                     "working_hours",
+                    "default_locale",
                 )
+            },
+        ),
+        (
+            _("Editorial fallback"),
+            {
+                "fields": ("hero_fallback_title", "hero_fallback_intro", "hero_fallback_image"),
+                "classes": ("tab",),
             },
         ),
         (
@@ -68,9 +76,7 @@ class SiteSettingsAdmin(ModelAdmin):
         ),
         (
             _("Technical"),
-            {
-                "fields": ("app_mode_enabled", "maintenance_mode", "head_scripts", "body_scripts")
-            },
+            {"fields": ("app_mode_enabled", "maintenance_mode", "head_scripts", "body_scripts")},
         ),
     )
 

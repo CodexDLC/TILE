@@ -1,0 +1,11 @@
+{% load markdown_tags %}
+<section class="section block-rich-text">
+    <div class="editorial">
+        <article class="article-body">
+            {% if block.heading %}
+                <h2>{{ block.heading }}</h2>
+            {% endif %}
+            {{ block.body|markdown }}
+        </article>
+    </div>
+</section>

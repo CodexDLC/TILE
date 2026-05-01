@@ -1,0 +1,185 @@
+.page-country .hero {
+    min-height: 68vh;
+}
+
+.page-editorial-detail {
+    background: var(--bg-paper);
+}
+
+.editorial-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+    color: var(--bg-paper);
+}
+
+.editorial-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 78% 20%, rgba(166, 122, 63, 0.24), transparent 52%),
+        linear-gradient(145deg, #17241f 0%, #2c3e3a 48%, #0f1814 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.editorial-hero-bg::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 42%;
+    background:
+        linear-gradient(145deg, transparent 0 20%, rgba(82, 101, 93, 0.35) 20% 44%, transparent 44%),
+        linear-gradient(35deg, transparent 0 34%, rgba(60, 81, 75, 0.45) 34% 60%, transparent 60%);
+}
+
+.editorial-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(100% - (var(--atlas-page-pad) * 2), var(--atlas-page-w));
+    margin: 0 auto;
+    padding: 0 0 88px;
+}
+
+.editorial-hero .hero-meta {
+    max-width: max-content;
+    margin-bottom: 22px;
+    color: var(--bronze);
+    font-size: 11px;
+    font-weight: var(--fw-semi);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.editorial-hero .hero-title {
+    max-width: 920px;
+    color: var(--bg-paper);
+    font-family: var(--font-serif);
+    font-size: clamp(54px, 7vw, 104px);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+}
+
+.editorial-hero .hero-subtitle {
+    max-width: 620px;
+    margin-top: 28px;
+    color: rgba(250, 246, 236, 0.82);
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.55;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    max-width: 880px;
+    margin-top: 42px;
+    background: rgba(250, 246, 236, 0.16);
+}
+
+.hero-stat {
+    padding: 20px;
+    background: rgba(15, 24, 20, 0.28);
+}
+
+.hero-stat-val {
+    display: block;
+    color: var(--bronze);
+    font-family: var(--font-serif);
+    font-size: 30px;
+}
+
+.hero-stat-lbl {
+    display: block;
+    margin-top: 6px;
+    color: rgba(250, 246, 236, 0.68);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.editorial-card-grid,
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.editorial-image-card,
+.city-card {
+    position: relative;
+    display: block;
+    min-height: 280px;
+    overflow: hidden;
+    border-radius: 4px;
+    background:
+        linear-gradient(to top, rgba(15, 24, 20, 0.92), rgba(15, 24, 20, 0.08)),
+        linear-gradient(135deg, rgba(166, 122, 63, 0.28), rgba(44, 62, 58, 0.82));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--bg-paper);
+    text-decoration: none;
+}
+
+.region-body,
+.city-body {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    padding: 28px;
+}
+
+.region-num,
+.city-meta,
+.place-meta {
+    color: var(--bronze);
+    font-size: 10px;
+    font-weight: var(--fw-semi);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.region-name,
+.city-name {
+    margin: 8px 0;
+    font-family: var(--font-serif);
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.region-copy {
+    max-width: 34rem;
+    margin: 12px 0 0;
+    color: rgba(250, 246, 236, 0.78);
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.editorial-tabs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--card-gap);
+    margin-top: 28px;
+}
+
+@media (max-width: 70rem) {
+    .hero-stats,
+    .editorial-card-grid,
+    .cities-grid,
+    .editorial-tabs-grid {
+        grid-template-columns: 1fr;
+    }
+}

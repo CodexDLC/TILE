@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load block_tags %}
+
+{% block body_class %}page page-{{ page.page_type }}{% endblock body_class %}
+
+{% block content %}
+    {% block page_content %}
+        {% for slot in slots %}
+            {% render_block slot %}
+        {% endfor %}
+    {% endblock page_content %}
+{% endblock content %}

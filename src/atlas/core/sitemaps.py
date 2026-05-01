@@ -9,6 +9,7 @@ class StaticSitemap(BaseSitemap):
     """
     Sitemap for static pages that don't depend on models.
     """
+
     priority = 0.5
     changefreq = "monthly"
 

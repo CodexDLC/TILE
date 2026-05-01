@@ -1,4 +1,6 @@
 from django.apps import AppConfig
+
+
 def _(message: str) -> str:
     return message
 

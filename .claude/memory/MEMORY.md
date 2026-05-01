@@ -1,0 +1,3 @@
+- `project_atlas.md` - Atlas identity, i18n, and content-platform decision.
+- `reference_codexsystem.md` - legacy CMS inspiration and boundaries.
+- `reference_codex_django_lib.md` - codex-django mixin/library reuse reminder.

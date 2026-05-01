@@ -1,0 +1,89 @@
+{% extends "content/page_base.html" %}
+
+{% block body_class %}page page-region page-editorial-detail{% endblock body_class %}
+
+{% block page_content %}
+    <section class="editorial-hero editorial-hero-region">
+        <div class="editorial-hero-bg"{% if domain_object.hero_image %} style="background-image: linear-gradient(to top, rgba(15, 24, 20, 0.86), rgba(15, 24, 20, 0.18)), url('{{ domain_object.hero_image.url }}');"{% endif %}></div>
+        <div class="editorial-hero-content">
+            <div class="hero-meta">{{ hero.eyebrow|default:"Southern Germany / Alpine Region" }}</div>
+            <h1 class="hero-title">{{ hero.title|default:page.title }}</h1>
+            <p class="hero-subtitle">{{ hero.subtitle|default:page.intro }}</p>
+        </div>
+    </section>
+
+    {% with intro=rich_texts.0 quote=pull_quotes.0 region_sections=card_grids.0 facts=facts_lists.0 tabs=tabs_blocks.0 related=related_places_blocks.0 cta=cta_strips.0 %}
+        <section class="section">
+            <div class="editorial">
+                <aside class="margin-note"><span class="margin-note-label">Marginalia № 01</span>{{ page.intro }}</aside>
+                <div class="editorial-body">
+                    <div class="section-label">The Land & Its Soul</div>
+                    <h2 class="article-title">{{ intro.heading|default:page.title }}</h2>
+                    <div class="article-body">
+                        <p class="drop-cap">{{ intro.body|default:page.intro }}</p>
+                        {% if quote %}<div class="pull-quote">{{ quote.quote }}<cite>{{ quote.attribution }}</cite></div>{% endif %}
+                    </div>
+                </div>
+                {% if facts %}
+                    <aside class="margin-note">
+                        <span class="margin-note-label">{{ facts.heading }}</span>
+                        {% for item in facts.items.all %}
+                            <strong>{{ item.label }}</strong>: {{ item.value }}{% if item.note %}<br>{{ item.note }}{% endif %}{% if not forloop.last %}<br><br>{% endif %}
+                        {% endfor %}
+                    </aside>
+                {% endif %}
+            </div>
+        </section>
+
+        {% if region_sections %}
+            <section class="regions-section">
+                <div class="section">
+                    <div class="section-head">
+                        <div class="section-head-left"><div class="section-label">Regional Notes</div><h2 class="section-title">{{ region_sections.heading }}</h2></div>
+                        {% if region_sections.intro %}<p class="section-desc">{{ region_sections.intro }}</p>{% endif %}
+                    </div>
+                    <div class="cities-grid editorial-card-grid">
+                        {% for item in region_sections.items.all %}
+                            <a class="city-card editorial-image-card" href="{{ item.url|default:'#' }}">
+                                <div class="city-overlay"></div>
+                                <div class="city-body"><div class="city-name">{{ item.title }}</div><div class="city-meta"><span>{{ item.eyebrow }}</span><span>{{ item.text }}</span></div></div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% elif domain_object.cities.all %}
+            <section class="regions-section">
+                <div class="section">
+                    <div class="section-head">
+                        <div class="section-head-left"><div class="section-label">Cities</div><h2 class="section-title">Start with {{ domain_object.name }} by city.</h2></div>
+                        <p class="section-desc">These city pages are the first clickable layer below the region.</p>
+                    </div>
+                    <div class="cities-grid editorial-card-grid">
+                        {% for city in domain_object.cities.all %}
+                            <a class="city-card editorial-image-card" href="{{ city.page.absolute_path|default:'#' }}"{% if city.hero_image %} style="background-image: linear-gradient(to top, rgba(15, 24, 20, 0.88), rgba(15, 24, 20, 0.12)), url('{{ city.hero_image.url }}');"{% endif %}>
+                                <div class="city-overlay"></div>
+                                <div class="city-body"><div class="city-name">{{ city.name }}</div><div class="city-meta"><span>{{ domain_object.name }}</span><span>{{ city.intro }}</span></div></div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+
+        {% if tabs %}
+            <section class="section">
+                <div class="section-head"><div class="section-head-left"><div class="section-label">Places of Interest</div><h2 class="section-title">{{ tabs.heading }}</h2></div>{% if tabs.intro %}<p class="section-desc">{{ tabs.intro }}</p>{% endif %}</div>
+                <div class="layers-nav">
+                    {% for item in tabs.items.all %}<button class="layer-tab{% if forloop.first %} active{% endif %}" type="button"><span class="num">{{ forloop.counter }}</span>{{ item.label }}</button>{% endfor %}
+                </div>
+                <div class="editorial-tabs-grid">
+                    {% for item in tabs.items.all %}<article class="card"><p class="card-index">{{ item.label }}</p><h3>{{ item.heading }}</h3><p>{{ item.body }}</p></article>{% endfor %}
+                </div>
+            </section>
+        {% endif %}
+
+        {% if related %}{% include "content/blocks/_related_places.html" with block=related slot=None page=page only %}{% endif %}
+        {% if cta %}<section class="journey-strip"><div class="journey-inner"><div><div class="journey-label">{{ cta.eyebrow }}</div><h2 class="journey-title">{{ cta.title }}</h2></div><div><p class="journey-text">{{ cta.text }}</p><a href="{{ cta.cta_url }}" class="journey-cta">{{ cta.cta_label }} →</a></div></div></section>{% endif %}
+    {% endwith %}
+{% endblock page_content %}

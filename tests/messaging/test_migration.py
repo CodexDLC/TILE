@@ -3,7 +3,6 @@ from importlib import import_module
 from django.apps import apps as django_apps
 from django.db import connection
 from django.test import TestCase
-
 from system.models import EmailSettings, SiteSettings
 
 

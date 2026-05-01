@@ -1,0 +1,10 @@
+<section class="section block-pull-quote">
+    <div class="editorial">
+        <blockquote class="pull-quote">
+            {{ block.quote }}
+            {% if block.attribution %}
+                <cite>{{ block.attribution }}</cite>
+            {% endif %}
+        </blockquote>
+    </div>
+</section>

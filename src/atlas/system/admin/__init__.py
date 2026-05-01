@@ -7,7 +7,7 @@ from .user_profile import UserProfileAdmin
 __all__ = [
     "EmailSettingsAdmin",
     "SiteSettingsAdmin",
-    "StaticTranslationAdmin",
     "StaticPageSeoAdmin",
+    "StaticTranslationAdmin",
     "UserProfileAdmin",
 ]

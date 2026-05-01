@@ -8,6 +8,7 @@ class Command(RunserverCommand):
 
     def handle(self, *args: Any, **options: Any) -> None:
         import os
+
         from django.core.management import call_command
 
         # Django autoreloader spawns two processes; compile only in the outer one

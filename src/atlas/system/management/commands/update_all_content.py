@@ -12,6 +12,5 @@ class Command(BaseUpdateAllContentCommand):
     help = "Run all content update commands and clear cache"
 
     commands_to_run: ClassVar[list[str]] = [
-        "update_site_settings",
-        # Add other specific commands here
+        "update_demonstration",
     ]

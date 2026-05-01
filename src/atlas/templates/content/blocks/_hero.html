@@ -1,0 +1,28 @@
+<section class="hero{% if slot.display_variant == 'small' %} hero-sm{% endif %} block-hero block-align-{{ block.alignment }}">
+    <div class="hero-bg">
+        {% if block.image %}
+            <img class="block-hero-image" src="{{ block.image.url }}" alt="">
+        {% endif %}
+    </div>
+    <div class="hero-content">
+        <div class="block-hero-copy anim-fade-up">
+            {% if block.eyebrow %}
+                <div class="hero-meta">{{ block.eyebrow }}</div>
+            {% endif %}
+            <h1>{{ block.title }}</h1>
+            {% if block.subtitle %}
+                <p class="hero-subtitle">{{ block.subtitle }}</p>
+            {% endif %}
+            {% if block.cta_label or block.secondary_cta_label %}
+                <div class="hero-actions">
+                    {% if block.cta_label %}
+                        <a class="btn btn-primary" href="{{ block.cta_url|default:'#' }}">{{ block.cta_label }}</a>
+                    {% endif %}
+                    {% if block.secondary_cta_label %}
+                        <a class="btn btn-ghost-on-dark" href="{{ block.secondary_cta_url|default:'#' }}">{{ block.secondary_cta_label }}</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

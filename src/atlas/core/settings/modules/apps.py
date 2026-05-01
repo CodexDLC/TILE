@@ -15,6 +15,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    "modeltranslation",
     # Auth
     "allauth",
     "allauth.account",
@@ -24,7 +25,7 @@ THIRD_PARTY_APPS = [
 ]
 
 if find_spec("unfold") is not None:
-    THIRD_PARTY_APPS[4:4] = [
+    THIRD_PARTY_APPS[5:5] = [
         "unfold",
         "unfold.contrib.filters",
         "unfold.contrib.forms",
@@ -53,6 +54,9 @@ LOCAL_APPS = [
     "cabinet",
     "core",
     "system",
+    "features.content",
+    "features.places",
+    "features.contacts",
     "features.main",
     "features.messaging",
 ]

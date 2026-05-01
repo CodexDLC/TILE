@@ -1,0 +1,4 @@
+.page-map-view .places-placeholder {
+    display: grid;
+    gap: var(--sp-5);
+}

@@ -1,0 +1,9 @@
+{
+  "default_locale": "en",
+  "email": "editorial@atlas.local",
+  "contact_person": "Atlas Editorial",
+  "working_hours": "Editorial desk replies on weekdays.",
+  "instagram_url": "https://www.instagram.com/",
+  "hero_fallback_title": "Atlas Editorial",
+  "hero_fallback_intro": "A long-form guide to places, built as chapters rather than listings."
+}

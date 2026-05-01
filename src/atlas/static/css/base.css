@@ -20,10 +20,18 @@
 @import url("components/navigation.css");
 @import url("components/cards.css");
 @import url("components/editorial.css");
+@import url("components/blocks.css");
 @import url("base/header.css");
 @import url("base/footer.css");
 
 /* 3. Page-level layers */
 @import url("pages/home.css");
 @import url("pages/contacts.css");
+@import url("pages/country.css");
+@import url("pages/region.css");
+@import url("pages/city.css");
+@import url("pages/place.css");
+@import url("pages/grid-view.css");
+@import url("pages/map-view.css");
+@import url("pages/search.css");
 @import url("pages/errors.css");

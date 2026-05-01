@@ -71,5 +71,6 @@ The project already hints at this structure in `features.conversations` and `sys
 
 ## Related Documents
 - [Content Platform](./content-platform.md)
+- [Atlas Map](./atlas-map.md)
 - [Feature Slice](./feature-slice.md)
 - [Design System](../design/README.md)

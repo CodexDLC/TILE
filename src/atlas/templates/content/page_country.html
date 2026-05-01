@@ -1,0 +1,88 @@
+{% extends "content/page_base.html" %}
+
+{% block body_class %}page page-country page-editorial-detail{% endblock body_class %}
+
+{% block page_content %}
+    <section class="editorial-hero editorial-hero-country">
+        <div class="editorial-hero-bg"{% if domain_object.hero_image %} style="background-image: linear-gradient(to top, rgba(15, 24, 20, 0.86), rgba(15, 24, 20, 0.18)), url('{{ domain_object.hero_image.url }}');"{% endif %}></div>
+        <div class="editorial-hero-content">
+            <div class="hero-meta">{{ hero.eyebrow|default:"Chapter Five / Central Europe" }}</div>
+            <h1 class="hero-title">{{ hero.title|default:page.title }}</h1>
+            <p class="hero-subtitle">{{ hero.subtitle|default:page.intro }}</p>
+            {% with facts=facts_lists.0 %}
+                {% if facts %}
+                    <div class="hero-stats">
+                        {% for item in facts.items.all %}
+                            <div class="hero-stat"><span class="hero-stat-val">{{ item.value }}</span><span class="hero-stat-lbl">{{ item.label }}</span></div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+    </section>
+
+    {% with intro=rich_texts.0 regions=card_grids.0 cta=cta_strips.0 %}
+        <section class="section">
+            <div class="editorial">
+                <aside class="margin-note"><span class="margin-note-label">Marginalia № 01</span>{{ page.intro }}</aside>
+                <div class="editorial-body">
+                    <div class="section-label">The Land & Its Soul</div>
+                    <h2 class="article-title">{{ intro.heading|default:page.title }}</h2>
+                    <div class="article-body">
+                        <p class="drop-cap">{{ intro.body|default:page.intro }}</p>
+                    </div>
+                </div>
+                <aside class="margin-note"><span class="margin-note-label">Atlas Note</span>Start with the regions, then let the route narrow toward cities, castles, lakes, and squares.</aside>
+            </div>
+        </section>
+
+        <section id="regions" class="regions-section">
+            <div class="section">
+                <div class="section-head">
+                    <div class="section-head-left">
+                        <div class="section-label">The Regions</div>
+                        <h2 class="section-title">{{ regions.heading|default:"From the Alps to the Baltic." }}</h2>
+                    </div>
+                    {% if regions.intro %}<p class="section-desc">{{ regions.intro }}</p>{% endif %}
+                </div>
+                <div class="regions-grid">
+                    {% for region in country_regions %}
+                        <a class="region-card editorial-image-card" href="{{ region.page.absolute_path|default:'#' }}">
+                            <div class="region-img"{% if region.hero_image %} style="background-image: linear-gradient(to top, rgba(15, 24, 20, 0.76), rgba(15, 24, 20, 0.12)), url('{{ region.hero_image.url }}');"{% endif %} aria-hidden="true"></div>
+                            <div class="region-overlay"></div>
+                            <div class="region-body">
+                                <div class="region-num">N°{{ forloop.counter|stringformat:"02d" }} · {{ domain_object.name }}</div>
+                                <h3 class="region-name">{{ region.name }}</h3>
+                                <div class="region-meta">
+                                    <span><span class="region-dot"></span>{{ region.cities.count }} city</span>
+                                    <span><span class="region-dot"></span>{{ region.place_count }} places</span>
+                                </div>
+                                <p class="region-copy">{{ region.intro }}</p>
+                            </div>
+                        </a>
+                    {% empty %}
+                        {% for item in regions.items.all %}
+                            <a class="region-card editorial-image-card" href="{{ item.url|default:'#' }}">
+                                <div class="region-overlay"></div>
+                                <div class="region-body">
+                                    <div class="region-num">{{ item.eyebrow }}</div>
+                                    <h3 class="region-name">{{ item.title }}</h3>
+                                    <div class="region-meta"><span>{{ item.text }}</span></div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        {% if cta %}
+            <section class="journey-strip">
+                <div class="journey-inner">
+                    <div><div class="journey-label">{{ cta.eyebrow }}</div><h2 class="journey-title">{{ cta.title }}</h2></div>
+                    <div><p class="journey-text">{{ cta.text }}</p><a href="{{ cta.cta_url }}" class="journey-cta">{{ cta.cta_label }} →</a></div>
+                </div>
+            </section>
+        {% endif %}
+    {% endwith %}
+{% endblock page_content %}

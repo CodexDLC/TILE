@@ -19,7 +19,7 @@ class EmailSettingsAdmin(ModelAdmin):
                     "email_sender_name",
                     "email_reply_to",
                 )
-            }
+            },
         ),
         (
             _("Messaging URLs"),
@@ -32,7 +32,7 @@ class EmailSettingsAdmin(ModelAdmin):
                     "url_path_reschedule",
                     "url_path_contact_form",
                 )
-            }
+            },
         ),
     )
 

@@ -3,8 +3,12 @@ from __future__ import annotations
 from typing import ClassVar
 
 from django.http import HttpRequest
+
+
 def _(message: str) -> str:
     return message
+
+
 from system.selectors.users import UserSelector
 
 

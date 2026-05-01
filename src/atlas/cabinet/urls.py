@@ -2,7 +2,7 @@ from django.conf import settings
 from django.urls import include, path
 
 from .views.analytics import AnalyticsReportsView, analytics_dashboard_view
-from .views.client import ClientAppointmentsView, ClientHomeView
+from .views.client import ClientHomeView
 from .views.site_settings import site_settings_tab_view, site_settings_view
 from .views.users import UserListView
 
@@ -16,8 +16,6 @@ urlpatterns = [
     path("", include("cabinet.auth_urls")),
     path("", include("features.messaging.cabinet_urls")),
     path("my/", ClientHomeView.as_view(), name="client_home"),
-    path("my/appointments/", ClientAppointmentsView.as_view(), name="client_appointments"),
-    # Analytics
     path("analytics/", analytics_dashboard_view, name="analytics_dashboard"),
     path("analytics/reports/", AnalyticsReportsView.as_view(), name="analytics_reports"),
     # Users / Clients
@@ -25,5 +23,4 @@ urlpatterns = [
 ]
 
 if getattr(settings, "CODEX_ALLAUTH_ENABLED", False):
-
     urlpatterns.insert(2, path("", include("allauth.urls")))

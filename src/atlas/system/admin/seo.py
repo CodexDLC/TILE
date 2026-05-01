@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
-from unfold.admin import ModelAdmin
+from system.admin.translation import UnfoldTabbedTranslationAdmin
 
 from ..models.seo import StaticPageSeo
 
 
 @admin.register(StaticPageSeo)
-class StaticPageSeoAdmin(ModelAdmin):
+class StaticPageSeoAdmin(UnfoldTabbedTranslationAdmin):
     """Admin for static page SEO entries."""
 
     list_display = ("page_key", "seo_title", "updated_at")
@@ -14,16 +14,9 @@ class StaticPageSeoAdmin(ModelAdmin):
     search_fields = ("seo_title", "seo_description")
 
     fieldsets = (
-        (None, {
-            "fields": ("page_key",)
-        }),
-        (_("SEO Мета-теги"), {
-            "fields": ("seo_title", "seo_description", "seo_image")
-        }),
-        (_("Системная информация"), {
-            "fields": ("created_at", "updated_at"),
-            "classes": ("collapse",)
-        }),
+        (None, {"fields": ("page_key",)}),
+        (_("SEO Мета-теги"), {"fields": ("seo_title", "seo_description", "seo_image")}),
+        (_("Системная информация"), {"fields": ("created_at", "updated_at"), "classes": ("collapse",)}),
     )
 
     readonly_fields = ("created_at", "updated_at")

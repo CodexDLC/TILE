@@ -25,6 +25,7 @@ TEMPLATES = [
                 "cabinet.context_processors.cabinet",
                 "cabinet.context_processors.notifications",
                 "system.context_processors.email_settings",
+                "system.context_processors.site_context",
             ],
         },
     },

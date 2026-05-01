@@ -55,8 +55,14 @@ class Migration(migrations.Migration):
                 ("tiktok_url", models.URLField(blank=True, verbose_name="TikTok URL")),
                 ("twitter_url", models.URLField(blank=True, verbose_name="Twitter (X) URL")),
                 ("pinterest_url", models.URLField(blank=True, verbose_name="Pinterest URL")),
-                ("google_analytics_id", models.CharField(blank=True, max_length=50, verbose_name="Google Analytics ID")),
-                ("google_tag_manager_id", models.CharField(blank=True, max_length=50, verbose_name="Google Tag Manager ID")),
+                (
+                    "google_analytics_id",
+                    models.CharField(blank=True, max_length=50, verbose_name="Google Analytics ID"),
+                ),
+                (
+                    "google_tag_manager_id",
+                    models.CharField(blank=True, max_length=50, verbose_name="Google Tag Manager ID"),
+                ),
                 ("facebook_pixel_id", models.CharField(blank=True, max_length=50, verbose_name="Facebook Pixel ID")),
                 ("tiktok_pixel_id", models.CharField(blank=True, max_length=50, verbose_name="TikTok Pixel ID")),
                 ("app_mode_enabled", models.BooleanField(default=False, verbose_name="App Mode Enabled")),
@@ -96,7 +102,15 @@ class Migration(migrations.Migration):
                 ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
                 ("created_at", models.DateTimeField(auto_now_add=True, verbose_name="Created at")),
                 ("updated_at", models.DateTimeField(auto_now=True, verbose_name="Updated at")),
-                ("key", models.CharField(help_text="Unique identifier for the content piece.", max_length=255, unique=True, verbose_name="Key")),
+                (
+                    "key",
+                    models.CharField(
+                        help_text="Unique identifier for the content piece.",
+                        max_length=255,
+                        unique=True,
+                        verbose_name="Key",
+                    ),
+                ),
                 ("content", models.TextField(blank=True, help_text="The translated content.", verbose_name="Content")),
             ],
         ),
