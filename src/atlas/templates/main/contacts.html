@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {{ site_settings.company_name|default:"Atlas" }} | {% trans "Contacts" %}
+{% endblock title %}
+
+{% block body_class %}page-contacts{% endblock body_class %}
+
+{% block content %}
+    <section class="section">
+        <div class="section-head">
+            <div>
+                <span class="section-label">{% trans "Contact surface" %}</span>
+                <h1 class="section-title">{% trans "A production-ready contact page shell for Atlas." %}</h1>
+            </div>
+            <p class="t-lead">{% trans "This page is still simple, but it now uses the same editorial foundation and is ready to receive HTMX-powered forms or CMS-driven contact blocks later." %}</p>
+        </div>
+
+        <div class="contact-shell">
+            <div class="contact-intro">
+                <div class="contact-card">
+                    <h2 class="card-title">{% trans "Reach the editorial team" %}</h2>
+                    <p class="card-description">{% trans "Keep operational contact data in shared site settings today, then replace or extend this area with structured content and dynamic form fragments when the public platform grows." %}</p>
+                </div>
+
+                <div class="contact-info">
+                    {% if site_settings.phone %}
+                        <div class="contact-card">
+                            <div class="contact-item">
+                                <span class="contact-icon">{% trans "01" %}</span>
+                                <div>
+                                    <div class="footer-kicker">{% trans "Phone" %}</div>
+                                    <a href="tel:{{ site_settings.phone }}" class="contact-link">{{ site_settings.phone }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if site_settings.email %}
+                        <div class="contact-card">
+                            <div class="contact-item">
+                                <span class="contact-icon">{% trans "02" %}</span>
+                                <div>
+                                    <div class="footer-kicker">{% trans "Email" %}</div>
+                                    <a href="mailto:{{ site_settings.email }}" class="contact-link">{{ site_settings.email }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <span class="section-label">{% trans "Form placeholder" %}</span>
+                <h2 class="card-title">{% trans "Ready for an HTMX-backed form block" %}</h2>
+                <p class="card-description">{% trans "Keep the public view thin: render the shell here, and later load or submit the actual form through selectors, forms, and HTMX partials without pushing business logic into the view." %}</p>
+                <p class="form-note">{% trans "When the real contact workflow arrives, this container can become the stable target for validation and success/error partial swaps." %}</p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,103 @@
+.breadcrumb-bar {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 60;
+    background: rgba(239, 231, 213, 0.92);
+    border-bottom: 1px solid var(--line-soft);
+    backdrop-filter: blur(10px);
+}
+
+.breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    min-height: 3.5rem;
+}
+
+.crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    align-items: center;
+    font-size: var(--text-meta);
+    letter-spacing: 0.04em;
+}
+
+.crumbs a {
+    color: var(--ink-muted);
+}
+
+.crumbs a:hover {
+    color: var(--bronze);
+}
+
+.crumbs .sep {
+    opacity: 0.5;
+}
+
+.crumbs .current {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.view-switch,
+.tabs-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.1875rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: rgba(250, 246, 236, 0.92);
+}
+
+.view-switch button,
+.tabs-list button,
+.layer-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+}
+
+.view-switch button.active,
+.view-switch button[aria-pressed="true"],
+.tabs-list button.active,
+.tabs-list button[aria-selected="true"],
+.layer-tab.active,
+.layer-tab[aria-selected="true"] {
+    color: var(--bg-paper);
+    background: var(--ink);
+}
+
+.view-switch button:hover,
+.tabs-list button:hover,
+.layer-tab:hover {
+    color: var(--ink);
+}
+
+.tabs-panel,
+.layer-content {
+    display: none;
+}
+
+.tabs-panel.is-active,
+.layer-content.active {
+    display: block;
+}
+
+@media (max-width: 42.5rem) {
+    .breadcrumb-inner {
+        align-items: flex-start;
+        padding-block: var(--sp-4);
+    }
+}

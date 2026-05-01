@@ -1,0 +1,43 @@
+<style>
+    :root {
+        --bg-body: #f5efe3;
+        --text-main: #1a1d23;
+        --line-soft: rgba(26, 29, 35, 0.06);
+        --header-height: 84px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background-color: var(--bg-body);
+        color: var(--text-main);
+        font-family: "Inter", system-ui, sans-serif;
+        overflow-x: hidden;
+    }
+
+    .site-wrapper {
+        min-height: 100vh;
+    }
+
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        min-height: var(--header-height);
+        background: rgba(245, 239, 227, 0.9);
+        border-bottom: 1px solid var(--line-soft);
+    }
+
+    .header-inner,
+    .container {
+        width: min(calc(100% - 48px), 1400px);
+        margin-inline: auto;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+</style>

@@ -1,0 +1,103 @@
+.card {
+    display: grid;
+    gap: var(--sp-4);
+    height: 100%;
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-card);
+    background: linear-gradient(180deg, rgba(250, 246, 236, 0.92), rgba(250, 246, 236, 0.7));
+    transition: transform var(--dur-ui) var(--ease-card), border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-0.1875rem);
+    border-color: var(--line);
+}
+
+.card-title {
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.card-description {
+    color: var(--ink-muted);
+}
+
+.feature-icon,
+.card-index {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--bronze);
+}
+
+.destination-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 24rem;
+    border-radius: var(--radius-card);
+    background: linear-gradient(180deg, var(--forest) 0%, var(--forest-dark) 100%);
+    color: var(--on-dark);
+}
+
+.destination-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(15, 24, 20, 0.12), rgba(15, 24, 20, 0.84)),
+        radial-gradient(circle at 80% 20%, rgba(166, 122, 63, 0.28), transparent 28%);
+}
+
+.destination-card-body {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    align-content: end;
+    gap: var(--sp-4);
+    min-height: 100%;
+    padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.destination-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    color: var(--on-dark-muted);
+    font-size: var(--text-meta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.destination-card-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.destination-card-copy {
+    max-width: 30rem;
+    color: var(--on-dark-muted);
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--card-gap);
+}
+
+.destination-grid > *:first-child {
+    grid-column: span 7;
+}
+
+.destination-grid > *:not(:first-child) {
+    grid-column: span 5;
+}
+
+@media (max-width: 70rem) {
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-grid > *:first-child,
+    .destination-grid > *:not(:first-child) {
+        grid-column: auto;
+    }
+}

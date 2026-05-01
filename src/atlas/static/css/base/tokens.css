@@ -1,0 +1,134 @@
+:root {
+    --bg: #f5efe3;
+    --bg-warm: #efe7d5;
+    --bg-paper: #faf6ec;
+    --bg-tint: rgba(250, 246, 236, 0.82);
+
+    --ink: #1a1d23;
+    --ink-soft: #3a3d44;
+    --ink-muted: #6b6860;
+
+    --bronze: #a67a3f;
+    --bronze-deep: #8b6330;
+
+    --forest: #2c3e3a;
+    --forest-deep: #1a2520;
+    --forest-dark: #0f1814;
+
+    --line: rgba(26, 29, 35, 0.12);
+    --line-soft: rgba(26, 29, 35, 0.06);
+
+    --on-dark: #faf6ec;
+    --on-dark-muted: rgba(250, 246, 236, 0.68);
+
+    --color-page-bg: var(--bg);
+    --color-section-alt: var(--bg-warm);
+    --color-card-bg: var(--bg-paper);
+    --color-text-primary: var(--ink);
+    --color-text-secondary: var(--ink-soft);
+    --color-text-muted: var(--ink-muted);
+    --color-accent: var(--bronze);
+    --color-accent-hover: var(--bronze-deep);
+    --color-dark-section: var(--forest);
+    --color-border: var(--line);
+    --color-border-subtle: var(--line-soft);
+
+    --font-serif: "Fraunces", Georgia, serif;
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-quote: "Playfair Display", Georgia, serif;
+
+    --text-hero: clamp(3.8rem, 9vw, 8.25rem);
+    --text-display: clamp(2.6rem, 5vw, 4rem);
+    --text-section: clamp(2.3rem, 4vw, 3.5rem);
+    --text-article: clamp(2.15rem, 4vw, 3.25rem);
+    --text-sub: clamp(1.55rem, 2.8vw, 2rem);
+    --text-lead: 1.375rem;
+    --text-body-lg: 1.1875rem;
+    --text-body: 1rem;
+    --text-body-sm: 0.9375rem;
+    --text-meta: 0.8125rem;
+    --text-label: 0.75rem;
+    --text-micro: 0.6875rem;
+
+    --lh-hero: 0.92;
+    --lh-display: 1;
+    --lh-article: 1.05;
+    --lh-sub: 1.15;
+    --lh-body: 1.65;
+    --lh-body-std: 1.6;
+    --lh-quote: 1.3;
+    --lh-tight: 1.2;
+
+    --ls-label: 0.24em;
+    --ls-meta: 0.16em;
+    --ls-nav: 0.08em;
+    --ls-btn: 0.16em;
+    --ls-chapter: 0.04em;
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi: 600;
+
+    --sp-1: 0.25rem;
+    --sp-2: 0.375rem;
+    --sp-3: 0.5rem;
+    --sp-4: 0.75rem;
+    --sp-5: 1rem;
+    --sp-6: 1.25rem;
+    --sp-7: 1.5rem;
+    --sp-8: 2rem;
+    --sp-9: 2.5rem;
+    --sp-10: 3.75rem;
+    --sp-11: 5rem;
+    --sp-12: 6.25rem;
+    --sp-13: 7.5rem;
+
+    --section-pad-v: clamp(4.5rem, 8vw, 7.5rem);
+    --section-pad-h: clamp(1.5rem, 4vw, 2.5rem);
+    --content-max-w: 87.5rem;
+    --editorial-w: 42.5rem;
+    --card-gap: 1.5rem;
+    --header-height: 5.25rem;
+
+    --radius-card: 0.375rem;
+    --radius-pill: 999px;
+
+    --shadow-none: none;
+    --blur-header: blur(12px);
+
+    --ease-card: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-ui: ease;
+    --dur-fast: 0.2s;
+    --dur-ui: 0.3s;
+    --dur-image: 0.6s;
+    --dur-slow: 0.8s;
+
+    /* Compatibility aliases for legacy templates */
+    --primary-color: var(--bronze);
+    --primary-hover: var(--bronze-deep);
+    --secondary-color: var(--ink-muted);
+    --text-main: var(--ink);
+    --text-muted: var(--ink-muted);
+    --bg-body: var(--bg);
+    --bg-white: var(--bg-paper);
+    --border-color: var(--line);
+    --font-main: var(--font-sans);
+    --font-size-base: var(--text-body);
+    --line-height-base: var(--lh-body-std);
+    --spacing-xs: var(--sp-1);
+    --spacing-sm: var(--sp-3);
+    --spacing-md: var(--sp-5);
+    --spacing-lg: var(--sp-7);
+    --spacing-xl: var(--sp-8);
+    --spacing-2xl: var(--sp-11);
+    --container-max: var(--content-max-w);
+    --container-padding: var(--section-pad-h);
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --shadow-sm: var(--shadow-none);
+    --shadow-md: var(--shadow-none);
+    --transition-fast: var(--dur-fast) var(--ease-ui);
+    --transition-base: var(--dur-ui) var(--ease-ui);
+}

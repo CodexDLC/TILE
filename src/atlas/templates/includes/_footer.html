@@ -1,0 +1,54 @@
+{% load i18n static %}
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <span class="footer-kicker">{% trans "Atlas editorial shell" %}</span>
+                <h3 class="footer-brand">{{ site_settings.company_name|default:"Atlas" }}</h3>
+                <p class="footer-copy">{{ site_settings.site_description|default:"A DB-driven travel publication shaped around reusable page blocks and long-form editorial rhythm." }}</p>
+                <div class="footer-socials">
+                    {% if site_settings.instagram_url %}
+                        <a href="{{ site_settings.instagram_url }}" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+                    {% endif %}
+                    {% if site_settings.facebook_url %}
+                        <a href="{{ site_settings.facebook_url }}" class="footer-link" target="_blank" rel="noopener">Facebook</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-kicker">{% trans "Navigation" %}</span>
+                <nav class="footer-links">
+                    <a href="{% url 'home' %}" class="footer-link">{% trans "Home" %}</a>
+                    <a href="{% url 'contacts' %}" class="footer-link">{% trans "Contacts" %}</a>
+                </nav>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-kicker">{% trans "Contact" %}</span>
+                <div class="footer-links">
+                    {% if site_settings.phone %}
+                        <div class="footer-contact-item">
+                            <span class="footer-kicker">{% trans "Phone" %}</span>
+                            <a href="tel:{{ site_settings.phone }}" class="footer-link">{{ site_settings.phone }}</a>
+                        </div>
+                    {% endif %}
+                    {% if site_settings.email %}
+                        <div class="footer-contact-item">
+                            <span class="footer-kicker">{% trans "Email" %}</span>
+                            <a href="mailto:{{ site_settings.email }}" class="footer-link">{{ site_settings.email }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; {% now "Y" %} {{ site_settings.company_name|default:"Atlas" }}.</p>
+            <div class="footer-legal">
+                <a href="{% url 'account_login' %}" class="footer-link">{% trans "Management" %}</a>
+            </div>
+        </div>
+    </div>
+</footer>

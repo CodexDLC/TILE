@@ -1,0 +1,65 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    min-height: 2.875rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    font-weight: var(--fw-semi);
+    letter-spacing: var(--ls-btn);
+    text-transform: uppercase;
+    transition: transform var(--dur-ui) var(--ease-card), color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    color: var(--on-dark);
+    background: var(--bronze);
+    border-color: var(--bronze);
+}
+
+.btn-primary:hover {
+    color: var(--on-dark);
+    background: var(--bronze-deep);
+    border-color: var(--bronze-deep);
+}
+
+.btn-outline {
+    color: var(--ink);
+    background: transparent;
+    border-color: var(--line);
+}
+
+.btn-outline:hover {
+    color: var(--ink);
+    border-color: var(--bronze);
+    background: rgba(166, 122, 63, 0.08);
+}
+
+.btn-ghost-on-dark {
+    color: var(--on-dark);
+    border-color: rgba(250, 246, 236, 0.24);
+    background: rgba(250, 246, 236, 0.08);
+}
+
+.btn-ghost-on-dark:hover {
+    color: var(--forest);
+    background: var(--bg-paper);
+    border-color: var(--bg-paper);
+}
+
+.btn-lg {
+    min-height: 3.25rem;
+    padding-inline: 1.875rem;
+}
+
+.btn-block {
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+.alert {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-5) var(--sp-6);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--bronze);
+    background: rgba(250, 246, 236, 0.9);
+    color: var(--ink-soft);
+    border-radius: var(--radius-card);
+}
+
+.alert-success {
+    border-left-color: #50735d;
+}
+
+.alert-warning {
+    border-left-color: #b1822f;
+}
+
+.alert-error,
+.alert-danger {
+    border-left-color: #8f4e40;
+}

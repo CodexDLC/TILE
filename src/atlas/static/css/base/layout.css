@@ -1,0 +1,118 @@
+.site-wrapper {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.container,
+.section,
+.hero-content,
+.breadcrumb-inner,
+.journey-inner,
+.footer-inner,
+.header-inner {
+    width: min(100% - (var(--section-pad-h) * 2), var(--content-max-w));
+    margin-inline: auto;
+}
+
+.section {
+    position: relative;
+    z-index: 2;
+    padding-block: var(--section-pad-v);
+}
+
+.section-alt {
+    background: var(--bg-warm);
+}
+
+.section-paper {
+    background: linear-gradient(180deg, rgba(250, 246, 236, 0.9), rgba(250, 246, 236, 0.72));
+}
+
+.section-head,
+.section-header {
+    display: grid;
+    gap: var(--sp-6);
+    margin-bottom: clamp(2.25rem, 4vw, 3.75rem);
+}
+
+.section-head {
+    grid-template-columns: minmax(0, 40rem) minmax(0, 26rem);
+    align-items: end;
+    justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--card-gap);
+}
+
+.col-span-4 {
+    grid-column: span 4;
+}
+
+.col-span-6 {
+    grid-column: span 6;
+}
+
+.col-span-8 {
+    grid-column: span 8;
+}
+
+.col-span-12 {
+    grid-column: span 12;
+}
+
+.editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--editorial-w)) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+.stack-lg > * + * {
+    margin-top: var(--sp-7);
+}
+
+.stack-xl > * + * {
+    margin-top: var(--sp-8);
+}
+
+.cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+}
+
+.messages-container {
+    position: relative;
+    z-index: 4;
+    margin-top: var(--sp-6);
+}
+
+@media (max-width: 70rem) {
+    .editorial,
+    .section-head {
+        grid-template-columns: 1fr;
+    }
+
+    .col-span-4,
+    .col-span-6,
+    .col-span-8 {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 42.5rem) {
+    .section {
+        padding-block: clamp(3.75rem, 10vw, 5rem);
+    }
+}

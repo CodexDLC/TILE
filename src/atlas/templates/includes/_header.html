@@ -1,0 +1,57 @@
+{% load static %}
+{% load i18n %}
+
+<header class="header" x-data="{ mobileMenuOpen: false }" @keydown.escape.window="mobileMenuOpen = false">
+    <div class="header-inner">
+        <a href="{% url 'home' %}" class="logo-link" aria-label="{{ site_settings.company_name|default:'Atlas' }}">
+            {% if email_settings.logo_url %}
+                <img src="{{ email_settings.logo_url }}" alt="{{ site_settings.company_name }}" class="logo-img">
+            {% else %}
+                <span class="logo-text">{{ site_settings.company_name|default:"Atlas" }}</span>
+            {% endif %}
+        </a>
+
+        <nav class="nav-desktop" aria-label="{% trans 'Primary navigation' %}">
+            <a href="{% url 'home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">{% trans "Home" %}</a>
+            <a href="{% url 'contacts' %}" class="nav-link {% if 'contacts' in request.path %}active{% endif %}">{% trans "Contacts" %}</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="burger-btn" @click="mobileMenuOpen = true" :aria-expanded="mobileMenuOpen.toString()" aria-controls="atlas-mobile-menu" aria-label="{% trans 'Open menu' %}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <template x-teleport="body">
+        <div id="atlas-mobile-menu" class="mobile-menu" x-show="mobileMenuOpen" x-cloak>
+            <div class="mobile-menu-backdrop" @click="mobileMenuOpen = false" aria-hidden="true"></div>
+            <div class="mobile-menu-panel">
+                <div class="mobile-menu-header">
+                    <span class="logo-text">{{ site_settings.company_name|default:"Atlas" }}</span>
+                    <button class="close-btn" @click="mobileMenuOpen = false" aria-label="{% trans 'Close menu' %}">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <nav class="mobile-nav" aria-label="{% trans 'Mobile navigation' %}">
+                    <a href="{% url 'home' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Home" %}</a>
+                    <a href="{% url 'contacts' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Contacts" %}</a>
+                </nav>
+
+                <div class="mobile-menu-meta">
+                    {% if site_settings.site_description %}
+                        <p class="text-muted">{{ site_settings.site_description }}</p>
+                    {% endif %}
+                    {% if site_settings.phone %}
+                        <a href="tel:{{ site_settings.phone }}" class="btn btn-primary btn-block">{{ site_settings.phone }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </template>
+</header>

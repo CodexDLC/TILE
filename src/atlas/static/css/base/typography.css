@@ -1,0 +1,124 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-tight);
+    letter-spacing: -0.02em;
+}
+
+p {
+    margin: 0;
+}
+
+.t-hero,
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-hero);
+    line-height: var(--lh-hero);
+    letter-spacing: -0.04em;
+}
+
+.t-display {
+    font-family: var(--font-serif);
+    font-size: var(--text-display);
+    line-height: var(--lh-display);
+}
+
+.t-section,
+.section-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-section);
+    line-height: var(--lh-display);
+}
+
+.t-article,
+.article-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-article);
+    line-height: var(--lh-article);
+}
+
+.t-sub {
+    font-family: var(--font-serif);
+    font-size: var(--text-sub);
+    line-height: var(--lh-sub);
+}
+
+.t-editorial,
+.article-body {
+    font-family: var(--font-serif);
+    font-size: var(--text-body-lg);
+    line-height: var(--lh-body);
+    color: var(--ink-soft);
+}
+
+.t-body {
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--lh-body-std);
+}
+
+.t-lead {
+    font-family: var(--font-serif);
+    font-size: var(--text-lead);
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ink-soft);
+}
+
+.t-label,
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-label);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--bronze);
+}
+
+.section-label::before {
+    content: "";
+    width: 2.25rem;
+    height: 1px;
+    background: currentColor;
+}
+
+.t-meta {
+    font-family: var(--font-sans);
+    font-size: var(--text-micro);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-meta);
+    text-transform: uppercase;
+    color: var(--ink-muted);
+}
+
+.t-pullquote,
+.pull-quote {
+    font-family: var(--font-quote);
+    font-style: italic;
+    line-height: var(--lh-quote);
+}
+
+.t-italic,
+.accent,
+.italic {
+    color: var(--bronze);
+    font-style: italic;
+    font-weight: var(--fw-light);
+}
+
+.text-muted {
+    color: var(--ink-muted);
+}
+
+.text-center {
+    text-align: center;
+}

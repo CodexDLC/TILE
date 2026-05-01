@@ -1,0 +1,23 @@
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    color: var(--ink);
+    background: var(--bg-paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid rgba(166, 122, 63, 0.18);
+    outline-offset: 2px;
+    border-color: var(--bronze);
+}
+
+.form-note {
+    color: var(--ink-muted);
+    font-size: var(--text-body-sm);
+}
