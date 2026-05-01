@@ -1,12 +1,12 @@
 from django.contrib import admin
-def _(message: str) -> str:
-    return message
+from django.utils.translation import gettext_lazy as _
+from unfold.admin import ModelAdmin
 
 from ..models import StaticTranslation
 
 
 @admin.register(StaticTranslation)
-class StaticTranslationAdmin(admin.ModelAdmin):
+class StaticTranslationAdmin(ModelAdmin):
     list_display = ("key", "updated_at")
     search_fields = ("key", "content")
     readonly_fields = ("created_at", "updated_at")

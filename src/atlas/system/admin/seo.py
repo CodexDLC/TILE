@@ -1,12 +1,12 @@
 from django.contrib import admin
-def _(message: str) -> str:
-    return message
+from django.utils.translation import gettext_lazy as _
+from unfold.admin import ModelAdmin
 
 from ..models.seo import StaticPageSeo
 
 
 @admin.register(StaticPageSeo)
-class StaticPageSeoAdmin(admin.ModelAdmin):
+class StaticPageSeoAdmin(ModelAdmin):
     """Admin for static page SEO entries."""
 
     list_display = ("page_key", "seo_title", "updated_at")

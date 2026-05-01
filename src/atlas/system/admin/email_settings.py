@@ -1,15 +1,14 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+from unfold.admin import ModelAdmin
 
 from ..models import EmailSettings
 
 
-def _(message: str) -> str:
-    return message
-
-
 @admin.register(EmailSettings)
-class EmailSettingsAdmin(admin.ModelAdmin):
+class EmailSettingsAdmin(ModelAdmin):
     list_display = ("email_from", "email_sender_name", "site_base_url")
+    search_fields = ("email_from", "email_sender_name", "email_reply_to", "site_base_url")
 
     fieldsets = (
         (
@@ -20,7 +19,7 @@ class EmailSettingsAdmin(admin.ModelAdmin):
                     "email_sender_name",
                     "email_reply_to",
                 )
-            },
+            }
         ),
         (
             _("Messaging URLs"),
@@ -33,7 +32,7 @@ class EmailSettingsAdmin(admin.ModelAdmin):
                     "url_path_reschedule",
                     "url_path_contact_form",
                 )
-            },
+            }
         ),
     )
 
