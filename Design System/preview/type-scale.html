@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 28px; }
+.row { display: flex; align-items: baseline; gap: 20px; padding: 10px 0; border-bottom: 1px solid rgba(26,29,35,0.06); }
+.row:last-child { border-bottom: none; }
+.meta { min-width: 120px; font-size: 10px; color: #6B6860; letter-spacing: 0.08em; line-height: 1.5; flex-shrink: 0; }
+.meta strong { display: block; color: #A67A3F; font-weight: 600; }
+.sample { color: #1A1D23; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="meta"><strong>Hero Title</strong>clamp(56,9vw,132px)<br>Fraunces 400 / lh 0.92</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-size:clamp(36px,6vw,72px);line-height:0.92;letter-spacing:-0.04em;font-variation-settings:'opsz' 144">Bavaria, a <em style="font-style:italic;color:#A67A3F;font-weight:300">kingdom</em></div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Section Title</strong>56px<br>Fraunces 400 / lh 1.0</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-size:42px;line-height:1.0;letter-spacing:-0.02em">The Sixteen <em style="font-style:italic;font-weight:300;color:#A67A3F">States</em></div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Article Title</strong>52px<br>Fraunces 400 / lh 1.05</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-size:36px;line-height:1.05;letter-spacing:-0.02em">A geography of <em style="font-style:italic;font-weight:300;color:#A67A3F">myth</em></div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Subsection</strong>32px<br>Fraunces 400 / lh 1.15</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-size:26px;line-height:1.15">Neuschwanstein Castle</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Pull Quote</strong>32px<br>Playfair Italic / lh 1.3</div>
+    <div class="sample" style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;line-height:1.3;color:#3A3D44">"Bavaria is a kind of paradise."</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Hero Subtitle</strong>22px<br>Fraunces 300i / lh 1.5</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-style:italic;font-size:18px;font-weight:300;line-height:1.5;color:#3A3D44">Where mad kings built impossible castles, and every village remembers a legend older than the Alps.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Editorial Body</strong>19px<br>Fraunces 400 / lh 1.65</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-size:16px;line-height:1.65;color:#3A3D44">Bavaria is not one place but seven, each carrying its own dialect, its own cuisine, its own stubborn idea of what it means to be Bavarian.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Standard Body</strong>16px<br>Inter 400 / lh 1.6</div>
+    <div class="sample" style="font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;color:#3A3D44">Used for UI text, navigation, and functional copy. Clear and legible at all sizes.</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Section Label</strong>12px<br>Inter 500 / ls 0.24em / CAPS</div>
+    <div class="sample" style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;font-weight:500;color:#A67A3F;display:flex;align-items:center;gap:10px"><span style="display:inline-block;width:28px;height:1px;background:#A67A3F"></span>The Land &amp; Its Soul</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Chapter / N°</strong>13px<br>Fraunces Italic / ls 0.04em</div>
+    <div class="sample" style="font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:#A67A3F;letter-spacing:0.04em">N°01 · Oberbayern &nbsp;·&nbsp; Chapter Seven · Southern Germany</div>
+  </div>
+  <div class="row">
+    <div class="meta"><strong>Metadata</strong>11px<br>Inter 500 / ls 0.16em / CAPS</div>
+    <div class="sample" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500;color:#6B6860">38 Places &nbsp;·&nbsp; Alpine &nbsp;·&nbsp; All Year</div>
+  </div>
+</body>
+</html>

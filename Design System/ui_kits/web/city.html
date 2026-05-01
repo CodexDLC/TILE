@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munich — Atlas Editorial</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+.page-nav { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--ink); color: var(--bg-paper); border-radius: 12px; padding: 14px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.page-nav a { color: var(--bronze); text-decoration: none; display: block; margin-bottom: 6px; }
+.page-nav a:last-child { margin-bottom: 0; }
+.page-nav-label { opacity: 0.4; margin-bottom: 10px; font-size: 9px; }
+
+/* City-specific layouts */
+.city-layout { display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start; }
+.quick-facts { position: sticky; top: 160px; }
+.facts-card { background: var(--bg-paper); border: 1px solid var(--line-soft); border-radius: 4px; overflow: hidden; }
+.facts-header { background: var(--forest); color: var(--bg-paper); padding: 20px 24px; }
+.facts-header h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 300; font-style: italic; }
+.facts-header p { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bronze); margin-top: 4px; font-weight: 600; }
+.facts-body { padding: 0; }
+.fact-row { display: flex; align-items: center; gap: 16px; padding: 14px 24px; border-bottom: 1px solid var(--line-soft); }
+.fact-row:last-child { border-bottom: none; }
+.fact-icon { width: 32px; height: 32px; border-radius: 50%; background: rgba(166,122,63,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.fact-icon svg { width: 14px; height: 14px; color: var(--bronze); }
+.fact-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; margin-bottom: 2px; }
+.fact-val { font-family: 'Fraunces', serif; font-size: 15px; color: var(--ink); }
+
+/* Neighborhood tabs */
+.nbhd-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
+.nbhd-tab { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 14px 22px; border: none; background: transparent; color: var(--ink-muted); cursor: pointer; position: relative; transition: color 0.2s; letter-spacing: 0.04em; }
+.nbhd-tab:hover { color: var(--ink); }
+.nbhd-tab.active { color: var(--ink); }
+.nbhd-tab.active::after { content: ''; position: absolute; bottom: -1px; left: 22px; right: 22px; height: 2px; background: var(--bronze); }
+.nbhd-content { display: none; }
+.nbhd-content.active { display: block; }
+.nbhd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.nbhd-desc { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 24px; }
+.nbhd-place { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+.nbhd-place:last-child { border-bottom: none; }
+.nbhd-place-img { width: 80px; height: 80px; border-radius: 2px; object-fit: cover; flex-shrink: 0; }
+.nbhd-place-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; margin-bottom: 4px; }
+.nbhd-place-desc { font-size: 13px; color: var(--ink-muted); font-family: 'Fraunces', serif; font-style: italic; line-height: 1.4; }
+
+/* Places list */
+.places-list { display: flex; flex-direction: column; gap: 0; }
+.place-row { display: flex; gap: 24px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line-soft); cursor: pointer; transition: background 0.2s; }
+.place-row:hover { background: var(--bg-paper); margin: 0 -24px; padding: 20px 24px; border-radius: 4px; }
+.place-row-img { width: 100px; height: 100px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+.place-row-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--bronze); min-width: 32px; text-align: right; flex-shrink: 0; }
+.place-row-body { flex: 1; min-width: 0; }
+.place-row-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 4px; }
+.place-row-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.5; margin-bottom: 8px; font-family: 'Fraunces', serif; font-style: italic; }
+.place-row-meta { display: flex; gap: 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+.place-row-badge { display: inline-block; padding: 3px 10px; background: var(--bg-warm); border-radius: 100px; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; flex-shrink: 0; }
+
+/* Accordion */
+.accordion { border-top: 1px solid var(--line); }
+.accordion-item { border-bottom: 1px solid var(--line); }
+.accordion-trigger { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: pointer; width: 100%; background: none; border: none; text-align: left; }
+.accordion-trigger-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--ink); }
+.accordion-icon { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
+.accordion-icon svg { width: 14px; height: 14px; transition: transform 0.3s; }
+.accordion-item.open .accordion-icon { background: var(--ink); border-color: var(--ink); color: var(--bg-paper); }
+.accordion-item.open .accordion-icon svg { transform: rotate(45deg); }
+.accordion-body { display: none; padding-bottom: 28px; font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.65; color: var(--ink-soft); }
+.accordion-item.open .accordion-body { display: block; }
+
+/* Map placeholder */
+.map-placeholder { width: 100%; height: 400px; background: var(--forest); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.map-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(166,122,63,0.15) 0%, transparent 70%); }
+.map-label { color: var(--bg-paper); text-align: center; position: relative; z-index: 1; }
+.map-label p { font-family: 'Fraunces', serif; font-size: 20px; font-style: italic; opacity: 0.7; margin-bottom: 8px; }
+.map-label span { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze); font-weight: 600; }
+
+@media (max-width: 1100px) {
+  .city-layout { grid-template-columns: 1fr; }
+  .quick-facts { position: static; }
+  .nbhd-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .place-row { flex-wrap: wrap; }
+  .nbhd-tabs { gap: 0; }
+  .nbhd-tab { padding: 12px 14px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="progress"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-mark"></div>Atlas <em style="font-style:italic;font-weight:400">Editorial</em></a>
+    <nav class="nav">
+      <a href="country.html">Countries</a>
+      <a href="region.html" class="active">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <div class="crumbs">
+      <a href="#">🌍 World</a><span class="sep">/</span>
+      <a href="#">Europe</a><span class="sep">/</span>
+      <a href="country.html">Germany</a><span class="sep">/</span>
+      <a href="region.html">Bavaria</a><span class="sep">/</span>
+      <span class="current">Munich</span>
+    </div>
+    <div class="view-switch">
+      <button class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Story</span></button>
+      <button><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-3 8 3 7-3V3l-7 3-8-3-7 3zM8 3v16M16 6v16"/></svg><span>Map</span></button>
+      <button onclick="window.location='grid-view.html'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Grid</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO: City (60vh, skyline silhouette) -->
+<section class="hero hero-sm">
+  <div class="hero-bg"></div>
+  <!-- Munich skyline silhouette -->
+  <svg class="hero-mountains" viewBox="0 0 1600 400" preserveAspectRatio="none" style="height:70%">
+    <defs>
+      <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2520" stop-opacity="0.2"/><stop offset="100%" stop-color="#0f1814" stop-opacity="1"/></linearGradient>
+    </defs>
+    <!-- Simplified Munich skyline: Frauenkirche towers, Rathaus, TV tower -->
+    <rect x="0" y="0" width="1600" height="400" fill="url(#sky1)"/>
+    <g fill="#0f1814" opacity="0.9">
+      <!-- Frauenkirche left tower -->
+      <rect x="380" y="180" width="32" height="220"/>
+      <ellipse cx="396" cy="178" rx="18" ry="30"/>
+      <!-- Frauenkirche right tower -->
+      <rect x="440" y="185" width="32" height="215"/>
+      <ellipse cx="456" cy="183" rx="18" ry="30"/>
+      <!-- Rathaus gable -->
+      <rect x="520" y="230" width="120" height="170"/>
+      <polygon points="520,230 580,180 640,230"/>
+      <rect x="570" y="180" width="20" height="50"/>
+      <!-- Buildings -->
+      <rect x="660" y="270" width="60" height="130"/>
+      <rect x="730" y="250" width="45" height="150"/>
+      <rect x="785" y="280" width="80" height="120"/>
+      <!-- Olympiaturm (TV tower) -->
+      <rect x="930" y="100" width="8" height="300"/>
+      <ellipse cx="934" cy="200" rx="20" ry="12"/>
+      <!-- More buildings -->
+      <rect x="1000" y="260" width="55" height="140"/>
+      <rect x="1065" y="240" width="70" height="160"/>
+      <rect x="1145" y="265" width="50" height="135"/>
+      <!-- Foreground row -->
+      <rect x="0" y="320" width="1600" height="80"/>
+    </g>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="hero-meta-chapter">Chapter Twelve</span>
+      <span class="hero-meta-dot"></span><span>Upper Bavaria</span>
+      <span class="hero-meta-dot"></span><span>Capital City</span>
+    </div>
+    <h1 class="hero-title" style="font-size:clamp(42px,6vw,88px)">Munich,<br>where <span class="accent">tradition</span><br>breathes still.</h1>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-val">1.5M</span><span class="hero-stat-lbl">Population</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">1158 CE</span><span class="hero-stat-lbl">Founded</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">520m</span><span class="hero-stat-lbl">Elevation</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">310 km²</span><span class="hero-stat-lbl">Area</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- MAIN CONTENT WITH SIDEBAR -->
+<section class="section" style="padding-top:80px">
+  <div class="city-layout">
+    <div>
+      <!-- NEIGHBORHOODS -->
+      <div class="section-label" style="margin-bottom:20px">Neighbourhoods</div>
+      <h2 class="article-title" style="margin-bottom:40px">Five quarters, five <span class="italic">stories</span>.</h2>
+
+      <div class="nbhd-tabs" id="nbhdTabs">
+        <button class="nbhd-tab active" data-nbhd="altstadt">Altstadt</button>
+        <button class="nbhd-tab" data-nbhd="schwabing">Schwabing</button>
+        <button class="nbhd-tab" data-nbhd="maxvorstadt">Maxvorstadt</button>
+        <button class="nbhd-tab" data-nbhd="haidhausen">Haidhausen</button>
+        <button class="nbhd-tab" data-nbhd="giesing">Giesing</button>
+      </div>
+
+      <!-- {% for nbhd in neighbourhoods %} -->
+      <div class="nbhd-content active" id="nbhd-altstadt">
+        <p class="nbhd-desc">The Altstadt is Munich's original heart — a grid of medieval lanes whose width was determined by the turning radius of a loaded wagon. At its centre, Marienplatz has functioned as market, execution ground, and gathering point for nine centuries. The Glockenspiel still performs daily at 11am, though what it celebrates is mainly itself.</p>
+        <div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Marienplatz</div><div class="nbhd-place-desc">Munich's central square since 1158, anchored by the neo-Gothic New Town Hall.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1541331931401-69ed6bd5ee15?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Viktualienmarkt</div><div class="nbhd-place-desc">A daily open-air market trading in sausages, cheese, and the particular rudeness that Munich considers hospitality.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Hofbräuhaus</div><div class="nbhd-place-desc">The world's most famous beer hall, built in 1589. Today it serves 10,000 litres daily.</div></div></div>
+        </div>
+      </div>
+
+      <div class="nbhd-content" id="nbhd-schwabing">
+        <p class="nbhd-desc">Schwabing was Munich's bohemian quarter — the neighbourhood where Thomas Mann wrote, where Kandinsky painted, where Lenin lived briefly before returning to Russia. Today it is expensive and respectable, but the cafés still remember their former inhabitants.</p>
+        <div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Englischer Garten</div><div class="nbhd-place-desc">Larger than Central Park. Nude sunbathers, a Japanese tea house, and surfers on the Eisbach wave.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Leopoldstrasse</div><div class="nbhd-place-desc">The boulevard of Schwabing — boutiques, cafés, and the Siegestor triumphal arch at its southern end.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1571197119669-a4a5bec6ce1d?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Wedekindplatz</div><div class="nbhd-place-desc">A square named for the playwright Frank Wedekind, surrounded by late-19th-century tenements.</div></div></div>
+        </div>
+      </div>
+
+      <div class="nbhd-content" id="nbhd-maxvorstadt">
+        <p class="nbhd-desc">Maxvorstadt is Munich's museum district — three of Germany's finest art museums within ten minutes' walk of each other. Ludwig I built it as a cultural statement, lining the Königsplatz with neoclassical temples to knowledge and beauty. The Ludwig-Maximilians-Universität dominates its eastern edge.</p>
+        <div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Deutsches Museum</div><div class="nbhd-place-desc">The world's largest science and technology museum, with 73,000 objects on display across 28 departments.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Alte Pinakothek</div><div class="nbhd-place-desc">European paintings from the 14th to 18th centuries. One of the world's oldest public galleries.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Königsplatz</div><div class="nbhd-place-desc">A neoclassical square built to Ludwig I's specifications, modelled on the Acropolis of Athens.</div></div></div>
+        </div>
+      </div>
+
+      <div class="nbhd-content" id="nbhd-haidhausen">
+        <p class="nbhd-desc">Haidhausen — east of the Isar — was Munich's working-class quarter until the 1980s, when artists and students arrived seeking cheap rents. The rents are no longer cheap, but the neighbourhood retains its particular mix of old beer halls and organic bakeries.</p>
+        <div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Gasteig</div><div class="nbhd-place-desc">Munich's cultural centre, home to the Philharmoniker and the city library.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Wiener Platz</div><div class="nbhd-place-desc">A neighbourhood market square with a permanent food market and Austrian-inflected cafés.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Müllersches Volksbad</div><div class="nbhd-place-desc">A Jugendstil public baths complex from 1901, still operating as a swimming pool.</div></div></div>
+        </div>
+      </div>
+
+      <div class="nbhd-content" id="nbhd-giesing">
+        <p class="nbhd-desc">Giesing is the Munich that postcards ignore — a southern working neighbourhood without tourist infrastructure. It is honest and unpolished, and for exactly this reason it is becoming rapidly fashionable.</p>
+        <div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1571897319516-3e267b16cc0a?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Giesinger Bräu</div><div class="nbhd-place-desc">A microbrewery in a former industrial building, serving unfiltered lagers to a loyal local following.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1599982603395-a06e81e13a39?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Heilig-Kreuz-Kirche</div><div class="nbhd-place-desc">A baroque church on a hill, with views over southern Munich's rooftops.</div></div></div>
+          <div class="nbhd-place"><img class="nbhd-place-img" src="https://images.unsplash.com/photo-1541331931401-69ed6bd5ee15?auto=format&fit=crop&w=200&q=80" alt=""><div><div class="nbhd-place-name">Perlach Forest</div><div class="nbhd-place-desc">A municipal forest beginning at Giesing's southern edge — a reminder that Munich was always a city beside a wilderness.</div></div></div>
+        </div>
+      </div>
+      <!-- {% endfor %} -->
+
+      <!-- TOP PLACES LIST -->
+      <div style="margin-top: 80px;">
+        <div class="section-label" style="margin-bottom:20px">Top Places in Munich</div>
+        <h2 class="article-title" style="margin-bottom:40px;font-size:40px">Twelve entries for the <span class="italic">considered</span> visitor.</h2>
+
+        <!-- {% for place in top_places %} -->
+        <div class="places-list">
+          <div class="place-row" onclick="window.location='place.html'">
+            <div class="place-row-num">N°01</div>
+            <img class="place-row-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=200&q=80" alt="">
+            <div class="place-row-body">
+              <div class="place-row-name">Marienplatz</div>
+              <div class="place-row-desc">The civic heart of Munich, presided over by the neo-Gothic Neues Rathaus and its daily Glockenspiel performance.</div>
+              <div class="place-row-meta"><span>City Square</span><span>Centre</span><span>U3/U6 Marienplatz</span></div>
+            </div>
+            <span class="place-row-badge">City Square</span>
+          </div>
+          <div class="place-row">
+            <div class="place-row-num">N°02</div>
+            <img class="place-row-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=200&q=80" alt="">
+            <div class="place-row-body">
+              <div class="place-row-name">Englischer Garten</div>
+              <div class="place-row-desc">375 hectares of parkland extending north through the city, with a Japanese tea house and a permanent surf wave.</div>
+              <div class="place-row-meta"><span>Park</span><span>Schwabing</span><span>U3/U6 Universität</span></div>
+            </div>
+            <span class="place-row-badge">Park</span>
+          </div>
+          <div class="place-row">
+            <div class="place-row-num">N°03</div>
+            <img class="place-row-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=200&q=80" alt="">
+            <div class="place-row-body">
+              <div class="place-row-name">Deutsches Museum</div>
+              <div class="place-row-desc">The world's largest science and technology museum on the Museumsinsel. Allow a full day minimum.</div>
+              <div class="place-row-meta"><span>Museum</span><span>Isarvorstadt</span><span>S-Bahn Isartor</span></div>
+            </div>
+            <span class="place-row-badge">Museum</span>
+          </div>
+          <div class="place-row">
+            <div class="place-row-num">N°04</div>
+            <img class="place-row-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=200&q=80" alt="">
+            <div class="place-row-body">
+              <div class="place-row-name">Hofbräuhaus</div>
+              <div class="place-row-desc">The most famous beer hall on earth. Arrive before noon or accept a forty-minute wait for a table.</div>
+              <div class="place-row-meta"><span>Beer Hall</span><span>Altstadt</span><span>U3/U6 Marienplatz</span></div>
+            </div>
+            <span class="place-row-badge">Beer Hall</span>
+          </div>
+          <div class="place-row">
+            <div class="place-row-num">N°05</div>
+            <img class="place-row-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=200&q=80" alt="">
+            <div class="place-row-body">
+              <div class="place-row-name">Nymphenburg Palace</div>
+              <div class="place-row-desc">The summer residence of the Wittelsbach kings, set in a formal garden of extraordinary symmetry.</div>
+              <div class="place-row-meta"><span>Palace</span><span>Neuhausen</span><span>Tram 17</span></div>
+            </div>
+            <span class="place-row-badge">Palace</span>
+          </div>
+          <div class="place-row">
+            <div class="place-row-num">N°06</div>
+            <img class="place-row-img" src="https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=200&q=80" alt="">
+            <div class="place-row-body">
+              <div class="place-row-name">BMW Welt</div>
+              <div class="place-row-desc">Part museum, part showroom, part architectural statement. The double-vortex building is worth visiting even if you dislike cars.</div>
+              <div class="place-row-meta"><span>Museum</span><span>Schwabing-Nord</span><span>U3 Olympiazentrum</span></div>
+            </div>
+            <span class="place-row-badge">Museum</span>
+          </div>
+        </div>
+        <!-- {% endfor %} -->
+      </div>
+
+      <!-- PRACTICAL ACCORDION -->
+      <div style="margin-top: 80px;">
+        <div class="section-label" style="margin-bottom:20px">Practical Information</div>
+        <h2 class="article-title" style="margin-bottom:40px;font-size:40px">What the <span class="italic">guidebooks</span> get right.</h2>
+
+        <div class="accordion" id="accordion">
+          <div class="accordion-item open">
+            <button class="accordion-trigger">
+              <span class="accordion-trigger-title">Transport</span>
+              <div class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+            </button>
+            <div class="accordion-body">
+              <p>Munich's MVV network integrates U-Bahn (subway), S-Bahn (suburban rail), trams, and buses under a single ticket system. A day pass (€9.20) covers unlimited travel within the inner zone, which includes all major sights. The S-Bahn connects the airport to the central station in 40 minutes. Tram 17 reaches Nymphenburg; the U6 connects the Olympiapark area to the city centre.</p>
+              <p style="margin-top:16px">Cycling is excellent. The city has 1,200km of dedicated cycle lanes and a public bike-share scheme (MVG Rad) with stations throughout.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span class="accordion-trigger-title">Where to Stay</span>
+              <div class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+            </button>
+            <div class="accordion-body">
+              <p><strong>Altstadt-Lehel:</strong> Central and expensive. Walking distance from Marienplatz, the museums, and the Englischer Garten. For travellers who want to be within ten minutes of everything.</p>
+              <p style="margin-top:12px"><strong>Schwabing:</strong> More residential, with better cafés and lower prices. A 20-minute walk or two-stop U-Bahn ride to the centre.</p>
+              <p style="margin-top:12px"><strong>Haidhausen:</strong> East of the Isar. Unpretentious, good restaurants, slightly cheaper. Fifteen minutes by U4/U5 to Marienplatz.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span class="accordion-trigger-title">Food &amp; Drink</span>
+              <div class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+            </button>
+            <div class="accordion-body">
+              <p>Munich takes its food seriously. The Viktualienmarkt has operated since 1807 and is the best place to understand what the city eats. Beer gardens open from April; the Biergarten in the Englischer Garten serves 7,000 guests. The Hofbräuhaus is mandatory but crowded; for quieter beer hall experience, try the Augustiner-Keller in Maxvorstadt.</p>
+              <p style="margin-top:12px">For Bavarian food without tourist markup: seek the neighbourhood Wirtshäuser (inns) in Haidhausen or Giesing.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger">
+              <span class="accordion-trigger-title">Day Trips</span>
+              <div class="accordion-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+            </button>
+            <div class="accordion-body">
+              <p><strong>Neuschwanstein Castle:</strong> 2 hours by train to Füssen, then bus or taxi. Book tickets 2 days in advance. Arrive early — the castle opens at 9am but queues form at 8.</p>
+              <p style="margin-top:12px"><strong>Zugspitze:</strong> 1.5 hours to Garmisch by regional train, then cogwheel railway or cable car to the summit. Germany's highest point at 2,962m.</p>
+              <p style="margin-top:12px"><strong>Salzburg:</strong> 90 minutes by regional train. Mozart's birthplace, the Hohensalzburg fortress, and the Altstadt's baroque churches.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAP PLACEHOLDER -->
+      <div style="margin-top: 80px;">
+        <div class="section-label" style="margin-bottom:20px">Map</div>
+        <h2 class="article-title" style="margin-bottom:28px;font-size:40px">Munich, <span class="italic">mapped</span>.</h2>
+        <div class="map-placeholder">
+          <div class="map-label">
+            <p>Interactive map loading…</p>
+            <span>Leaflet.js integration point</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK FACTS SIDEBAR -->
+    <div class="quick-facts">
+      <div class="facts-card">
+        <div class="facts-header">
+          <h3>Munich at a glance</h3>
+          <p>Quick Reference</p>
+        </div>
+        <div class="facts-body">
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div>
+            <div><div class="fact-label">Best Time</div><div class="fact-val">May – September</div></div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18C1.56 2.59 2.01 2 2.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L6.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="fact-label">Airport</div><div class="fact-val">MUC — 40min by S8</div></div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="fact-label">Language</div><div class="fact-val">German / Bavarian</div></div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><div class="fact-label">Time Zone</div><div class="fact-val">CET (UTC+1)</div></div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+            <div><div class="fact-label">Currency</div><div class="fact-val">Euro (€)</div></div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg></div>
+            <div><div class="fact-label">Elevation</div><div class="fact-val">520m above sea level</div></div>
+          </div>
+          <div class="fact-row">
+            <div class="fact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div><div class="fact-label">Population</div><div class="fact-val">1.5 million</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-strip">
+  <div class="journey-inner">
+    <div><div class="journey-label">Day Trips from Munich</div><h2 class="journey-title">Beyond the city: the <span class="italic">Alpine</span> hinterland.</h2></div>
+    <div>
+      <p class="journey-text">Neuschwanstein, Zugspitze, Königssee, Salzburg — Munich is a gateway, not just a destination. Our three-day extension routes the unhurried traveller through the landscapes that surround the city.</p>
+      <a href="#" class="journey-cta">Plan Your Extension <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">Atlas <span class="bronze">Editorial</span></div><p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="#">Countries</a></li><li><a href="#">Regions</a></li><li><a href="#">Places</a></li><li><a href="#">Cartography</a></li></ul></div>
+      <div class="footer-col"><h4>Journal</h4><ul><li><a href="#">Latest Essays</a></li><li><a href="#">Itineraries</a></li><li><a href="#">Interviews</a></li><li><a href="#">Archive</a></li></ul></div>
+      <div class="footer-col"><h4>The Studio</h4><ul><li><a href="#">About</a></li><li><a href="#">Contributors</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · All rights reserved</span><span>Set in Fraunces &amp; Inter</span></div>
+  </div>
+</footer>
+
+<nav class="page-nav">
+  <div class="page-nav-label">All Pages</div>
+  <a href="country.html">Country</a><a href="region.html">Region</a><a href="city.html">City</a><a href="place.html">Place</a><a href="map-view.html">Map View</a><a href="grid-view.html">Grid View</a><a href="search.html">Search</a>
+</nav>
+
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('progress').style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+});
+document.querySelectorAll('.nbhd-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nbhd-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nbhd-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('nbhd-'+tab.dataset.nbhd).classList.add('active');
+  });
+});
+document.querySelectorAll('.accordion-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+document.querySelectorAll('.view-switch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.view-switch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

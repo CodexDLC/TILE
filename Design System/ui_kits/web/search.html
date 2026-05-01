@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search: castles in Germany — Atlas Editorial</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+.page-nav { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--ink); color: var(--bg-paper); border-radius: 12px; padding: 14px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.page-nav a { color: var(--bronze); text-decoration: none; display: block; margin-bottom: 6px; }
+.page-nav a:last-child { margin-bottom: 0; }
+.page-nav-label { opacity: 0.4; margin-bottom: 10px; font-size: 9px; }
+
+/* Search header */
+.search-header { background: var(--bg-warm); border-bottom: 1px solid var(--line-soft); padding: 48px 0 40px; }
+.search-header-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+.search-headline { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; font-style: italic; color: var(--ink-muted); margin-bottom: 24px; }
+.search-headline strong { color: var(--ink); font-style: normal; font-weight: 400; }
+.search-box { position: relative; max-width: 680px; }
+.search-box-input { width: 100%; border: 1.5px solid var(--line); background: var(--bg-paper); padding: 18px 60px 18px 20px; font-size: 19px; font-family: 'Fraunces', serif; color: var(--ink); border-radius: 4px; outline: none; transition: border-color 0.2s; }
+.search-box-input:focus { border-color: var(--bronze); }
+.search-box-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background: var(--ink); border: none; border-radius: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.search-box-btn:hover { background: var(--bronze); }
+.search-box-btn svg { width: 16px; height: 16px; color: var(--bg-paper); }
+.search-count { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); margin-top: 14px; }
+.search-count strong { color: var(--bronze); }
+
+/* Layout */
+.search-layout { max-width: 1400px; margin: 0 auto; padding: 48px 40px; display: grid; grid-template-columns: 260px 1fr; gap: 60px; align-items: start; }
+
+/* Filters sidebar */
+.filters-panel { position: sticky; top: 140px; }
+.filter-section { margin-bottom: 32px; }
+.filter-section-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--bronze); margin-bottom: 14px; }
+.filter-option { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+.filter-option input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--bronze); cursor: pointer; flex-shrink: 0; }
+.filter-option label { font-family: 'Fraunces', serif; font-size: 16px; color: var(--ink-soft); cursor: pointer; flex: 1; }
+.filter-option .count { font-size: 11px; color: var(--ink-muted); font-weight: 500; }
+
+/* Price slider */
+.price-slider { -webkit-appearance: none; width: 100%; height: 3px; background: linear-gradient(to right, var(--bronze) 60%, var(--line) 60%); border-radius: 2px; margin-top: 10px; cursor: pointer; }
+.price-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; background: var(--bronze); border-radius: 50%; cursor: pointer; border: 2px solid var(--bg-paper); box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.price-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-muted); margin-top: 6px; font-weight: 500; }
+.filter-divider { height: 1px; background: var(--line-soft); margin-bottom: 32px; }
+.clear-filters { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; cursor: pointer; text-decoration: none; transition: color 0.2s; display: inline-block; margin-top: -16px; margin-bottom: 24px; }
+.clear-filters:hover { color: var(--bronze); }
+
+/* Results */
+.results-list { display: flex; flex-direction: column; gap: 0; }
+.result-card { display: flex; gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--line-soft); cursor: pointer; transition: background 0.15s; }
+.result-card:hover { background: var(--bg-paper); margin: 0 -20px; padding: 28px 20px; border-radius: 4px; border-color: transparent; }
+.result-card:first-child { padding-top: 0; }
+.result-img { width: 200px; height: 150px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+.result-body { flex: 1; min-width: 0; }
+.result-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-muted); margin-bottom: 10px; flex-wrap: wrap; }
+.result-breadcrumb span { color: var(--ink-muted); opacity: 0.5; }
+.result-name { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--ink); line-height: 1.15; }
+.result-desc { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 14px; }
+.result-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.result-badge { padding: 4px 12px; background: var(--bg-warm); border-radius: 100px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted); }
+.result-meta-item { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; display: flex; align-items: center; gap: 4px; }
+.result-meta-item::before { content: '·'; opacity: 0.4; }
+.result-link { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--bronze); text-decoration: none; transition: gap 0.2s; flex-shrink: 0; }
+.result-card:hover .result-link { gap: 12px; }
+.result-link svg { width: 12px; height: 12px; }
+
+/* Pagination */
+.pagination { display: flex; justify-content: center; align-items: center; gap: 6px; padding: 48px 0 0; }
+.page-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; cursor: pointer; transition: all 0.2s; font-family: 'Fraunces', serif; color: var(--ink-muted); background: transparent; }
+.page-btn:hover { border-color: var(--bronze); color: var(--bronze); }
+.page-btn.active { background: var(--ink); border-color: var(--ink); color: var(--bg-paper); }
+.page-ellipsis { padding: 0 4px; color: var(--ink-muted); }
+
+@media (max-width: 1100px) {
+  .search-layout { grid-template-columns: 1fr; }
+  .filters-panel { position: static; }
+  .result-img { width: 140px; height: 110px; }
+}
+@media (max-width: 680px) {
+  .search-header-inner, .search-layout { padding-left: 24px; padding-right: 24px; }
+  .result-card { flex-direction: column; }
+  .result-img { width: 100%; height: 180px; }
+  .result-link { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-mark"></div>Atlas <em style="font-style:italic;font-weight:400">Editorial</em></a>
+    <nav class="nav">
+      <a href="country.html">Countries</a>
+      <a href="region.html">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" style="background:var(--ink);color:var(--bg);border-color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <div class="crumbs">
+      <a href="#">🌍 World</a><span class="sep">/</span>
+      <a href="#">Search</a><span class="sep">/</span>
+      <span class="current">"castles in Germany"</span>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH HEADER -->
+<div class="search-header">
+  <div class="search-header-inner">
+    <div class="search-headline">You searched for <strong>"castles in Germany"</strong></div>
+    <!-- {% block search_form %} -->
+    <div class="search-box">
+      <input class="search-box-input" type="text" value="castles in Germany" id="searchInput">
+      <button class="search-box-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+    </div>
+    <!-- {% endblock %} -->
+    <div class="search-count">Showing <strong>12</strong> of <strong>47</strong> places found</div>
+  </div>
+</div>
+
+<!-- SEARCH LAYOUT -->
+<div class="search-layout">
+
+  <!-- FILTERS SIDEBAR -->
+  <!-- {% block filters %} -->
+  <aside class="filters-panel">
+    <a href="#" class="clear-filters">Clear all filters ×</a>
+
+    <div class="filter-section">
+      <div class="filter-section-title">Type</div>
+      <div class="filter-option"><input type="checkbox" id="t1" checked><label for="t1">Castles</label><span class="count">18</span></div>
+      <div class="filter-option"><input type="checkbox" id="t2"><label for="t2">Palaces</label><span class="count">9</span></div>
+      <div class="filter-option"><input type="checkbox" id="t3"><label for="t3">Ruins</label><span class="count">7</span></div>
+      <div class="filter-option"><input type="checkbox" id="t4"><label for="t4">Fortresses</label><span class="count">5</span></div>
+      <div class="filter-option"><input type="checkbox" id="t5"><label for="t5">Manor Houses</label><span class="count">8</span></div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <div class="filter-section">
+      <div class="filter-section-title">Region</div>
+      <div class="filter-option"><input type="checkbox" id="r1" checked><label for="r1">Bavaria</label><span class="count">14</span></div>
+      <div class="filter-option"><input type="checkbox" id="r2" checked><label for="r2">Baden-Württemberg</label><span class="count">11</span></div>
+      <div class="filter-option"><input type="checkbox" id="r3"><label for="r3">Saxony</label><span class="count">6</span></div>
+      <div class="filter-option"><input type="checkbox" id="r4"><label for="r4">Rhineland</label><span class="count">9</span></div>
+      <div class="filter-option"><input type="checkbox" id="r5"><label for="r5">Thuringia</label><span class="count">4</span></div>
+      <div class="filter-option"><input type="checkbox" id="r6"><label for="r6">Brandenburg</label><span class="count">3</span></div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <div class="filter-section">
+      <div class="filter-section-title">Era</div>
+      <div class="filter-option"><input type="checkbox" id="e1" checked><label for="e1">Medieval (pre-1500)</label><span class="count">22</span></div>
+      <div class="filter-option"><input type="checkbox" id="e2"><label for="e2">Renaissance (1500–1650)</label><span class="count">8</span></div>
+      <div class="filter-option"><input type="checkbox" id="e3" checked><label for="e3">Baroque (1650–1800)</label><span class="count">10</span></div>
+      <div class="filter-option"><input type="checkbox" id="e4" checked><label for="e4">Romantic (19th C.)</label><span class="count">7</span></div>
+    </div>
+
+    <div class="filter-divider"></div>
+
+    <div class="filter-section">
+      <div class="filter-section-title">Entry Price</div>
+      <input type="range" class="price-slider" min="0" max="30" value="18" id="priceSlider">
+      <div class="price-labels"><span>Free</span><span id="priceVal">Up to €18</span></div>
+    </div>
+  </aside>
+  <!-- {% endblock %} -->
+
+  <!-- RESULTS -->
+  <!-- {% for result in results %} -->
+  <div>
+    <div class="results-list">
+
+      <div class="result-card" onclick="window.location='place.html'">
+        <img class="result-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Bavaria <span>›</span> Füssen</div>
+          <div class="result-name">Neuschwanstein Castle</div>
+          <div class="result-desc">Built 1869–1886 by Ludwig II of Bavaria, this Romanesque Revival castle was never completed. Ludwig lived here for only 172 days before his mysterious death. Now the most photographed castle in the world.</div>
+          <div class="result-meta">
+            <span class="result-badge">Castle · 19C</span>
+            <span class="result-meta-item">Romantic era</span>
+            <span class="result-meta-item">€15 entry</span>
+            <span class="result-meta-item">2h from Munich</span>
+            <a href="place.html" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Baden-Württemberg <span>›</span> Hechingen</div>
+          <div class="result-name">Hohenzollern Castle</div>
+          <div class="result-desc">The ancestral seat of the Hohenzollern dynasty, perched at 855m on a lone hill above the Swabian Alps. The third castle on this site; the current structure dates to 1867.</div>
+          <div class="result-meta">
+            <span class="result-badge">Castle · 19C</span>
+            <span class="result-meta-item">Romantic era</span>
+            <span class="result-meta-item">€18 entry</span>
+            <span class="result-meta-item">50km from Stuttgart</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Baden-Württemberg <span>›</span> Heidelberg</div>
+          <div class="result-name">Heidelberg Castle</div>
+          <div class="result-desc">A ruin so perfectly formed that Romantics considered its decay more interesting than any intact building. Destroyed in 1693 by French forces, never fully rebuilt. The view over the Neckar valley is among Germany's finest.</div>
+          <div class="result-meta">
+            <span class="result-badge">Castle · Ruins</span>
+            <span class="result-meta-item">Renaissance</span>
+            <span class="result-meta-item">€9 entry</span>
+            <span class="result-meta-item">1h from Frankfurt</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Thuringia <span>›</span> Eisenach</div>
+          <div class="result-name">Wartburg Castle</div>
+          <div class="result-desc">Where Martin Luther translated the New Testament into German in 1521–22, hiding under the alias "Junker Jörg." A UNESCO World Heritage Site. The Minnesänger tournament of 1207, later the subject of Wagner's Tannhäuser, is said to have taken place here.</div>
+          <div class="result-meta">
+            <span class="result-badge">Castle · Medieval</span>
+            <span class="result-meta-item">UNESCO</span>
+            <span class="result-meta-item">€12 entry</span>
+            <span class="result-meta-item">3h from Munich</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Bavaria <span>›</span> Nuremberg</div>
+          <div class="result-name">Nuremberg Castle (Kaiserburg)</div>
+          <div class="result-desc">The imperial castle above Nuremberg, principal residence of the Holy Roman Emperors. Begun in the 11th century, expanded across several dynasties. The deep well (52m) and double chapel are exceptional.</div>
+          <div class="result-meta">
+            <span class="result-badge">Castle · Medieval</span>
+            <span class="result-meta-item">Imperial</span>
+            <span class="result-meta-item">€7 entry</span>
+            <span class="result-meta-item">1.5h from Munich</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Saxony <span>›</span> Saxon Switzerland</div>
+          <div class="result-name">Königstein Fortress</div>
+          <div class="result-desc">An almost impregnable hilltop fortress above the Elbe in Saxon Switzerland. Never taken by force in its 400-year history. The deepest well in Saxony (152m) was bored by hand. Napoleon briefly held prisoners here in 1813.</div>
+          <div class="result-meta">
+            <span class="result-badge">Fortress · 16C</span>
+            <span class="result-meta-item">Baroque</span>
+            <span class="result-meta-item">€12 entry</span>
+            <span class="result-meta-item">1h from Dresden</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Rhineland-Palatinate <span>›</span> Rhine Gorge</div>
+          <div class="result-name">Marksburg Castle</div>
+          <div class="result-desc">The only Rhine castle never destroyed or significantly altered. Perched on a 160m volcanic plug above the village of Braubach. Its eleven centuries of continuous occupation make it Germany's most authentically preserved medieval fortress.</div>
+          <div class="result-meta">
+            <span class="result-badge">Castle · Medieval</span>
+            <span class="result-meta-item">UNESCO Gorge</span>
+            <span class="result-meta-item">€8 entry</span>
+            <span class="result-meta-item">Rhine River</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <img class="result-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=400&q=80" alt="">
+        <div class="result-body">
+          <div class="result-breadcrumb">Germany <span>›</span> Bavaria <span>›</span> Ettal</div>
+          <div class="result-name">Linderhof Palace</div>
+          <div class="result-desc">Ludwig II's only fully completed residence, and the smallest of his three palaces. Built 1863–1886 in French Baroque style. The Venus Grotto — an artificial cave with coloured lighting and a lake — is one of the stranger architectural statements of the 19th century.</div>
+          <div class="result-meta">
+            <span class="result-badge">Palace · 19C</span>
+            <span class="result-meta-item">Baroque Revival</span>
+            <span class="result-meta-item">€10 entry</span>
+            <span class="result-meta-item">1.5h from Munich</span>
+            <a href="#" class="result-link">View details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- {% endfor %} -->
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+      <button class="page-btn" style="opacity:0.4">←</button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <span class="page-ellipsis">…</span>
+      <button class="page-btn">6</button>
+      <button class="page-btn">→</button>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">Atlas <span class="bronze">Editorial</span></div><p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="#">Countries</a></li><li><a href="#">Regions</a></li><li><a href="#">Places</a></li><li><a href="#">Cartography</a></li></ul></div>
+      <div class="footer-col"><h4>Journal</h4><ul><li><a href="#">Latest Essays</a></li><li><a href="#">Itineraries</a></li><li><a href="#">Interviews</a></li><li><a href="#">Archive</a></li></ul></div>
+      <div class="footer-col"><h4>The Studio</h4><ul><li><a href="#">About</a></li><li><a href="#">Contributors</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · All rights reserved</span><span>Set in Fraunces &amp; Inter</span></div>
+  </div>
+</footer>
+
+<nav class="page-nav">
+  <div class="page-nav-label">All Pages</div>
+  <a href="country.html">Country</a><a href="region.html">Region</a><a href="city.html">City</a><a href="place.html">Place</a><a href="map-view.html">Map View</a><a href="grid-view.html">Grid View</a><a href="search.html">Search</a>
+</nav>
+
+<script>
+document.getElementById('priceSlider').addEventListener('input', function() {
+  document.getElementById('priceVal').textContent = 'Up to €' + this.value;
+});
+document.querySelector('.search-box-btn').addEventListener('click', () => {
+  const q = document.getElementById('searchInput').value;
+  if (q) document.querySelector('.search-headline strong').textContent = '"' + q + '"';
+});
+document.querySelectorAll('.page-btn:not([style])').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

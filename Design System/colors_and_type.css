@@ -1,0 +1,318 @@
+/* ============================================================
+   ATLAS EDITORIAL — Design Tokens
+   colors_and_type.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
+
+/* ============================================================
+   COLOR TOKENS
+   ============================================================ */
+:root {
+
+  /* — Surfaces — */
+  --bg:           #F5EFE3;   /* Warm champagne — main body background */
+  --bg-warm:      #EFE7D5;   /* Slightly darker — alternating sections */
+  --bg-paper:     #FAF6EC;   /* Lightest — cards, overlays */
+
+  /* — Text — */
+  --ink:          #1A1D23;   /* Near-black graphite — primary text */
+  --ink-soft:     #3A3D44;   /* Softer black — secondary / editorial body */
+  --ink-muted:    #6B6860;   /* Grey-brown — metadata, captions */
+
+  /* — Accent — */
+  --bronze:       #A67A3F;   /* Primary accent — warm bronze / dark gold */
+  --bronze-deep:  #8B6330;   /* Deeper — hover states on bronze */
+
+  /* — Dark Sections — */
+  --forest:       #2C3E3A;   /* Dark forest green — footer, hero bg, CTA strip */
+  --forest-deep:  #1a2520;   /* Deeper forest — hero gradients */
+  --forest-dark:  #0f1814;   /* Darkest — hero bottom */
+
+  /* — Borders & Lines — */
+  --line:         rgba(26, 29, 35, 0.12);   /* Standard border */
+  --line-soft:    rgba(26, 29, 35, 0.06);   /* Ultra-subtle divider */
+
+  /* — On-dark text — */
+  --on-dark:      #FAF6EC;   /* Primary text on forest/ink backgrounds */
+  --on-dark-muted: rgba(250, 246, 236, 0.65);
+
+  /* — Semantic aliases — */
+  --color-page-bg:        var(--bg);
+  --color-section-alt:    var(--bg-warm);
+  --color-card-bg:        var(--bg-paper);
+  --color-text-primary:   var(--ink);
+  --color-text-secondary: var(--ink-soft);
+  --color-text-muted:     var(--ink-muted);
+  --color-accent:         var(--bronze);
+  --color-accent-hover:   var(--bronze-deep);
+  --color-dark-section:   var(--forest);
+  --color-border:         var(--line);
+  --color-border-subtle:  var(--line-soft);
+}
+
+/* ============================================================
+   TYPOGRAPHY TOKENS
+   ============================================================ */
+:root {
+
+  /* — Font Families — */
+  --font-serif:   'Fraunces', Georgia, serif;        /* Display + editorial body */
+  --font-sans:    'Inter', system-ui, sans-serif;    /* UI, labels, metadata */
+  --font-quote:   'Playfair Display', Georgia, serif; /* Pull-quotes only */
+
+  /* — Type Scale — */
+  --text-hero:    clamp(56px, 9vw, 132px);
+  --text-section: 56px;
+  --text-article: 52px;
+  --text-sub:     32px;
+  --text-lead:    22px;
+  --text-body-lg: 19px;
+  --text-body:    16px;
+  --text-body-sm: 15px;
+  --text-meta:    13px;
+  --text-label:   12px;
+  --text-micro:   11px;
+  --text-tiny:    10px;
+
+  /* — Line Heights — */
+  --lh-hero:      0.92;
+  --lh-display:   1.0;
+  --lh-article:   1.05;
+  --lh-sub:       1.15;
+  --lh-body:      1.65;
+  --lh-body-std:  1.6;
+  --lh-quote:     1.3;
+  --lh-tight:     1.2;
+
+  /* — Letter Spacing — */
+  --ls-label:     0.24em;   /* Section labels */
+  --ls-meta:      0.16em;   /* Metadata rows */
+  --ls-nav:       0.08em;   /* Navigation links */
+  --ls-btn:       0.18em;   /* Button text */
+  --ls-chapter:   0.04em;   /* Chapter labels (Fraunces italic) */
+
+  /* — Font Weights — */
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semi:      600;
+
+  /* — Drop Cap — */
+  --drop-cap-size:  96px;
+  --drop-cap-lh:    0.85;
+}
+
+/* ============================================================
+   SPACING TOKENS
+   ============================================================ */
+:root {
+
+  /* — Micro — */
+  --sp-1:  4px;
+  --sp-2:  6px;
+  --sp-3:  8px;
+
+  /* — Small — */
+  --sp-4:  12px;
+  --sp-5:  16px;
+  --sp-6:  20px;
+
+  /* — Medium — */
+  --sp-7:  24px;
+  --sp-8:  32px;
+  --sp-9:  40px;
+
+  /* — Large — */
+  --sp-10: 60px;
+  --sp-11: 80px;
+  --sp-12: 100px;
+
+  /* — XL — */
+  --sp-13: 120px;   /* Section padding top/bottom */
+
+  /* — Semantic — */
+  --section-pad-v:    var(--sp-13);
+  --section-pad-h:    var(--sp-9);   /* 40px */
+  --section-pad-h-sm: var(--sp-7);  /* 24px mobile */
+  --content-max-w:    1400px;
+  --editorial-w:      680px;
+  --card-gap:         24px;
+}
+
+/* ============================================================
+   BORDER RADIUS TOKENS
+   ============================================================ */
+:root {
+  --radius-card:   4px;    /* Cards — very subtle */
+  --radius-pill:   100px;  /* Buttons, badges, toggles */
+  --radius-none:   0px;
+}
+
+/* ============================================================
+   ELEVATION / SHADOW TOKENS
+   ============================================================ */
+:root {
+  /* Atlas Editorial is essentially shadow-free.
+     Depth comes from background alternation and gradient overlays. */
+  --shadow-none:   none;
+  --blur-header:   blur(12px);  /* Header backdrop filter */
+}
+
+/* ============================================================
+   ANIMATION TOKENS
+   ============================================================ */
+:root {
+  --ease-card:   cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-ui:     ease;
+  --dur-fast:    0.2s;
+  --dur-ui:      0.3s;
+  --dur-image:   0.6s;
+  --dur-slow:    0.8s;
+}
+
+/* ============================================================
+   BASE STYLES
+   (import this CSS to get sensible defaults)
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--ink);
+  font-size: var(--text-body);
+  line-height: var(--lh-body-std);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0.15 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+
+/* — Display / Hero — */
+.t-hero {
+  font-family: var(--font-serif);
+  font-size: var(--text-hero);
+  line-height: var(--lh-hero);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 144;
+}
+
+/* — Section Titles — */
+.t-section {
+  font-family: var(--font-serif);
+  font-size: var(--text-section);
+  line-height: var(--lh-display);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.02em;
+}
+
+/* — Article Title — */
+.t-article {
+  font-family: var(--font-serif);
+  font-size: var(--text-article);
+  line-height: var(--lh-article);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.02em;
+}
+
+/* — Subsection — */
+.t-sub {
+  font-family: var(--font-serif);
+  font-size: var(--text-sub);
+  line-height: var(--lh-sub);
+  font-weight: var(--fw-regular);
+}
+
+/* — Editorial Body — */
+.t-editorial {
+  font-family: var(--font-serif);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  color: var(--ink-soft);
+}
+
+/* — Standard Body — */
+.t-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-body-std);
+  font-weight: var(--fw-regular);
+}
+
+/* — Pull Quote — */
+.t-pullquote {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: var(--text-sub);
+  line-height: var(--lh-quote);
+  font-weight: var(--fw-regular);
+}
+
+/* — Metadata / Labels — */
+.t-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--bronze);
+}
+
+.t-meta {
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--ink-muted);
+}
+
+/* — Italic accent (used inside headings) — */
+.t-italic {
+  font-style: italic;
+  font-weight: var(--fw-light);
+  color: var(--bronze);
+}
+
+/* — Chapter number — */
+.t-chapter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-meta);
+  color: var(--bronze);
+  letter-spacing: var(--ls-chapter);
+}
+
+/* ============================================================
+   ENTRANCE ANIMATION
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up { animation: fadeUp var(--dur-slow) var(--ease-ui) both; }
+.anim-delay-1 { animation-delay: 0.2s; }
+.anim-delay-2 { animation-delay: 0.4s; }
+.anim-delay-3 { animation-delay: 0.6s; }
+.anim-delay-4 { animation-delay: 0.8s; }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #1A1D23; padding: 0; }
+
+.hero-demo {
+  position: relative;
+  height: 340px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2c3e3a 0%, #1a2520 50%, #0f1814 100%);
+}
+.hero-demo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(166,122,63,0.25) 0%, transparent 50%);
+}
+.mountains {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 55%;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 32px 32px;
+  color: #FAF6EC;
+  width: 100%;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 12px; opacity: 0.85;
+}
+.hero-meta .ch { color: #A67A3F; font-weight: 600; }
+.hero-meta .dot { width: 4px; height: 4px; background: #A67A3F; border-radius: 50%; }
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: 52px; line-height: 0.92;
+  font-weight: 400; letter-spacing: -0.04em;
+  margin-bottom: 14px;
+}
+.hero-title .accent { font-style: italic; font-weight: 300; color: #A67A3F; }
+.hero-sub {
+  font-family: 'Fraunces', serif;
+  font-size: 15px; font-style: italic; font-weight: 300;
+  opacity: 0.85; margin-bottom: 22px; max-width: 400px; line-height: 1.5;
+}
+.stats { display: flex; gap: 36px; padding-top: 18px; border-top: 1px solid rgba(250,246,236,0.12); }
+.stat-val { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; color: #A67A3F; letter-spacing: -0.02em; }
+.stat-lbl { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.55; margin-top: 3px; }
+.scroll-ind {
+  position: absolute; bottom: 20px; right: 24px; z-index: 3;
+  color: #FAF6EC; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  writing-mode: vertical-rl; opacity: 0.5; display: flex; align-items: center; gap: 10px;
+}
+.scroll-ind::before { content: ''; width: 1px; height: 28px; background: #A67A3F; }
+</style>
+</head>
+<body>
+  <div class="hero-demo">
+    <svg class="mountains" viewBox="0 0 1000 300" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="mg1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a4e48" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#2c3e3a" stop-opacity="0.9"/>
+        </linearGradient>
+        <linearGradient id="mg2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2c3e3a" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#1a2520" stop-opacity="1"/>
+        </linearGradient>
+        <linearGradient id="mg3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a2520" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#0f1814" stop-opacity="1"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,150 L75,80 L150,120 L225,60 L300,100 L390,40 L490,90 L575,30 L680,80 L770,50 L865,100 L940,70 L1000,95 L1000,300 L0,300Z" fill="url(#mg1)"/>
+      <path d="M0,180 L110,120 L200,155 L300,100 L400,140 L515,85 L625,125 L740,95 L850,140 L1000,110 L1000,300 L0,300Z" fill="url(#mg2)"/>
+      <path d="M0,230 L125,185 L250,215 L375,175 L510,210 L650,175 L790,210 L925,185 L1000,205 L1000,300 L0,300Z" fill="url(#mg3)"/>
+      <circle cx="120" cy="40" r="1" fill="#A67A3F" opacity="0.6"/>
+      <circle cx="300" cy="55" r="1.5" fill="#A67A3F" opacity="0.8"/>
+      <circle cx="700" cy="30" r="1" fill="#FAF6EC" opacity="0.5"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-meta">
+        <span class="ch">Chapter Five</span><span class="dot"></span>
+        <span>Central Europe</span><span class="dot"></span>
+        <span>Federal Republic</span>
+      </div>
+      <h1 class="hero-title">Germany,<br>a <span class="accent">tapestry</span> of<br>forests.</h1>
+      <p class="hero-sub">Where ancient forests harbour myths older than the nation itself.</p>
+      <div class="stats">
+        <div><div class="stat-val">16</div><div class="stat-lbl">Federal States</div></div>
+        <div><div class="stat-val">237</div><div class="stat-lbl">Places</div></div>
+        <div><div class="stat-val">2,962m</div><div class="stat-lbl">Highest Peak</div></div>
+        <div><div class="stat-val">843 CE</div><div class="stat-lbl">Founding</div></div>
+      </div>
+    </div>
+    <div class="scroll-ind">Scroll</div>
+  </div>
+</body>
+</html>

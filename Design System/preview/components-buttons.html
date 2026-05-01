@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 24px; }
+.label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 12px; margin-top: 20px; }
+.label:first-child { margin-top: 0; }
+
+/* Buttons */
+.btn-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; background: #A67A3F; color: #2C3E3A;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  border-radius: 100px; border: none; cursor: default;
+  font-family: 'Inter', sans-serif;
+}
+.btn-primary svg { width: 12px; height: 12px; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 28px; background: transparent; color: #1A1D23;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  border-radius: 100px; border: 1px solid rgba(26,29,35,0.2); cursor: default;
+  font-family: 'Inter', sans-serif;
+}
+.btn-dark {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 28px; background: #1A1D23; color: #FAF6EC;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  border-radius: 100px; border: none; cursor: default;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Icon buttons */
+.icon-row { display: flex; gap: 10px; align-items: center; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid rgba(26,29,35,0.12); background: transparent;
+  display: flex; align-items: center; justify-content: center; cursor: default;
+}
+.icon-btn-hover { background: #1A1D23; border-color: #1A1D23; color: #FAF6EC; }
+.icon-btn svg { width: 15px; height: 15px; }
+
+/* Badges */
+.badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge {
+  padding: 5px 12px; border-radius: 100px; font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+.badge-light { background: #FAF6EC; color: #1A1D23; }
+.badge-bronze { background: #A67A3F; color: #FAF6EC; }
+.badge-outline { background: transparent; color: #6B6860; border: 1px solid rgba(26,29,35,0.15); }
+.badge-dark { background: #1A1D23; color: #FAF6EC; }
+
+/* View switcher */
+.view-switch {
+  display: inline-flex; background: #FAF6EC; border: 1px solid rgba(26,29,35,0.12);
+  border-radius: 100px; padding: 3px; gap: 2px;
+}
+.vs-btn {
+  border: none; background: transparent; padding: 7px 16px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: #6B6860; cursor: default; border-radius: 100px; font-family: 'Inter', sans-serif;
+  display: flex; align-items: center; gap: 6px;
+}
+.vs-btn.active { background: #1A1D23; color: #FAF6EC; }
+.vs-btn svg { width: 12px; height: 12px; }
+</style>
+</head>
+<body>
+  <div class="label">Primary Buttons</div>
+  <div class="btn-row">
+    <div class="btn-primary">Read the Itinerary <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    <div class="btn-outline">Explore Region <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    <div class="btn-dark">Plan Your Journey <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+  </div>
+
+  <div class="label">Icon Buttons (38px circle)</div>
+  <div class="icon-row">
+    <div class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+    <div class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+    <div class="icon-btn icon-btn-hover" style="color:#FAF6EC"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+    <span style="font-size:11px;color:#6B6860">↑ hover state</span>
+    <div style="width:44px;height:44px;border-radius:50%;background:rgba(250,246,236,0.1);border:1px solid rgba(250,246,236,0.2);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;background:#2C3E3A">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FAF6EC" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </div>
+    <span style="font-size:11px;color:#6B6860">↑ card arrow (on dark)</span>
+  </div>
+
+  <div class="label">Badges / Type Tags</div>
+  <div class="badge-row">
+    <div class="badge badge-light">Castle · 19C</div>
+    <div class="badge badge-light">UNESCO Site</div>
+    <div class="badge badge-light">Alpine · Lake</div>
+    <div class="badge badge-bronze">Featured</div>
+    <div class="badge badge-outline">Medieval</div>
+    <div class="badge badge-dark">Chapter Seven</div>
+  </div>
+
+  <div class="label">View Switcher</div>
+  <div class="view-switch">
+    <div class="vs-btn active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg> Story</div>
+    <div class="vs-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-3 8 3 7-3V3l-7 3-8-3-7 3zM8 3v16M16 6v16"/></svg> Map</div>
+    <div class="vs-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Grid</div>
+  </div>
+</body>
+</html>

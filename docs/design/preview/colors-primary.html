@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 28px; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.swatch { display: flex; flex-direction: column; gap: 0; border-radius: 4px; overflow: hidden; flex: 1; min-width: 80px; }
+.color { height: 64px; }
+.info { padding: 8px 10px; background: #FAF6EC; border: 1px solid rgba(26,29,35,0.08); border-top: none; }
+.name { font-size: 11px; font-weight: 600; color: #1A1D23; letter-spacing: 0.04em; }
+.hex  { font-size: 10px; color: #6B6860; margin-top: 2px; font-weight: 400; }
+.note { font-size: 10px; color: #6B6860; margin-top: 3px; line-height: 1.4; }
+.group-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 10px; margin-top: 20px; }
+.group-label:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+  <div class="group-label">Surfaces</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="color" style="background:#FAF6EC;border:1px solid rgba(26,29,35,0.1)"></div>
+      <div class="info"><div class="name">--bg-paper</div><div class="hex">#FAF6EC</div><div class="note">Cards, overlays</div></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background:#F5EFE3"></div>
+      <div class="info"><div class="name">--bg</div><div class="hex">#F5EFE3</div><div class="note">Main background</div></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background:#EFE7D5"></div>
+      <div class="info"><div class="name">--bg-warm</div><div class="hex">#EFE7D5</div><div class="note">Alt sections</div></div>
+    </div>
+  </div>
+
+  <div class="group-label">Text</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="color" style="background:#1A1D23"></div>
+      <div class="info"><div class="name">--ink</div><div class="hex">#1A1D23</div><div class="note">Primary text</div></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background:#3A3D44"></div>
+      <div class="info"><div class="name">--ink-soft</div><div class="hex">#3A3D44</div><div class="note">Editorial body</div></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background:#6B6860"></div>
+      <div class="info"><div class="name">--ink-muted</div><div class="hex">#6B6860</div><div class="note">Metadata</div></div>
+    </div>
+  </div>
+
+  <div class="group-label">Accent</div>
+  <div class="row">
+    <div class="swatch">
+      <div class="color" style="background:#A67A3F"></div>
+      <div class="info"><div class="name">--bronze</div><div class="hex">#A67A3F</div><div class="note">Primary accent</div></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background:#8B6330"></div>
+      <div class="info"><div class="name">--bronze-deep</div><div class="hex">#8B6330</div><div class="note">Hover state</div></div>
+    </div>
+    <div class="swatch">
+      <div class="color" style="background:#2C3E3A"></div>
+      <div class="info"><div class="name">--forest</div><div class="hex">#2C3E3A</div><div class="note">Dark sections</div></div>
+    </div>
+  </div>
+</body>
+</html>

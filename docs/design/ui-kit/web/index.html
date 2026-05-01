@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Editorial — UI Kit</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+.kit-hero { background: var(--forest); color: var(--bg-paper); padding: 80px 40px 60px; position: relative; overflow: hidden; }
+.kit-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(166,122,63,0.2) 0%, transparent 60%); }
+.kit-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
+.kit-label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; color: var(--bronze); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.kit-label::before { content: ''; width: 28px; height: 1px; background: var(--bronze); }
+.kit-title { font-family: 'Fraunces', serif; font-size: clamp(40px, 5vw, 72px); line-height: 0.95; font-weight: 400; letter-spacing: -0.03em; margin-bottom: 24px; }
+.kit-title em { font-style: italic; font-weight: 300; color: var(--bronze); }
+.kit-desc { font-family: 'Fraunces', serif; font-size: 19px; font-style: italic; font-weight: 300; opacity: 0.8; max-width: 560px; line-height: 1.55; }
+.page-grid { max-width: 1400px; margin: 0 auto; padding: 80px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.page-card { background: var(--bg-paper); border: 1px solid var(--line-soft); border-radius: 4px; overflow: hidden; transition: transform 0.3s; cursor: pointer; text-decoration: none; color: var(--ink); display: block; }
+.page-card:hover { transform: translateY(-4px); }
+.page-card-thumb { aspect-ratio: 16/9; overflow: hidden; background: var(--forest); position: relative; }
+.page-card-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+.page-card-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(44,62,58,0.6), rgba(15,24,20,0.4)); display: flex; align-items: center; justify-content: center; }
+.page-card-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 48px; font-weight: 300; color: rgba(250,246,236,0.25); line-height: 1; }
+.page-card-body { padding: 24px; }
+.page-card-url { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); font-weight: 600; margin-bottom: 8px; }
+.page-card-name { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 8px; }
+.page-card-desc { font-size: 14px; color: var(--ink-muted); font-family: 'Fraunces', serif; font-style: italic; line-height: 1.5; margin-bottom: 16px; }
+.page-card-link { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--bronze); display: flex; align-items: center; gap: 8px; }
+.page-card-link svg { width: 12px; height: 12px; }
+@media (max-width: 1100px) { .page-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) { .page-grid { grid-template-columns: 1fr; padding: 40px 24px; } .kit-hero { padding: 60px 24px 40px; } }
+</style>
+</head>
+<body>
+<div class="kit-hero">
+  <div class="kit-inner">
+    <div class="kit-label">UI Kit · v1.0</div>
+    <h1 class="kit-title">Atlas <em>Editorial</em><br>Web Interface</h1>
+    <p class="kit-desc">Seven production-ready page prototypes for the travel editorial platform. Each page follows the design system strictly and includes Django template comments.</p>
+  </div>
+</div>
+
+<div class="page-grid">
+  <a class="page-card" href="country.html">
+    <div class="page-card-thumb">
+      <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80" alt="">
+      <div class="page-card-thumb-overlay"><div class="page-card-num">01</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/countries/germany/</div>
+      <div class="page-card-name">Country Page</div>
+      <div class="page-card-desc">88vh hero, editorial intro with drop cap, asymmetric regions grid (12-col), featured places, journey CTA.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+
+  <a class="page-card" href="region.html">
+    <div class="page-card-thumb">
+      <img src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=800&q=80" alt="">
+      <div class="page-card-thumb-overlay"><div class="page-card-num">02</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/countries/germany/regions/bavaria/</div>
+      <div class="page-card-name">Region Page</div>
+      <div class="page-card-desc">75vh hero, cities grid (4-col), layer tabs (5 views), places grid, practical sidebar with climate chart.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+
+  <a class="page-card" href="city.html">
+    <div class="page-card-thumb">
+      <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=800&q=80" alt="">
+      <div class="page-card-thumb-overlay"><div class="page-card-num">03</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/…/cities/munich/</div>
+      <div class="page-card-name">City Page</div>
+      <div class="page-card-desc">60vh skyline hero, neighbourhood tabs (5), places list view, practical accordion, quick-facts sticky sidebar.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+
+  <a class="page-card" href="place.html">
+    <div class="page-card-thumb">
+      <img src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=800&q=80" alt="">
+      <div class="page-card-thumb-overlay"><div class="page-card-num">04</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/…/places/neuschwanstein/</div>
+      <div class="page-card-name">Place of Interest</div>
+      <div class="page-card-desc">Full-bleed hero, 5-tab layer nav, timeline, nearby grid, seasonality chart, photo gallery (12), related places.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+
+  <a class="page-card" href="map-view.html">
+    <div class="page-card-thumb" style="background:#1a2e28">
+      <div class="page-card-thumb-overlay" style="background:transparent"><div class="page-card-num">05</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/…/bavaria/?view=map</div>
+      <div class="page-card-name">Map View</div>
+      <div class="page-card-desc">Split layout: sidebar (30%) with filters + place list, stylised SVG map (70%) with markers and tooltip.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+
+  <a class="page-card" href="grid-view.html">
+    <div class="page-card-thumb">
+      <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=800&q=80" alt="">
+      <div class="page-card-thumb-overlay"><div class="page-card-num">06</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/…/bavaria/?view=grid</div>
+      <div class="page-card-name">Grid View</div>
+      <div class="page-card-desc">Sticky filter bar (type, sort, search), 4-column place card grid with 24 entries, live search filter, pagination.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+
+  <a class="page-card" href="search.html">
+    <div class="page-card-thumb">
+      <img src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=800&q=80" alt="">
+      <div class="page-card-thumb-overlay"><div class="page-card-num">07</div></div>
+    </div>
+    <div class="page-card-body">
+      <div class="page-card-url">/search/?q=castles+germany</div>
+      <div class="page-card-name">Search Results</div>
+      <div class="page-card-desc">Search header, filter sidebar (type, region, era, price slider), hybrid list/card results with breadcrumbs, pagination.</div>
+      <div class="page-card-link">Open page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </div>
+  </a>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">Atlas <span class="bronze">Editorial</span></div><p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="country.html">Country Page</a></li><li><a href="region.html">Region Page</a></li><li><a href="city.html">City Page</a></li><li><a href="place.html">Place Page</a></li></ul></div>
+      <div class="footer-col"><h4>Views</h4><ul><li><a href="map-view.html">Map View</a></li><li><a href="grid-view.html">Grid View</a></li><li><a href="search.html">Search</a></li></ul></div>
+      <div class="footer-col"><h4>Design System</h4><ul><li><a href="../../README.md">README</a></li><li><a href="../../colors_and_type.css">CSS Tokens</a></li><li><a href="../../_base.css">Base Styles</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · UI Kit v1.0</span><span>Atlas Editorial Design System</span></div>
+  </div>
+</footer>
+</body>
+</html>

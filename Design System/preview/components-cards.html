@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #EFE7D5; padding: 24px; }
+.label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 12px; margin-top: 20px; }
+.label:first-child { margin-top: 0; }
+
+/* Region card */
+.cards-row { display: grid; grid-template-columns: 2fr 1.3fr 1.1fr; gap: 12px; }
+.region-card {
+  position: relative; overflow: hidden; border-radius: 4px;
+  cursor: default; background: #1A1D23; aspect-ratio: 4/5;
+}
+.region-card.featured { aspect-ratio: 16/11; }
+.r-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.r-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,24,20,0.92) 0%, rgba(15,24,20,0.1) 100%); }
+.r-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px; color: #FAF6EC; z-index: 2; }
+.r-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 11px; color: #A67A3F; margin-bottom: 6px; }
+.r-name { font-family: 'Fraunces', serif; font-size: 22px; line-height: 1; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px; }
+.r-meta { display: flex; gap: 12px; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; }
+.r-arrow { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; background: rgba(250,246,236,0.1); border: 1px solid rgba(250,246,236,0.2); display: flex; align-items: center; justify-content: center; color: #FAF6EC; z-index: 2; }
+.r-arrow svg { width: 14px; height: 14px; }
+
+/* Place card */
+.places-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 0; }
+.place-card { cursor: default; }
+.p-img-wrap { position: relative; aspect-ratio: 5/6; overflow: hidden; margin-bottom: 12px; background: #1A1D23; border-radius: 2px; }
+.p-img { width: 100%; height: 100%; object-fit: cover; }
+.p-badge { position: absolute; top: 10px; left: 10px; background: #FAF6EC; color: #1A1D23; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; font-weight: 600; }
+.p-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 11px; color: #A67A3F; margin-bottom: 4px; }
+.p-name { font-family: 'Fraunces', serif; font-size: 18px; line-height: 1.15; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 6px; color: #1A1D23; }
+.p-desc { font-family: 'Fraunces', serif; font-style: italic; font-size: 12px; line-height: 1.5; color: #6B6860; margin-bottom: 10px; }
+.p-meta { display: flex; gap: 10px; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #6B6860; font-weight: 500; padding-top: 8px; border-top: 1px solid rgba(26,29,35,0.06); }
+</style>
+</head>
+<body>
+  <div class="label">Region Cards — Asymmetric Grid</div>
+  <div class="cards-row">
+    <div class="region-card featured">
+      <img class="r-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80" alt="">
+      <div class="r-overlay"></div>
+      <div class="r-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      <div class="r-body">
+        <div class="r-num">N°01 · Oberbayern</div>
+        <div class="r-name">Upper Bavaria</div>
+        <div class="r-meta"><span>Munich · Füssen</span><span>38 Places</span><span>Alpine</span></div>
+      </div>
+    </div>
+    <div class="region-card">
+      <img class="r-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=600&q=80" alt="">
+      <div class="r-overlay"></div>
+      <div class="r-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      <div class="r-body">
+        <div class="r-num">N°03 · Franken</div>
+        <div class="r-name">Franconia</div>
+        <div class="r-meta"><span>Nuremberg</span><span>34 Places</span></div>
+      </div>
+    </div>
+    <div class="region-card">
+      <img class="r-img" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=600&q=80" alt="">
+      <div class="r-overlay"></div>
+      <div class="r-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      <div class="r-body">
+        <div class="r-num">N°04 · Schwaben</div>
+        <div class="r-name">Swabia</div>
+        <div class="r-meta"><span>Augsburg</span><span>19 Places</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top:20px">Place Cards — 5/6 Aspect</div>
+  <div class="places-row">
+    <div class="place-card">
+      <div class="p-img-wrap">
+        <img class="p-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=400&q=80" alt="">
+        <span class="p-badge">Castle · 19C</span>
+      </div>
+      <div class="p-num">N°01</div>
+      <div class="p-name">Neuschwanstein Castle</div>
+      <div class="p-desc">The impossible dream of a melancholy king.</div>
+      <div class="p-meta"><span>Füssen</span><span>2h drive</span></div>
+    </div>
+    <div class="place-card">
+      <div class="p-img-wrap">
+        <img class="p-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=400&q=80" alt="">
+        <span class="p-badge">Lake · Alpine</span>
+      </div>
+      <div class="p-num">N°02</div>
+      <div class="p-name">Königssee</div>
+      <div class="p-desc">Emerald waters between limestone walls.</div>
+      <div class="p-meta"><span>Berchtesgaden</span><span>May–Oct</span></div>
+    </div>
+    <div class="place-card">
+      <div class="p-img-wrap">
+        <img class="p-img" src="https://images.unsplash.com/photo-1541331931401-69ed6bd5ee15?auto=format&fit=crop&w=400&q=80" alt="">
+        <span class="p-badge">UNESCO Site</span>
+      </div>
+      <div class="p-num">N°06</div>
+      <div class="p-name">Bamberg Altstadt</div>
+      <div class="p-desc">Nine breweries in its medieval core.</div>
+      <div class="p-meta"><span>Franconia</span><span>Spring</span></div>
+    </div>
+  </div>
+</body>
+</html>

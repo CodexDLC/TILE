@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Germany — Atlas Editorial</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+/* ===== CAROUSEL ===== */
+.carousel-wrap { position: relative; }
+.carousel-track-outer { overflow: hidden; }
+.carousel-track { display: flex; gap: 32px; transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1); will-change: transform; }
+.carousel-track .place { flex: 0 0 calc(33.333% - 22px); }
+.carousel-controls { display: flex; gap: 10px; align-items: center; margin-top: 36px; justify-content: flex-end; }
+.carousel-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.carousel-btn:hover { background: var(--ink); border-color: var(--ink); color: var(--bg-paper); }
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+.carousel-btn svg { width: 16px; height: 16px; }
+.carousel-dots { display: flex; gap: 8px; align-items: center; margin-right: auto; }
+.carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: all 0.25s; cursor: pointer; border: none; padding: 0; }
+.carousel-dot.active { background: var(--bronze); width: 24px; border-radius: 3px; }
+
+/* Page nav index */
+.page-nav { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--ink); color: var(--bg-paper); border-radius: 12px; padding: 14px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.page-nav a { color: var(--bronze); text-decoration: none; display: block; margin-bottom: 6px; transition: opacity 0.2s; }
+.page-nav a:last-child { margin-bottom: 0; }
+.page-nav a:hover { opacity: 0.8; }
+.page-nav-label { opacity: 0.4; margin-bottom: 10px; font-size: 9px; }
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="progress"></div>
+
+<!-- {% include "_header.html" %} -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"></div>
+      Atlas <em style="font-style:italic;font-weight:400">Editorial</em>
+    </a>
+    <nav class="nav">
+      <a href="#" class="active">Countries</a>
+      <a href="#">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Bookmarks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- {% include "_breadcrumb.html" %} -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <div class="crumbs">
+      <a href="#">🌍 World</a><span class="sep">/</span>
+      <a href="#">Europe</a><span class="sep">/</span>
+      <span class="current">Germany</span>
+    </div>
+    <div class="view-switch">
+      <button class="active" data-view="story">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        <span>Story</span>
+      </button>
+      <button data-view="map" onclick="window.location='map-view.html'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-3 8 3 7-3V3l-7 3-8-3-7 3zM8 3v16M16 6v16"/></svg>
+        <span>Map</span>
+      </button>
+      <button data-view="grid" onclick="window.location='grid-view.html'">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Grid</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- {% block hero %} -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-mountains" viewBox="0 0 1600 600" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1a2520" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#0f1814" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2c3e3a" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#1a2520" stop-opacity="1"/>
+      </linearGradient>
+      <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3a4e48" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#2c3e3a" stop-opacity="0.9"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,380 L100,260 L220,320 L340,180 L460,280 L600,160 L760,240 L900,120 L1060,220 L1200,140 L1360,260 L1480,180 L1600,260 L1600,600 L0,600Z" fill="url(#m3)"/>
+    <path d="M0,430 L160,300 L300,380 L460,260 L620,340 L800,220 L980,320 L1160,240 L1340,360 L1600,300 L1600,600 L0,600Z" fill="url(#m2)"/>
+    <path d="M0,510 L180,410 L380,465 L580,385 L800,445 L1020,385 L1240,445 L1460,405 L1600,445 L1600,600 L0,600Z" fill="url(#m1)"/>
+    <circle cx="180" cy="80" r="1.2" fill="#A67A3F" opacity="0.6"/>
+    <circle cx="480" cy="110" r="1.5" fill="#A67A3F" opacity="0.8"/>
+    <circle cx="820" cy="55" r="1" fill="#FAF6EC" opacity="0.5"/>
+    <circle cx="1180" cy="90" r="1.2" fill="#A67A3F" opacity="0.7"/>
+    <circle cx="1420" cy="130" r="0.8" fill="#FAF6EC" opacity="0.4"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-meta">
+      <span class="hero-meta-chapter">Chapter Five</span>
+      <span class="hero-meta-dot"></span>
+      <span>Central Europe</span>
+      <span class="hero-meta-dot"></span>
+      <span>Federal Republic</span>
+    </div>
+    <!-- {{ country.title }} -->
+    <h1 class="hero-title">
+      Germany, a <span class="accent">tapestry</span><br>of forests &amp;<br>philosophy.
+    </h1>
+    <p class="hero-subtitle">Where ancient forests harbour myths older than the nation itself, and every cobblestone knows a philosopher's name.</p>
+    <div class="hero-stats">
+      <!-- {% for stat in country.stats %} -->
+      <div class="hero-stat"><span class="hero-stat-val">16</span><span class="hero-stat-lbl">Federal States</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">237</span><span class="hero-stat-lbl">Documented Places</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">2,962m</span><span class="hero-stat-lbl">Highest Peak</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">843 CE</span><span class="hero-stat-lbl">Year of Founding</span></div>
+      <!-- {% endfor %} -->
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll to read</div>
+</section>
+
+<!-- ===== EDITORIAL INTRO ===== -->
+<!-- {% block editorial_intro %} -->
+<section class="section">
+  <div class="editorial">
+    <aside class="margin-note">
+      <span class="margin-note-label">Marginalia № 01</span>
+      The name "Deutschland" derives from <em>thiuda</em>, meaning "people" in Old High German — a nation defined not by geography but by the shared weight of a language.
+    </aside>
+
+    <div class="editorial-body">
+      <div class="section-label">The Land &amp; Its Soul</div>
+      <h2 class="article-title">
+        A nation of <span class="italic">philosophers</span>,<br>
+        built on forests and <span class="italic">fire</span>.
+      </h2>
+      <div class="article-body">
+        <p class="drop-cap">Germany is not one country but sixteen, each a republic unto itself — Bavaria with its mountains and medieval stubbornness, Prussia's flat plains that bred a particular severity of mind, the Rhineland where wine flows more freely than logic, and Hamburg's northern pragmatism that mistakes efficiency for personality. All of them are correct. None of them, alone, are Germany.</p>
+
+        <p>To travel through Germany is to move through a landscape that has been named and renamed by war, by philosophy, by industrial ambition, and by the slow work of rivers. The Rhine has more legends per kilometre than almost any waterway on earth. The Black Forest is not black — it is simply too dense for light to matter. The Elbe carries the memory of a divided century in its dark water.</p>
+
+        <div class="pull-quote">
+          Germany is not a nation in the ordinary sense; it is a civilization that happens to have borders.
+          <cite>— Attributed to Heinrich Heine, disputed</cite>
+        </div>
+
+        <p>What remains constant, beneath all this variation, is a seriousness of purpose that foreigners sometimes mistake for coldness. The beer is brewed according to a law written in 1516. The forests are managed with a thoroughness that borders on religion. The cathedrals were built to last not centuries but eternities — and most of them have.</p>
+      </div>
+    </div>
+
+    <aside class="margin-note">
+      <span class="margin-note-label">On the Forests</span>
+      The <em>Schwarzwald</em> — Black Forest — covers 6,009 km² of Baden-Württemberg. Its name comes not from darkness but from the density of its fir and spruce canopy, which blocked medieval light entirely.
+    </aside>
+  </div>
+</section>
+<!-- {% endblock %} -->
+
+<!-- ===== REGIONS GRID ===== -->
+<section class="regions-section">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="section-label">The Sixteen States</div>
+        <h2 class="section-title">
+          From the Alps to the <span class="italic">Baltic</span>,<br>
+          sixteen chapters, one <span class="italic">nation</span>.
+        </h2>
+      </div>
+      <p class="section-desc">Each state is a story. Click any to descend — into its cities, its landscapes, its peculiar genius.</p>
+    </div>
+
+    <!-- {% for region in regions %} -->
+    <div class="regions-grid">
+      <article class="region-card region-card-1" onclick="window.location='region.html'">
+        <img class="region-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1400&q=80" alt="Bavaria">
+        <div class="region-overlay"></div>
+        <div class="region-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="region-body">
+          <div class="region-num">N°01 · Bayern</div>
+          <h3 class="region-name">Bavaria</h3>
+          <div class="region-meta"><span><span class="dot"></span>Munich · Füssen</span><span><span class="dot"></span>42 Places</span><span><span class="dot"></span>Alpine</span></div>
+        </div>
+      </article>
+
+      <article class="region-card region-card-2">
+        <img class="region-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=900&q=80" alt="Saxony">
+        <div class="region-overlay"></div>
+        <div class="region-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="region-body">
+          <div class="region-num">N°02 · Sachsen</div>
+          <h3 class="region-name">Saxony</h3>
+          <div class="region-meta"><span><span class="dot"></span>Dresden · Leipzig</span><span><span class="dot"></span>28 Places</span></div>
+        </div>
+      </article>
+
+      <article class="region-card region-card-3">
+        <img class="region-img" src="https://images.unsplash.com/photo-1571197119669-a4a5bec6ce1d?auto=format&fit=crop&w=900&q=80" alt="North Rhine-Westphalia">
+        <div class="region-overlay"></div>
+        <div class="region-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="region-body">
+          <div class="region-num">N°03 · NRW</div>
+          <h3 class="region-name">North Rhine-Westphalia</h3>
+          <div class="region-meta"><span><span class="dot"></span>Cologne</span><span><span class="dot"></span>31 Places</span></div>
+        </div>
+      </article>
+
+      <article class="region-card region-card-4">
+        <img class="region-img" src="https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=800&q=80" alt="Berlin">
+        <div class="region-overlay"></div>
+        <div class="region-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="region-body">
+          <div class="region-num">N°04 · Berlin</div>
+          <h3 class="region-name">Berlin</h3>
+          <div class="region-meta"><span><span class="dot"></span>City-State</span><span><span class="dot"></span>19 Places</span></div>
+        </div>
+      </article>
+    </div>
+    <!-- {% endfor %} -->
+  </div>
+</section>
+
+<!-- ===== FEATURED PLACES ===== -->
+<section class="section">
+  <div class="section-head">
+    <div class="section-head-left">
+      <div class="section-label">Essential Destinations</div>
+      <h2 class="section-title">The places that <span class="italic">define</span><br>a nation's <span class="italic">character</span>.</h2>
+    </div>
+    <p class="section-desc">Six entries from two hundred and thirty-seven. Each one a door into something larger.</p>
+  </div>
+
+  <!-- {% for place in featured_places %} -->
+  <div class="carousel-wrap">
+  <div class="carousel-track-outer">
+  <div class="places-grid carousel-track" id="placeCarousel">
+    <article class="place" onclick="window.location='place.html'">
+      <div class="place-img-wrap">
+        <img class="place-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=800&q=80" alt="Neuschwanstein">
+        <span class="place-badge">Castle · 19C</span>
+      </div>
+      <div class="place-num">N°01</div>
+      <h3 class="place-name">Neuschwanstein Castle</h3>
+      <p class="place-desc">The dream-king's folly, frozen mid-construction when Ludwig II drowned in mysterious circumstances.</p>
+      <div class="place-meta"><span class="place-meta-item">Bavaria</span><span class="place-meta-item">2h from Munich</span><span class="place-meta-item">All year</span></div>
+    </article>
+
+    <article class="place">
+      <div class="place-img-wrap">
+        <img class="place-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=800&q=80" alt="Brandenburg Gate">
+        <span class="place-badge">Monument · 1791</span>
+      </div>
+      <div class="place-num">N°02</div>
+      <h3 class="place-name">Brandenburg Gate</h3>
+      <p class="place-desc">A neoclassical arch that has witnessed coronations, occupations, division, and reunion in a single century.</p>
+      <div class="place-meta"><span class="place-meta-item">Berlin</span><span class="place-meta-item">City centre</span><span class="place-meta-item">Year-round</span></div>
+    </article>
+
+    <article class="place">
+      <div class="place-img-wrap">
+        <img class="place-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=800&q=80" alt="Cologne Cathedral">
+        <span class="place-badge">Cathedral · Gothic</span>
+      </div>
+      <div class="place-num">N°03</div>
+      <h3 class="place-name">Cologne Cathedral</h3>
+      <p class="place-desc">Six centuries in construction, briefly the world's tallest building. An act of faith measured in generations.</p>
+      <div class="place-meta"><span class="place-meta-item">North Rhine</span><span class="place-meta-item">Walking</span><span class="place-meta-item">Year-round</span></div>
+    </article>
+
+    <article class="place">
+      <div class="place-img-wrap">
+        <img class="place-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=800&q=80" alt="Heidelberg">
+        <span class="place-badge">Castle · Ruins</span>
+      </div>
+      <div class="place-num">N°04</div>
+      <h3 class="place-name">Heidelberg Castle</h3>
+      <p class="place-desc">A ruin so beautiful that Romantics considered its decay more interesting than any intact building.</p>
+      <div class="place-meta"><span class="place-meta-item">Baden-Württemberg</span><span class="place-meta-item">Train from Frankfurt</span><span class="place-meta-item">Spring–Autumn</span></div>
+    </article>
+
+    <article class="place">
+      <div class="place-img-wrap">
+        <img class="place-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=800&q=80" alt="Dresden Frauenkirche">
+        <span class="place-badge">Church · Baroque</span>
+      </div>
+      <div class="place-num">N°05</div>
+      <h3 class="place-name">Dresden Frauenkirche</h3>
+      <p class="place-desc">Destroyed in 1945, rebuilt stone by stone from the original rubble fifty years later. Patience as architecture.</p>
+      <div class="place-meta"><span class="place-meta-item">Saxony</span><span class="place-meta-item">Dresden centre</span><span class="place-meta-item">Year-round</span></div>
+    </article>
+
+    <article class="place">
+      <div class="place-img-wrap">
+        <img class="place-img" src="https://images.unsplash.com/photo-1571897319516-3e267b16cc0a?auto=format&fit=crop&w=800&q=80" alt="Rothenburg">
+        <span class="place-badge">Old Town · Medieval</span>
+      </div>
+      <div class="place-num">N°06</div>
+      <h3 class="place-name">Rothenburg ob der Tauber</h3>
+      <p class="place-desc">A walled medieval town preserved not by wealth but by centuries of graceful decline.</p>
+      <div class="place-meta"><span class="place-meta-item">Franconia</span><span class="place-meta-item">2.5h from Munich</span><span class="place-meta-item">Year-round</span></div>
+    </article>
+  </div><!-- /carousel-track -->
+  </div><!-- /carousel-track-outer -->
+  <div class="carousel-controls">
+    <div class="carousel-dots" id="cDots"></div>
+    <button class="carousel-btn" id="cPrev" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="carousel-btn" id="cNext"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+  </div><!-- /carousel-wrap -->
+  <!-- {% endfor %} -->
+</section>
+
+<!-- ===== JOURNEY CTA ===== -->
+<section class="journey-strip">
+  <div class="journey-inner">
+    <div>
+      <div class="journey-label">Plan Your Journey</div>
+      <h2 class="journey-title">A <span class="italic">fourteen-day</span> itinerary,<br>woven from our archives.</h2>
+    </div>
+    <div>
+      <p class="journey-text">From Berlin's Mitte to Neuschwanstein's silhouette at dusk, from the Rhine Gorge's vine-covered slopes to the Black Forest's unlit roads — we have drawn a route for the traveller who prefers questions to answers. It can be followed precisely, broken into pieces, or used only as a map of things to refuse.</p>
+      <a href="#" class="journey-cta">Read the Itinerary <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- {% include "_footer.html" %} -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Atlas <span class="bronze">Editorial</span></div>
+        <p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="#">Countries</a></li><li><a href="#">Regions</a></li><li><a href="#">Places</a></li><li><a href="#">Cartography</a></li></ul></div>
+      <div class="footer-col"><h4>Journal</h4><ul><li><a href="#">Latest Essays</a></li><li><a href="#">Itineraries</a></li><li><a href="#">Interviews</a></li><li><a href="#">Archive</a></li></ul></div>
+      <div class="footer-col"><h4>The Studio</h4><ul><li><a href="#">About</a></li><li><a href="#">Contributors</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · All rights reserved</span><span>Set in Fraunces &amp; Inter</span></div>
+  </div>
+</footer>
+
+<nav class="page-nav">
+  <div class="page-nav-label">All Pages</div>
+  <a href="country.html">Country</a>
+  <a href="region.html">Region</a>
+  <a href="city.html">City</a>
+  <a href="place.html">Place</a>
+  <a href="map-view.html">Map View</a>
+  <a href="grid-view.html">Grid View</a>
+  <a href="search.html">Search</a>
+</nav>
+
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+});
+document.querySelectorAll('.view-switch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.view-switch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Carousel
+(function() {
+  const track = document.getElementById('placeCarousel');
+  if (!track) return;
+  const items = track.querySelectorAll('.place');
+  const perPage = window.innerWidth < 680 ? 1 : window.innerWidth < 1100 ? 2 : 3;
+  const total = Math.ceil(items.length / perPage);
+  let cur = 0;
+  const dotsWrap = document.getElementById('cDots');
+  const prev = document.getElementById('cPrev');
+  const next = document.getElementById('cNext');
+  // build dots
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(d);
+  }
+  function go(n) {
+    cur = n;
+    const w = track.parentElement.offsetWidth;
+    const gap = 32;
+    const itemW = (w - gap * (perPage - 1)) / perPage;
+    track.style.transform = `translateX(-${cur * (itemW + gap) * perPage}px)`;
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    prev.disabled = cur === 0;
+    next.disabled = cur === total - 1;
+  }
+  prev.addEventListener('click', () => go(cur - 1));
+  next.addEventListener('click', () => go(cur + 1));
+})();
+</script>
+</body>
+</html>

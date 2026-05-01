@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Editorial — A Long-Form Encyclopedia of Places</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+/* ===== HOME-SPECIFIC ===== */
+
+/* Full-viewport hero */
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.home-hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(150deg, #1a2520 0%, #2c3e3a 40%, #0f1814 100%);
+}
+.home-hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(166,122,63,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 70%, rgba(44,62,58,0.8) 0%, transparent 50%);
+}
+.home-mountains {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 55%; z-index: 1; opacity: 0.7;
+}
+.home-hero-content {
+  position: relative; z-index: 3;
+  max-width: 1400px; margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  color: var(--bg-paper);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.home-hero-left {}
+.home-eyebrow {
+  font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+  font-weight: 600; color: var(--bronze);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 14px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.home-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--bronze); }
+.home-hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(52px, 7vw, 108px);
+  line-height: 0.92;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  margin-bottom: 36px;
+  font-variation-settings: "opsz" 144;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.home-hero-title em { font-style: italic; font-weight: 300; color: var(--bronze); }
+.home-hero-sub {
+  font-family: 'Fraunces', serif;
+  font-size: 20px; line-height: 1.6;
+  font-weight: 300; font-style: italic;
+  opacity: 0.85; max-width: 480px;
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+.home-hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.8s both;
+}
+.btn-primary-lg {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 36px;
+  background: var(--bronze); color: var(--forest);
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 600; border-radius: 100px;
+  text-decoration: none; transition: all 0.3s;
+}
+.btn-primary-lg:hover { background: var(--bg-paper); transform: translateX(4px); }
+.btn-ghost-lg {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 17px 36px;
+  background: transparent; color: var(--bg-paper);
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 600; border-radius: 100px;
+  border: 1px solid rgba(250,246,236,0.3);
+  text-decoration: none; transition: all 0.3s;
+}
+.btn-ghost-lg:hover { background: rgba(250,246,236,0.08); border-color: rgba(250,246,236,0.6); }
+.btn-primary-lg svg, .btn-ghost-lg svg { width: 14px; height: 14px; }
+
+/* Hero right: featured destination card */
+.home-hero-right {
+  animation: fadeUp 0.8s ease 0.6s both;
+}
+.hero-dest-card {
+  position: relative; border-radius: 4px; overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.hero-dest-img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-dest-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,24,20,0.9) 0%, rgba(15,24,20,0.1) 60%);
+}
+.hero-dest-body {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 32px; color: var(--bg-paper);
+}
+.hero-dest-label {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600; color: var(--bronze); margin-bottom: 10px;
+}
+.hero-dest-name {
+  font-family: 'Fraunces', serif; font-size: 38px;
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1;
+  margin-bottom: 12px;
+}
+.hero-dest-desc {
+  font-family: 'Fraunces', serif; font-size: 15px;
+  font-style: italic; opacity: 0.8; line-height: 1.5; margin-bottom: 20px;
+}
+.hero-dest-meta {
+  display: flex; gap: 16px;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; opacity: 0.7;
+}
+.hero-dest-arrow {
+  position: absolute; top: 24px; right: 24px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(250,246,236,0.1);
+  border: 1px solid rgba(250,246,236,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bg-paper); transition: all 0.3s;
+}
+.hero-dest-card:hover .hero-dest-arrow {
+  background: var(--bronze); border-color: var(--bronze); transform: rotate(-45deg);
+}
+
+/* Scroll cue */
+.home-scroll {
+  position: absolute; bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 3; color: var(--bg-paper);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5;
+}
+.home-scroll::after {
+  content: ''; width: 1px; height: 40px;
+  background: var(--bronze); animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ===== HIERARCHY INTRO ===== */
+.hierarchy-section {
+  background: var(--bg-warm); padding: 100px 0;
+}
+.hierarchy-inner {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px;
+}
+.hier-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--line); margin-top: 60px;
+  border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+}
+.hier-item {
+  background: var(--bg-paper); padding: 36px 32px;
+  position: relative; cursor: pointer; transition: background 0.2s;
+  text-decoration: none; color: var(--ink); display: block;
+}
+.hier-item:hover { background: var(--bg); }
+.hier-item:hover .hier-arrow { transform: rotate(-45deg); color: var(--bronze); }
+.hier-num {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 48px; font-weight: 300; color: rgba(166,122,63,0.2);
+  line-height: 1; margin-bottom: 16px; letter-spacing: -0.04em;
+}
+.hier-label {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 600; color: var(--bronze); margin-bottom: 10px;
+}
+.hier-name {
+  font-family: 'Fraunces', serif; font-size: 26px;
+  font-weight: 400; margin-bottom: 12px; letter-spacing: -0.01em;
+}
+.hier-example {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 15px; color: var(--ink-muted); line-height: 1.5;
+}
+.hier-arrow {
+  position: absolute; bottom: 28px; right: 28px;
+  color: var(--ink-muted); transition: all 0.25s;
+}
+.hier-connector {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--bronze); opacity: 0.4;
+  position: absolute; right: -1px; top: 50%; transform: translateY(-50%);
+  z-index: 2; background: var(--bronze); width: 1px; height: 40px;
+}
+
+/* ===== FEATURED COUNTRIES ===== */
+.countries-section { padding: 120px 0; }
+.countries-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 32px; margin-top: 60px;
+}
+.country-feature {
+  position: relative; overflow: hidden;
+  border-radius: 4px; cursor: pointer;
+  aspect-ratio: 3/4; background: var(--ink);
+  transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1);
+  text-decoration: none; display: block;
+}
+.country-feature:hover { transform: translateY(-6px); }
+.country-feature-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform 0.8s ease;
+}
+.country-feature:hover .country-feature-img { transform: scale(1.05); }
+.country-feature-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,24,20,0.92) 0%, rgba(15,24,20,0.2) 60%);
+}
+.country-feature-body {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 32px; color: var(--bg-paper);
+}
+.country-feature-chapter {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 12px; color: var(--bronze); margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.country-feature-name {
+  font-family: 'Fraunces', serif; font-size: 42px;
+  font-weight: 400; letter-spacing: -0.03em; line-height: 0.95;
+  margin-bottom: 14px;
+}
+.country-feature-desc {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 15px; opacity: 0.8; line-height: 1.5; margin-bottom: 18px;
+}
+.country-feature-meta {
+  display: flex; gap: 16px;
+  font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; opacity: 0.65;
+}
+.cf-arrow {
+  position: absolute; top: 24px; right: 24px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(250,246,236,0.08);
+  border: 1px solid rgba(250,246,236,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bg-paper); transition: all 0.3s;
+}
+.country-feature:hover .cf-arrow { background: var(--bronze); border-color: var(--bronze); transform: rotate(-45deg); }
+
+/* ===== EDITORIAL PHILOSOPHY ===== */
+.philosophy-section {
+  background: var(--bg-warm); padding: 120px 0;
+}
+.philosophy-grid {
+  display: grid; grid-template-columns: 1fr 680px 1fr;
+  gap: 60px; align-items: start;
+}
+.philosophy-stat {
+  text-align: right; padding-top: 40px;
+}
+.philosophy-stat-val {
+  font-family: 'Fraunces', serif; font-size: 72px;
+  font-weight: 300; letter-spacing: -0.04em;
+  color: var(--bronze); line-height: 1; margin-bottom: 8px;
+}
+.philosophy-stat-lbl {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 600; color: var(--ink-muted);
+}
+.philosophy-stat-2 { padding-top: 120px; }
+
+/* ===== LATEST ENTRIES ===== */
+.latest-section { padding: 120px 0; }
+.latest-list { display: flex; flex-direction: column; }
+.latest-item {
+  display: flex; gap: 32px; padding: 32px 0;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: center; cursor: pointer;
+  text-decoration: none; color: var(--ink);
+  transition: background 0.15s;
+}
+.latest-item:hover { background: var(--bg-paper); margin: 0 -24px; padding: 32px 24px; border-radius: 4px; border-color: transparent; }
+.latest-item:first-child { padding-top: 0; }
+.latest-num {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 13px; color: var(--bronze); min-width: 36px; flex-shrink: 0;
+}
+.latest-img { width: 120px; height: 90px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+.latest-body { flex: 1; }
+.latest-breadcrumb {
+  font-size: 11px; letter-spacing: 0.08em; color: var(--ink-muted);
+  font-weight: 500; margin-bottom: 6px; text-transform: uppercase;
+}
+.latest-name {
+  font-family: 'Fraunces', serif; font-size: 26px;
+  font-weight: 400; letter-spacing: -0.01em; margin-bottom: 6px; line-height: 1.1;
+}
+.latest-desc {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 15px; color: var(--ink-muted); line-height: 1.5;
+}
+.latest-type { flex-shrink: 0; }
+.latest-badge {
+  padding: 5px 14px; background: var(--bg-warm); border-radius: 100px;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--ink-muted);
+}
+
+/* ===== NEWSLETTER ===== */
+.newsletter-strip {
+  background: var(--ink); color: var(--bg-paper);
+  padding: 80px 0;
+}
+.newsletter-inner {
+  max-width: 1400px; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.newsletter-title {
+  font-family: 'Fraunces', serif; font-size: 44px;
+  font-weight: 300; line-height: 1.05; letter-spacing: -0.02em;
+}
+.newsletter-title em { font-style: italic; color: var(--bronze); }
+.newsletter-sub {
+  font-family: 'Fraunces', serif; font-size: 16px;
+  font-style: italic; opacity: 0.7; margin-top: 14px; line-height: 1.55;
+}
+.newsletter-form { display: flex; gap: 0; }
+.newsletter-input {
+  flex: 1; padding: 16px 20px;
+  background: rgba(250,246,236,0.08); border: 1px solid rgba(250,246,236,0.2);
+  border-right: none; border-radius: 4px 0 0 4px;
+  font-size: 16px; font-family: 'Fraunces', serif; font-style: italic;
+  color: var(--bg-paper); outline: none; transition: border-color 0.2s;
+}
+.newsletter-input::placeholder { color: rgba(250,246,236,0.4); }
+.newsletter-input:focus { border-color: var(--bronze); }
+.newsletter-btn {
+  padding: 16px 28px; background: var(--bronze); border: 1px solid var(--bronze);
+  border-radius: 0 4px 4px 0; color: var(--forest);
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: inherit;
+  white-space: nowrap;
+}
+.newsletter-btn:hover { background: var(--bg-paper); color: var(--forest); }
+.newsletter-note {
+  font-size: 11px; color: rgba(250,246,236,0.4);
+  margin-top: 12px; letter-spacing: 0.04em;
+}
+
+/* Page nav */
+.page-nav { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--ink); color: var(--bg-paper); border-radius: 12px; padding: 14px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.page-nav a { color: var(--bronze); text-decoration: none; display: block; margin-bottom: 6px; }
+.page-nav a:last-child { margin-bottom: 0; }
+.page-nav-label { opacity: 0.4; margin-bottom: 10px; font-size: 9px; }
+
+@media (max-width: 1100px) {
+  .home-hero-content { grid-template-columns: 1fr; gap: 48px; }
+  .home-hero-right { display: none; }
+  .hier-grid { grid-template-columns: repeat(2,1fr); }
+  .countries-grid { grid-template-columns: 1fr 1fr; }
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .philosophy-stat, .philosophy-stat-2 { text-align: left; padding-top: 0; }
+  .newsletter-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 680px) {
+  .home-hero-content { padding: 0 24px; }
+  .hier-grid { grid-template-columns: 1fr; }
+  .countries-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { border-right: 1px solid rgba(250,246,236,0.2); border-bottom: none; border-radius: 4px 4px 0 0; }
+  .newsletter-btn { border-radius: 0 0 4px 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-mark"></div>Atlas <em style="font-style:italic;font-weight:400">Editorial</em></a>
+    <nav class="nav">
+      <a href="country.html">Countries</a>
+      <a href="region.html">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+      <a href="#">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <button class="icon-btn" aria-label="Bookmarks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="home-hero">
+  <div class="home-hero-bg"></div>
+  <svg class="home-mountains" viewBox="0 0 1600 500" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="hm1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a4e48" stop-opacity="0.4"/><stop offset="100%" stop-color="#1a2520" stop-opacity="0.9"/></linearGradient>
+      <linearGradient id="hm2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2c3e3a" stop-opacity="0.5"/><stop offset="100%" stop-color="#0f1814" stop-opacity="1"/></linearGradient>
+      <linearGradient id="hm3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2520" stop-opacity="0.3"/><stop offset="100%" stop-color="#0f1814" stop-opacity="1"/></linearGradient>
+    </defs>
+    <path d="M0,320 L80,220 L200,270 L320,160 L440,240 L580,130 L740,210 L880,100 L1040,190 L1180,120 L1340,230 L1460,160 L1600,220 L1600,500 L0,500Z" fill="url(#hm1)"/>
+    <path d="M0,370 L150,270 L290,340 L440,230 L600,310 L780,200 L960,300 L1140,220 L1320,340 L1600,280 L1600,500 L0,500Z" fill="url(#hm2)"/>
+    <path d="M0,440 L170,380 L360,420 L560,360 L780,400 L1000,360 L1220,410 L1450,375 L1600,410 L1600,500 L0,500Z" fill="url(#hm3)"/>
+    <circle cx="150" cy="70" r="1.2" fill="#A67A3F" opacity="0.7"/>
+    <circle cx="420" cy="95" r="1.5" fill="#A67A3F" opacity="0.9"/>
+    <circle cx="750" cy="50" r="1" fill="#FAF6EC" opacity="0.5"/>
+    <circle cx="1100" cy="80" r="1.3" fill="#A67A3F" opacity="0.6"/>
+    <circle cx="1380" cy="110" r="0.9" fill="#FAF6EC" opacity="0.4"/>
+  </svg>
+
+  <div class="home-hero-content">
+    <div class="home-hero-left">
+      <div class="home-eyebrow">A long-form encyclopedia of places</div>
+      <h1 class="home-hero-title">
+        Every place<br>
+        has a <em>story</em><br>
+        worth telling.
+      </h1>
+      <p class="home-hero-sub">Not dry listings. Not star ratings. A library of destinations told as literature — country by country, chapter by chapter, with the depth they deserve.</p>
+      <div class="home-hero-ctas">
+        <a href="country.html" class="btn-primary-lg">
+          Begin Exploring
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="search.html" class="btn-ghost-lg">
+          Search Places
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="home-hero-right">
+      <a href="region.html" class="hero-dest-card" style="display:block;text-decoration:none">
+        <img class="hero-dest-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=900&q=80" alt="Bavaria">
+        <div class="hero-dest-overlay"></div>
+        <div class="hero-dest-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="hero-dest-body">
+          <div class="hero-dest-label">Featured Chapter · Germany</div>
+          <div class="hero-dest-name">Bavaria</div>
+          <div class="hero-dest-desc">Where mad kings built impossible castles, and every village remembers a legend older than the Alps.</div>
+          <div class="hero-dest-meta">
+            <span>142 Places</span>
+            <span>·</span>
+            <span>7 Regions</span>
+            <span>·</span>
+            <span>Alpine</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="home-scroll">Scroll <br></div>
+</section>
+
+<!-- ===== HIERARCHY ===== -->
+<section class="hierarchy-section">
+  <div class="hierarchy-inner">
+    <div style="max-width:1400px;margin:0 auto">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title" style="margin-top:12px;max-width:640px">
+        Four levels of <span class="italic">depth</span>.<br>
+        One continuous <span class="italic">story</span>.
+      </h2>
+    </div>
+    <div class="hier-grid">
+      <!-- {% for level in hierarchy %} -->
+      <a href="country.html" class="hier-item">
+        <div class="hier-num">01</div>
+        <div class="hier-label">Level One</div>
+        <div class="hier-name">Country</div>
+        <div class="hier-example">Germany, France, Japan — each an encyclopedia volume of its own, with editorial introduction and regional breakdown.</div>
+        <div class="hier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </a>
+      <a href="region.html" class="hier-item">
+        <div class="hier-num">02</div>
+        <div class="hier-label">Level Two</div>
+        <div class="hier-name">Region</div>
+        <div class="hier-example">Bavaria, Tuscany, Kyoto Prefecture — a chapter within the country, with its own character, cities, and history.</div>
+        <div class="hier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </a>
+      <a href="city.html" class="hier-item">
+        <div class="hier-num">03</div>
+        <div class="hier-label">Level Three</div>
+        <div class="hier-name">City</div>
+        <div class="hier-example">Munich, Florence, Kyoto — a city portrait with neighbourhoods, practical notes, and the places that define it.</div>
+        <div class="hier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </a>
+      <a href="place.html" class="hier-item">
+        <div class="hier-num">04</div>
+        <div class="hier-label">Level Four</div>
+        <div class="hier-name">Place</div>
+        <div class="hier-example">Neuschwanstein, the Uffizi, Fushimi Inari — a full entry with history, how to get there, what season to visit, and what it means.</div>
+        <div class="hier-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+      </a>
+      <!-- {% endfor %} -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED COUNTRIES ===== -->
+<section class="countries-section">
+  <div style="max-width:1400px;margin:0 auto;padding:0 40px">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="section-label">Begin Your Reading</div>
+        <h2 class="section-title">Three countries,<br>three <span class="italic">chapters</span> open.</h2>
+      </div>
+      <p class="section-desc">The archive grows. These are the entries currently available in depth — more countries being written.</p>
+    </div>
+    <!-- {% for country in featured_countries %} -->
+    <div class="countries-grid">
+      <a href="country.html" class="country-feature">
+        <img class="country-feature-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80" alt="Germany">
+        <div class="country-feature-overlay"></div>
+        <div class="cf-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="country-feature-body">
+          <div class="country-feature-chapter">Chapter Five · Central Europe</div>
+          <div class="country-feature-name">Germany</div>
+          <div class="country-feature-desc">A nation of forests, philosophers, and beer laws written in 1516. Sixteen states, each more opinionated than the last.</div>
+          <div class="country-feature-meta"><span>16 States</span><span>·</span><span>237 Places</span><span>·</span><span>Available Now</span></div>
+        </div>
+      </a>
+      <a href="#" class="country-feature">
+        <img class="country-feature-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=900&q=80" alt="Italy">
+        <div class="country-feature-overlay"></div>
+        <div class="cf-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="country-feature-body">
+          <div class="country-feature-chapter">Chapter Eight · Southern Europe</div>
+          <div class="country-feature-name">Italy</div>
+          <div class="country-feature-desc">Twenty regions, each convinced it alone has the correct approach to pasta, civic architecture, and the meaning of life.</div>
+          <div class="country-feature-meta"><span>20 Regions</span><span>·</span><span>412 Places</span><span>·</span><span>In Progress</span></div>
+        </div>
+      </a>
+      <a href="#" class="country-feature">
+        <img class="country-feature-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=900&q=80" alt="Japan">
+        <div class="country-feature-overlay"></div>
+        <div class="cf-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+        <div class="country-feature-body">
+          <div class="country-feature-chapter">Chapter Fourteen · East Asia</div>
+          <div class="country-feature-name">Japan</div>
+          <div class="country-feature-desc">A country where the aesthetic refinement of a train station exceeds most European cathedrals. Forty-seven prefectures to read.</div>
+          <div class="country-feature-meta"><span>47 Prefectures</span><span>·</span><span>580 Places</span><span>·</span><span>Coming Soon</span></div>
+        </div>
+      </a>
+    </div>
+    <!-- {% endfor %} -->
+  </div>
+</section>
+
+<!-- ===== PHILOSOPHY ===== -->
+<section class="philosophy-section">
+  <div style="max-width:1400px;margin:0 auto;padding:0 40px">
+    <div class="philosophy-grid">
+      <div class="philosophy-stat">
+        <div class="philosophy-stat-val">2,400+</div>
+        <div class="philosophy-stat-lbl">Places documented</div>
+      </div>
+      <div class="editorial-body">
+        <div class="section-label" style="margin-bottom:20px">Our Philosophy</div>
+        <h2 class="article-title">We write about <span class="italic">places</span>,<br>not listings.</h2>
+        <div class="article-body">
+          <p class="drop-cap">There are already ten thousand ways to find a hotel near the Eiffel Tower. What is harder to find is someone willing to explain why Haussmann demolished medieval Paris in 1853, and what the city lost and gained in the process. That is what we do.</p>
+          <p>Every entry in our archive begins not with a star rating but with a question: what does this place mean? What happened here, and why should a thoughtful traveller care? We write to readers who find history more interesting than nightlife guides, and who believe that understanding a place is more satisfying than merely visiting it.</p>
+          <div class="pull-quote">
+            Travel is not a reward for working. It is education for living.
+            <cite>— Attributed, widely misattributed</cite>
+          </div>
+          <p>Our entries are written by people who have been to these places more than once, who have read the relevant histories, and who prefer precision to enthusiasm. We admit what we do not know. We tell you what to expect, and occasionally what to avoid.</p>
+        </div>
+      </div>
+      <div class="philosophy-stat philosophy-stat-2">
+        <div class="philosophy-stat-val">47</div>
+        <div class="philosophy-stat-lbl">Countries in archive</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST ENTRIES ===== -->
+<section class="latest-section">
+  <div style="max-width:1400px;margin:0 auto;padding:0 40px">
+    <div class="section-head" style="margin-bottom:0">
+      <div class="section-head-left">
+        <div class="section-label">Recently Added</div>
+        <h2 class="section-title">The latest <span class="italic">entries</span>.</h2>
+      </div>
+      <a href="search.html" style="display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--bronze);text-decoration:none">
+        Browse all <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <!-- {% for entry in latest_entries %} -->
+    <div class="latest-list" style="margin-top:40px">
+      <a href="place.html" class="latest-item">
+        <div class="latest-num">N°01</div>
+        <img class="latest-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=240&q=80" alt="">
+        <div class="latest-body">
+          <div class="latest-breadcrumb">Germany · Bavaria · Füssen</div>
+          <div class="latest-name">Neuschwanstein Castle</div>
+          <div class="latest-desc">An unfinished dream visited by 1.4 million people annually. The irony of its fame is total.</div>
+        </div>
+        <div class="latest-type"><span class="latest-badge">Castle · 19C</span></div>
+      </a>
+      <a href="city.html" class="latest-item">
+        <div class="latest-num">N°02</div>
+        <img class="latest-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=240&q=80" alt="">
+        <div class="latest-body">
+          <div class="latest-breadcrumb">Germany · Bavaria</div>
+          <div class="latest-name">Munich</div>
+          <div class="latest-desc">Where tradition is not performed but simply lived — in beer gardens, museums, and a park larger than Central Park.</div>
+        </div>
+        <div class="latest-type"><span class="latest-badge">City · 1.5M</span></div>
+      </a>
+      <a href="region.html" class="latest-item">
+        <div class="latest-num">N°03</div>
+        <img class="latest-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=240&q=80" alt="">
+        <div class="latest-body">
+          <div class="latest-breadcrumb">Germany</div>
+          <div class="latest-name">Bavaria</div>
+          <div class="latest-desc">Seven administrative regions, one stubborn identity. The Alps begin here. So do the arguments about whose beer is best.</div>
+        </div>
+        <div class="latest-type"><span class="latest-badge">Region · 142 Places</span></div>
+      </a>
+      <a href="country.html" class="latest-item">
+        <div class="latest-num">N°04</div>
+        <img class="latest-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=240&q=80" alt="">
+        <div class="latest-body">
+          <div class="latest-breadcrumb">Germany</div>
+          <div class="latest-name">Heidelberg Castle</div>
+          <div class="latest-desc">A ruin so beautiful that Romantics considered its decay more instructive than any intact monument.</div>
+        </div>
+        <div class="latest-type"><span class="latest-badge">Castle · Ruins</span></div>
+      </a>
+    </div>
+    <!-- {% endfor %} -->
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<div class="newsletter-strip">
+  <div class="newsletter-inner">
+    <div>
+      <div class="newsletter-title">The <em>Cartographer's</em><br>Letter.</div>
+      <p class="newsletter-sub">New entries, essays, and itineraries — delivered when they are ready, not on a schedule. Roughly monthly.</p>
+    </div>
+    <div>
+      <form class="newsletter-form" onsubmit="return false">
+        <input class="newsletter-input" type="email" placeholder="Your email address…">
+        <button class="newsletter-btn">Subscribe</button>
+      </form>
+      <p class="newsletter-note">No frequency promises. Unsubscribe any time. We dislike newsletters as much as you do.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">Atlas <span class="bronze">Editorial</span></div><p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="country.html">Countries</a></li><li><a href="region.html">Regions</a></li><li><a href="place.html">Places</a></li><li><a href="#">Cartography</a></li></ul></div>
+      <div class="footer-col"><h4>Journal</h4><ul><li><a href="#">Latest Essays</a></li><li><a href="#">Itineraries</a></li><li><a href="#">Interviews</a></li><li><a href="#">Archive</a></li></ul></div>
+      <div class="footer-col"><h4>The Studio</h4><ul><li><a href="#">About</a></li><li><a href="#">Contributors</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · All rights reserved</span><span>Set in Fraunces &amp; Inter</span></div>
+  </div>
+</footer>
+
+<nav class="page-nav">
+  <div class="page-nav-label">All Pages</div>
+  <a href="home.html">Home</a>
+  <a href="country.html">Country</a>
+  <a href="region.html">Region</a>
+  <a href="city.html">City</a>
+  <a href="place.html">Place</a>
+  <a href="map-view.html">Map</a>
+  <a href="grid-view.html">Grid</a>
+  <a href="search.html">Search</a>
+</nav>
+
+</body>
+</html>

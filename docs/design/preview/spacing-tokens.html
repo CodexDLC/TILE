@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 28px; }
+.label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 12px; margin-top: 22px; }
+.label:first-child { margin-top: 0; }
+
+/* Spacing scale */
+.scale { display: flex; flex-direction: column; gap: 6px; }
+.sp-row { display: flex; align-items: center; gap: 14px; }
+.sp-bar-wrap { flex: 1; }
+.sp-bar { height: 14px; background: #A67A3F; border-radius: 2px; opacity: 0.75; }
+.sp-info { min-width: 60px; font-size: 10px; color: #6B6860; }
+.sp-name { min-width: 56px; font-size: 10px; font-weight: 600; color: #1A1D23; }
+
+/* Layout tokens */
+.layout-grid { display: grid; gap: 8px; }
+.token-row { display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: #FAF6EC; border-radius: 4px; border: 1px solid rgba(26,29,35,0.06); }
+.token-val { font-size: 13px; font-weight: 600; color: #A67A3F; font-family: 'Fraunces', serif; min-width: 60px; }
+.token-desc { font-size: 11px; color: #6B6860; }
+</style>
+</head>
+<body>
+  <div class="label">Spacing Scale</div>
+  <div class="scale">
+    <div class="sp-row"><div class="sp-name">--sp-1</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:4px"></div></div><div class="sp-info">4px micro</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-2</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:6px"></div></div><div class="sp-info">6px micro</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-3</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:8px"></div></div><div class="sp-info">8px micro</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-4</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:12px"></div></div><div class="sp-info">12px small</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-5</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:16px"></div></div><div class="sp-info">16px small</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-6</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:20px"></div></div><div class="sp-info">20px small</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-7</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:24px"></div></div><div class="sp-info">24px medium</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-8</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:32px"></div></div><div class="sp-info">32px medium</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-9</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:40px"></div></div><div class="sp-info">40px medium</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-10</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:60px"></div></div><div class="sp-info">60px large</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-11</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:80px"></div></div><div class="sp-info">80px large</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-12</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:100px"></div></div><div class="sp-info">100px large</div></div>
+    <div class="sp-row"><div class="sp-name">--sp-13</div><div class="sp-bar-wrap"><div class="sp-bar" style="width:120px"></div></div><div class="sp-info">120px XL section pad</div></div>
+  </div>
+
+  <div class="label">Layout Tokens</div>
+  <div class="layout-grid">
+    <div class="token-row"><div class="token-val">1400px</div><div class="token-desc">--content-max-w — Maximum content container width</div></div>
+    <div class="token-row"><div class="token-val">680px</div><div class="token-desc">--editorial-w — Editorial body column width</div></div>
+    <div class="token-row"><div class="token-val">40px</div><div class="token-desc">--section-pad-h — Horizontal section padding (desktop)</div></div>
+    <div class="token-row"><div class="token-val">24px</div><div class="token-desc">--section-pad-h-sm — Horizontal section padding (mobile)</div></div>
+    <div class="token-row"><div class="token-val">4px</div><div class="token-desc">--radius-card — Card corner radius</div></div>
+    <div class="token-row"><div class="token-val">100px</div><div class="token-desc">--radius-pill — Button / badge corner radius</div></div>
+    <div class="token-row"><div class="token-val">blur(12px)</div><div class="token-desc">--blur-header — Header backdrop filter</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuschwanstein Castle — Atlas Editorial</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+.page-nav { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--ink); color: var(--bg-paper); border-radius: 12px; padding: 14px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.page-nav a { color: var(--bronze); text-decoration: none; display: block; margin-bottom: 6px; }
+.page-nav a:last-child { margin-bottom: 0; }
+.page-nav-label { opacity: 0.4; margin-bottom: 10px; font-size: 9px; }
+
+/* Full-bleed hero with image */
+.hero-place { position: relative; min-height: 70vh; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-place-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-place-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,24,20,0.95) 0%, rgba(15,24,20,0.4) 50%, rgba(15,24,20,0.15) 100%); }
+.hero-place-content { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 0 40px 80px; width: 100%; color: var(--bg-paper); }
+.hero-place-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-place-badge { padding: 6px 16px; border: 1px solid rgba(250,246,236,0.3); border-radius: 100px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--bg-paper); backdrop-filter: blur(8px); background: rgba(250,246,236,0.08); }
+.hero-place-title { font-family: 'Fraunces', serif; font-size: clamp(42px, 6vw, 80px); line-height: 0.96; font-weight: 400; letter-spacing: -0.03em; margin-bottom: 16px; }
+.hero-place-sub { font-family: 'Fraunces', serif; font-size: 22px; font-style: italic; font-weight: 300; opacity: 0.85; }
+
+/* Tabs + two-col layout */
+.place-layout { display: grid; grid-template-columns: 1fr 300px; gap: 80px; align-items: start; }
+.key-facts-card { background: var(--bg-paper); border: 1px solid var(--line-soft); border-radius: 4px; padding: 28px; position: sticky; top: 160px; }
+.key-facts-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze); font-weight: 600; margin-bottom: 20px; }
+.key-fact { padding: 12px 0; border-bottom: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 4px; }
+.key-fact:last-child { border-bottom: none; }
+.key-fact-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; }
+.key-fact-val { font-family: 'Fraunces', serif; font-size: 16px; color: var(--ink); line-height: 1.4; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot { position: absolute; left: -36px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--bronze); border: 2px solid var(--bg); box-shadow: 0 0 0 1px var(--bronze); }
+.timeline-year { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--bronze); margin-bottom: 6px; letter-spacing: 0.04em; }
+.timeline-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; margin-bottom: 10px; letter-spacing: -0.01em; }
+.timeline-text { font-family: 'Fraunces', serif; font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+
+/* Nearby grid */
+.nearby-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.nearby-card { display: flex; gap: 16px; padding: 16px; background: var(--bg-paper); border-radius: 4px; border: 1px solid var(--line-soft); cursor: pointer; transition: transform 0.2s; }
+.nearby-card:hover { transform: translateY(-2px); }
+.nearby-img { width: 80px; height: 80px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+.nearby-dist { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); font-weight: 600; margin-bottom: 4px; }
+.nearby-name { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 400; margin-bottom: 4px; }
+.nearby-type { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+
+/* Seasonality chart */
+.season-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; margin-bottom: 32px; }
+.season-col { text-align: center; }
+.season-bar-wrap { height: 80px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 6px; }
+.season-bar { width: 100%; border-radius: 2px 2px 0 0; background: var(--bronze); min-height: 6px; }
+.season-bar.low { opacity: 0.3; }
+.season-bar.mid { opacity: 0.6; }
+.season-bar.peak { opacity: 1; }
+.season-lbl { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+.season-legend { display: flex; gap: 24px; flex-wrap: wrap; }
+.season-legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-soft); }
+.season-legend-dot { width: 12px; height: 12px; border-radius: 2px; background: var(--bronze); }
+.season-legend-dot.mid { opacity: 0.6; }
+.season-legend-dot.low { opacity: 0.3; }
+
+/* Photo gallery */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.gallery-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; cursor: pointer; transition: opacity 0.2s; }
+.gallery-img:hover { opacity: 0.75; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; background: rgba(10,17,14,0.97); z-index: 1000; display: none; align-items: center; justify-content: center; }
+.lightbox.open { display: flex; }
+.lb-img { max-width: 88vw; max-height: 85vh; object-fit: contain; border-radius: 2px; display: block; }
+.lb-close { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 50%; background: rgba(250,246,236,0.1); border: 1px solid rgba(250,246,236,0.2); color: #FAF6EC; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.lb-close:hover { background: #A67A3F; border-color: #A67A3F; }
+.lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(250,246,236,0.08); border: 1px solid rgba(250,246,236,0.2); color: #FAF6EC; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.lb-prev { left: 20px; } .lb-next { right: 20px; }
+.lb-prev:hover, .lb-next:hover { background: #A67A3F; border-color: #A67A3F; }
+.lb-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,246,236,0.45); font-weight: 600; font-family: 'Inter', sans-serif; }
+
+/* Getting there */
+.transport-rows { display: flex; flex-direction: column; gap: 0; }
+.transport-row { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line-soft); align-items: flex-start; }
+.transport-row:last-child { border-bottom: none; }
+.transport-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(166,122,63,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.transport-icon svg { width: 18px; height: 18px; color: var(--bronze); }
+.transport-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; margin-bottom: 6px; }
+.transport-desc { font-size: 15px; color: var(--ink-soft); line-height: 1.6; font-family: 'Fraunces', serif; font-style: italic; }
+
+/* Map placeholder */
+.map-placeholder { width: 100%; height: 300px; background: var(--forest); border-radius: 4px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-top: 28px; }
+.map-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(166,122,63,0.15) 0%, transparent 70%); }
+.map-inner { color: var(--bg-paper); text-align: center; position: relative; z-index: 1; }
+.map-inner p { font-family: 'Fraunces', serif; font-size: 18px; font-style: italic; opacity: 0.65; margin-bottom: 8px; }
+.map-inner span { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bronze); font-weight: 600; }
+
+@media (max-width: 1100px) {
+  .place-layout { grid-template-columns: 1fr; }
+  .key-facts-card { position: static; }
+  .nearby-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 680px) {
+  .hero-place-content { padding: 0 24px 60px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .season-grid { grid-template-columns: repeat(6, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="progress"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-mark"></div>Atlas <em style="font-style:italic;font-weight:400">Editorial</em></a>
+    <nav class="nav">
+      <a href="country.html">Countries</a>
+      <a href="region.html">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <div class="crumbs">
+      <a href="#">🌍 World</a><span class="sep">/</span>
+      <a href="country.html">Germany</a><span class="sep">/</span>
+      <a href="region.html">Bavaria</a><span class="sep">/</span>
+      <a href="city.html">Füssen</a><span class="sep">/</span>
+      <span class="current">Neuschwanstein Castle</span>
+    </div>
+  </div>
+</div>
+
+<!-- FULL-BLEED HERO -->
+<section class="hero-place">
+  <img class="hero-place-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=1800&q=80" alt="Neuschwanstein Castle">
+  <div class="hero-place-overlay"></div>
+  <div class="hero-place-content">
+    <div class="hero-place-badges">
+      <span class="hero-place-badge">Castle</span>
+      <span class="hero-place-badge">1869–1886</span>
+      <span class="hero-place-badge">UNESCO Candidate</span>
+      <span class="hero-place-badge">€15 Entry</span>
+    </div>
+    <h1 class="hero-place-title">Neuschwanstein Castle</h1>
+    <p class="hero-place-sub">The Dream-King's Legacy</p>
+  </div>
+</section>
+
+<!-- LAYER NAVIGATION + CONTENT -->
+<section class="section" style="padding-top:60px">
+  <div class="layers-nav" id="placeLayers">
+    <button class="layer-tab active" data-layer="overview"><span class="num">I</span> Overview</button>
+    <button class="layer-tab" data-layer="history"><span class="num">II</span> History</button>
+    <button class="layer-tab" data-layer="getting-there"><span class="num">III</span> Getting There</button>
+    <button class="layer-tab" data-layer="nearby"><span class="num">IV</span> Nearby</button>
+    <button class="layer-tab" data-layer="seasonality"><span class="num">V</span> Seasonality</button>
+  </div>
+
+  <!-- I. OVERVIEW -->
+  <div class="layer-content active" id="layer-overview">
+    <div class="place-layout">
+      <div>
+        <div class="section-label" style="margin-bottom:20px">What It Is</div>
+        <h2 class="article-title">An unfinished dream,<br>visited by <span class="italic">millions</span>.</h2>
+        <div class="article-body">
+          <p class="drop-cap">Neuschwanstein was never meant to be seen. Ludwig II built it as a private retreat — a personal theatre for one man's obsession with the operas of Richard Wagner and the mythology of medieval Germany. It has ended up as the world's most photographed castle, which is precisely the irony that Ludwig would have found most unbearable.</p>
+          <p>Construction began in 1869 on the ruins of two older castles. The architect was Eduard Riedel, though Ludwig directed the design himself, specifying room by room what he wanted — the Singer's Hall based on the Hall of the Holy Grail in Parsifal, the Throne Room modelled on the Byzantine basilica at Hagia Sophia. He lived in the castle for only 172 days before his death in 1886.</p>
+          <p>The castle was opened to the public six weeks after Ludwig's death, still unfinished. The throne room has no throne — it was never installed. The upper floors remain unpainted plaster. What tourists see is a monument to incompletion, which is perhaps more honest than any finished building could be.</p>
+          <div class="pull-quote">
+            I have the intention to rebuild the old castle ruin of Hohenschwangau near the Pöllat Gorge in the authentic style of the old German knights' castles.
+            <cite>— Ludwig II of Bavaria, in a letter to Richard Wagner, 1868</cite>
+          </div>
+          <p>Today, 1.4 million people visit annually, making Neuschwanstein one of Germany's most visited sites. Timed tickets are required. The interior tour takes 35 minutes and covers fourteen rooms. The view from Marienbrücke — a bridge over the Pöllat gorge — is the one on every postcard.</p>
+        </div>
+      </div>
+      <div>
+        <div class="key-facts-card">
+          <div class="key-facts-title">Key Facts</div>
+          <div class="key-fact"><div class="key-fact-label">Architect</div><div class="key-fact-val">Eduard Riedel (exterior), Julius Hofmann (interiors)</div></div>
+          <div class="key-fact"><div class="key-fact-label">Construction</div><div class="key-fact-val">1869 – 1892 (unfinished)</div></div>
+          <div class="key-fact"><div class="key-fact-label">Style</div><div class="key-fact-val">Romanesque Revival</div></div>
+          <div class="key-fact"><div class="key-fact-label">Elevation</div><div class="key-fact-val">965m above sea level</div></div>
+          <div class="key-fact"><div class="key-fact-label">Annual Visitors</div><div class="key-fact-val">~1.4 million</div></div>
+          <div class="key-fact"><div class="key-fact-label">Tour Duration</div><div class="key-fact-val">35 minutes (guided)</div></div>
+          <div class="key-fact"><div class="key-fact-label">Entry</div><div class="key-fact-val">€15 adults / €14 concessions</div></div>
+          <div class="key-fact"><div class="key-fact-label">Status</div><div class="key-fact-val">UNESCO Candidate (since 2023)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- II. HISTORY -->
+  <div class="layer-content" id="layer-history">
+    <div class="place-layout">
+      <div>
+        <div class="section-label" style="margin-bottom:20px">The Story of a Castle</div>
+        <h2 class="article-title">Ludwig II and the <span class="italic">architecture</span> of obsession.</h2>
+        <div class="timeline" style="margin-top:40px">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1845</div>
+            <div class="timeline-title">Ludwig II is born</div>
+            <div class="timeline-text">Crown Prince Ludwig of Bavaria is born at Nymphenburg Palace in Munich. He spends his childhood summers at the adjacent Hohenschwangau Castle, which his father had rebuilt in neo-Gothic style. The Alpine landscape imprints itself on him irreversibly.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1861</div>
+            <div class="timeline-title">First encounter with Wagner</div>
+            <div class="timeline-text">Ludwig attends a performance of Lohengrin and discovers Richard Wagner's operas. He is sixteen. The encounter will shape everything that follows — the themes of Neuschwanstein's interiors are drawn almost entirely from Wagnerian mythology.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1864</div>
+            <div class="timeline-title">Ludwig becomes King of Bavaria</div>
+            <div class="timeline-text">At eighteen, Ludwig inherits the throne following his father Maximilian II's death. His first act as king is to summon Wagner to Munich, pay his debts, and offer him a residence. The two men share an aesthetic obsession that Ludwig will spend the rest of his life and treasury pursuing.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1869</div>
+            <div class="timeline-title">Construction begins</div>
+            <div class="timeline-text">The foundation stone is laid in September. Ludwig envisions not an ordinary castle but a theatrical space — the Singer's Hall, the Throne Room, the apartments all designed to stage-manage the mythology he lived inside his imagination. Two hundred builders work simultaneously at peak construction.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1884</div>
+            <div class="timeline-title">Ludwig moves in (partially)</div>
+            <div class="timeline-text">The first completed rooms are occupied. Ludwig visits repeatedly but never stays long — he prefers to tour the unfinished construction by candlelight, which he considers more atmospherically correct than daylight. He will live in the castle for only 172 total days.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1886</div>
+            <div class="timeline-title">Ludwig II is deposed and dies</div>
+            <div class="timeline-text">The Bavarian government, alarmed by Ludwig's spending and increasingly erratic behaviour, declares him mentally unfit. He is deposed on June 10th. On June 13th, three days after his deposition, Ludwig's body is found floating in the Starnberger See, along with that of his physician. The circumstances have never been explained.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1886 – present</div>
+            <div class="timeline-title">Opened to the public</div>
+            <div class="timeline-text">Six weeks after Ludwig's death, the castle opens to paying visitors. The Bavarian government, which had inherited massive debts from Ludwig's construction projects, needed the revenue. The castle Ludwig built as a refuge from the world becomes one of the world's most visited tourist attractions. The irony is total.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="key-facts-card">
+          <div class="key-facts-title">Ludwig II</div>
+          <div class="key-fact"><div class="key-fact-label">Born</div><div class="key-fact-val">25 August 1845</div></div>
+          <div class="key-fact"><div class="key-fact-label">Died</div><div class="key-fact-val">13 June 1886</div></div>
+          <div class="key-fact"><div class="key-fact-label">Reign</div><div class="key-fact-val">1864–1886 (22 years)</div></div>
+          <div class="key-fact"><div class="key-fact-label">Castles Built</div><div class="key-fact-val">Neuschwanstein, Linderhof, Herrenchiemsee</div></div>
+          <div class="key-fact"><div class="key-fact-label">Debt at Death</div><div class="key-fact-val">~21 million marks (private)</div></div>
+          <div class="key-fact"><div class="key-fact-label">Cause of Death</div><div class="key-fact-val">Undetermined. Drowning in Starnberger See.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- III. GETTING THERE -->
+  <div class="layer-content" id="layer-getting-there">
+    <div class="place-layout">
+      <div>
+        <div class="section-label" style="margin-bottom:20px">Getting There</div>
+        <h2 class="article-title">From <span class="italic">Munich</span>, two hours south.</h2>
+        <div class="transport-rows" style="margin-top:40px">
+          <div class="transport-row">
+            <div class="transport-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M12 12v4M8 12v4M16 12v4"/></svg></div>
+            <div>
+              <div class="transport-title">By Train + Bus</div>
+              <div class="transport-desc">Regional train from Munich Hauptbahnhof to Füssen (2h, every 2 hours, €26 return). From Füssen station, bus 73 or 78 to Hohenschwangau (10 min). The ticket office is in the village below — do not walk up without a timed ticket, as entry is refused.</div>
+            </div>
+          </div>
+          <div class="transport-row">
+            <div class="transport-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h11l5 5v3a2 2 0 0 1-2 2z"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg></div>
+            <div>
+              <div class="transport-title">By Car</div>
+              <div class="transport-desc">A7 motorway south from Munich, exit at Füssen/Hohenschwangau (95km, approx. 1h 45min). Parking at P4 Alpsee car park (€6/day). The car parks fill rapidly in summer — aim to arrive by 8am or after 3pm.</div>
+            </div>
+          </div>
+          <div class="transport-row">
+            <div class="transport-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div>
+              <div class="transport-title">Walking Up</div>
+              <div class="transport-desc">From the ticket office to the castle entrance: 30 minutes uphill (steep). A horse-drawn carriage operates in season (€7 up, €3.50 down). A shuttle bus also runs (€3 up, €1.50 down). The walk down from Marienbrücke is 20 minutes and offers the classic photograph.</div>
+            </div>
+          </div>
+          <div class="transport-row">
+            <div class="transport-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <div>
+              <div class="transport-title">Booking Tickets</div>
+              <div class="transport-desc">Online at tickets.hohenschwangau.de — advance booking strongly recommended, especially June through August when same-day slots are typically sold out by 9am. The system releases tickets 2 days in advance. Timed entry in 5-minute windows. Arrive 30 minutes before your slot.</div>
+            </div>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <div class="map-inner"><p>Interactive map</p><span>Leaflet.js integration point</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="key-facts-card">
+          <div class="key-facts-title">Visitor Information</div>
+          <div class="key-fact"><div class="key-fact-label">Opening Hours</div><div class="key-fact-val">Apr–Oct: 9am–6pm<br>Nov–Mar: 10am–4pm</div></div>
+          <div class="key-fact"><div class="key-fact-label">Entry Fee</div><div class="key-fact-val">€15 adults<br>€14 seniors / students<br>Under 18 free</div></div>
+          <div class="key-fact"><div class="key-fact-label">Tour Duration</div><div class="key-fact-val">35 min guided tour</div></div>
+          <div class="key-fact"><div class="key-fact-label">Booking</div><div class="key-fact-val">tickets.hohenschwangau.de</div></div>
+          <div class="key-fact"><div class="key-fact-label">Nearest Town</div><div class="key-fact-val">Füssen (4km)</div></div>
+          <div class="key-fact"><div class="key-fact-label">Parking</div><div class="key-fact-val">P4 Alpsee — €6/day</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IV. NEARBY -->
+  <div class="layer-content" id="layer-nearby">
+    <div class="section-label" style="margin-bottom:20px">Within Reach</div>
+    <h2 class="article-title" style="margin-bottom:48px">Six more reasons to <span class="italic">stay</span>.</h2>
+    <!-- {% for place in nearby_places %} -->
+    <div class="nearby-grid">
+      <div class="nearby-card">
+        <img class="nearby-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=200&q=80" alt="">
+        <div><div class="nearby-dist">500m</div><div class="nearby-name">Hohenschwangau Castle</div><div class="nearby-type">Castle · Yellow Sandstone</div></div>
+      </div>
+      <div class="nearby-card">
+        <img class="nearby-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=200&q=80" alt="">
+        <div><div class="nearby-dist">1km</div><div class="nearby-name">Alpsee Lake</div><div class="nearby-type">Alpine Lake · Swimming</div></div>
+      </div>
+      <div class="nearby-card">
+        <img class="nearby-img" src="https://images.unsplash.com/photo-1571897319516-3e267b16cc0a?auto=format&fit=crop&w=200&q=80" alt="">
+        <div><div class="nearby-dist">4km</div><div class="nearby-name">Füssen Old Town</div><div class="nearby-type">Medieval Town</div></div>
+      </div>
+      <div class="nearby-card">
+        <img class="nearby-img" src="https://images.unsplash.com/photo-1599982603395-a06e81e13a39?auto=format&fit=crop&w=200&q=80" alt="">
+        <div><div class="nearby-dist">3km</div><div class="nearby-name">Tegelberg Cable Car</div><div class="nearby-type">Mountain · Paragliding</div></div>
+      </div>
+      <div class="nearby-card">
+        <img class="nearby-img" src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=200&q=80" alt="">
+        <div><div class="nearby-dist">20km</div><div class="nearby-name">Wieskirche</div><div class="nearby-type">UNESCO Church · Rococo</div></div>
+      </div>
+      <div class="nearby-card">
+        <img class="nearby-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=200&q=80" alt="">
+        <div><div class="nearby-dist">40km</div><div class="nearby-name">Linderhof Palace</div><div class="nearby-type">Palace · Ludwig II</div></div>
+      </div>
+    </div>
+    <!-- {% endfor %} -->
+  </div>
+
+  <!-- V. SEASONALITY -->
+  <div class="layer-content" id="layer-seasonality">
+    <div class="section-label" style="margin-bottom:20px">When to Visit</div>
+    <h2 class="article-title" style="margin-bottom:48px">Crowds, weather, and the <span class="italic">light</span> that photographers seek.</h2>
+    <div class="season-grid">
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar low" style="height:20%"></div></div><div class="season-lbl">Jan</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar low" style="height:22%"></div></div><div class="season-lbl">Feb</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar mid" style="height:40%"></div></div><div class="season-lbl">Mar</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar mid" style="height:58%"></div></div><div class="season-lbl">Apr</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar mid" style="height:70%"></div></div><div class="season-lbl">May</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar peak" style="height:100%"></div></div><div class="season-lbl">Jun</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar peak" style="height:100%"></div></div><div class="season-lbl">Jul</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar peak" style="height:95%"></div></div><div class="season-lbl">Aug</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar mid" style="height:65%"></div></div><div class="season-lbl">Sep</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar mid" style="height:45%"></div></div><div class="season-lbl">Oct</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar low" style="height:25%"></div></div><div class="season-lbl">Nov</div></div>
+      <div class="season-col"><div class="season-bar-wrap"><div class="season-bar low" style="height:18%"></div></div><div class="season-lbl">Dec</div></div>
+    </div>
+    <div class="season-legend" style="margin-bottom:48px">
+      <div class="season-legend-item"><div class="season-legend-dot peak"></div> Peak season (book 2+ days ahead)</div>
+      <div class="season-legend-item"><div class="season-legend-dot mid"></div> Moderate (book 1 day ahead)</div>
+      <div class="season-legend-item"><div class="season-legend-dot low"></div> Low season (often walk-in available)</div>
+    </div>
+    <div class="article-body">
+      <p><strong>Winter (Nov–Mar):</strong> Snow-covered, dramatically beautiful, and nearly empty by comparison. Limited opening hours (10am–4pm). Some paths around Marienbrücke may be closed for safety. The view from below in morning mist is unmatched.</p>
+      <p><strong>Spring / Autumn (Apr–May, Sep–Oct):</strong> The photographer's preferred seasons. Softer light, fewer crowds, wildflowers in the meadows below. Autumn brings fog in the valleys that frames the castle above the cloudline at sunrise.</p>
+      <p><strong>Summer (Jun–Aug):</strong> Peak crowds. Same-day tickets are impossible. The castle queues begin forming at 7am. The experience is real but compressed — the 35-minute tour feels hurried. For the best summer photographs: sunrise from Marienbrücke (6am) or late afternoon from the valley below (5–6pm).</p>
+      <p><strong>Best photo location:</strong> Marienbrücke (the bridge over the Pöllat gorge, 10 min walk from the castle) offers the definitive postcard view. Arrive at sunrise or within 30 minutes of opening to photograph without crowds in frame.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="section" style="padding-top:0">
+  <div class="section-label" style="margin-bottom:20px">Photo Gallery</div>
+  <h2 class="section-title" style="margin-bottom:40px;font-size:40px">Twelve views of a <span class="italic">dream</span>.</h2>
+  <!-- {% for photo in gallery %} -->
+  <div class="gallery" id="gallery">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1571897319516-3e267b16cc0a?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1599982603395-a06e81e13a39?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=600&q=80" alt="">
+    <img class="gallery-img" src="https://images.unsplash.com/photo-1541331931401-69ed6bd5ee15?auto=format&fit=crop&w=600&q=80" alt="">
+  </div>
+  <!-- {% endfor %} -->
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <button class="lb-prev" id="lbPrev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <button class="lb-next" id="lbNext"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+</section>
+
+<!-- RELATED PLACES -->
+<section class="regions-section">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-head">
+      <div class="section-head-left">
+        <div class="section-label">Related Places</div>
+        <h2 class="section-title">Other <span class="italic">castles</span> worth the climb.</h2>
+      </div>
+    </div>
+    <div class="places-grid">
+      <article class="place">
+        <div class="place-img-wrap"><img class="place-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=800&q=80" alt=""><span class="place-badge">Castle · Baroque</span></div>
+        <div class="place-num">Related</div><h3 class="place-name">Linderhof Palace</h3>
+        <p class="place-desc">Ludwig II's only completed palace, modelled on Versailles but built for one person's solitude.</p>
+        <div class="place-meta"><span class="place-meta-item">Bavaria</span><span class="place-meta-item">40km away</span></div>
+      </article>
+      <article class="place">
+        <div class="place-img-wrap"><img class="place-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=800&q=80" alt=""><span class="place-badge">Palace · 19C</span></div>
+        <div class="place-num">Related</div><h3 class="place-name">Herrenchiemsee</h3>
+        <p class="place-desc">Ludwig II's island palace, an homage to Versailles never completed beyond a single wing.</p>
+        <div class="place-meta"><span class="place-meta-item">Bavaria</span><span class="place-meta-item">80km away</span></div>
+      </article>
+      <article class="place">
+        <div class="place-img-wrap"><img class="place-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=800&q=80" alt=""><span class="place-badge">Castle · Medieval</span></div>
+        <div class="place-num">Related</div><h3 class="place-name">Hohenzollern Castle</h3>
+        <p class="place-desc">The ancestral seat of the Hohenzollern dynasty, perched on a hill above the Swabian Alps.</p>
+        <div class="place-meta"><span class="place-meta-item">Baden-Württemberg</span><span class="place-meta-item">220km away</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">Atlas <span class="bronze">Editorial</span></div><p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="#">Countries</a></li><li><a href="#">Regions</a></li><li><a href="#">Places</a></li><li><a href="#">Cartography</a></li></ul></div>
+      <div class="footer-col"><h4>Journal</h4><ul><li><a href="#">Latest Essays</a></li><li><a href="#">Itineraries</a></li><li><a href="#">Interviews</a></li><li><a href="#">Archive</a></li></ul></div>
+      <div class="footer-col"><h4>The Studio</h4><ul><li><a href="#">About</a></li><li><a href="#">Contributors</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · All rights reserved</span><span>Set in Fraunces &amp; Inter</span></div>
+  </div>
+</footer>
+
+<nav class="page-nav">
+  <div class="page-nav-label">All Pages</div>
+  <a href="country.html">Country</a><a href="region.html">Region</a><a href="city.html">City</a><a href="place.html">Place</a><a href="map-view.html">Map View</a><a href="grid-view.html">Grid View</a><a href="search.html">Search</a>
+</nav>
+
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('progress').style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+});
+document.querySelectorAll('#placeLayers .layer-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('#placeLayers .layer-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.layer-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('layer-'+tab.dataset.layer).classList.add('active');
+  });
+});
+
+// Lightbox
+const imgs = [...document.querySelectorAll('.gallery-img')];
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCounter = document.getElementById('lbCounter');
+let cur = 0;
+function openLb(i) {
+  cur = i;
+  lbImg.src = imgs[i].src.replace('w=600','w=1400');
+  lbCounter.textContent = (i+1) + ' / ' + imgs.length;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+function step(d) { cur = (cur + d + imgs.length) % imgs.length; openLb(cur); }
+imgs.forEach((img, i) => img.addEventListener('click', () => openLb(i)));
+document.getElementById('lbClose').addEventListener('click', closeLb);
+document.getElementById('lbPrev').addEventListener('click', () => step(-1));
+document.getElementById('lbNext').addEventListener('click', () => step(1));
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 28px; }
+.label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 12px; margin-top: 22px; }
+.label:first-child { margin-top: 0; }
+
+/* Drop cap demo */
+.drop-cap-demo { background: #FAF6EC; padding: 20px 24px; border-radius: 4px; border: 1px solid rgba(26,29,35,0.06); }
+.drop-cap-demo p { font-family: 'Fraunces', serif; font-size: 15px; line-height: 1.65; color: #3A3D44; }
+.drop-cap-demo p::first-letter {
+  font-family: 'Fraunces', serif;
+  font-size: 72px;
+  font-weight: 500;
+  float: left;
+  line-height: 0.85;
+  padding: 6px 12px 0 0;
+  color: #A67A3F;
+  font-style: italic;
+}
+
+/* Pull quote */
+.pull-demo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #1A1D23;
+  padding: 20px 0;
+  border-top: 1px solid rgba(26,29,35,0.12);
+  border-bottom: 1px solid rgba(26,29,35,0.12);
+  position: relative;
+  background: #F5EFE3;
+}
+.pull-demo::before {
+  content: '"';
+  position: absolute;
+  top: -8px; left: -6px;
+  font-size: 72px;
+  color: #A67A3F;
+  opacity: 0.3;
+  font-family: 'Fraunces', serif;
+  line-height: 1;
+}
+.pull-cite {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6B6860;
+  margin-top: 14px;
+  font-weight: 500;
+}
+
+/* Margin note */
+.margin-demo {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #6B6860;
+  padding: 16px 0 16px 18px;
+  border-left: 2px solid #A67A3F;
+  background: #FAF6EC;
+  border-radius: 0 4px 4px 0;
+}
+.margin-label {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8B6330;
+  margin-bottom: 8px;
+  font-weight: 600;
+  display: block;
+}
+
+/* Layer tabs */
+.tabs-demo { display: flex; border-bottom: 1px solid rgba(26,29,35,0.12); gap: 0; }
+.tab { font-family: 'Fraunces', serif; font-size: 15px; font-style: italic; padding: 12px 20px; color: #6B6860; cursor: default; position: relative; }
+.tab .num { font-family: 'Inter', sans-serif; font-style: normal; font-size: 9px; letter-spacing: 0.16em; vertical-align: super; margin-right: 5px; color: #A67A3F; font-weight: 600; }
+.tab.active { color: #1A1D23; }
+.tab.active::after { content: ''; position: absolute; bottom: -1px; left: 20px; right: 20px; height: 2px; background: #A67A3F; }
+</style>
+</head>
+<body>
+  <div class="label">Drop Cap — First paragraph of articles</div>
+  <div class="drop-cap-demo">
+    <p>Bavaria is not one place but seven, each carrying its own dialect, its own cuisine, its own stubborn idea of what it means to be Bavarian. The Franks in the north will tell you their wine is better than any beer in Munich.</p>
+  </div>
+
+  <div class="label">Pull Quote — Playfair Display Italic</div>
+  <div class="pull-demo">
+    Bavaria is a kind of paradise. If you can't be happy here, you can't be happy anywhere.
+    <cite class="pull-cite">— Thomas Mann, 1919</cite>
+  </div>
+
+  <div class="label">Margin Note — Sticky side annotation</div>
+  <div class="margin-demo">
+    <span class="margin-label">Marginalia № 01</span>
+    The word "Bavaria" comes from the <em>Baiuvarii</em> — a Germanic tribe who settled the region in the 6th century. Their name meant simply "men from Bohemia."
+  </div>
+
+  <div class="label">Layer Tabs — Roman numeral navigation</div>
+  <div class="tabs-demo">
+    <div class="tab active"><span class="num">I</span> Overview</div>
+    <div class="tab"><span class="num">II</span> History</div>
+    <div class="tab"><span class="num">III</span> Getting There</div>
+    <div class="tab"><span class="num">IV</span> Nearby</div>
+    <div class="tab"><span class="num">V</span> Seasonality</div>
+  </div>
+</body>
+</html>

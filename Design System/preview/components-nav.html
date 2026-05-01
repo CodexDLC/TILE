@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 24px; }
+.label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 12px; margin-top: 20px; }
+.label:first-child { margin-top: 0; }
+
+/* Header */
+.header-demo {
+  background: rgba(245,239,227,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26,29,35,0.06);
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-radius: 4px;
+}
+.logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+.logo-mark { width: 22px; height: 22px; border: 1.5px solid #1A1D23; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.logo-dot { width: 5px; height: 5px; background: #A67A3F; border-radius: 50%; }
+.nav { display: flex; gap: 24px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+.nav a { color: #6B6860; text-decoration: none; }
+.nav a.active { color: #1A1D23; border-bottom: 1px solid #A67A3F; padding-bottom: 2px; }
+.icon-row { display: flex; gap: 8px; }
+.icon-btn { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(26,29,35,0.12); background: transparent; display: flex; align-items: center; justify-content: center; }
+.icon-btn svg { width: 13px; height: 13px; }
+
+/* Breadcrumb */
+.breadcrumb-demo {
+  background: #EFE7D5;
+  border-bottom: 1px solid rgba(26,29,35,0.06);
+  padding: 10px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+.crumbs { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; }
+.crumbs a { color: #6B6860; text-decoration: none; }
+.crumbs .sep { color: #6B6860; opacity: 0.4; }
+.crumbs .current { color: #1A1D23; font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; }
+.view-switch { display: flex; background: #FAF6EC; border: 1px solid rgba(26,29,35,0.12); border-radius: 100px; padding: 2px; gap: 2px; }
+.vs { border: none; background: transparent; padding: 5px 12px; font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6860; cursor: default; border-radius: 100px; font-family: inherit; }
+.vs.active { background: #1A1D23; color: #FAF6EC; }
+
+/* Footer preview */
+.footer-demo {
+  background: #1A1D23;
+  color: #FAF6EC;
+  padding: 24px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+.footer-brand { font-family: 'Fraunces', serif; font-size: 22px; font-style: italic; margin-bottom: 8px; }
+.footer-brand .bronze { color: #A67A3F; }
+.footer-tagline { font-family: 'Fraunces', serif; font-size: 13px; font-style: italic; opacity: 0.6; line-height: 1.5; }
+.footer-col h4 { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #A67A3F; margin-bottom: 12px; font-weight: 600; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 8px; }
+.footer-col a { color: #FAF6EC; text-decoration: none; font-family: 'Fraunces', serif; font-size: 14px; opacity: 0.65; }
+</style>
+</head>
+<body>
+  <div class="label">Sticky Header</div>
+  <div class="header-demo">
+    <div class="logo">
+      <div class="logo-mark"><div class="logo-dot"></div></div>
+      Atlas <em style="font-style:italic">Editorial</em>
+    </div>
+    <nav class="nav">
+      <a href="#">Countries</a>
+      <a href="#" class="active">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+    </nav>
+    <div class="icon-row">
+      <div class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <div class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+    </div>
+  </div>
+
+  <div class="label">Breadcrumb Bar + View Switcher</div>
+  <div class="breadcrumb-demo">
+    <div class="crumbs">
+      <a href="#">🌍 World</a><span class="sep">/</span>
+      <a href="#">Europe</a><span class="sep">/</span>
+      <a href="#">Germany</a><span class="sep">/</span>
+      <span class="current">Bavaria</span>
+    </div>
+    <div class="view-switch">
+      <div class="vs active">Story</div>
+      <div class="vs">Map</div>
+      <div class="vs">Grid</div>
+    </div>
+  </div>
+
+  <div class="label">Footer (4-column dark)</div>
+  <div class="footer-demo">
+    <div>
+      <div class="footer-brand">Atlas <span class="bronze">Editorial</span></div>
+      <div class="footer-tagline">A long-form aggregator of places, told as chapters rather than listings.</div>
+    </div>
+    <div class="footer-col"><h4>Explore</h4><ul><li><a>Countries</a></li><li><a>Regions</a></li><li><a>Places</a></li><li><a>Cartography</a></li></ul></div>
+    <div class="footer-col"><h4>Journal</h4><ul><li><a>Latest Essays</a></li><li><a>Itineraries</a></li><li><a>Interviews</a></li><li><a>Archive</a></li></ul></div>
+    <div class="footer-col"><h4>The Studio</h4><ul><li><a>About</a></li><li><a>Contributors</a></li><li><a>Newsletter</a></li><li><a>Contact</a></li></ul></div>
+  </div>
+</body>
+</html>

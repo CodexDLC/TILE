@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #F5EFE3; padding: 28px; }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.token { display: flex; align-items: center; gap: 12px; padding: 10px 12px; background: #FAF6EC; border-radius: 4px; border: 1px solid rgba(26,29,35,0.06); }
+.dot { width: 28px; height: 28px; border-radius: 4px; flex-shrink: 0; }
+.label { font-size: 11px; font-weight: 600; color: #1A1D23; }
+.desc  { font-size: 10px; color: #6B6860; margin-top: 2px; }
+.section-head { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: #A67A3F; margin-bottom: 8px; margin-top: 18px; }
+.section-head:first-child { margin-top: 0; }
+</style>
+</head>
+<body>
+  <div class="section-head">Semantic Color Map</div>
+  <div class="grid">
+    <div class="token"><div class="dot" style="background:#F5EFE3;border:1px solid rgba(26,29,35,0.1)"></div><div><div class="label">--color-page-bg</div><div class="desc">Page background → --bg</div></div></div>
+    <div class="token"><div class="dot" style="background:#EFE7D5"></div><div><div class="label">--color-section-alt</div><div class="desc">Alt section → --bg-warm</div></div></div>
+    <div class="token"><div class="dot" style="background:#FAF6EC;border:1px solid rgba(26,29,35,0.1)"></div><div><div class="label">--color-card-bg</div><div class="desc">Card surface → --bg-paper</div></div></div>
+    <div class="token"><div class="dot" style="background:#1A1D23"></div><div><div class="label">--color-text-primary</div><div class="desc">Primary text → --ink</div></div></div>
+    <div class="token"><div class="dot" style="background:#3A3D44"></div><div><div class="label">--color-text-secondary</div><div class="desc">Body text → --ink-soft</div></div></div>
+    <div class="token"><div class="dot" style="background:#6B6860"></div><div><div class="label">--color-text-muted</div><div class="desc">Metadata → --ink-muted</div></div></div>
+    <div class="token"><div class="dot" style="background:#A67A3F"></div><div><div class="label">--color-accent</div><div class="desc">Interactive → --bronze</div></div></div>
+    <div class="token"><div class="dot" style="background:#8B6330"></div><div><div class="label">--color-accent-hover</div><div class="desc">Hover → --bronze-deep</div></div></div>
+    <div class="token"><div class="dot" style="background:#2C3E3A"></div><div><div class="label">--color-dark-section</div><div class="desc">Footer/CTA → --forest</div></div></div>
+    <div class="token"><div class="dot" style="background:rgba(26,29,35,0.12);border:1px solid rgba(26,29,35,0.15)"></div><div><div class="label">--color-border</div><div class="desc">Standard border → --line</div></div></div>
+  </div>
+
+  <div class="section-head">On-Dark Palette (forest bg)</div>
+  <div style="background:#2C3E3A;padding:16px;border-radius:4px;display:flex;gap:12px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:120px;padding:10px 12px;border-radius:4px;background:rgba(250,246,236,0.08);">
+      <div style="font-size:18px;font-weight:400;color:#FAF6EC;font-family:serif;">Headline text</div>
+      <div style="font-size:10px;color:rgba(250,246,236,0.5);margin-top:4px;font-family:sans-serif;letter-spacing:0.1em;text-transform:uppercase;">--on-dark #FAF6EC</div>
+    </div>
+    <div style="flex:1;min-width:120px;padding:10px 12px;border-radius:4px;background:rgba(250,246,236,0.08);">
+      <div style="font-size:14px;color:rgba(250,246,236,0.65);font-family:serif;font-style:italic;">Body on dark bg</div>
+      <div style="font-size:10px;color:rgba(250,246,236,0.5);margin-top:4px;font-family:sans-serif;letter-spacing:0.1em;text-transform:uppercase;">65% opacity</div>
+    </div>
+    <div style="flex:1;min-width:120px;padding:10px 12px;border-radius:4px;background:rgba(250,246,236,0.08);">
+      <div style="font-size:14px;color:#A67A3F;font-family:sans-serif;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;">Bronze label</div>
+      <div style="font-size:10px;color:rgba(250,246,236,0.5);margin-top:4px;font-family:sans-serif;letter-spacing:0.1em;text-transform:uppercase;">--bronze accent</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bavaria — Grid View — Atlas Editorial</title>
+<link rel="stylesheet" href="_base.css">
+<style>
+.page-nav { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--ink); color: var(--bg-paper); border-radius: 12px; padding: 14px 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.page-nav a { color: var(--bronze); text-decoration: none; display: block; margin-bottom: 6px; }
+.page-nav a:last-child { margin-bottom: 0; }
+.page-nav-label { opacity: 0.4; margin-bottom: 10px; font-size: 9px; }
+
+/* Grid-specific */
+.filters-bar { border-bottom: 1px solid var(--line-soft); background: var(--bg); position: sticky; top: 135px; z-index: 30; }
+.filters-inner { max-width: 1400px; margin: 0 auto; padding: 14px 40px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.filter-select { border: 1px solid var(--line); background: var(--bg-paper); padding: 8px 14px; font-size: 13px; font-family: inherit; color: var(--ink); border-radius: 4px; cursor: pointer; }
+.filter-divider { width: 1px; height: 20px; background: var(--line); }
+.search-input-wrap { position: relative; flex: 1; max-width: 320px; }
+.search-input { width: 100%; border: 1px solid var(--line); background: var(--bg-paper); padding: 8px 14px 8px 38px; font-size: 13px; font-family: inherit; color: var(--ink); border-radius: 4px; outline: none; }
+.search-input:focus { border-color: var(--bronze); }
+.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-muted); }
+.search-icon svg { width: 14px; height: 14px; }
+.results-count { margin-left: auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 600; white-space: nowrap; }
+
+/* Grid */
+.grid-section { max-width: 1400px; margin: 0 auto; padding: 48px 40px; }
+.places-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; }
+.grid-card { cursor: pointer; transition: transform 0.3s; }
+.grid-card:hover { transform: translateY(-4px); }
+.gc-img-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; margin-bottom: 14px; background: var(--ink); border-radius: 2px; }
+.gc-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.grid-card:hover .gc-img { transform: scale(1.04); }
+.gc-badge { position: absolute; top: 12px; left: 12px; background: var(--bg-paper); color: var(--ink); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; font-weight: 600; }
+.gc-num { font-family: 'Fraunces', serif; font-style: italic; font-size: 12px; color: var(--bronze); margin-bottom: 4px; }
+.gc-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 4px; line-height: 1.2; }
+.gc-city { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; margin-bottom: 6px; }
+.gc-desc { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--ink-muted); line-height: 1.45; }
+
+/* Pagination */
+.pagination { display: flex; justify-content: center; align-items: center; gap: 6px; padding: 48px 40px; border-top: 1px solid var(--line-soft); }
+.page-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; cursor: pointer; transition: all 0.2s; font-family: 'Fraunces', serif; color: var(--ink-muted); background: transparent; }
+.page-btn:hover { border-color: var(--bronze); color: var(--bronze); }
+.page-btn.active { background: var(--ink); border-color: var(--ink); color: var(--bg-paper); }
+.page-btn.arrow { font-size: 12px; }
+.page-ellipsis { padding: 0 4px; color: var(--ink-muted); font-size: 14px; }
+
+@media (max-width: 1100px) { .places-grid-4 { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 680px) {
+  .places-grid-4 { grid-template-columns: 1fr; }
+  .filters-inner { padding: 12px 24px; }
+  .grid-section { padding: 32px 24px; }
+  .filter-divider { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-mark"></div>Atlas <em style="font-style:italic;font-weight:400">Editorial</em></a>
+    <nav class="nav">
+      <a href="country.html">Countries</a>
+      <a href="region.html" class="active">Regions</a>
+      <a href="#">Journal</a>
+      <a href="#">Cartography</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+      <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-inner">
+    <div class="crumbs">
+      <a href="#">🌍 World</a><span class="sep">/</span>
+      <a href="country.html">Germany</a><span class="sep">/</span>
+      <span class="current">Bavaria</span>
+    </div>
+    <div class="view-switch">
+      <button onclick="window.location='region.html'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Story</span></button>
+      <button onclick="window.location='map-view.html'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-3 8 3 7-3V3l-7 3-8-3-7 3zM8 3v16M16 6v16"/></svg><span>Map</span></button>
+      <button class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Grid</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- FILTERS BAR -->
+<div class="filters-bar">
+  <div class="filters-inner">
+    <select class="filter-select">
+      <option>All Types</option>
+      <option>Castles</option>
+      <option>Churches</option>
+      <option>Museums</option>
+      <option>Nature</option>
+      <option>Old Towns</option>
+    </select>
+    <div class="filter-divider"></div>
+    <select class="filter-select">
+      <option>Sort: Recommended</option>
+      <option>Sort: Alphabetical</option>
+      <option>Sort: Distance</option>
+      <option>Sort: Popularity</option>
+    </select>
+    <div class="filter-divider"></div>
+    <div class="search-input-wrap">
+      <span class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+      <input class="search-input" type="text" placeholder="Search Bavaria…">
+    </div>
+    <div class="results-count">142 Places</div>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid-section">
+  <!-- {% for place in places %} -->
+  <div class="places-grid-4" id="placeGrid">
+    <div class="grid-card" onclick="window.location='place.html'">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Castle</span></div>
+      <div class="gc-num">N°01</div><div class="gc-name">Neuschwanstein Castle</div><div class="gc-city">Füssen · Upper Bavaria</div>
+      <div class="gc-desc">The dream-king's folly, frozen mid-construction.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Nature</span></div>
+      <div class="gc-num">N°02</div><div class="gc-name">Königssee</div><div class="gc-city">Berchtesgaden · Lower Bavaria</div>
+      <div class="gc-desc">Emerald alpine lake between limestone walls.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">City Square</span></div>
+      <div class="gc-num">N°03</div><div class="gc-name">Marienplatz</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">Munich's civic heart since 1158.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1599982603395-a06e81e13a39?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Peak</span></div>
+      <div class="gc-num">N°04</div><div class="gc-name">Zugspitze Summit</div><div class="gc-city">Garmisch · Upper Bavaria</div>
+      <div class="gc-desc">Germany's highest point at 2,962 metres.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1541331931401-69ed6bd5ee15?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">UNESCO</span></div>
+      <div class="gc-num">N°05</div><div class="gc-name">Bamberg Altstadt</div><div class="gc-city">Bamberg · Franconia</div>
+      <div class="gc-desc">Nine breweries in a medieval UNESCO core.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1571897319516-3e267b16cc0a?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Old Town</span></div>
+      <div class="gc-num">N°06</div><div class="gc-name">Rothenburg ob der Tauber</div><div class="gc-city">Rothenburg · Franconia</div>
+      <div class="gc-desc">Medieval walls intact after five centuries.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Palace</span></div>
+      <div class="gc-num">N°07</div><div class="gc-name">Nymphenburg Palace</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">Summer residence of the Wittelsbach kings.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Castle</span></div>
+      <div class="gc-num">N°08</div><div class="gc-name">Nuremberg Castle</div><div class="gc-city">Nuremberg · Franconia</div>
+      <div class="gc-desc">Imperial fortress above the Franconian capital.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Museum</span></div>
+      <div class="gc-num">N°09</div><div class="gc-name">Deutsches Museum</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">The world's largest science museum.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1559564741-bd0c9dd9f9c1?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Castle</span></div>
+      <div class="gc-num">N°10</div><div class="gc-name">Hohenschwangau Castle</div><div class="gc-city">Füssen · Upper Bavaria</div>
+      <div class="gc-desc">Where Ludwig II spent his formative years.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">City</span></div>
+      <div class="gc-num">N°11</div><div class="gc-name">Augsburg Old Town</div><div class="gc-city">Augsburg · Swabia</div>
+      <div class="gc-desc">Rome of the north, founded 15 BCE.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Museum</span></div>
+      <div class="gc-num">N°12</div><div class="gc-name">BMW Welt</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">Architecture as automotive theatre.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Beer Hall</span></div>
+      <div class="gc-num">N°13</div><div class="gc-name">Hofbräuhaus</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">The world's most famous beer hall, brewing since 1589.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Park</span></div>
+      <div class="gc-num">N°14</div><div class="gc-name">Englischer Garten</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">Larger than Central Park, with a permanent surf wave.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1521014287918-ac5ac29039e7?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Palace</span></div>
+      <div class="gc-num">N°15</div><div class="gc-name">Linderhof Palace</div><div class="gc-city">Ettal · Upper Bavaria</div>
+      <div class="gc-desc">Ludwig II's only completed palace, built for one.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Church</span></div>
+      <div class="gc-num">N°16</div><div class="gc-name">Wieskirche</div><div class="gc-city">Steingaden · Upper Bavaria</div>
+      <div class="gc-desc">Rococo church in a meadow. UNESCO since 1983.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Cathedral</span></div>
+      <div class="gc-num">N°17</div><div class="gc-name">Regensburg Cathedral</div><div class="gc-city">Regensburg · Upper Palatinate</div>
+      <div class="gc-desc">Gothic cathedral begun in 1273, still unfinished in 1520.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1541331931401-69ed6bd5ee15?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">City</span></div>
+      <div class="gc-num">N°18</div><div class="gc-name">Passau Old Town</div><div class="gc-city">Passau · Lower Bavaria</div>
+      <div class="gc-desc">Built at the confluence of three rivers.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Forest</span></div>
+      <div class="gc-num">N°19</div><div class="gc-name">Bavarian Forest</div><div class="gc-city">Freyung · Lower Bavaria</div>
+      <div class="gc-desc">Germany's oldest national park, primeval in places.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1599982603395-a06e81e13a39?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Market</span></div>
+      <div class="gc-num">N°20</div><div class="gc-name">Viktualienmarkt</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">Daily open-air market operating since 1807.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1595867818082-083862f3d630?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Lake</span></div>
+      <div class="gc-num">N°21</div><div class="gc-name">Starnberger See</div><div class="gc-city">Starnberg · Upper Bavaria</div>
+      <div class="gc-desc">Where Ludwig II was found dead on 13 June 1886.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1587330979470-3595ac045ab0?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Church</span></div>
+      <div class="gc-num">N°22</div><div class="gc-name">Frauenkirche Munich</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">Munich's cathedral, defined by its twin onion domes.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Town</span></div>
+      <div class="gc-num">N°23</div><div class="gc-name">Dinkelsbühl</div><div class="gc-city">Dinkelsbühl · Middle Franconia</div>
+      <div class="gc-desc">A medieval walled town on the Romantic Road.</div>
+    </div>
+    <div class="grid-card">
+      <div class="gc-img-wrap"><img class="gc-img" src="https://images.unsplash.com/photo-1571897319516-3e267b16cc0a?auto=format&fit=crop&w=600&q=80" alt=""><span class="gc-badge">Monument</span></div>
+      <div class="gc-num">N°24</div><div class="gc-name">Bavaria Statue</div><div class="gc-city">Munich · Upper Bavaria</div>
+      <div class="gc-desc">A 19-metre bronze personification of Bavaria. Hollow inside.</div>
+    </div>
+  </div>
+  <!-- {% endfor %} -->
+
+  <!-- PAGINATION -->
+  <div class="pagination">
+    <button class="page-btn arrow">←</button>
+    <button class="page-btn active">1</button>
+    <button class="page-btn">2</button>
+    <button class="page-btn">3</button>
+    <span class="page-ellipsis">…</span>
+    <button class="page-btn">6</button>
+    <button class="page-btn arrow">→</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">Atlas <span class="bronze">Editorial</span></div><p class="footer-tag">A long-form aggregator of places, told as chapters rather than listings.</p></div>
+      <div class="footer-col"><h4>Explore</h4><ul><li><a href="#">Countries</a></li><li><a href="#">Regions</a></li><li><a href="#">Places</a></li><li><a href="#">Cartography</a></li></ul></div>
+      <div class="footer-col"><h4>Journal</h4><ul><li><a href="#">Latest Essays</a></li><li><a href="#">Itineraries</a></li><li><a href="#">Interviews</a></li><li><a href="#">Archive</a></li></ul></div>
+      <div class="footer-col"><h4>The Studio</h4><ul><li><a href="#">About</a></li><li><a href="#">Contributors</a></li><li><a href="#">Newsletter</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Atlas Editorial · All rights reserved</span><span>Set in Fraunces &amp; Inter</span></div>
+  </div>
+</footer>
+
+<nav class="page-nav">
+  <div class="page-nav-label">All Pages</div>
+  <a href="country.html">Country</a><a href="region.html">Region</a><a href="city.html">City</a><a href="place.html">Place</a><a href="map-view.html">Map View</a><a href="grid-view.html">Grid View</a><a href="search.html">Search</a>
+</nav>
+
+<script>
+document.querySelectorAll('.view-switch button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.view-switch button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+document.querySelectorAll('.page-btn:not(.arrow)').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.page-btn:not(.arrow)').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+// Search filter (demo)
+document.querySelector('.search-input').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('.grid-card').forEach(card => {
+    const name = card.querySelector('.gc-name').textContent.toLowerCase();
+    card.style.display = (!q || name.includes(q)) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>
