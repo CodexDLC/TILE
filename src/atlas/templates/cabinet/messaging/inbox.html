@@ -1,0 +1,28 @@
+{% extends "cabinet/base_cabinet.html" %}
+
+{% block title %}Messaging Inbox{% endblock %}
+
+{% block cabinet_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h3 mb-1">Messaging Inbox</h1>
+    <p class="text-muted mb-0">Current status: {{ active_status }}</p>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+  <div class="list-group list-group-flush">
+    {% for thread in page_obj %}
+      <a href="{% url 'cabinet:messaging_detail' thread.pk %}" class="list-group-item list-group-item-action">
+        <div class="d-flex justify-content-between">
+          <strong>{{ thread.sender_name|default:thread.sender_email }}</strong>
+          <span class="text-muted">{{ thread.last_activity_at }}</span>
+        </div>
+        <div>{{ thread.subject|default:"(No subject)" }}</div>
+      </a>
+    {% empty %}
+      <div class="list-group-item">No messages yet.</div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

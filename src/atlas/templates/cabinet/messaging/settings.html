@@ -1,0 +1,62 @@
+{% extends "cabinet/base_cabinet.html" %}
+
+{% block title %}Messaging Settings{% endblock %}
+
+{% block cabinet_content %}
+<div class="row g-4">
+  <div class="col-xl-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <h1 class="h3 mb-4">Messaging Settings</h1>
+        <form method="post">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="id_email_from">From email</label>
+              <input class="form-control" id="id_email_from" name="email_from" value="{{ email_settings.email_from }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_email_sender_name">Sender name</label>
+              <input class="form-control" id="id_email_sender_name" name="email_sender_name" value="{{ email_settings.email_sender_name }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_email_reply_to">Reply-To</label>
+              <input class="form-control" id="id_email_reply_to" name="email_reply_to" value="{{ email_settings.email_reply_to }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_site_base_url">Site base URL</label>
+              <input class="form-control" id="id_site_base_url" name="site_base_url" value="{{ email_settings.site_base_url }}">
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="id_logo_url">Logo URL</label>
+              <input class="form-control" id="id_logo_url" name="logo_url" value="{{ email_settings.logo_url }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_url_path_confirm">Confirm path</label>
+              <input class="form-control" id="id_url_path_confirm" name="url_path_confirm" value="{{ email_settings.url_path_confirm }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_url_path_cancel">Cancel path</label>
+              <input class="form-control" id="id_url_path_cancel" name="url_path_cancel" value="{{ email_settings.url_path_cancel }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_url_path_reschedule">Reschedule path</label>
+              <input class="form-control" id="id_url_path_reschedule" name="url_path_reschedule" value="{{ email_settings.url_path_reschedule }}">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="id_url_path_contact_form">Contact form path</label>
+              <input class="form-control" id="id_url_path_contact_form" name="url_path_contact_form" value="{{ email_settings.url_path_contact_form }}">
+            </div>
+          </div>
+          <button class="btn btn-primary mt-4" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4">
+    <div class="alert alert-primary border-0 shadow-sm">
+      SMTP credentials and provider secrets stay in environment variables.
+    </div>
+  </div>
+</div>
+{% endblock %}
