@@ -1,5 +1,3 @@
-# Generated manually for Atlas messaging rewrite.
-
 import django.db.models.deletion
 from django.conf import settings
 from django.db import migrations, models
@@ -38,69 +36,6 @@ def bootstrap_email_settings_and_migrate_data(apps, schema_editor):
                         setattr(email_settings, field_name, value or "")
     email_settings.save()
 
-    ConversationMessage = apps.get_model("conversations", "Message")
-    ConversationReply = apps.get_model("conversations", "MessageReply")
-    Thread = apps.get_model("messaging", "Thread")
-    Message = apps.get_model("messaging", "Message")
-    MessageReply = apps.get_model("messaging", "MessageReply")
-
-    for old_message in ConversationMessage.objects.all().order_by("pk"):
-        thread = Thread.objects.create(
-            id=old_message.pk,
-            thread_key=old_message.thread_key,
-            subject=old_message.subject,
-            status=old_message.status,
-            topic=old_message.topic,
-            source=old_message.source,
-            channel=old_message.channel,
-            sender_name=old_message.sender_name,
-            sender_email=old_message.sender_email,
-            sender_phone=old_message.sender_phone,
-            is_read=getattr(old_message, "is_read", False),
-            is_archived=getattr(old_message, "is_archived", False),
-        )
-        Thread.objects.filter(pk=thread.pk).update(
-            created_at=old_message.created_at,
-            last_activity_at=old_message.updated_at,
-        )
-
-        message = Message.objects.create(
-            id=old_message.pk,
-            thread_id=thread.pk,
-            direction="inbound",
-            sender_name=old_message.sender_name,
-            sender_email=old_message.sender_email,
-            recipient_email="",
-            subject=old_message.subject,
-            body=old_message.body,
-            source=old_message.source,
-            channel=old_message.channel,
-            message_id_header="",
-            in_reply_to_header="",
-            references_header="",
-        )
-        Message.objects.filter(pk=message.pk).update(
-            created_at=old_message.created_at,
-            updated_at=old_message.updated_at,
-        )
-
-        latest_activity = old_message.updated_at
-        for old_reply in ConversationReply.objects.filter(message_id=old_message.pk).order_by("pk"):
-            reply = MessageReply.objects.create(
-                message_id=message.pk,
-                body=old_reply.body,
-                sent_by_id=old_reply.sent_by_id,
-                is_inbound=old_reply.is_inbound,
-            )
-            MessageReply.objects.filter(pk=reply.pk).update(
-                created_at=old_reply.sent_at,
-                sent_at=old_reply.sent_at,
-            )
-            if old_reply.sent_at and old_reply.sent_at > latest_activity:
-                latest_activity = old_reply.sent_at
-
-        Thread.objects.filter(pk=thread.pk).update(last_activity_at=latest_activity)
-
 
 class Migration(migrations.Migration):
     initial = True
@@ -108,7 +43,6 @@ class Migration(migrations.Migration):
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ("system", "0001_initial"),
-        ("conversations", "0002_message_read_archive_flags"),
     ]
 
     operations = [

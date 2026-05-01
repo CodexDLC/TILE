@@ -55,7 +55,6 @@ LOCAL_APPS = [
     "system",
     "features.main",
     "features.messaging",
-    "features.conversations",
 ]
 
 INSTALLED_APPS = CODEX_APPS + THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
