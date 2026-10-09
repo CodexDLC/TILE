@@ -1,9 +1,9 @@
-{% extends "base.html" %}
+{% extends "base.html" %}`n{% load i18n %}
 
 {% block content %}
 <div class="error-container">
-    <h1>403 - Permission Denied</h1>
-    <p>You do not have permission to access this resource.</p>
-    <a href="{% url 'home' %}">Return Home</a>
+    <h1>403 — {% trans "Permission denied" %}</h1>
+    <p>{% trans "You do not have permission to access this page." %}</p>
+    <a href="{% url 'home' %}">{% trans "Return home" %}</a>
 </div>
 {% endblock %}

@@ -1,3 +1,4 @@
+{% load i18n %}
 <section class="section block-card-grid">
     <div class="container">
         <div class="section-head">
@@ -12,7 +13,7 @@
                     {% if item.eyebrow %}<p class="card-index">{{ item.eyebrow }}</p>{% endif %}
                     <h3 class="card-title">{{ item.title }}</h3>
                     {% if item.text %}<p class="card-description">{{ item.text }}</p>{% endif %}
-                    {% if item.url %}<a class="btn btn-outline" href="{{ item.url }}">Read more</a>{% endif %}
+                    {% if item.url %}<a class="btn btn-outline" href="{{ item.url }}">{% trans "Read more" %}</a>{% endif %}
                 </article>
             {% endfor %}
         </div>

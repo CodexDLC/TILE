@@ -15,11 +15,14 @@ from .blocks import (
     TabsBlock,
 )
 from .page import Page
+from .smart_draft import ContentSmartDraft, ContentSmartDraftEvent
 
 __all__ = [
     "CardGridBlock",
     "CardItem",
     "CtaStripBlock",
+    "ContentSmartDraft",
+    "ContentSmartDraftEvent",
     "FactItem",
     "FactsListBlock",
     "GalleryBlock",

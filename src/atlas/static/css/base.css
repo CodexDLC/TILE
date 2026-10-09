@@ -6,8 +6,8 @@
    =================================================== */
 
 /* 1. Tokens, reset and primitives */
-@import url("base/fonts.css");
-@import url("base/tokens.css");
+/* Web fonts are linked in base.html: the compiler resolves only local imports. */
+@import url("base/tokens.css_2");
 @import url("base/reset.css");
 @import url("base/typography.css");
 @import url("base/layout.css");
@@ -35,3 +35,5 @@
 @import url("pages/map-view.css");
 @import url("pages/search.css");
 @import url("pages/errors.css");
+
+@import url("pages/articles.css");

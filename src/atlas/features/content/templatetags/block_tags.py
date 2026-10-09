@@ -24,3 +24,14 @@ def render_block(context, slot) -> str:
             },
         )
     )
+
+
+@register.simple_tag
+def article_cover(page):
+    from features.content.selectors.articles import article_parts
+
+    cover = article_parts(page)["cover"]
+    if cover:
+        return cover.image.url
+    place = getattr(page, "place", None)
+    return place.hero_image.url if place and place.hero_image else ""

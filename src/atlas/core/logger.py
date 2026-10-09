@@ -33,6 +33,9 @@ class DjangoLoggingSettingsAdapter:
 
 def init_logging() -> None:
     """Initialize logging based on project settings and available libraries."""
+    if not getattr(settings, "LOGURU_ENABLED", True):
+        return
+
     if not LOGURU_AVAILABLE:
         # Fallback to standard Django LOGGING already configured in settings
         if isinstance(logger, logging.Logger):

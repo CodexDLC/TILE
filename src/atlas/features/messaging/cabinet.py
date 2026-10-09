@@ -1,6 +1,7 @@
-from codex_django.cabinet import DashboardWidget, MetricWidgetData, SidebarItem, TopbarEntry, declare
+from codex_django.cabinet import DashboardWidget, MetricWidgetData, declare
 from codex_django.cabinet.notifications import notification_registry
 from codex_django.cabinet.selector.dashboard import DashboardSelector
+from codex_django.messaging.cabinet import build_messaging_sidebar, build_messaging_topbar
 from django.http import HttpRequest
 from django.urls import reverse, reverse_lazy
 
@@ -39,40 +40,13 @@ def provide_messaging_stats(request: HttpRequest) -> dict[str, MetricWidgetData]
 declare(
     module="messaging",
     space="staff",
-    topbar=TopbarEntry(
-        group="services",
-        label=str(_("Messaging")),
-        icon="bi-envelope",
-        url=reverse_lazy("cabinet:messaging_inbox"),
-        order=20,
+    topbar=build_messaging_topbar(reverse_lazy("cabinet:messaging_inbox"), label=str(_("Messaging"))),
+    sidebar=build_messaging_sidebar(
+        mailbox_url=reverse_lazy("cabinet:messaging_inbox"),
+        campaigns_url=reverse_lazy("cabinet:messaging_campaigns"),
+        recipients_url=reverse_lazy("cabinet:messaging_recipients"),
+        delivery_log_url=reverse_lazy("cabinet:messaging_delivery_log"),
     ),
-    sidebar=[
-        SidebarItem(
-            label=str(_("Inbox")),
-            url=reverse_lazy("cabinet:messaging_inbox"),
-            icon="bi-inbox",
-            badge_key="unread_messages_count",
-            order=1,
-        ),
-        SidebarItem(
-            label=str(_("Templates")),
-            url=reverse_lazy("cabinet:messaging_templates"),
-            icon="bi-file-earmark-text",
-            order=2,
-        ),
-        SidebarItem(
-            label=str(_("Delivery log")),
-            url=reverse_lazy("cabinet:messaging_log"),
-            icon="bi-clock-history",
-            order=3,
-        ),
-        SidebarItem(
-            label=str(_("Settings")),
-            url=reverse_lazy("cabinet:messaging_settings"),
-            icon="bi-gear",
-            order=4,
-        ),
-    ],
     settings_url="cabinet:messaging_settings",
     dashboard_widgets=[
         DashboardWidget(
@@ -80,6 +54,7 @@ declare(
             context_key="messaging_stats",
             order=1,
             col="col-lg-3",
+            nav_group="services",
         )
     ],
 )

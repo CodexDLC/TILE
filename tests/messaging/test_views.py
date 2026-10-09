@@ -8,7 +8,7 @@ from system.models import EmailSettings
 class MessagingViewsTests(TestCase):
     def setUp(self):
         user_model = get_user_model()
-        self.user = user_model.objects.create_user(username="staff", password="secret", is_staff=True)
+        self.user = user_model.objects.create_user(username="staff", password="secret", is_staff=True)  # noqa: S106
         self.client.force_login(self.user)
 
     def test_cabinet_routes_render(self):
@@ -23,8 +23,9 @@ class MessagingViewsTests(TestCase):
 
         for url_name in (
             "cabinet:messaging_inbox",
-            "cabinet:messaging_templates",
-            "cabinet:messaging_log",
+            "cabinet:messaging_campaigns",
+            "cabinet:messaging_recipients",
+            "cabinet:messaging_delivery_log",
             "cabinet:messaging_settings",
         ):
             response = self.client.get(reverse(url_name))

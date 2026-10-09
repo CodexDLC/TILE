@@ -1,0 +1,5 @@
+{% load i18n %}
+<form action="{% url 'places-search' %}" method="get" class="atlas-search" role="search">
+<label for="atlas-query">{% trans "City, place or story" %}</label>
+<div><input id="atlas-query" type="search" name="q" value="{{ query }}" maxlength="200"><button class="btn btn-primary" type="submit">{% trans "Search" %}</button></div>
+</form>

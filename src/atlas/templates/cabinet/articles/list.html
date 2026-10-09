@@ -1,0 +1,31 @@
+{% extends "cabinet/base_cabinet.html" %}
+{% load i18n %}
+{% block title %}{% trans "Articles" %}{% endblock %}
+{% block cabinet_content %}
+{% include "cabinet/includes/_messages.html" %}
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+  <div><h1>{% trans "Articles" %}</h1><p class="text-muted">{% trans "Your stories, from first draft to publication." %}</p></div>
+  <a class="btn btn-primary" href="{% url 'cabinet:article_create' %}">{% trans "Create article" %}</a>
+</div>
+<nav class="d-flex gap-3 mb-4" aria-label="{% trans "Article status" %}">
+  <a href="?" {% if not status %}aria-current="page"{% endif %}>{% trans "All" %}</a>
+  <a href="?status=draft" {% if status == 'draft' %}aria-current="page"{% endif %}>{% trans "Drafts" %}</a>
+  <a href="?status=published" {% if status == 'published' %}aria-current="page"{% endif %}>{% trans "Published" %}</a>
+</nav>
+{% for article in articles %}
+<article class="card mb-3"><div class="card-body d-flex flex-wrap justify-content-between gap-3">
+  <div><h2 class="h5"><a href="{% url 'cabinet:article_edit' article.pk %}">{{ article.title }}</a></h2>
+    <p class="mb-0 text-muted">{% if article.is_published %}{% trans "Published" %}{% else %}{% trans "Draft" %}{% endif %} · {{ article.updated_at|date:"d.m.Y H:i" }}{% if article.parent %} · {{ article.parent.title }}{% endif %}</p></div>
+  <div class="d-flex flex-wrap gap-2 align-items-center">
+    <a class="btn btn-outline-primary" href="{% url 'cabinet:article_edit' article.pk %}">{% trans "Edit" %}</a>
+    <a class="btn btn-outline-secondary" href="{% url 'cabinet:article_preview' article.pk %}">{% trans "Preview" %}</a>
+    {% if article.is_published %}<a class="btn btn-link" href="{{ article.absolute_path }}" target="_blank" rel="noopener">{% trans "Open on site ↗" %}</a>{% endif %}
+  </div>
+</div></article>
+{% empty %}<div class="card p-4"><h2 class="h5">{% trans "Start with your first story" %}</h2><p>{% trans "Add text and a photo. The story stays private until you publish it." %}</p></div>{% endfor %}
+<nav class="d-flex gap-3" aria-label="{% trans 'List pages' %}">
+{% if articles.has_previous %}<a href="?status={{ status }}&page={{ articles.previous_page_number }}">{% trans "Back" %}</a>{% endif %}
+<span>{{ articles.number }} / {{ articles.paginator.num_pages }}</span>
+{% if articles.has_next %}<a href="?status={{ status }}&page={{ articles.next_page_number }}">{% trans "Next" %}</a>{% endif %}
+</nav>
+{% endblock %}

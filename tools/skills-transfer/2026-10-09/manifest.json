@@ -1,0 +1,961 @@
+{
+  "format_version": 1,
+  "snapshot_date": "2026-10-09",
+  "description": "Static snapshot of user-owned global skills",
+  "files": [
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/architecture-decision-records/SKILL.md",
+      "size_bytes": 1488,
+      "sha256": "29bb96b8d81cc5087304e5d69d65d1787930b498f01c91ab4521546f6692d751"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/architecture-decision-records/references/record-format.md",
+      "size_bytes": 1188,
+      "sha256": "a4d2e06345839b78a89f6434a0290e0eff9f98c5286de7e19348c02a2e81a194"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ask-before-editing/SKILL.md",
+      "size_bytes": 1542,
+      "sha256": "92a3ae7627d195d36da3aac1808fb467585179b18c395dffe1a1bfe2e5c6bd3b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ask-before-editing/agents/openai.yaml",
+      "size_bytes": 237,
+      "sha256": "2cca9403066de40f56f011f3eb4638bf596e62e068a28bb85454e2919ae78ead"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/claude-skills-llm-council/README.md",
+      "size_bytes": 3939,
+      "sha256": "da96dcc6c88a035ad9412795a4152c9e2f18486063fd7f45bc93ba5fe16dee1d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/claude-skills-llm-council/SKILL.md",
+      "size_bytes": 2109,
+      "sha256": "dc60bb92795017cffdf06e0b1278a785ba7b61b7862cedb005ac9391a90cd06a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/claude-skills-llm-council/references/advisor-lenses.md",
+      "size_bytes": 1057,
+      "sha256": "dfb7e6d5f5722d0196e429a9bb313b75cf538f7048d1301be28593bfa70531bb"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/claude-skills-llm-council/references/prompts.md",
+      "size_bytes": 1405,
+      "sha256": "98ada7cbb903847da393a82e3d3d8e3f1680b109cf00406799d74cd548613223"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/claude-skills-llm-council/references/protocol.md",
+      "size_bytes": 2298,
+      "sha256": "cf3309643dde26a80df3da7baac1706c55970f0251cda23184da5324656e4066"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/code-compatibility-decision/SKILL.md",
+      "size_bytes": 1309,
+      "sha256": "e25b745baf16de7f5d3361d7d58d28f8ffcf762d0d5e93f64798036d28624b2c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/code-compatibility-decision/agents/openai.yaml",
+      "size_bytes": 295,
+      "sha256": "90a81a76e16a0630e2618e95937e06b82125b489a5e8ae07128ad4314798e50e"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/cost-aware-delegation/SKILL.md",
+      "size_bytes": 6397,
+      "sha256": "7c84160a8bb16852cfc78cfb27af05ffeb50688c5d32f123fe5e0274e4cb23e6"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/cost-aware-delegation/references/antigravity-cli.md",
+      "size_bytes": 13155,
+      "sha256": "9e9f65c06bd676bccad46d5669f2e868cef5a0fc39cf0c24aa31fa69c1d2b034"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/cost-aware-delegation/references/internal-delegation.md",
+      "size_bytes": 4711,
+      "sha256": "5b14b8356d507ae6551d236dfee20fece279b3d8511284a36809c39b21f1583d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/cost-aware-delegation/references/omniroute.md",
+      "size_bytes": 4982,
+      "sha256": "92e48f68f2fdfb1bffca8edd282773a098293fa6e9a253c291a48b1aaf45d6d9"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/eval-harness/SKILL.md",
+      "size_bytes": 2013,
+      "sha256": "96b16c25d63da59dfc01bb8a47da0168c0bd1c08faff6137bf792e1d79dfa99c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/eval-harness/references/run-protocol.md",
+      "size_bytes": 3241,
+      "sha256": "3bcc49ab165b102970c8d41d183f811480b8426fe9632912fd875d6ef9650c47"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/eval-harness/evals/cases.json",
+      "size_bytes": 10712,
+      "sha256": "0f7e0d22962c7cf8cab2f7a583cb4d6b1c3c948e4e157eddb6e3d5ea43fef894"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/LICENSE",
+      "size_bytes": 1064,
+      "sha256": "7b8eb9189fae82c281549c368f00ca70d689adc5fd0f9f028f3608b916ef56a4"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/SKILL.md",
+      "size_bytes": 6476,
+      "sha256": "cb6c2c4720008282e1782fe48b3bc513a71e7da115b683ff4750cbd6db8fa02a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/CONTRACT.md",
+      "size_bytes": 3286,
+      "sha256": "8433e15f3e18e265ce28749eaf66567507254577f89b693cf6347fda89ef0f2f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/package-lock.json",
+      "size_bytes": 1769,
+      "sha256": "784b7f14e1f5b308dfd22486c02b4436dfe5f57ec18d98a6b2d4934d48476a78"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/package.json",
+      "size_bytes": 454,
+      "sha256": "16b5960ddd1def1413422ea632c40901e4e73ec4e2507695f7d1c20c9fee1406"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/pnpm-lock.yaml",
+      "size_bytes": 1011,
+      "sha256": "97307eec164b663bb77edf78888358bdc206d32bfc5110b4aa178e5319d0c131"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/requirements.txt",
+      "size_bytes": 69,
+      "sha256": "b3dd38f795474a0de9a5eb2bbf24ac518f57c61a7a70f290bb0c13cd362ef1c8"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/tests/fixtures/sample-page.html",
+      "size_bytes": 2021,
+      "sha256": "b03eb0416eefda26138f4001b6dbe96c819d489eb358b27936dc20f64309073c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/tests/fixtures/visual-runtime-brief.json",
+      "size_bytes": 402,
+      "sha256": "d27415c9e8665258e202e398bdc62ff8e520bc095b4052bb96b7ba0a91759f60"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/scripts/capture_page.mjs",
+      "size_bytes": 5121,
+      "sha256": "f29aefa8ee397da30c5632eccefbde8aebbaa58909ecba24d094faca9ca6af20"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/scripts/export_pdf.mjs",
+      "size_bytes": 2704,
+      "sha256": "4f5b289bace907e2aeeb9d1bfbed8a2690a9c0e47e509188009c168a569e20cc"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/scripts/image_bounds.py",
+      "size_bytes": 5290,
+      "sha256": "9b0db2652b72692b68153011e4ff034401ddcb6c5fcb661b02cce43f3af904c0"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/scripts/make_contact_sheet.py",
+      "size_bytes": 3970,
+      "sha256": "f2456d18adae910c9e06a5f19249ab69c5e3c1794115a924374b268b0e742355"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/scripts/visual_lint.mjs",
+      "size_bytes": 8259,
+      "sha256": "d041e97496812db2017f19671b488124a7685240f96c8247c093315e88be360f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/references/accessibility-checks.md",
+      "size_bytes": 1099,
+      "sha256": "0b72c0618951e42c9fa4a5d776d2ea931c17019d43d72c2564d4e69faf91a18b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/references/screenshot-protocol.md",
+      "size_bytes": 1114,
+      "sha256": "c4540b6e5ec1fd4a8cf8e4bba26a2bb9502c572e1a00a86799fcba59f0de575a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/references/visual-qa-loop.md",
+      "size_bytes": 1569,
+      "sha256": "12c21a86c7c6bf1b9adccbf95ac60343b0fa05c192aaf3c990bad100a6da13b1"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/references/provenance.md",
+      "size_bytes": 561,
+      "sha256": "65dd096c12e4cd93920db217acddce3bf30f984d4b6f2720b0ffe7139c22157c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/agents/openai.yaml",
+      "size_bytes": 292,
+      "sha256": "76c8642762034acd3b091d28401ac8d31636fe793cac0892cb80bc4c693ed926"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/hexagonal-oop-architecture/SKILL.md",
+      "size_bytes": 1248,
+      "sha256": "38a157b8132cd9df48fa7fa9dfd536ec18d17d8c56082bdaa763048502f02ece"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/hexagonal-oop-architecture/references/boundaries.md",
+      "size_bytes": 1200,
+      "sha256": "6ea589d9fd26ead76cd77a72b6f1edb9f12ba1502cb10904534ba93118908c99"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/LICENSE",
+      "size_bytes": 10766,
+      "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/SKILL.md",
+      "size_bytes": 14140,
+      "sha256": "65d5fee86eeb3aca9a9fb5b9ccf564de5fac548498ea36df0f1bce18d7335a88"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/command-metadata.json",
+      "size_bytes": 8392,
+      "sha256": "e8720f3aa41135211cc58cc299a39eeda86c75651f4279cc1ede8db10dcc0584"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/impeccable",
+      "size_bytes": 8514,
+      "sha256": "39d9600489073e227e4f4d55c451ce4252a6632ed7ae37923efbbcbc91f16d07"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/impeccable.cmd",
+      "size_bytes": 8498,
+      "sha256": "69cad1ae7355825ef320ac9638a1c9675ba9fda01c9a0fa12244cc4a1973e550"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/live-browser-dom.js",
+      "size_bytes": 10623,
+      "sha256": "24f09f2597b9b55a1e2c4acd2ae5c95db5c8615cfc20aa07d1a3950538ad5c4a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/live-browser-ignores.js",
+      "size_bytes": 10346,
+      "sha256": "c1cb6877ca99a0c1b38ba0c7d59f32702d3022f6821d8045f7133f7c40b6362f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/live-browser-session.js",
+      "size_bytes": 4346,
+      "sha256": "42831c3cd874346d8e7f120808d91e6ed3cda5c3eca6eefd76b126659536bc87"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/live-browser.js",
+      "size_bytes": 548448,
+      "sha256": "d7f1ee3fdfc423e90268e9c666dce61b2180b62431dbb6ecfc48bca65398a1f8"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/modern-screenshot.umd.js",
+      "size_bytes": 29290,
+      "sha256": "bb36665889124a0b6e15f16045265737449c3bdcf2712cdb08af3cfa01563e2b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/VERSION",
+      "size_bytes": 7,
+      "sha256": "66d60356172ccafdd334fca9bf33243c8409216a733dcde0d66a24fd70ee8132"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/data/font-index-failures.json",
+      "size_bytes": 2437,
+      "sha256": "835f19a0a3812f3652dd6979a2ce5597f654fd01f26e1b420b92d5f42b997ce4"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/scripts/data/font-index.json",
+      "size_bytes": 1100013,
+      "sha256": "47edbdfaf27073c47033d1ac7dfee881be49e2dcbda7671d1157300481dde6da"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/references/provenance.md",
+      "size_bytes": 565,
+      "sha256": "0d021e49941c80ea8f1b298de4822f16dd27a233917bd2b38a7b53be35381be0"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/adapt.md",
+      "size_bytes": 11301,
+      "sha256": "871a8e4d749b807c693ebabd83defbd6c76e1bd2a0f53a28a460cb1308ba8634"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/adapt.native.md",
+      "size_bytes": 3910,
+      "sha256": "6acc0bf221a4ddc6e5c6438348920b2ca2393b29c4314dbde2cdc23f2b1a9639"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/android.md",
+      "size_bytes": 4093,
+      "sha256": "058f81f256134841875fd3183e06b37a023de0c877fd2b9eecd97011640791fe"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/animate.md",
+      "size_bytes": 5236,
+      "sha256": "d658c48ffbe0031e8e3b318996cad6ceafe29e40aa50d5bb25e4bf1d6839dc7c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/audit.md",
+      "size_bytes": 8528,
+      "sha256": "d5f83912eda93d42f93522bb74aeff0ea04d9c559577ec52fcccc130dd03166d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/audit.native.md",
+      "size_bytes": 8364,
+      "sha256": "960cb922bc934adbf9192e9428ff6bec1f382038166f02a785939c93b7391067"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/bolder.md",
+      "size_bytes": 3564,
+      "sha256": "f964506c0fae87b3c2c1db7016ddc9be9ef970bbcf5548d684b997b5d5991586"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/clarify.md",
+      "size_bytes": 4590,
+      "sha256": "173dd66abe65633910dcb04a51f40d6ff2a793f87088f022a02fc4cad24dd133"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/colorize.md",
+      "size_bytes": 4537,
+      "sha256": "bc5f71f1129d0f2c310d913d07c8dc609a1d25644121bd78c308f42d52a0b9e9"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/component-review.md",
+      "size_bytes": 8017,
+      "sha256": "10489e5265e49a4ef2737cd0e674c149ed41e1f703efe922e53ea3c91e833427"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/craft-floor.md",
+      "size_bytes": 5500,
+      "sha256": "e802e4f7bdc89050a9c0f2ca506e1d493a2316e6e810c0336c57aa073717ef3e"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/craft.md",
+      "size_bytes": 555,
+      "sha256": "9205e222bc6565b37fb504ceec93233c2d2a456802b69d16e6b1c44723907c4c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/critique.md",
+      "size_bytes": 45944,
+      "sha256": "cb8caddbb3919e5bf7f252143b519fb16db28a244642d937b186cb89962d9201"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/delight.md",
+      "size_bytes": 3716,
+      "sha256": "098a891028ce59c212b747d3c70468dd750aff7053a703d1336045ed31e0da7c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/distill.md",
+      "size_bytes": 5717,
+      "sha256": "ea8432c90c30ecb0426662a681ead5c0941113079704e1a766cda09e85b15b4f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/doctor.md",
+      "size_bytes": 5481,
+      "sha256": "a98b397cedeeaa1da57f3395b3d9b6c1fc477f4247fb9dc13e4da3da588283ff"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/document.md",
+      "size_bytes": 27521,
+      "sha256": "3673248740bcdd1122ccc610093ba2fe52f3943a61ce0b7170b74dc49e5b6098"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/extract.md",
+      "size_bytes": 3433,
+      "sha256": "31b90048c0b540daec46762a10c2b6b6434737a89af005054d8b848d829d003b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/generate.md",
+      "size_bytes": 13219,
+      "sha256": "53628d05b7eff0d4f48b95e48fad40266452fe1b42f398bd88dd9328353e0dd8"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/harden.md",
+      "size_bytes": 9450,
+      "sha256": "16ba7fca1973c5faf53dd2ca523559129c0fe9e5f8d50b645f527afa78186cd2"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/hooks.md",
+      "size_bytes": 13911,
+      "sha256": "3e3209e6b45497c7aee8234f5be880399ed6d99db442dcf3e024f061cd2027ba"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/init.md",
+      "size_bytes": 11536,
+      "sha256": "bb069b43c09109d7031b0374e31955749fec657b252d39782f11e8985aca2b51"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/ios.md",
+      "size_bytes": 3812,
+      "sha256": "40c87038b5f75147a5952a96237acf312a327bf70c1bcd8e0a5f064625ae9668"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/layout.md",
+      "size_bytes": 5161,
+      "sha256": "0bc7d7971b3edf2acd0580e847458dc6d84129d90715b452799ace3bed815c7c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/live-setup.md",
+      "size_bytes": 8186,
+      "sha256": "2b5b2fbf5f658f34ea1997fb1aeebe01604d05187f75c6a4f1f55a5bc78520a4"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/live.md",
+      "size_bytes": 36490,
+      "sha256": "68c5636a7858dd0b5137a9229c15e25fdc2ee40a0f8a4e9d809f78e809256262"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/mode-operate.md",
+      "size_bytes": 4716,
+      "sha256": "7a52dd7a94ee75f6ae89542c86a1b6e1d306812b16e0d9dbf12d4acad44d148b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/mode-persuade.md",
+      "size_bytes": 3638,
+      "sha256": "21e78c8a77badb3f83290cd4577ed3b24bd4dd3b57136d7da75733d4f3ee9ac0"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/mode-read.md",
+      "size_bytes": 4396,
+      "sha256": "a569989e6a3d6453b4c45e9474e162a15cc54e11732ac6baa7990a6e7cccc0b5"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/new-work.md",
+      "size_bytes": 59812,
+      "sha256": "723d3985d079fa7a3c4140a072b6d6937ffc109eb462f9be5b1f97027b3fb714"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/onboard.md",
+      "size_bytes": 7740,
+      "sha256": "ef2dde00030580ed2765cbf7be9b2ea4a6f64cb915b804fd6f6abcf38051c7b9"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/operate.md",
+      "size_bytes": 4145,
+      "sha256": "a9d2203acd45ca33a13d5c68b02b23ed512425ac15f0e8438318ed124b43729d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/optimize.md",
+      "size_bytes": 7614,
+      "sha256": "f672ef8251a3ed4051a053d30819664951b17540b2899acd27d20e500c234abc"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/overdrive.md",
+      "size_bytes": 9178,
+      "sha256": "fce6688138d2ceb1e3d2cde5231f54b1d8dc8748b4c95a7919aa83b6f924cf96"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/polish.md",
+      "size_bytes": 6646,
+      "sha256": "81666fc7f783b4e3514db6554e713dc0479bd9cdedb06e93d15f8b579aae869a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/quieter.md",
+      "size_bytes": 4952,
+      "sha256": "190a4e642ca362d7499f3c3ab123e21f18f75457d11f072b545a183f296e6495"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/region-map.md",
+      "size_bytes": 3361,
+      "sha256": "778cedc9199b407d3e23fa1041e38d548b00b1101a33517aa2a2eb299f9d0edc"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/routing.md",
+      "size_bytes": 3336,
+      "sha256": "77ae09542fbc10aa4e8b119d6fd19359908a47c13c30068d6a150bfdb50e3e10"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/shape.md",
+      "size_bytes": 3547,
+      "sha256": "a55f016c046cb6a27c55bd7f346375aeb506a755c4fbca19a5f92dbd42309c23"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/typeset.md",
+      "size_bytes": 5256,
+      "sha256": "442749aed338f51c1a3ccfb182c6ade9b74b90590b67984062ac94a5b100e914"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/visualize.md",
+      "size_bytes": 13912,
+      "sha256": "2bcec5b8d22e9f87799529a41b984d27b4379ab1b70e1dd4f63b6d6390275730"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/degraded/asset-producer.md",
+      "size_bytes": 8581,
+      "sha256": "877d274f41500c780bad25b2bca7fa95eff1a32a7b95397dd388c72848e86a6c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/degraded/documenter.md",
+      "size_bytes": 3325,
+      "sha256": "bcc05ea92faebb5c74037a9d4263a5ce9a56f5ab07c8ab3c59ee704d8cade745"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/degraded/finish-reviewer.md",
+      "size_bytes": 15415,
+      "sha256": "275dd1b6e63bbd30d2713227c4f79b880a8bc4e01cc48d392068bb86939d3afa"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/reference/degraded/manual-edit-applier.md",
+      "size_bytes": 7196,
+      "sha256": "5fae7f8a2fc3ddd49ad0a413446dc44daedef5b6b7de5eb935bd2fbfad646d58"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/agents/impeccable_asset_producer.toml",
+      "size_bytes": 8429,
+      "sha256": "4dbdb0cfdc2466961da6b22d200f3ec7bf8bb47c27448a2e6e3c03cdbf589831"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/agents/impeccable_documenter.toml",
+      "size_bytes": 3203,
+      "sha256": "2feb3768125ba6469c92a50d516727e6d42f44579165ddfd33409948e2a3803d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/agents/impeccable_finish_reviewer.toml",
+      "size_bytes": 15315,
+      "sha256": "d57c3e0453f601ad688911fca4471057c7b46b561fcd42a1e12a581101c5186c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/agents/impeccable_manual_edit_applier.toml",
+      "size_bytes": 7032,
+      "sha256": "6c9ce3e27ec4520ead001da3aad2a2ebba481c4e5cd22873db8890259ee579fe"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/impeccable/agents/openai.yaml",
+      "size_bytes": 235,
+      "sha256": "cbd8bd68fa00935dd0f179adb169252629cf7ee443ea9dc7db77e7ef2cf77446"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/learning-proposals/SKILL.md",
+      "size_bytes": 1942,
+      "sha256": "15de684a1602c8c7e98a8e0e004421911e6746ec62127670bb984b85f10c4859"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/learning-proposals/references/candidate-review.md",
+      "size_bytes": 1699,
+      "sha256": "6720e8a65dd8c99ab4c6d501c7654b144a591248d631859059ec9737b1b07f56"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/library-skills-maintainer/SKILL.md",
+      "size_bytes": 2904,
+      "sha256": "8044216a2fb065b909948859f7cb7819cd275ca3a508a0b0664a6651f261e888"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/library-skills-maintainer/references/ownership-and-delivery.md",
+      "size_bytes": 2377,
+      "sha256": "2963914a53a6f46e998f44e66464018a0cfc04982fc1b3560fb84ee8d2024e0a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/parallel-prompt-architect/SKILL.md",
+      "size_bytes": 1257,
+      "sha256": "3aa8cb9d9527e675aed39d960523755c6168ce6d6ad252b42ce83817efe97a69"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/parallel-prompt-architect/references/prompt-boundaries.md",
+      "size_bytes": 1440,
+      "sha256": "4595b0db30edf9a6bf1a3326a6c2d67e1206e2da8c274266f687be39467e4e07"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/pdf/LICENSE.txt",
+      "size_bytes": 10776,
+      "sha256": "4dd13869245e356246a5b770723247bbb80a8f07a181d1d3d873a1734297cdb9"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/pdf/SKILL.md",
+      "size_bytes": 2517,
+      "sha256": "d108cf2b36355ab37eb5962933f4d09785ec002f3105c506129320209306b9d2"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/pdf/assets/pdf.png",
+      "size_bytes": 1312,
+      "sha256": "17da356d195d4e3fa24f9becbee6b8d9e60e13005762b5ab0809c520c76da6ee"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/pdf/agents/openai.yaml",
+      "size_bytes": 219,
+      "sha256": "f8b223e25343559f57e1839ccd849fd1494a9729da33da04bb5074b7f80f4887"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/project-skill-loader/SKILL.md",
+      "size_bytes": 1588,
+      "sha256": "011242c76dc4e1f0bd0a9f88661fdfe33db7a243193cb4ea21ad11565979f6b0"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/project-skill-loader/references/operational-alignment.md",
+      "size_bytes": 967,
+      "sha256": "5442e9f47e56e2d8f1411d871fea62751097735a0b57effcd0ef841616b23be2"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/project-skills-maintainer/SKILL.md",
+      "size_bytes": 2666,
+      "sha256": "e771b9c66a70cd3a276dffddbfdf601a2ef3cd87b9b6ef8614f67614c6571a01"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/project-skills-maintainer/references/ownership-and-evidence.md",
+      "size_bytes": 2529,
+      "sha256": "2fae4dc6cac287247c73ec7bcb63b580262ca1bf0f9cdc1c3b01c0d0148cfe62"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/refactor-test-first/SKILL.md",
+      "size_bytes": 1338,
+      "sha256": "40c77d0870ee384592a4bb28e821bad84bc64b8a2aa542899bee319695a8c76a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/refactor-test-first/agents/openai.yaml",
+      "size_bytes": 324,
+      "sha256": "786b70f2f2a9fea68502fa17f327e8e4ac2c3621e37fa773e7a383689ef3957e"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/security-review/SKILL.md",
+      "size_bytes": 2169,
+      "sha256": "fd41c11f7b28227de766efcace018b7d98f58af9e25f4966bb0ee021223acbfc"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/security-review/references/domain-risks.md",
+      "size_bytes": 1794,
+      "sha256": "d2d1d41bcec5b8586af6e55cddc27c731393feb7334f019bc121e3d41746bdda"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/security-review/references/file-uploads.md",
+      "size_bytes": 1641,
+      "sha256": "c91ebd71b07d5250b507680e438df4154900d518bc0975b7629ca0383b098745"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/security-review/references/web-audit.md",
+      "size_bytes": 2217,
+      "sha256": "249ebbbd0cec85e71c67f8fb16bd68c821a7b21951cf1cff3662d2e34d753bc7"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/server-template-dashboard/LICENSE",
+      "size_bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/server-template-dashboard/SKILL.md",
+      "size_bytes": 3506,
+      "sha256": "bb3411ad5256b8ebf648f766e3c6f475e3e2ac6894f10c72a1a7cae8eb8e1f3b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/server-template-dashboard/references/page-patterns.md",
+      "size_bytes": 2806,
+      "sha256": "e664025cf1db010a6a15eca9fb6a7112faa5e7df0fce22d3b44c48b39e1505fc"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/server-template-dashboard/references/provenance.md",
+      "size_bytes": 552,
+      "sha256": "abd8570911807e38bfc4cd1606154706324c9892499d734c3243f22380e62aa8"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/skill-stocktake/SKILL.md",
+      "size_bytes": 1594,
+      "sha256": "74120a1d9e6ffa4b976928249efdfd03e01b5460695f15d862046a6809a6a70f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/skill-stocktake/references/audit-method.md",
+      "size_bytes": 1804,
+      "sha256": "44a8d836eda62b91c2238a6d539413dbcb22673554c50c4ea44292b7bf777cb1"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/LICENSE",
+      "size_bytes": 1075,
+      "sha256": "e088e5f1035a9cd1009fe71ba4aab08bbd4e11837d9e9ad762459b981ffb6ec9"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/SKILL.md",
+      "size_bytes": 17493,
+      "sha256": "6ae5e67c87fc55e35d1f713bb2de8d05de9f9efd47a832be63447640842617cd"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/templates/DESIGN.md",
+      "size_bytes": 4805,
+      "sha256": "7837b1d13a261f53675d920bbdbdfccb3ac94e2b2ed47b49ab84c6bbc9394675"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/templates/FRONTEND_CONTRACT.md",
+      "size_bytes": 5018,
+      "sha256": "fbfcb8ab761fd18c1793eaa7fd3e0aa6697bc3a05ae207f3128b88bc3fb849cc"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/templates/FRONTEND_REVIEW.md",
+      "size_bytes": 3814,
+      "sha256": "7547ffedd33a12740563546959a53275f6a67d64ff3607d4ccb0f9928b3bd195"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/templates/PAGE_BRIEF.md",
+      "size_bytes": 3456,
+      "sha256": "cc4259a0c2097529dd80207f524f7ca81bcfaa29088c8211e34f54bf8379cf3f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/scripts/init_frontend_quality.py",
+      "size_bytes": 3040,
+      "sha256": "e8aa0c275d1f555942d1c6106801a82f5059e3f4624e8bf6b95f179553648789"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/anti-patterns.md",
+      "size_bytes": 8681,
+      "sha256": "2f37ae4077d63c866abc57bbab9626e9a0b1b4def1f74a4f63231fbda459f391"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/design-reference-packs.md",
+      "size_bytes": 3732,
+      "sha256": "a1d4ff60bf2fad5e85256f4c25b9981af650e3c3bf715d4365b99bea395dceb9"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/development-guardrails.md",
+      "size_bytes": 6848,
+      "sha256": "753af5b4eb7c0bd2d218db66fe1b36bf663a7dd100b405bf9567d931a42ea94b"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/project-cognition.md",
+      "size_bytes": 6410,
+      "sha256": "cbc0f9da94891754e7f0b2b2c0700297510d7aa5bdbb1ff319871024590af298"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/provenance.md",
+      "size_bytes": 571,
+      "sha256": "f1c6d76411cfb068c8ed2e3e9580d3e316369ebaa6cc9a480a75b763446987f2"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/tool-selection.md",
+      "size_bytes": 1787,
+      "sha256": "c6cdc03ff5f631d2e926b6ba8e133e0c22c72b3baa3d85c1d96bed737996772f"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/ux-evaluation.md",
+      "size_bytes": 7146,
+      "sha256": "5ce66d2ddf34fd944755e2b76f6812ab31a43af758e31b5a678a1d3de6b5499d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/references/workflow.md",
+      "size_bytes": 4290,
+      "sha256": "4fbd7bf848c03ed128f34ce7ad77ff7787dadf3263951e19eb89168366c10803"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/evals/evals.json",
+      "size_bytes": 11972,
+      "sha256": "2d4c18abf959472273e2e6b975650b61d0bb71290bf446f276030e0100d94136"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/ui-ux/evals/trigger-evals.json",
+      "size_bytes": 4240,
+      "sha256": "fa0301bacbb1388c7fa972bb3954449cf1a342b7afe9707a0b7e4556b7700c19"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/SKILL.md",
+      "size_bytes": 3478,
+      "sha256": "97f041b711c1878d78fe50eb148affe5ab41be1169726a5a9638a4eabca51b56"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/references/debugging.md",
+      "size_bytes": 887,
+      "sha256": "53265e7a9ed415e4bdd923a2024a0d8524e84013086ddd319b11bf214ed132b2"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/references/research-reuse.md",
+      "size_bytes": 1191,
+      "sha256": "5e7465a00f730d25677e909a8811e733d417347475bdcf076cf33d3339efd96a"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/references/secure-code-baseline.md",
+      "size_bytes": 3351,
+      "sha256": "1b79ceca0562a393a45f3ee266ba4734f5a6e51bc463ad090535002b087b6fc4"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/references/strict-planning.md",
+      "size_bytes": 1414,
+      "sha256": "aa473deffc47865fc6d829db289e24ec6c3eb4a47ecdc20edb609ed44e5adf4d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/references/verification.md",
+      "size_bytes": 1679,
+      "sha256": "140c5c69fe7be8aaca7897614d26e270f66585f6f736e88e08573c9df9f5ef3d"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/verified-execution/agents/openai.yaml",
+      "size_bytes": 233,
+      "sha256": "817cad11509139f77d0dc470d7bfa59adb777d7caa008cccc9580ec64726bf5a"
+    },
+    {
+      "source_group": "agents-skills",
+      "relative_path": "agents-skills/graphify/.graphify_version",
+      "size_bytes": 6,
+      "sha256": "d33484adb0ef81a8d095e25b775405120af7affe7098527957d7d4b4948b5fb2"
+    },
+    {
+      "source_group": "agents-skills",
+      "relative_path": "agents-skills/graphify/SKILL.md",
+      "size_bytes": 58873,
+      "sha256": "6a01551a3713b1a0def695a1493b6bd129c0d96c680cfd1ecee2f5285ca3f24c"
+    },
+    {
+      "source_group": "codex-skills",
+      "relative_path": "codex-skills/frontend-design-codex/runtime/references/design-tokens.md",
+      "size_bytes": 1141,
+      "sha256": "d73ce974016755b9effe52c07178d5ae1f70a088dd24197a379a70d747fa9068"
+    }
+  ],
+  "exclusions": [
+    {
+      "source_group": "codex-skills",
+      "path": ".system",
+      "reason": "managed source excluded"
+    },
+    {
+      "source_group": "codex-skills",
+      "path": "codex-primary-runtime",
+      "reason": "managed source excluded"
+    },
+    {
+      "source_group": "codex-skills",
+      "path": "frontend-design-codex/runtime/node_modules",
+      "reason": "excluded dependency/cache directory"
+    }
+  ],
+  "skipped_reparse_paths": []
+}

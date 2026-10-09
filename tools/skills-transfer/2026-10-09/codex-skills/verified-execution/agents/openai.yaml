@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verified Execution"
+  short_description: "Verify context before changing code"
+  default_prompt: "Use $verified-execution to inspect the codebase, plan changes, edit surgically, and verify with tests."

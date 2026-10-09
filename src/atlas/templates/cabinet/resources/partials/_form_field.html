@@ -1,0 +1,37 @@
+{% load cabinet_tags i18n %}
+
+<div class="col-12">
+  {% with tooltip=field.field.widget.attrs|get_item:"data-cab-field-tooltip" %}
+    {% if field.field.widget.input_type == "checkbox" %}
+      <div class="form-check">
+        {{ field }}
+        <label class="form-check-label cab-field-label" for="{{ field.id_for_label }}">
+          {{ field.label }}
+          {% if tooltip %}
+            <button type="button"
+                    class="cab-field-tooltip"
+                    data-tippy-content="{{ tooltip }}"
+                    aria-label="{% trans "Field help" %}">
+              <i class="bi bi-info-circle"></i>
+            </button>
+          {% endif %}
+        </label>
+      </div>
+    {% else %}
+      <label class="form-label cab-field-label" for="{{ field.id_for_label }}">
+        {{ field.label }}
+        {% if tooltip %}
+          <button type="button"
+                  class="cab-field-tooltip"
+                  data-tippy-content="{{ tooltip }}"
+                  aria-label="{% trans "Field help" %}">
+            <i class="bi bi-info-circle"></i>
+          </button>
+        {% endif %}
+      </label>
+      {{ field }}
+    {% endif %}
+  {% endwith %}
+  {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+  {% for error in field.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+</div>

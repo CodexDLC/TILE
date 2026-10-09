@@ -25,8 +25,14 @@ CACHES = {
     }
 }
 
-# Disable Redis password for tests
+# Do not inherit external Redis/queue connections from the project .env.
+CODEX_REDIS_ENABLED = False
+REDIS_URL = ""
+ARQ_REDIS_URL = ""
 REDIS_PASSWORD = None
+UPSTASH_REDIS_REST_URL = ""
+UPSTASH_REDIS_HOST = ""
+UPSTASH_REDIS_PASSWORD = ""
 
 # Email backend for tests
 EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
@@ -38,3 +44,6 @@ EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 PASSWORD_HASHERS = [
     "django.contrib.auth.hashers.MD5PasswordHasher",
 ]
+
+# Keep test output in pytest; do not share rotating files with the dev server.
+LOGURU_ENABLED = False

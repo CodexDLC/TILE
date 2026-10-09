@@ -1,0 +1,1520 @@
+[
+  {
+    "name": "01-login-desktop",
+    "url": "http://127.0.0.1:8098/cabinet/login/?next=/cabinet/articles/",
+    "title": "Войти в TALE — TALE",
+    "text": "◆\nTALE\n\nВойти\n\nАтлас локальных впечатлений\n\nИмя пользователя\nПароль\nВойти",
+    "metrics": {
+      "viewport": 1440,
+      "width": 1440,
+      "height": 1000
+    },
+    "links": []
+  },
+  {
+    "name": "02-author-list-desktop",
+    "url": "http://127.0.0.1:8098/cabinet/articles/",
+    "title": "Статьи — TALE",
+    "text": "Администрирование\nСервисы\nSite\n1\nAU\naudit-author\nСтатьи\n\nВаши истории: от первого черновика до публикации.\n\nСоздать статью\nВсе\nЧерновики\nОпубликовано\nЦентральный вокзал Магдебурга\n\nЧерновик · 09.10.2026 07:12 · Магдебург\n\nРедактировать\nПредпросмотр\nЗелёная цитадель\n\nОпубликовано · 09.10.2026 07:12 · Магдебург\n\nРедактировать\nПредпросмотр\nОткрыть на сайте ↗\nМагдебургский собор\n\nОпубликовано · 09.10.2026 07:12 · Магдебург\n\nРедактировать\nПредпросмотр\nОткрыть на сайте ↗\nМагдебург: город двух Отто\n\nОпубликовано · 09.10.2026 07:12 · Магдебург\n\nРедактировать\nПредпросмотр\nОткрыть на сайте ↗\n1 / 1",
+    "metrics": {
+      "viewport": 1440,
+      "width": 1440,
+      "height": 1000
+    },
+    "links": [
+      {
+        "text": "",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "",
+        "href": "/cabinet/site/settings/"
+      },
+      {
+        "text": "\n          \n          Analytics\n          \n        ",
+        "href": "/cabinet/analytics/"
+      },
+      {
+        "text": "\n          \n          Users\n          \n        ",
+        "href": "/cabinet/users/"
+      },
+      {
+        "text": "\n          \n          Content\n          \n            \n          \n        ",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "\n          \n          Messaging\n          \n        ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "Site",
+        "href": "/"
+      },
+      {
+        "text": "\n            \n            \n              New messages\n            \n            0\n          ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "\n            My account\n          ",
+        "href": "/cabinet/my/"
+      },
+      {
+        "text": "\n            Выйти\n          ",
+        "href": "/accounts/logout/"
+      },
+      {
+        "text": "Создать статью",
+        "href": "/cabinet/articles/new/"
+      },
+      {
+        "text": "Все",
+        "href": "?"
+      },
+      {
+        "text": "Черновики",
+        "href": "?status=draft"
+      },
+      {
+        "text": "Опубликовано",
+        "href": "?status=published"
+      },
+      {
+        "text": "Центральный вокзал Магдебурга",
+        "href": "/cabinet/articles/8/edit/"
+      },
+      {
+        "text": "Редактировать",
+        "href": "/cabinet/articles/8/edit/"
+      },
+      {
+        "text": "Предпросмотр",
+        "href": "/cabinet/articles/8/preview/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/cabinet/articles/7/edit/"
+      },
+      {
+        "text": "Редактировать",
+        "href": "/cabinet/articles/7/edit/"
+      },
+      {
+        "text": "Предпросмотр",
+        "href": "/cabinet/articles/7/preview/"
+      },
+      {
+        "text": "Открыть на сайте ↗",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/cabinet/articles/6/edit/"
+      },
+      {
+        "text": "Редактировать",
+        "href": "/cabinet/articles/6/edit/"
+      },
+      {
+        "text": "Предпросмотр",
+        "href": "/cabinet/articles/6/preview/"
+      },
+      {
+        "text": "Открыть на сайте ↗",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебург: город двух Отто",
+        "href": "/cabinet/articles/5/edit/"
+      },
+      {
+        "text": "Редактировать",
+        "href": "/cabinet/articles/5/edit/"
+      },
+      {
+        "text": "Предпросмотр",
+        "href": "/cabinet/articles/5/preview/"
+      },
+      {
+        "text": "Открыть на сайте ↗",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      }
+    ]
+  },
+  {
+    "name": "03-author-editor-desktop",
+    "url": "http://127.0.0.1:8098/cabinet/articles/new/",
+    "title": "Новая статья — TALE",
+    "text": "Администрирование\nСервисы\nSite\n1\nAU\naudit-author\n← Все статьи\nНовая статья\n\nЭтот черновик виден только вам. Опубликуйте его, когда текст и фотографии будут готовы.\n\nРусский\nDeutsch\nEnglish\nЗаголовок статьи *\nГород\nГород не выбран\nМагдебург\nКраткое вступление\nТекст статьи\nПишите абзацами. Поддерживается Markdown: заголовки ##, **выделение** и списки.\nФотография\nJPEG, PNG или WebP до 10 МБ. Новый файл заменит обложку, остальные фотографии сохранятся.\nДополнительные фотографии\nМожно выбрать несколько файлов. Они появятся после текста статьи.\nПодпись к фотографии\nОписание фотографии для пользователей экранных дикторов\nДополнительно: вид в поиске\nСохранить черновик\nСохранить и посмотреть\nОпубликовать",
+    "metrics": {
+      "viewport": 1440,
+      "width": 1440,
+      "height": 1000
+    },
+    "links": [
+      {
+        "text": "",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "",
+        "href": "/cabinet/site/settings/"
+      },
+      {
+        "text": "\n          \n          Analytics\n          \n        ",
+        "href": "/cabinet/analytics/"
+      },
+      {
+        "text": "\n          \n          Users\n          \n        ",
+        "href": "/cabinet/users/"
+      },
+      {
+        "text": "\n          \n          Content\n          \n        ",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "\n          \n          Messaging\n          \n        ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "Site",
+        "href": "/"
+      },
+      {
+        "text": "\n            \n            \n              New messages\n            \n            0\n          ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "\n            My account\n          ",
+        "href": "/cabinet/my/"
+      },
+      {
+        "text": "\n            Выйти\n          ",
+        "href": "/accounts/logout/"
+      },
+      {
+        "text": "← Все статьи",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Русский",
+        "href": "?language=ru"
+      },
+      {
+        "text": "Deutsch",
+        "href": "?language=de"
+      },
+      {
+        "text": "English",
+        "href": "?language=en"
+      }
+    ]
+  },
+  {
+    "name": "04-author-editor-mobile",
+    "url": "http://127.0.0.1:8098/cabinet/articles/new/",
+    "title": "Новая статья — TALE",
+    "text": "Администрирование\nСервисы\nSite\n1\nAU\naudit-author\n← Все статьи\nНовая статья\n\nЭтот черновик виден только вам. Опубликуйте его, когда текст и фотографии будут готовы.\n\nРусский\nDeutsch\nEnglish\nЗаголовок статьи *\nГород\nГород не выбран\nМагдебург\nКраткое вступление\nТекст статьи\nПишите абзацами. Поддерживается Markdown: заголовки ##, **выделение** и списки.\nФотография\nJPEG, PNG или WebP до 10 МБ. Новый файл заменит обложку, остальные фотографии сохранятся.\nДополнительные фотографии\nМожно выбрать несколько файлов. Они появятся после текста статьи.\nПодпись к фотографии\nОписание фотографии для пользователей экранных дикторов\nДополнительно: вид в поиске\nСохранить черновик\nСохранить и посмотреть\nОпубликовать",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 844
+    },
+    "links": [
+      {
+        "text": "",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "",
+        "href": "/cabinet/site/settings/"
+      },
+      {
+        "text": "\n          \n          Analytics\n          \n        ",
+        "href": "/cabinet/analytics/"
+      },
+      {
+        "text": "\n          \n          Users\n          \n        ",
+        "href": "/cabinet/users/"
+      },
+      {
+        "text": "\n          \n          Content\n          \n        ",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "\n          \n          Messaging\n          \n        ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "Site",
+        "href": "/"
+      },
+      {
+        "text": "\n            \n            \n              New messages\n            \n            0\n          ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "\n            My account\n          ",
+        "href": "/cabinet/my/"
+      },
+      {
+        "text": "\n            Выйти\n          ",
+        "href": "/accounts/logout/"
+      },
+      {
+        "text": "← Все статьи",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Русский",
+        "href": "?language=ru"
+      },
+      {
+        "text": "Deutsch",
+        "href": "?language=de"
+      },
+      {
+        "text": "English",
+        "href": "?language=en"
+      }
+    ]
+  },
+  {
+    "name": "05-author-actions-mobile",
+    "url": "http://127.0.0.1:8098/cabinet/articles/new/",
+    "title": "Новая статья — TALE",
+    "text": "Администрирование\nСервисы\nSite\n1\nAU\naudit-author\n← Все статьи\nНовая статья\n\nЭтот черновик виден только вам. Опубликуйте его, когда текст и фотографии будут готовы.\n\nРусский\nDeutsch\nEnglish\nЗаголовок статьи *\nГород\nГород не выбран\nМагдебург\nКраткое вступление\nТекст статьи\nПишите абзацами. Поддерживается Markdown: заголовки ##, **выделение** и списки.\nФотография\nJPEG, PNG или WebP до 10 МБ. Новый файл заменит обложку, остальные фотографии сохранятся.\nДополнительные фотографии\nМожно выбрать несколько файлов. Они появятся после текста статьи.\nПодпись к фотографии\nОписание фотографии для пользователей экранных дикторов\nДополнительно: вид в поиске\nСохранить черновик\nСохранить и посмотреть\nОпубликовать",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 844
+    },
+    "links": [
+      {
+        "text": "",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "",
+        "href": "/cabinet/site/settings/"
+      },
+      {
+        "text": "\n          \n          Analytics\n          \n        ",
+        "href": "/cabinet/analytics/"
+      },
+      {
+        "text": "\n          \n          Users\n          \n        ",
+        "href": "/cabinet/users/"
+      },
+      {
+        "text": "\n          \n          Content\n          \n        ",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "\n          \n          Messaging\n          \n        ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "Site",
+        "href": "/"
+      },
+      {
+        "text": "\n            \n            \n              New messages\n            \n            0\n          ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "\n            My account\n          ",
+        "href": "/cabinet/my/"
+      },
+      {
+        "text": "\n            Выйти\n          ",
+        "href": "/accounts/logout/"
+      },
+      {
+        "text": "← Все статьи",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Русский",
+        "href": "?language=ru"
+      },
+      {
+        "text": "Deutsch",
+        "href": "?language=de"
+      },
+      {
+        "text": "English",
+        "href": "?language=en"
+      }
+    ]
+  },
+  {
+    "name": "06-author-validation-mobile",
+    "url": "http://127.0.0.1:8098/cabinet/articles/new/",
+    "title": "Новая статья — TALE",
+    "text": "Администрирование\nСервисы\nSite\n1\nAU\naudit-author\n← Все статьи\nНовая статья\n\nЭтот черновик виден только вам. Опубликуйте его, когда текст и фотографии будут готовы.\n\nРусский\nDeutsch\nEnglish\nНе удалось сохранить историю. Проверьте выделенные поля.\nЗаголовок статьи *\nГород\nГород не выбран\nМагдебург\nКраткое вступление\nТекст статьи\nПишите абзацами. Поддерживается Markdown: заголовки ##, **выделение** и списки.\nДобавьте текст статьи перед публикацией.\nФотография\nJPEG, PNG или WebP до 10 МБ. Новый файл заменит обложку, остальные фотографии сохранятся.\nДобавьте фотографию перед публикацией.\nДополнительные фотографии\nМожно выбрать несколько файлов. Они появятся после текста статьи.\nПодпись к фотографии\nОписание фотографии для пользователей экранных дикторов\nДополнительно: вид в поиске\nСохранить черновик\nСохранить и посмотреть\nОпубликовать",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 844
+    },
+    "links": [
+      {
+        "text": "",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "",
+        "href": "/cabinet/site/settings/"
+      },
+      {
+        "text": "\n          \n          Analytics\n          \n        ",
+        "href": "/cabinet/analytics/"
+      },
+      {
+        "text": "\n          \n          Users\n          \n        ",
+        "href": "/cabinet/users/"
+      },
+      {
+        "text": "\n          \n          Content\n          \n        ",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "\n          \n          Messaging\n          \n        ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "Site",
+        "href": "/"
+      },
+      {
+        "text": "\n            \n            \n              New messages\n            \n            0\n          ",
+        "href": "/cabinet/messaging/"
+      },
+      {
+        "text": "\n            My account\n          ",
+        "href": "/cabinet/my/"
+      },
+      {
+        "text": "\n            Выйти\n          ",
+        "href": "/accounts/logout/"
+      },
+      {
+        "text": "← Все статьи",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Русский",
+        "href": "?language=ru"
+      },
+      {
+        "text": "Deutsch",
+        "href": "?language=de"
+      },
+      {
+        "text": "English",
+        "href": "?language=en"
+      }
+    ]
+  },
+  {
+    "name": "07-home-mobile",
+    "url": "http://127.0.0.1:8098/ru/",
+    "title": "TALE — Travel Atlas of Local Experiences",
+    "text": "TALE\n⌕\nEN\nDE\nRU\n\nTALE · МЕСТА И ИСТОРИИ\n\nУ каждого места\nесть история.\n\nЗнакомьтесь с городами через истории, детали и людей. Выберите место — и посмотрите на него по-новому.\n\nГород, место или история\nПОИСК\nИстории для вашей прогулки\nВсе материалы →\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nНачните с города\n\nГЕРМАНИЯ\n\nМагдебург\n\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 3268
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/"
+      },
+      {
+        "text": "Все материалы →",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург: город двух Отто",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "08-public-menu-mobile",
+    "url": "http://127.0.0.1:8098/ru/",
+    "title": "TALE — Travel Atlas of Local Experiences",
+    "text": "TALE\n⌕\nEN\nDE\nRU\n\nTALE · МЕСТА И ИСТОРИИ\n\nУ каждого места\nесть история.\n\nЗнакомьтесь с городами через истории, детали и людей. Выберите место — и посмотрите на него по-новому.\n\nГород, место или история\nПОИСК\nИстории для вашей прогулки\nВсе материалы →\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nНачните с города\n\nГЕРМАНИЯ\n\nМагдебург\n\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление\nTALE\n×\nГлавная\nГермания\nИстории\nКонтакты",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 3268
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/"
+      },
+      {
+        "text": "Все материалы →",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург: город двух Отто",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "09-city-mobile",
+    "url": "http://127.0.0.1:8098/ru/germany/saxony-anhalt/magdeburg/",
+    "title": "Магдебург · TALE",
+    "text": "TALE\n⌕\nEN\nDE\nRU\n\nГЕРМАНИЯ · САКСОНИЯ-АНХАЛЬТ\n\nМагдебург\n\nИстории: 3\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 2499
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург: город двух Отто",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "10-story-mobile",
+    "url": "http://127.0.0.1:8098/ru/germany/saxony-anhalt/magdeburg/story-0/",
+    "title": "Магдебург: город двух Отто",
+    "text": "TALE\n⌕\nEN\nDE\nRU\nГлавная / Магдебург\n\nИСТОРИИ МЕСТ · RU\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nПеред прогулкой\n\nЭто синтетический текст для аудита интерфейса, не редакционная статья.\n\nИстория места\n\nДлинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне.\n\nНа что обратить внимание\n\nСледующая часть истории.\n\nПродолжить знакомство\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 4159
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Магдебург",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "11-reading-mobile",
+    "url": "http://127.0.0.1:8098/ru/germany/saxony-anhalt/magdeburg/story-0/",
+    "title": "Магдебург: город двух Отто",
+    "text": "TALE\n⌕\nEN\nDE\nRU\nГлавная / Магдебург\n\nИСТОРИИ МЕСТ · RU\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nПеред прогулкой\n\nЭто синтетический текст для аудита интерфейса, не редакционная статья.\n\nИстория места\n\nДлинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне.\n\nНа что обратить внимание\n\nСледующая часть истории.\n\nПродолжить знакомство\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 4159
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Магдебург",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "12-fallback-mobile",
+    "url": "http://127.0.0.1:8098/de/germany/saxony-anhalt/magdeburg/story-0/",
+    "title": "Магдебург: город двух Отто",
+    "text": "TALE\n⌕\nEN\nDE\nRU\nStartseite / Magdeburg\n\nGESCHICHTEN VON ORTEN · RU\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nDieser Beitrag ist derzeit auf RU verfügbar.\n\nПеред прогулкой\n\nЭто синтетический текст для аудита интерфейса, не редакционная статья.\n\nИстория места\n\nДлинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне.\n\nНа что обратить внимание\n\nСледующая часть истории.\n\nWeiter entdecken\n\nMAGDEBURG\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nGeschichte lesen\n→\n\nMAGDEBURG\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nGeschichte lesen\n→\nORTE UND GESCHICHTEN\nTALE\n\nTravel Atlas of Local Experiences\n\nEntdecken Sie Orte durch ihre Geschichten, Details und Menschen.\n\nNAVIGATION\nStartseite\nKontakt\nKONTAKT\n\n© 2026 TALE.\n\nImpressum\nDatenschutz\nVerwaltung",
+    "metrics": {
+      "viewport": 390,
+      "width": 390,
+      "height": 4195
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/de/"
+      },
+      {
+        "text": "Startseite",
+        "href": "/de/"
+      },
+      {
+        "text": "\n                                Deutschland\n                            ",
+        "href": "/de/germany/"
+      },
+      {
+        "text": "Regionen",
+        "href": "/de/germany/#regions"
+      },
+      {
+        "text": "Geschichten",
+        "href": "/de/places/search/"
+      },
+      {
+        "text": "Kontakt",
+        "href": "/de/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/de/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Startseite",
+        "href": "/de/"
+      },
+      {
+        "text": "Magdeburg",
+        "href": "/de/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Geschichte lesen\n→",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Geschichte lesen\n→",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Startseite",
+        "href": "/de/"
+      },
+      {
+        "text": "Kontakt",
+        "href": "/de/contacts/"
+      },
+      {
+        "text": "Impressum",
+        "href": "/de/contacts/impressum/"
+      },
+      {
+        "text": "Datenschutz",
+        "href": "/de/contacts/privacy/"
+      },
+      {
+        "text": "Verwaltung",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Startseite",
+        "href": "/de/"
+      },
+      {
+        "text": "Deutschland",
+        "href": "/de/germany/"
+      },
+      {
+        "text": "Regionen",
+        "href": "/de/germany/#regions"
+      },
+      {
+        "text": "Geschichten",
+        "href": "/de/places/search/"
+      },
+      {
+        "text": "Kontakt",
+        "href": "/de/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "13-home-desktop",
+    "url": "http://127.0.0.1:8098/ru/",
+    "title": "TALE — Travel Atlas of Local Experiences",
+    "text": "TALE\nГЛАВНАЯ\nСТРАНЫ\n⌄\nИСТОРИИ\nКОНТАКТЫ\n⌕\nEN\nDE\nRU\n\nTALE · МЕСТА И ИСТОРИИ\n\nУ каждого места\nесть история.\n\nЗнакомьтесь с городами через истории, детали и людей. Выберите место — и посмотрите на него по-новому.\n\nГород, место или история\nПОИСК\nИстории для вашей прогулки\nВсе материалы →\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nНачните с города\n\nГЕРМАНИЯ\n\nМагдебург\n\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 1440,
+      "width": 1440,
+      "height": 2408
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "ГЛАВНАЯ",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "ИСТОРИИ",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "КОНТАКТЫ",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/"
+      },
+      {
+        "text": "Все материалы →",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург: город двух Отто",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Магдебург",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "14-story-desktop",
+    "url": "http://127.0.0.1:8098/ru/germany/saxony-anhalt/magdeburg/story-0/",
+    "title": "Магдебург: город двух Отто",
+    "text": "TALE\nГЛАВНАЯ\nСТРАНЫ\n⌄\nРЕГИОНЫ\nИСТОРИИ\nКОНТАКТЫ\n⌕\nEN\nDE\nRU\nГлавная / Магдебург\n\nИСТОРИИ МЕСТ · RU\n\nМагдебург: город двух Отто\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nПеред прогулкой\n\nЭто синтетический текст для аудита интерфейса, не редакционная статья.\n\nИстория места\n\nДлинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне. Длинный абзац для оценки удобства чтения и переходов на телефоне.\n\nНа что обратить внимание\n\nСледующая часть истории.\n\nПродолжить знакомство\n\nМАГДЕБУРГ\n\nМагдебургский собор\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\n\nМАГДЕБУРГ\n\nЗелёная цитадель\n\nТестовый материал для проверки интерфейса TALE. Фотография иллюстративная.\n\nЧитать историю\n→\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 1440,
+      "width": 1440,
+      "height": 3322
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "ГЛАВНАЯ",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "РЕГИОНЫ",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "ИСТОРИИ",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "КОНТАКТЫ",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "DE",
+        "href": "/de/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-0/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Магдебург",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Магдебургский собор",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-1/"
+      },
+      {
+        "text": "",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Зелёная цитадель",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Читать историю\n→",
+        "href": "/ru/germany/saxony-anhalt/magdeburg/story-2/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Регионы",
+        "href": "/ru/germany/#regions"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  },
+  {
+    "name": "15-search-empty",
+    "url": "http://127.0.0.1:8098/ru/places/search/?q=%D0%BD%D0%B5%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B5%D0%B5",
+    "title": "TALE",
+    "text": "TALE\nГЛАВНАЯ\nСТРАНЫ\n⌄\nИСТОРИИ\nКОНТАКТЫ\n⌕\nEN\nDE\nRU\nНайдите свою историю\nГород, место или история\nПОИСК\n\nМатериалов: 0 · «несуществующее»\n\nНичего не найдено. Попробуйте другое название города или места.\n\n1 / 1\nМЕСТА И ИСТОРИИ\nTALE\n\nTravel Atlas of Local Experiences\n\nОткрывайте места через их истории, детали и людей.\n\nНАВИГАЦИЯ\nГлавная\nКонтакты\nКОНТАКТЫ\n\n© 2026 TALE.\n\nВыходные данные\nКонфиденциальность\nУправление",
+    "metrics": {
+      "viewport": 1440,
+      "width": 1440,
+      "height": 1000
+    },
+    "links": [
+      {
+        "text": "TALE",
+        "href": "/ru/"
+      },
+      {
+        "text": "ГЛАВНАЯ",
+        "href": "/ru/"
+      },
+      {
+        "text": "\n                                Германия\n                            ",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "ИСТОРИИ",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "КОНТАКТЫ",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "⌕",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "EN",
+        "href": "/places/search/?q=%D0%BD%D0%B5%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B5%D0%B5"
+      },
+      {
+        "text": "DE",
+        "href": "/de/places/search/?q=%D0%BD%D0%B5%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B5%D0%B5"
+      },
+      {
+        "text": "RU",
+        "href": "/ru/places/search/?q=%D0%BD%D0%B5%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B5%D0%B5"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      },
+      {
+        "text": "Выходные данные",
+        "href": "/ru/contacts/impressum/"
+      },
+      {
+        "text": "Конфиденциальность",
+        "href": "/ru/contacts/privacy/"
+      },
+      {
+        "text": "Управление",
+        "href": "/cabinet/articles/"
+      },
+      {
+        "text": "Главная",
+        "href": "/ru/"
+      },
+      {
+        "text": "Германия",
+        "href": "/ru/germany/"
+      },
+      {
+        "text": "Истории",
+        "href": "/ru/places/search/"
+      },
+      {
+        "text": "Контакты",
+        "href": "/ru/contacts/"
+      }
+    ]
+  }
+]

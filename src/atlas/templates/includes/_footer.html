@@ -1,12 +1,14 @@
 {% load i18n static %}
+{% trans "Discover places through their stories, details and people." as default_footer_description %}
 
 <footer class="footer">
     <div class="footer-inner">
         <div class="footer-grid">
             <div class="footer-col">
-                <span class="footer-kicker">{% trans "Atlas editorial shell" %}</span>
-                <h3 class="footer-brand">{{ site_settings.company_name|default:"Atlas" }}</h3>
-                <p class="footer-copy">{{ site_settings.site_description|default:"A DB-driven travel publication shaped around reusable page blocks and long-form editorial rhythm." }}</p>
+                <span class="footer-kicker">{% trans "Places and stories" %}</span>
+                <h3 class="footer-brand">{{ public_brand }}</h3>
+                <p class="footer-copy">{{ public_brand_full }}</p>
+                <p class="footer-copy">{{ site_settings.site_description|default:default_footer_description }}</p>
                 <div class="footer-socials">
                     {% if site_settings.instagram_url %}
                         <a href="{{ site_settings.instagram_url }}" class="footer-link" target="_blank" rel="noopener">Instagram</a>
@@ -45,9 +47,11 @@
         </div>
 
         <div class="footer-bottom">
-            <p class="footer-copyright">&copy; {% now "Y" %} {{ site_settings.company_name|default:"Atlas" }}.</p>
+            <p class="footer-copyright">&copy; {% now "Y" %} {{ public_brand }}.</p>
             <div class="footer-legal">
-                <a href="{% url 'account_login' %}" class="footer-link">{% trans "Management" %}</a>
+                <a href="{% url 'impressum' %}" class="footer-link">{% trans "Impressum" %}</a>
+                <a href="{% url 'privacy' %}" class="footer-link">{% trans "Privacy" %}</a>
+                <a href="{% url 'cabinet:article_list' %}" class="footer-link">{% trans "Management" %}</a>
             </div>
         </div>
     </div>

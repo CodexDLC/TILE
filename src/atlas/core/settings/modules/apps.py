@@ -40,6 +40,7 @@ if find_spec("unfold") is not None:
 # ═══════════════════════════════════════════
 CODEX_APPS = [
     "codex_django.cabinet",
+    "codex_django.messaging",
     "codex_django.showcase",
 ]
 

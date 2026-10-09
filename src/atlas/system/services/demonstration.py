@@ -22,7 +22,7 @@ from features.content.models import (
     TabsBlock,
 )
 from features.content.services.pages import attach_block, publish_page
-from features.places.models import City, Country, Place, Region
+from features.places.models import City, Country, Place, PlaceFact, PlaceImage, PlaceSeasonTag, Region, SeasonTag
 
 from system.models.settings import SiteSettings
 
@@ -127,18 +127,16 @@ def _load_place_domain(data: JsonObject) -> dict[str, dict[str, Any]]:
                     "intro",
                     "hero_image",
                     "long_form_story",
-                    "facts",
-                    "gallery",
                     "seasonality",
                     "seasonality_text",
                     "latitude",
                     "longitude",
-                    "season_tags",
                     "seo_title",
                     "seo_description",
                 ),
             ),
         )
+        _replace_place_related(place, item)
         places[place.slug] = place
 
     return {"countries": countries, "regions": regions, "cities": cities, "places": places}
@@ -351,8 +349,12 @@ def _city_blocks(city: City) -> list[JsonObject]:
 
 def _place_blocks(place: Place) -> list[JsonObject]:
     facts = [
-        {"label": label.replace("_", " ").title(), "value": str(value), "note": ""}
-        for label, value in place.facts.items()
+        {
+            "label": _translated_value(fact, "label"),
+            "value": _translated_value(fact, "value"),
+            "note": _translated_value(fact, "note"),
+        }
+        for fact in place.facts.filter(is_visible=True).order_by("order", "pk")
     ]
     if not facts:
         facts = [
@@ -386,6 +388,82 @@ def _place_blocks(place: Place) -> list[JsonObject]:
             "items": facts,
         },
     ]
+
+
+def _translated_value(obj: Any, field_name: str) -> str:
+    values = [
+        str(getattr(obj, field_name, "") or ""),
+        str(getattr(obj, f"{field_name}_en", "") or ""),
+        str(getattr(obj, f"{field_name}_de", "") or ""),
+        str(getattr(obj, f"{field_name}_ru", "") or ""),
+        str(getattr(obj, "__dict__", {}).get(field_name, "") or ""),
+    ]
+    return next((value for value in values if value), "")
+
+
+def _replace_place_related(place: Place, item: JsonObject) -> None:
+    _replace_place_facts(place, item.get("facts"))
+    _replace_place_gallery(place, item.get("gallery"))
+    _replace_place_season_tags(place, item.get("season_tags"))
+
+
+def _replace_place_facts(place: Place, raw_facts: Any) -> None:
+    PlaceFact.objects.filter(place=place).delete()
+    for order, fact in enumerate(_normalize_facts(raw_facts), start=1):
+        PlaceFact.objects.create(place=place, order=order, **fact)
+
+
+def _normalize_facts(raw_facts: Any) -> list[JsonObject]:
+    if isinstance(raw_facts, dict):
+        return [
+            {"label": str(label).replace("_", " ").title(), "value": str(value), "note": ""}
+            for label, value in raw_facts.items()
+        ]
+    if isinstance(raw_facts, list):
+        normalized = []
+        for item in raw_facts:
+            if isinstance(item, dict):
+                normalized.append(
+                    {
+                        "label": str(item.get("label") or item.get("name") or ""),
+                        "value": str(item.get("value") or ""),
+                        "note": str(item.get("note") or ""),
+                    }
+                )
+        return [item for item in normalized if item["label"] or item["value"]]
+    return []
+
+
+def _replace_place_gallery(place: Place, raw_gallery: Any) -> None:
+    PlaceImage.objects.filter(place=place).delete()
+    if not isinstance(raw_gallery, list):
+        return
+    for order, item in enumerate(raw_gallery, start=1):
+        if not isinstance(item, dict) or not item.get("image"):
+            continue
+        PlaceImage.objects.create(
+            place=place,
+            order=order,
+            image=str(item["image"]),
+            caption=str(item.get("caption") or ""),
+            alt_text=str(item.get("alt_text") or ""),
+            is_cover=bool(item.get("is_cover")),
+        )
+
+
+def _replace_place_season_tags(place: Place, raw_tags: Any) -> None:
+    PlaceSeasonTag.objects.filter(place=place).delete()
+    if not isinstance(raw_tags, list):
+        return
+    for order, raw_tag in enumerate(raw_tags, start=1):
+        tag_name = str(raw_tag).strip()
+        if not tag_name:
+            continue
+        tag, _created = SeasonTag.objects.get_or_create(
+            slug=tag_name.lower().replace(" ", "-"),
+            defaults={"name": tag_name.replace("-", " ").title()},
+        )
+        PlaceSeasonTag.objects.create(place=place, tag=tag, order=order)
 
 
 def _resolve_parent(item: JsonObject, pages: dict[str, Page]) -> Page | None:

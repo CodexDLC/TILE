@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ask Before Editing"
+  short_description: "Diagnose first, edit only when asked"
+  default_prompt: "Use $ask-before-editing to diagnose the issue, report findings, and avoid edits unless explicitly requested."

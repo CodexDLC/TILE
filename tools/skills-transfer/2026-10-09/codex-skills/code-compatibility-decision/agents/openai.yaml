@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compatibility Decision"
+  short_description: "Choose compat or full replacement."
+  default_prompt: "Before changing code, decide if backward compatibility is required. If the user rejects legacy support, fully replace the old path and remove fallback behavior."

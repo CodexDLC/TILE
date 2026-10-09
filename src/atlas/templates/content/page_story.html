@@ -1,1 +1,24 @@
 {% extends "content/page_base.html" %}
+{% load i18n block_tags markdown_tags %}
+{% block body_class %}page page-article{% endblock %}
+{% block page_content %}
+{% if is_preview %}<aside class="article-preview" role="status">{% trans "This is a private preview for the author." %} <a href="{% url 'cabinet:article_edit' page.pk %}?language={{ article_language }}">{% trans "Back to editing" %}</a></aside>{% endif %}
+<article lang="{{ article_language }}">
+<header class="article-heading">
+<nav class="article-breadcrumb" aria-label="{% trans 'Navigation' %}"><a href="{% url 'home' %}">{% trans "Home" %}</a>{% if page.parent.is_published %} / <a href="{{ page.parent.absolute_path }}">{{ page.parent.title }}</a>{% endif %}</nav>
+<p class="section-label">{% trans "Stories of places" %} · {{ article_language|upper }}</p>
+<h1>{{ article_title }}</h1>
+{% language article_language %}{% if article_intro %}<p class="article-lead">{{ article_intro }}</p>{% endif %}{% endlanguage %}
+{% if article_language != active_locale %}<p class="article-language-note">{% blocktrans with language=article_language|upper %}This story is currently available in {{ language }}.{% endblocktrans %}</p>{% endif %}
+</header>
+{% language article_language %}
+{% if not cover and domain_object.hero_image %}<figure class="article-cover"><img src="{{ domain_object.hero_image.url }}" alt="{{ article_title }}" fetchpriority="high"></figure>{% endif %}
+{% if cover %}<figure class="article-cover"><img src="{{ cover.image.url }}" alt="{{ cover.alt_text|default:article_title }}" fetchpriority="high">{% if cover.caption %}<figcaption>{{ cover.caption }}</figcaption>{% endif %}</figure>{% endif %}
+{% for slot in article_extra_slots %}{% if slot.block_type != 'gallery' %}{% render_block slot %}{% endif %}{% endfor %}
+{% if not body_block and domain_object.long_form_story %}<section class="article-reading article-body">{{ domain_object.long_form_story|markdown }}</section>{% endif %}
+{% for slot in article_extra_slots %}{% if slot.block_type == 'gallery' %}{% for photo in slot.content_object.images.all %}{% if photo.pk != cover.pk %}<figure class="article-cover"><img src="{{ photo.image.url }}" alt="{{ photo.alt_text|default:photo.caption }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endif %}{% endfor %}{% endif %}{% endfor %}
+{% endlanguage %}
+{% if domain_object.latitude != None and domain_object.longitude != None %}{% if domain_object.latitude or domain_object.longitude %}{% load l10n %}<div class="article-reading"><a class="btn btn-outline" href="https://www.openstreetmap.org/?mlat={{ domain_object.latitude|unlocalize }}&mlon={{ domain_object.longitude|unlocalize }}#map=17/{{ domain_object.latitude|unlocalize }}/{{ domain_object.longitude|unlocalize }}" target="_blank" rel="noopener">{% trans "Open on map" %} ↗</a></div>{% endif %}{% endif %}
+</article>
+{% if related_articles %}<section class="section"><div class="container"><h2>{% trans "Keep exploring" %}</h2>{% include "content/includes/article_cards.html" with cards=related_articles %}</div></section>{% endif %}
+{% endblock %}

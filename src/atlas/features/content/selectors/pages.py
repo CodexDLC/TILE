@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.http import Http404
 
 from features.content.models import Page, PageBlockSlot
@@ -58,6 +58,32 @@ def get_page_context(page: Page) -> dict[str, Any]:
         "related_places_blocks": blocks_by_type.get("related_places", []),
         "domain_object": domain_object,
     }
+    if page.page_type in (Page.PageType.STORY, Page.PageType.PLACE):
+        from .articles import article_language, article_parts, articles, raw_translation
+
+        parts = article_parts(page)
+        context.update(parts)
+        context["article_language"] = article_language(page)
+        context["article_title"] = raw_translation(page, "title", context["article_language"])
+        context["article_intro"] = raw_translation(page, "intro", context["article_language"])
+        context["article_meta_title"] = (
+            raw_translation(page, "seo_title", context["article_language"])
+            or raw_translation(page, "title", context["article_language"])
+        )
+        context["article_meta_description"] = (
+            raw_translation(page, "seo_description", context["article_language"])
+            or raw_translation(page, "intro", context["article_language"])
+        )
+        context["article_extra_slots"] = [slot for slot in slots if slot.block_type != "hero"]
+        context["related_articles"] = articles().filter(is_published=True, parent=page.parent).exclude(pk=page.pk)[:4]
+    if page.page_type == Page.PageType.CITY:
+        context["city_articles"] = Page.objects.filter(
+            parent=page, is_published=True, page_type__in=("story", "place")
+        ).order_by("-published_at", "title")
+    if page.page_type == Page.PageType.REGION:
+        context["region_cities"] = City.objects.filter(region=domain_object, page__is_published=True).select_related(
+            "page"
+        )
     if page.page_type == Page.PageType.HOME:
         context.update(_get_home_landing_context())
     if page.page_type == Page.PageType.COUNTRY and domain_object is not None:
@@ -94,7 +120,7 @@ def _get_home_landing_context() -> dict[str, Any]:
         Region.objects.filter(page__is_published=True)
         .select_related("country", "page")
         .prefetch_related("cities")
-        .annotate(place_count=Count("cities__places"))
+        .annotate(place_count=Count("cities__places", filter=Q(cities__places__page__is_published=True)))
         .order_by("country__name", "name")[:16]
     )
     cities = list(
@@ -108,7 +134,13 @@ def _get_home_landing_context() -> dict[str, Any]:
         .select_related("city__region__country", "page")
         .order_by("city__region__country__name", "city__region__name", "city__name", "name")[:8]
     )
+    stories = (
+        Page.objects.filter(is_published=True, page_type__in=("story", "place"))
+        .select_related("parent")
+        .order_by("-published_at", "-pk")[:8]
+    )
     return {
+        "home_articles": stories,
         "home_countries": countries,
         "home_featured_country": _get_featured_country(countries),
         "home_regions": regions,
@@ -126,7 +158,7 @@ def _get_country_page_context(country: Country) -> dict[str, Any]:
         Region.objects.filter(country=country, page__is_published=True)
         .select_related("country", "page")
         .prefetch_related("cities")
-        .annotate(place_count=Count("cities__places"))
+        .annotate(place_count=Count("cities__places", filter=Q(cities__places__page__is_published=True)))
         .order_by("name")
     )
     return {"country_regions": regions}

@@ -3,832 +3,880 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-01 18:18+0200\n"
+"POT-Creation-Date: 2026-09-21 06:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\src\atlas\cabinet\services\analytics.py:109
-#: .\src\atlas\cabinet\services\analytics.py:127
+
+#: .\cabinet\services\analytics.py:113 .\cabinet\services\analytics.py:131
 msgid "Revenue"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:110
+#: .\cabinet\services\analytics.py:114
 msgid "Services"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:111
+#: .\cabinet\services\analytics.py:115
 msgid "Specialists"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:114
+#: .\cabinet\services\analytics.py:118
 msgid "Week"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:115
+#: .\cabinet\services\analytics.py:119
 msgid "Month"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:116
+#: .\cabinet\services\analytics.py:120
 msgid "Quarter"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:126
+#: .\cabinet\services\analytics.py:130
 msgid "Period"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:128
-msgid "Bookings"
+#: .\cabinet\services\analytics.py:132
+msgid "Inquiries"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:129
+#: .\cabinet\services\analytics.py:133
 msgid "Conversion"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:132
-#: .\src\atlas\cabinet\services\client.py:111
+#: .\cabinet\services\analytics.py:136
 msgid "Total"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:141
-#: .\src\atlas\cabinet\templates\cabinet\analytics\reports.html:5
+#: .\cabinet\services\analytics.py:145
+#: .\cabinet\templates\cabinet\analytics\reports.html:5
 msgid "Reports"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\analytics.py:143
+#: .\cabinet\services\analytics.py:147
 msgid "Current reporting period"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\client.py:73
-msgid "Date and Time"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:74
-#: .\src\atlas\cabinet\services\client.py:109
-msgid "Service"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:75
-#: .\src\atlas\cabinet\services\client.py:110
-msgid "Specialist"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:78
-#: .\src\atlas\cabinet\services\client.py:114
-msgid "Status"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:96
-#: .\src\atlas\cabinet\templates\cabinet\booking\new.html:64
-msgid "Cancel"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:101
-msgid "No upcoming appointments yet."
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:108
-msgid "Date"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:130
-msgid "No appointment history yet."
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:147
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:61
-#: .\src\atlas\system\cabinet.py:124
+#: .\cabinet\services\client.py:37
+#: .\cabinet\templates\cabinet\includes\_topbar_client.html:61
+#: .\system\cabinet.py:124
 msgid "My Corner"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\client.py:159
+#: .\cabinet\services\client.py:49
 #, python-format
 msgid "Client since %(month)s %(year)s"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\client.py:163
+#: .\cabinet\services\client.py:53
 msgid "Visits"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\client.py:164
+#: .\cabinet\services\client.py:54
 msgid "Spent"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\client.py:165
+#: .\cabinet\services\client.py:55
 msgid "Rating"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\client.py:191
-#: .\src\atlas\cabinet\services\client.py:211
-msgid "Confirmed"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:201
-#: .\src\atlas\cabinet\services\client.py:345
-msgid "Pending"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:224
-#: .\src\atlas\cabinet\services\client.py:235
-#: .\src\atlas\cabinet\services\client.py:246
-#: .\src\atlas\cabinet\services\client.py:257
-#: .\src\atlas\cabinet\services\client.py:268
-#: .\src\atlas\cabinet\services\client.py:279
-#: .\src\atlas\cabinet\services\client.py:290
-#: .\src\atlas\cabinet\services\client.py:312
-#: .\src\atlas\cabinet\services\client.py:323
-#: .\src\atlas\cabinet\services\client.py:339
-msgid "Completed"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:301
-msgid "Cancelled"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:330
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:66
-#: .\src\atlas\system\cabinet.py:118
-msgid "My Appointments"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:333
-msgid "Upcoming"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:335
-msgid "scheduled"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:341
-msgid "visits total"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\client.py:347
-msgid "awaiting confirmation"
-msgstr ""
-
-#: .\src\atlas\cabinet\services\users.py:27 .\src\atlas\system\cabinet.py:84
+#: .\cabinet\services\users.py:29 .\system\cabinet.py:84
 msgid "All Users"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\users.py:28
+#: .\cabinet\services\users.py:30
 msgid "Clients"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\users.py:29
+#: .\cabinet\services\users.py:31
 msgid "Staff"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\users.py:37
+#: .\cabinet\services\users.py:39
 msgid "Administration"
 msgstr ""
 
-#: .\src\atlas\cabinet\services\users.py:38
-#: .\src\atlas\core\settings\modules\admin.py:103
-#: .\src\atlas\core\settings\modules\admin.py:202
-#: .\src\atlas\system\cabinet.py:35 .\src\atlas\system\cabinet.py:77
+#: .\cabinet\services\users.py:40 .\system\cabinet.py:35 .\system\cabinet.py:77
 msgid "Users"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\analytics\reports.html:21
+#: .\cabinet\templates\cabinet\analytics\reports.html:21
 msgid "Revenue Performance Trend"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\analytics\reports.html:22
+#: .\cabinet\templates\cabinet\analytics\reports.html:22
 msgid "vs last month"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\analytics\reports.html:35
+#: .\cabinet\templates\cabinet\analytics\reports.html:35
 msgid "No data available for this report type."
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\booking\list.html:24
-msgid "Appointments"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\list.html:25
-msgid "All bookings log"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\list.html:30
-msgid "+ New booking"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\list.html:44
-msgid "All Appointments"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\new.html:56
-msgid ""
-"Plan a course of repeat appointments for one client across multiple dates."
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\new.html:58
-msgid "Create a new appointment by selecting services and time."
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:9
-msgid "Client"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:10
-msgid "SERVICE"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:11
-msgid "SPECIALIST"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:12
-msgid "Date / Time"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:13
-msgid "Price"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:14
-msgid "STATUS"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\partials\_appointments_table.html:67
-msgid "No appointments found"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\settings.html:9
-msgid "Booking settings"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\settings.html:11
-msgid ""
-"Configure default resource-slot booking rules used by the booking module."
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\settings.html:51
-msgid "Back to schedule"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\booking\settings.html:54
-msgid "Save settings"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:21
-msgid "Upcoming Appointments"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:22
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:109
-msgid "Mock demo data"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:25
-msgid "Book Now"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:36
-msgid "History"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:37
-msgid "records"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:43
-msgid "Showing"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\appointments.html:43
-msgid "of"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:47
+#: .\cabinet\templates\cabinet\client\corner.html:47
 msgid "Bonuses"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:52
+#: .\cabinet\templates\cabinet\client\corner.html:52
 msgid "points"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:58
+#: .\cabinet\templates\cabinet\client\corner.html:58
 msgid "points to Platinum status"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:68
+#: .\cabinet\templates\cabinet\client\corner.html:68
 msgid "Personal Data"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:69
+#: .\cabinet\templates\cabinet\client\corner.html:69
 msgid "Real profile fields"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:75
+#: .\cabinet\templates\cabinet\client\corner.html:75
 msgid "First Name"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:79
+#: .\cabinet\templates\cabinet\client\corner.html:79
 msgid "Last Name"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:83
-#: .\src\atlas\templates\includes\_footer.html:33
-#: .\src\atlas\templates\main\contacts.html:34
+#: .\cabinet\templates\cabinet\client\corner.html:83
+#: .\templates\contacts\impressum.html:16 .\templates\includes\_footer.html:35
+#: .\templates\main\contacts.html:34
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:87
-#: .\src\atlas\features\contacts\forms\contact.py:7
-#: .\src\atlas\templates\includes\_footer.html:39
-#: .\src\atlas\templates\main\contacts.html:46
+#: .\cabinet\templates\cabinet\client\corner.html:87
+#: .\features\contacts\forms\contact.py:7
+#: .\templates\contacts\impressum.html:15 .\templates\includes\_footer.html:41
+#: .\templates\main\contacts.html:46
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:91
+#: .\cabinet\templates\cabinet\client\corner.html:91
 msgid "Date of Birth"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:95
+#: .\cabinet\templates\cabinet\client\corner.html:95
 msgid "Patronymic / Middle Name"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:99
+#: .\cabinet\templates\cabinet\client\corner.html:99
+#: .\templates\cabinet\messaging\settings.html:52
+#: .\templates\cabinet\resources\form.html:69
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
-#: .\src\atlas\cabinet\templates\cabinet\client\corner.html:108
+#: .\cabinet\templates\cabinet\client\corner.html:108
 msgid "Favorite Services"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:5
-msgid "Новое сообщение"
+#: .\cabinet\templates\cabinet\client\corner.html:109
+msgid "Mock demo data"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:18
-msgid "Кому"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:22
-msgid "Тема"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:26
-msgid "Сообщение"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:31
-msgid "Отправить"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:35
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:95
-msgid "Предпросмотр"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\compose.html:37
-msgid "Отмена"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:5
-#: .\src\atlas\features\messaging\cabinet.py:51
-msgid "Inbox"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:15
-msgid "Поиск сообщений..."
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:21
-msgid "Проверить почту"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:31
-msgid "Mark read"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:32
-msgid "Mark unread"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:33
-msgid "Mark processed"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:34
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:104
-#: .\src\atlas\features\messaging\models\thread.py:16
-msgid "Spam"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:35
-msgid "Archive"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:47
-msgid "Все"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:97
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:39
-msgid "Unread"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:100
-msgid "Открыто"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\inbox.html:102
-#: .\src\atlas\features\messaging\models\thread.py:15
-msgid "Processed"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:36
-msgid "Read"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:61
-msgid "История переписки"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:84
-msgid "Ваш ответ"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:86
-msgid "Напишите ваш ответ здесь..."
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:91
-msgid "Отправить ответ"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\conversations\thread.html:98
-msgid "Закрыть"
-msgstr ""
-
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:7
+#: .\cabinet\templates\cabinet\includes\_topbar_client.html:7
 msgid "My Account"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:25
+#: .\cabinet\templates\cabinet\includes\_topbar_client.html:25
 msgid "Notifications"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:41
+#: .\cabinet\templates\cabinet\includes\_topbar_client.html:41
 msgid "No notifications"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:73
+#: .\cabinet\templates\cabinet\includes\_topbar_client.html:68
 msgid "Open Administration"
 msgstr ""
 
-#: .\src\atlas\cabinet\templates\cabinet\includes\_topbar_client.html:80
+#: .\cabinet\templates\cabinet\includes\_topbar_client.html:75
 msgid "Sign Out"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:49
-msgid "Workspace"
+#: .\core\settings\modules\admin.py:49
+msgid "Основное"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:52
-#: .\src\atlas\system\cabinet.py:63
-msgid "Dashboard"
+#: .\core\settings\modules\admin.py:52 .\core\settings\modules\admin.py:128
+#: .\features\content\models\page.py:44
+msgid "Страницы"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:59
-msgid "Workflows"
+#: .\core\settings\modules\admin.py:58 .\core\settings\modules\admin.py:152
+#: .\features\places\models\place.py:36
+msgid "Места"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:62
-msgid "Message threads"
+#: .\core\settings\modules\admin.py:64
+msgid "Обращения"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:68
-#: .\src\atlas\core\settings\modules\admin.py:176
-#: .\src\atlas\features\messaging\models\recipient.py:15
-msgid "Recipients"
+#: .\core\settings\modules\admin.py:70
+msgid "Получатели"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:74
-#: .\src\atlas\core\settings\modules\admin.py:186
-#: .\src\atlas\features\messaging\models\campaign.py:12
-msgid "Campaigns"
+#: .\core\settings\modules\admin.py:76
+msgid "Кампании"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:80
-#: .\src\atlas\core\settings\modules\admin.py:135
-msgid "Email settings"
+#: .\core\settings\modules\admin.py:82 .\system\models\settings.py:59
+#: .\system\models\settings.py:60
+msgid "Настройки email"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:86
-#: .\src\atlas\core\settings\modules\admin.py:130
-msgid "Site settings"
+#: .\core\settings\modules\admin.py:88 .\system\models\settings.py:51
+#: .\system\models\settings.py:52
+msgid "Настройки сайта"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:92
-#: .\src\atlas\core\settings\modules\admin.py:140
-#: .\src\atlas\core\settings\modules\admin.py:223
-msgid "SEO pages"
+#: .\core\settings\modules\admin.py:94 .\core\settings\modules\admin.py:158
+msgid "SEO страниц"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:100
-msgid "People & Access"
+#: .\core\settings\modules\admin.py:102
+msgid "Люди и доступ"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:109
-#: .\src\atlas\core\settings\modules\admin.py:150
-msgid "User profiles"
+#: .\core\settings\modules\admin.py:105
+msgid "Пользователи"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:115
-#: .\src\atlas\core\settings\modules\admin.py:207
-msgid "Groups"
+#: .\core\settings\modules\admin.py:111
+msgid "Профили пользователей"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:123
-msgid "All models"
+#: .\core\settings\modules\admin.py:117
+msgid "Группы"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:126
-msgid "System domain"
+#: .\core\settings\modules\admin.py:125 .\features\places\admin.py:72
+msgid "Контент"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:145
-#: .\src\atlas\core\settings\modules\admin.py:218
-#: .\src\atlas\core\settings\modules\admin.py:235
-msgid "Static translations"
+#: .\core\settings\modules\admin.py:134 .\features\places\models\country.py:23
+msgid "Страны"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:157
-msgid "Messaging domain"
+#: .\core\settings\modules\admin.py:140 .\features\places\models\region.py:26
+msgid "Регионы"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:161
-#: .\src\atlas\features\messaging\models\thread.py:30
-msgid "Threads"
+#: .\core\settings\modules\admin.py:146 .\features\places\models\city.py:29
+msgid "Города"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:166
-#: .\src\atlas\features\messaging\cabinet.py:29
-#: .\src\atlas\features\messaging\models\message.py:25
-msgid "Messages"
+#: .\core\settings\modules\admin.py:164 .\core\settings\modules\admin.py:175
+msgid "Статичные переводы"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:171
-#: .\src\atlas\features\messaging\models\reply.py:23
-msgid "Replies"
+#: .\core\settings\modules\admin.py:172
+msgid "Система и настройки"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:181
-#: .\src\atlas\core\settings\modules\admin.py:241
-#: .\src\atlas\features\messaging\models\log.py:11
-msgid "Email logs"
+#: .\core\settings\modules\admin.py:181
+msgid "Логи email"
 msgstr ""
 
-#: .\src\atlas\core\settings\modules\admin.py:191
-#: .\src\atlas\features\messaging\models\campaign.py:24
-msgid "Campaign recipients"
-msgstr ""
-
-#: .\src\atlas\core\settings\modules\admin.py:198
-msgid "Accounts"
-msgstr ""
-
-#: .\src\atlas\core\settings\modules\admin.py:214
-msgid "Editorial"
-msgstr ""
-
-#: .\src\atlas\core\settings\modules\admin.py:232
-msgid "System & Settings"
-msgstr ""
-
-#: .\src\atlas\features\contacts\apps.py:9
-#: .\src\atlas\templates\includes\_footer.html:24
-#: .\src\atlas\templates\includes\_header.html:16
-#: .\src\atlas\templates\includes\_header.html:43
-#: .\src\atlas\templates\main\contacts.html:6
+#: .\features\contacts\apps.py:9 .\templates\includes\_footer.html:26
+#: .\templates\includes\_header.html:32 .\templates\includes\_header.html:72
+#: .\templates\main\contacts.html:6
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakt"
 
-#: .\src\atlas\features\contacts\forms\contact.py:6
+#: .\features\contacts\forms\contact.py:6
 msgid "Name"
 msgstr ""
 
-#: .\src\atlas\features\contacts\forms\contact.py:8
-#: .\src\atlas\features\messaging\forms\contact.py:21
+#: .\features\contacts\forms\contact.py:8
+#: .\features\messaging\forms\contact.py:18
 msgid "Topic"
-msgstr ""
+msgstr "Thema"
 
-#: .\src\atlas\features\contacts\forms\contact.py:9
-#: .\src\atlas\features\messaging\admin.py:112
-#: .\src\atlas\features\messaging\forms\contact.py:27
-#: .\src\atlas\features\messaging\models\message.py:24
+#: .\features\contacts\forms\contact.py:9 .\features\messaging\admin.py:112
+#: .\features\messaging\forms\contact.py:24
+#: .\features\messaging\models\message.py:24
 msgid "Message"
-msgstr ""
+msgstr "Nachricht"
 
-#: .\src\atlas\features\contacts\views\contact.py:16
+#: .\features\contacts\views\contact.py:16
 msgid "Thank you. Your message has been sent."
 msgstr ""
 
-#: .\src\atlas\features\content\apps.py:9
+#: .\features\content\admin.py:40 .\features\content\admin.py:41
+msgid "Порядок"
+msgstr ""
+
+#: .\features\content\admin.py:74
+msgid "Публикация"
+msgstr ""
+
+#: .\features\content\admin.py:75 .\features\places\admin.py:35
+#: .\features\places\admin.py:47 .\features\places\admin.py:59
+#: .\features\places\admin.py:75
+msgid "SEO"
+msgstr ""
+
+#: .\features\content\admin.py:76
+msgid "Системный роутинг"
+msgstr ""
+
+#: .\features\content\apps.py:9 .\features\content\cabinet.py:23
 msgid "Content"
 msgstr ""
 
-#: .\src\atlas\features\content\models\blocks\hero.py:8
+#: .\features\content\cabinet.py:30 .\templates\cabinet\articles\list.html:3
+#: .\templates\cabinet\articles\list.html:7
+msgid "Articles"
+msgstr "Artikel"
+
+#: .\features\content\cabinet.py:37 .\templates\includes\_header.html:16
+msgid "Countries"
+msgstr "Länder"
+
+#: .\features\content\cabinet.py:44 .\templates\includes\_header.html:29
+#: .\templates\includes\_header.html:69
+msgid "Regions"
+msgstr "Regionen"
+
+#: .\features\content\cabinet.py:51 .\templates\content\page_country.html:60
+#: .\templates\content\page_region.html:61
+msgid "Cities"
+msgstr "Städte"
+
+#: .\features\content\forms\articles.py:16
+msgid "Choose an image smaller than 10 MB."
+msgstr "Wählen Sie ein Bild, das kleiner als 10 MB ist."
+
+#: .\features\content\forms\articles.py:18
+msgid "JPEG, PNG, and WebP are supported."
+msgstr "JPEG, PNG und WebP werden unterstützt."
+
+#: .\features\content\forms\articles.py:30
+msgid "You can add up to 10 photographs at once."
+msgstr "Sie können bis zu 10 Fotos auf einmal hinzufügen."
+
+#: .\features\content\forms\articles.py:35
+msgid "Article language"
+msgstr "Artikelsprache"
+
+#: .\features\content\forms\articles.py:36
+msgid "Article title"
+msgstr "Artikeltitel"
+
+#: .\features\content\forms\articles.py:38 .\features\content\models\page.py:18
+msgid "City"
+msgstr "Stadt"
+
+#: .\features\content\forms\articles.py:38
+msgid "No city assigned"
+msgstr "Keine Stadt zugeordnet"
+
+#: .\features\content\forms\articles.py:40
+msgid "Short introduction"
+msgstr "Kurze Einleitung"
+
+#: .\features\content\forms\articles.py:42
+msgid "Article text"
+msgstr "Artikeltext"
+
+#: .\features\content\forms\articles.py:45
+msgid ""
+"Write in paragraphs. Markdown is supported: ## headings, **emphasis**, and "
+"lists."
+msgstr ""
+"Schreiben Sie in Absätzen. Markdown wird unterstützt: ## Überschriften, "
+"**Hervorhebungen** und Listen."
+
+#: .\features\content\forms\articles.py:48
+msgid "Photograph"
+msgstr "Foto"
+
+#: .\features\content\forms\articles.py:50
+msgid ""
+"JPEG, PNG, or WebP, up to 10 MB. A new file replaces the cover; other photos "
+"are kept."
+msgstr ""
+"JPEG, PNG oder WebP, bis zu 10 MB. Eine neue Datei ersetzt das Titelbild; "
+"andere Fotos bleiben erhalten."
+
+#: .\features\content\forms\articles.py:53
+msgid "Additional photographs"
+msgstr "Weitere Fotos"
+
+#: .\features\content\forms\articles.py:55
+msgid "You can select several files. They appear after the article text."
+msgstr ""
+"Sie können mehrere Dateien auswählen. Sie erscheinen nach dem Artikeltext."
+
+#: .\features\content\forms\articles.py:57
+msgid "Photograph caption"
+msgstr "Bildunterschrift"
+
+#: .\features\content\forms\articles.py:59
+msgid "Photograph description for screen-reader users"
+msgstr "Bildbeschreibung für Screenreader-Nutzer"
+
+#: .\features\content\forms\articles.py:61
+msgid "Search-engine title"
+msgstr "Titel für Suchmaschinen"
+
+#: .\features\content\forms\articles.py:63
+msgid "Search-engine description"
+msgstr "Beschreibung für Suchmaschinen"
+
+#: .\features\content\forms\articles.py:76
+msgid "The city is fixed after creation to keep the article address stable."
+msgstr ""
+"Die Stadt kann nach der Erstellung nicht geändert werden, damit die "
+"Artikeladresse stabil bleibt."
+
+#: .\features\content\forms\articles.py:89
+msgid "Unknown action."
+msgstr "Unbekannte Aktion."
+
+#: .\features\content\forms\articles.py:92
+msgid "Add article text before publishing."
+msgstr "Fügen Sie vor der Veröffentlichung Artikeltext hinzu."
+
+#: .\features\content\forms\articles.py:96
+msgid "Add a photograph before publishing."
+msgstr "Fügen Sie vor der Veröffentlichung ein Foto hinzu."
+
+#: .\features\content\models\block_slot.py:15
+#: .\features\content\models\page.py:43 .\features\places\models\city.py:20
+#: .\features\places\models\country.py:14 .\features\places\models\place.py:15
+#: .\features\places\models\region.py:17
+msgid "Страница"
+msgstr ""
+
+#: .\features\content\models\block_slot.py:17
+msgid "Тип блока"
+msgstr ""
+
+#: .\features\content\models\block_slot.py:18
+msgid "ID блока"
+msgstr ""
+
+#: .\features\content\models\block_slot.py:20
+msgid "Вариант отображения"
+msgstr ""
+
+#: .\features\content\models\block_slot.py:23
+msgid "Слот блока страницы"
+msgstr ""
+
+#: .\features\content\models\block_slot.py:24
+msgid "Слоты блоков страницы"
+msgstr ""
+
+#: .\features\content\models\blocks\card_grid.py:14
+msgid "Блок: карточки"
+msgstr ""
+
+#: .\features\content\models\blocks\card_grid.py:15
+msgid "Блоки: карточки"
+msgstr ""
+
+#: .\features\content\models\blocks\card_grid.py:30
+msgid "Карточка"
+msgstr ""
+
+#: .\features\content\models\blocks\card_grid.py:31
+msgid "Карточки"
+msgstr ""
+
+#: .\features\content\models\blocks\cta_strip.py:17
+msgid "Блок: CTA"
+msgstr ""
+
+#: .\features\content\models\blocks\cta_strip.py:18
+msgid "Блоки: CTA"
+msgstr ""
+
+#: .\features\content\models\blocks\facts_list.py:14
+msgid "Блок: факты"
+msgstr ""
+
+#: .\features\content\models\blocks\facts_list.py:15
+msgid "Блоки: факты"
+msgstr ""
+
+#: .\features\content\models\blocks\facts_list.py:28
+msgid "Факт"
+msgstr ""
+
+#: .\features\content\models\blocks\facts_list.py:29
+msgid "Факты"
+msgstr ""
+
+#: .\features\content\models\blocks\gallery.py:14
+msgid "Блок: галерея"
+msgstr ""
+
+#: .\features\content\models\blocks\gallery.py:15
+msgid "Блоки: галерея"
+msgstr ""
+
+#: .\features\content\models\blocks\gallery.py:28
+msgid "Изображение галереи"
+msgstr ""
+
+#: .\features\content\models\blocks\gallery.py:29
+msgid "Изображения галереи"
+msgstr ""
+
+#: .\features\content\models\blocks\hero.py:8
 msgid "Left"
 msgstr ""
 
-#: .\src\atlas\features\content\models\blocks\hero.py:9
+#: .\features\content\models\blocks\hero.py:9
 msgid "Center"
 msgstr ""
 
-#: .\src\atlas\features\content\models\page.py:13
-#: .\src\atlas\templates\includes\_footer.html:23
-#: .\src\atlas\templates\includes\_header.html:15
-#: .\src\atlas\templates\includes\_header.html:42
-#: .\src\atlas\templates\main\home.html:6
-msgid "Home"
+#: .\features\content\models\blocks\hero.py:25
+msgid "Блок: Hero"
 msgstr ""
 
-#: .\src\atlas\features\content\models\page.py:14
+#: .\features\content\models\blocks\hero.py:26
+msgid "Блоки: Hero"
+msgstr ""
+
+#: .\features\content\models\blocks\pull_quote.py:14
+msgid "Блок: цитата"
+msgstr ""
+
+#: .\features\content\models\blocks\pull_quote.py:15
+msgid "Блоки: цитаты"
+msgstr ""
+
+#: .\features\content\models\blocks\related_places.py:15
+msgid "Блок: связанные места"
+msgstr ""
+
+#: .\features\content\models\blocks\related_places.py:16
+msgid "Блоки: связанные места"
+msgstr ""
+
+#: .\features\content\models\blocks\rich_text.py:14
+msgid "Блок: текст"
+msgstr ""
+
+#: .\features\content\models\blocks\rich_text.py:15
+msgid "Блоки: текст"
+msgstr ""
+
+#: .\features\content\models\blocks\tabs.py:14
+msgid "Блок: вкладки"
+msgstr ""
+
+#: .\features\content\models\blocks\tabs.py:15
+msgid "Блоки: вкладки"
+msgstr ""
+
+#: .\features\content\models\blocks\tabs.py:28
+msgid "Вкладка"
+msgstr ""
+
+#: .\features\content\models\blocks\tabs.py:29
+msgid "Вкладки"
+msgstr ""
+
+#: .\features\content\models\page.py:15 .\templates\content\page_story.html:8
+#: .\templates\includes\_footer.html:25 .\templates\includes\_header.html:12
+#: .\templates\includes\_header.html:64 .\templates\main\home.html:6
+msgid "Home"
+msgstr "Startseite"
+
+#: .\features\content\models\page.py:16
 msgid "Country"
 msgstr ""
 
-#: .\src\atlas\features\content\models\page.py:15
+#: .\features\content\models\page.py:17
 msgid "Region"
 msgstr ""
 
-#: .\src\atlas\features\content\models\page.py:16
-msgid "City"
-msgstr ""
-
-#: .\src\atlas\features\content\models\page.py:17
+#: .\features\content\models\page.py:19
 msgid "Place"
 msgstr ""
 
-#: .\src\atlas\features\content\models\page.py:18
+#: .\features\content\models\page.py:20
 msgid "Story"
 msgstr ""
 
-#: .\src\atlas\features\content\models\page.py:19
+#: .\features\content\models\page.py:21
 msgid "Static"
 msgstr ""
 
-#: .\src\atlas\features\main\apps.py:11
-msgid "Main"
+#: .\features\content\models\page.py:29
+msgid "Родительская страница"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:55
-#: .\src\atlas\features\messaging\models\thread.py:29
+#: .\features\content\models\page.py:32
+msgid "Тип страницы"
+msgstr ""
+
+#: .\features\content\models\page.py:35
+msgid "Путь"
+msgstr ""
+
+#: .\features\content\models\page.py:36 .\features\places\models\city.py:23
+#: .\features\places\models\country.py:17 .\features\places\models\place.py:18
+#: .\features\places\models\place_related.py:11
+#: .\features\places\models\place_related.py:42
+#: .\features\places\models\region.py:20
+msgid "Название"
+msgstr ""
+
+#: .\features\content\models\page.py:37 .\features\places\models\city.py:25
+#: .\features\places\models\country.py:19 .\features\places\models\place.py:20
+#: .\features\places\models\region.py:22
+msgid "Вступление"
+msgstr ""
+
+#: .\features\content\models\page.py:38
+msgid "Шаблон"
+msgstr ""
+
+#: .\features\content\models\page.py:39
+msgid "Опубликовано"
+msgstr ""
+
+#: .\features\content\models\page.py:40
+msgid "Дата публикации"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:13
+msgid "Pending"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:14
+msgid "Running"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:15
+msgid "Ready"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:16
+msgid "Failed"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:17
+msgid "Stale"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:18
+#: .\templates\cabinet\articles\list.html:13
+#: .\templates\cabinet\articles\list.html:18
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: .\features\content\models\smart_draft.py:45
+msgid "Content smart draft"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:46
+msgid "Content smart drafts"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:67
+msgid "Content smart draft event"
+msgstr ""
+
+#: .\features\content\models\smart_draft.py:68
+msgid "Content smart draft events"
+msgstr ""
+
+#: .\features\content\views\editor.py:55
+msgid "The article was unpublished and saved as a draft."
+msgstr "Der Artikel wurde zurückgezogen und als Entwurf gespeichert."
+
+#: .\features\content\views\editor.py:64
+msgid "Article published."
+msgstr "Artikel veröffentlicht."
+
+#: .\features\content\views\editor.py:64
+msgid "Draft saved."
+msgstr "Entwurf gespeichert."
+
+#: .\features\main\apps.py:17
+msgid "Main (transitional)"
+msgstr ""
+
+#: .\features\messaging\admin.py:55 .\features\messaging\models\thread.py:29
 msgid "Thread"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:68
+#: .\features\messaging\admin.py:68
 msgid "Sender"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:78
+#: .\features\messaging\admin.py:78
 msgid "State"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:123
+#: .\features\messaging\admin.py:123
 msgid "Participants"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:133
+#: .\features\messaging\admin.py:133
 msgid "Transport"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:146
-#: .\src\atlas\features\messaging\admin.py:176
-#: .\src\atlas\features\messaging\admin.py:262
-#: .\src\atlas\features\messaging\admin.py:311
-#: .\src\atlas\features\messaging\admin.py:357
-#: .\src\atlas\system\admin\static.py:16
-#: .\src\atlas\system\admin\user_profile.py:41
+#: .\features\messaging\admin.py:146 .\features\messaging\admin.py:176
+#: .\features\messaging\admin.py:262 .\features\messaging\admin.py:311
+#: .\features\messaging\admin.py:357 .\system\admin\static.py:16
+#: .\system\admin\user_profile.py:41
 msgid "Timestamps"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:165
-#: .\src\atlas\features\messaging\models\reply.py:22
+#: .\features\messaging\admin.py:165 .\features\messaging\models\reply.py:22
 msgid "Reply"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:192
-#: .\src\atlas\features\messaging\admin.py:331
-#: .\src\atlas\features\messaging\models\recipient.py:14
+#: .\features\messaging\admin.py:192 .\features\messaging\admin.py:331
+#: .\features\messaging\models\recipient.py:14
+#: .\templates\cabinet\messaging\log.html:14
 msgid "Recipient"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:205
-#: .\src\atlas\templates\main\home.html:140
+#: .\features\messaging\admin.py:205 .\templates\main\home.html:140
 msgid "Delivery"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:237
-#: .\src\atlas\features\messaging\cabinet.py:64
+#: .\features\messaging\admin.py:237 .\templates\cabinet\messaging\log.html:9
 msgid "Delivery log"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:250
+#: .\features\messaging\admin.py:250
 msgid "Provider data"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:286
-#: .\src\atlas\features\messaging\models\campaign.py:11
+#: .\features\messaging\admin.py:286 .\features\messaging\models\campaign.py:11
 msgid "Campaign"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:300
+#: .\features\messaging\admin.py:300
 msgid "Scheduling"
 msgstr ""
 
-#: .\src\atlas\features\messaging\admin.py:344
+#: .\features\messaging\admin.py:344
 msgid "Delivery state"
 msgstr ""
 
-#: .\src\atlas\features\messaging\apps.py:12
-#: .\src\atlas\features\messaging\cabinet.py:44
+#: .\features\messaging\apps.py:12 .\features\messaging\cabinet.py:43
 msgid "Messaging"
 msgstr ""
 
-#: .\src\atlas\features\messaging\cabinet.py:19
+#: .\features\messaging\cabinet.py:20
 msgid "New messages"
 msgstr ""
 
-#: .\src\atlas\features\messaging\cabinet.py:31
+#: .\features\messaging\cabinet.py:30 .\features\messaging\models\message.py:25
+msgid "Messages"
+msgstr ""
+
+#: .\features\messaging\cabinet.py:32
 msgid "waiting"
 msgstr ""
 
-#: .\src\atlas\features\messaging\cabinet.py:32
+#: .\features\messaging\cabinet.py:33
 msgid "no response yet"
 msgstr ""
 
-#: .\src\atlas\features\messaging\cabinet.py:58
-msgid "Templates"
-msgstr ""
-
-#: .\src\atlas\features\messaging\cabinet.py:70
-msgid "Settings"
-msgstr ""
-
-#: .\src\atlas\features\messaging\forms\contact.py:17
+#: .\features\messaging\forms\contact.py:14
 msgid "Your Name"
-msgstr ""
+msgstr "Ihr Name"
 
-#: .\src\atlas\features\messaging\forms\contact.py:18
+#: .\features\messaging\forms\contact.py:15
 msgid "Your Email"
-msgstr ""
+msgstr "Ihre E-Mail-Adresse"
 
-#: .\src\atlas\features\messaging\forms\contact.py:19
+#: .\features\messaging\forms\contact.py:16
 msgid "Phone (optional)"
-msgstr ""
+msgstr "Telefon (optional)"
 
-#: .\src\atlas\features\messaging\forms\contact.py:20
+#: .\features\messaging\forms\contact.py:17
 msgid "Subject"
-msgstr ""
+msgstr "Betreff"
 
-#: .\src\atlas\features\messaging\forms\contact.py:24
+#: .\features\messaging\forms\contact.py:21
 msgid "+49 ..."
+msgstr "+49 ..."
+
+#: .\features\messaging\models\campaign.py:12
+msgid "Campaigns"
 msgstr ""
 
-#: .\src\atlas\features\messaging\models\campaign.py:23
+#: .\features\messaging\models\campaign.py:23
 msgid "Campaign recipient"
 msgstr ""
 
-#: .\src\atlas\features\messaging\models\log.py:10
+#: .\features\messaging\models\campaign.py:24
+msgid "Campaign recipients"
+msgstr ""
+
+#: .\features\messaging\models\log.py:10
 msgid "Email log"
 msgstr ""
 
-#: .\src\atlas\features\messaging\models\message.py:13
+#: .\features\messaging\models\log.py:11
+msgid "Email logs"
+msgstr ""
+
+#: .\features\messaging\models\message.py:13
 msgid "Inbound"
 msgstr ""
 
-#: .\src\atlas\features\messaging\models\message.py:14
+#: .\features\messaging\models\message.py:14
 msgid "Outbound"
 msgstr ""
 
-#: .\src\atlas\features\messaging\models\reply.py:16
+#: .\features\messaging\models\recipient.py:15
+msgid "Recipients"
+msgstr ""
+
+#: .\features\messaging\models\reply.py:16
 msgid "message"
 msgstr ""
 
-#: .\src\atlas\features\messaging\models\thread.py:14
+#: .\features\messaging\models\reply.py:23
+msgid "Replies"
+msgstr ""
+
+#: .\features\messaging\models\thread.py:14
 msgid "Open"
 msgstr ""
 
-#: .\src\atlas\features\messaging\services\alerts.py:110
+#: .\features\messaging\models\thread.py:15
+msgid "Processed"
+msgstr ""
+
+#: .\features\messaging\models\thread.py:16
+msgid "Spam"
+msgstr ""
+
+#: .\features\messaging\models\thread.py:30
+msgid "Threads"
+msgstr ""
+
+#: .\features\messaging\services\alerts.py:110
 #, python-format
 msgid "[New message] %(sender)s - %(preview)s"
 msgstr ""
 
-#: .\src\atlas\features\messaging\services\alerts.py:118
+#: .\features\messaging\services\alerts.py:117
 #, python-format
 msgid ""
 "From: %(name)s <%(email)s>\n"
@@ -839,367 +887,954 @@ msgid ""
 "%(body)s"
 msgstr ""
 
-#: .\src\atlas\features\messaging\services\alerts.py:141
+#: .\features\messaging\services\alerts.py:135
 #, python-format
 msgid "Re: Conversation %(thread)s"
 msgstr ""
 
-#: .\src\atlas\features\messaging\services\alerts.py:144
+#: .\features\messaging\services\alerts.py:138
 #, python-format
 msgid "Re: %(subject)s"
 msgstr ""
 
-#: .\src\atlas\features\places\apps.py:9
-msgid "Places"
+#: .\features\places\admin.py:73 .\features\places\models\place.py:22
+msgid "Сезонность"
 msgstr ""
 
-#: .\src\atlas\system\admin\email_settings.py:15
+#: .\features\places\admin.py:74
+msgid "Координаты"
+msgstr ""
+
+#: .\features\places\apps.py:9 .\templates\content\page_country.html:61
+#: .\templates\places\grid_view.html:8 .\templates\places\map_view.html:8
+msgid "Places"
+msgstr "Orte"
+
+#: .\features\places\models\city.py:12 .\features\places\models\region.py:25
+msgid "Регион"
+msgstr ""
+
+#: .\features\places\models\city.py:24 .\features\places\models\country.py:18
+#: .\features\places\models\place.py:19 .\features\places\models\region.py:21
+msgid "Hero image"
+msgstr ""
+
+#: .\features\places\models\city.py:28 .\features\places\models\place.py:8
+msgid "Город"
+msgstr ""
+
+#: .\features\places\models\country.py:22 .\features\places\models\region.py:9
+msgid "Страна"
+msgstr ""
+
+#: .\features\places\models\place.py:21
+msgid "История / long-form"
+msgstr ""
+
+#: .\features\places\models\place.py:23
+msgid "Текст о сезонности"
+msgstr ""
+
+#: .\features\places\models\place.py:24
+msgid "Широта"
+msgstr ""
+
+#: .\features\places\models\place.py:25
+msgid "Долгота"
+msgstr ""
+
+#: .\features\places\models\place.py:31
+#: .\features\places\models\place_related.py:56
+msgid "Сезонные теги"
+msgstr ""
+
+#: .\features\places\models\place.py:35
+#: .\features\places\models\place_related.py:10
+#: .\features\places\models\place_related.py:26
+#: .\features\places\models\place_related.py:65
+msgid "Место"
+msgstr ""
+
+#: .\features\places\models\place_related.py:12
+msgid "Значение"
+msgstr ""
+
+#: .\features\places\models\place_related.py:13
+msgid "Примечание"
+msgstr ""
+
+#: .\features\places\models\place_related.py:14
+#: .\features\places\models\place_related.py:44
+msgid "Иконка"
+msgstr ""
+
+#: .\features\places\models\place_related.py:15
+msgid "Показывать"
+msgstr ""
+
+#: .\features\places\models\place_related.py:21
+msgid "Факт места"
+msgstr ""
+
+#: .\features\places\models\place_related.py:22
+msgid "Факты места"
+msgstr ""
+
+#: .\features\places\models\place_related.py:27
+msgid "Изображение"
+msgstr ""
+
+#: .\features\places\models\place_related.py:28
+msgid "Подпись"
+msgstr ""
+
+#: .\features\places\models\place_related.py:29
+msgid "Alt text"
+msgstr ""
+
+#: .\features\places\models\place_related.py:30
+msgid "Обложка"
+msgstr ""
+
+#: .\features\places\models\place_related.py:33
+#: .\features\places\models\place_related.py:36
+msgid "Изображение места"
+msgstr ""
+
+#: .\features\places\models\place_related.py:37
+msgid "Изображения места"
+msgstr ""
+
+#: .\features\places\models\place_related.py:41
+msgid "Slug"
+msgstr ""
+
+#: .\features\places\models\place_related.py:43
+msgid "Цвет"
+msgstr ""
+
+#: .\features\places\models\place_related.py:55
+msgid "Сезонный тег"
+msgstr ""
+
+#: .\features\places\models\place_related.py:71
+msgid "Тег"
+msgstr ""
+
+#: .\features\places\models\place_related.py:78
+msgid "Сезонный тег места"
+msgstr ""
+
+#: .\features\places\models\place_related.py:79
+msgid "Сезонные теги мест"
+msgstr ""
+
+#: .\system\admin\email_settings.py:15
 msgid "Email identity"
 msgstr ""
 
-#: .\src\atlas\system\admin\email_settings.py:25
+#: .\system\admin\email_settings.py:25
 msgid "Messaging URLs"
 msgstr ""
 
-#: .\src\atlas\system\admin\seo.py:20
+#: .\system\admin\seo.py:18
 msgid "SEO Мета-теги"
 msgstr ""
 
-#: .\src\atlas\system\admin\seo.py:23
+#: .\system\admin\seo.py:19
 msgid "Системная информация"
 msgstr ""
 
-#: .\src\atlas\system\admin\settings.py:20
-#: .\src\atlas\templates\includes\_footer.html:29
+#: .\system\admin\settings.py:20 .\templates\contacts\contact.html:10
+#: .\templates\includes\_footer.html:31
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
-#: .\src\atlas\system\admin\settings.py:35
+#: .\system\admin\settings.py:35
 msgid "Editorial fallback"
 msgstr ""
 
-#: .\src\atlas\system\admin\settings.py:42
+#: .\system\admin\settings.py:42
 msgid "Geography"
 msgstr ""
 
-#: .\src\atlas\system\admin\settings.py:49
+#: .\system\admin\settings.py:49
 msgid "Social"
 msgstr ""
 
-#: .\src\atlas\system\admin\settings.py:66
+#: .\system\admin\settings.py:66
 msgid "Marketing"
 msgstr ""
 
-#: .\src\atlas\system\admin\settings.py:78
+#: .\system\admin\settings.py:78
 msgid "Technical"
 msgstr ""
 
-#: .\src\atlas\system\admin\user_profile.py:18
+#: .\system\admin\user_profile.py:18
 msgid "Profile"
 msgstr ""
 
-#: .\src\atlas\system\admin\user_profile.py:32
+#: .\system\admin\user_profile.py:32
 msgid "Acquisition"
 msgstr ""
 
-#: .\src\atlas\system\apps.py:12
+#: .\system\apps.py:12
 msgid "Система"
 msgstr ""
 
-#: .\src\atlas\system\cabinet.py:36
+#: .\system\cabinet.py:36
 #, python-brace-format
 msgid "Total {label}"
 msgstr ""
 
-#: .\src\atlas\system\cabinet.py:44
+#: .\system\cabinet.py:44
 msgid "this week"
 msgstr ""
 
-#: .\src\atlas\system\cabinet.py:56
+#: .\system\cabinet.py:56
 msgid "Analytics"
 msgstr ""
 
-#: .\src\atlas\system\cabinet.py:90
+#: .\system\cabinet.py:63
+msgid "Dashboard"
+msgstr ""
+
+#: .\system\cabinet.py:90
 msgid "Only Users"
 msgstr ""
 
-#: .\src\atlas\system\cabinet.py:96
+#: .\system\cabinet.py:96
 msgid "Staff Only"
 msgstr ""
 
-#: .\src\atlas\system\models\seo.py:22
+#: .\system\cabinet.py:118
+msgid "My Appointments"
+msgstr ""
+
+#: .\system\models\seo.py:22
 msgid "Главная страница"
 msgstr ""
 
-#: .\src\atlas\system\models\seo.py:23
+#: .\system\models\seo.py:23
 msgid "Контакты"
 msgstr ""
 
-#: .\src\atlas\system\models\seo.py:24
+#: .\system\models\seo.py:24 .\templates\contacts\impressum.html:10
+#: .\templates\includes\_footer.html:52
 msgid "Impressum"
-msgstr ""
+msgstr "Impressum"
 
-#: .\src\atlas\system\models\seo.py:25
+#: .\system\models\seo.py:25
 msgid "Datenschutz"
 msgstr ""
 
-#: .\src\atlas\system\models\seo.py:32
+#: .\system\models\seo.py:32
 msgid "ID Страницы"
 msgstr ""
 
-#: .\src\atlas\system\models\seo.py:36
+#: .\system\models\seo.py:36
 msgid "SEO статичной страницы"
 msgstr ""
 
-#: .\src\atlas\system\models\seo.py:37
+#: .\system\models\seo.py:37
 msgid "SEO статичных страниц"
 msgstr ""
 
-#: .\src\atlas\system\models\settings.py:51
-#: .\src\atlas\system\models\settings.py:52
-msgid "Настройки сайта"
-msgstr ""
-
-#: .\src\atlas\system\models\settings.py:59
-#: .\src\atlas\system\models\settings.py:60
-msgid "Настройки email"
-msgstr ""
-
-#: .\src\atlas\system\models\static.py:15
+#: .\system\models\static.py:15
 msgid "Статический перевод"
 msgstr ""
 
-#: .\src\atlas\system\models\static.py:16
+#: .\system\models\static.py:16
 msgid "Статические переводы"
 msgstr ""
 
-#: .\src\atlas\system\selectors\users.py:47
+#: .\system\selectors\users.py:47
 msgid "Source"
 msgstr ""
 
-#: .\src\atlas\system\selectors\users.py:49
+#: .\system\selectors\users.py:49
 msgid "Staff Member"
 msgstr ""
 
-#: .\src\atlas\system\selectors\users.py:66
+#: .\system\selectors\users.py:66
 msgid "Search users..."
 msgstr ""
 
-#: .\src\atlas\system\selectors\users.py:67
+#: .\system\selectors\users.py:67
 msgid "No users found"
 msgstr ""
 
-#: .\src\atlas\system\services\client_profile.py:59
+#: .\system\services\client_profile.py:61
 msgid "Date of birth must use the YYYY-MM-DD format."
 msgstr ""
 
-#: .\src\atlas\system\services\client_profile.py:65
+#: .\system\services\client_profile.py:67
 msgid "Profile updated successfully."
 msgstr ""
 
-#: .\src\atlas\templates\errors\404.html:4
-#: .\src\atlas\templates\errors\404.html:11
-msgid "Page Not Found"
+#: .\templates\account\login.html:4
+msgid "Sign in to TALE"
+msgstr "Bei TALE anmelden"
+
+#: .\templates\account\login.html:13 .\templates\account\login.html:43
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: .\templates\account\login.html:14
+msgid "Travel Atlas of Local Experiences"
+msgstr "Atlas lokaler Erlebnisse"
+
+#: .\templates\cabinet\articles\form.html:3
+#: .\templates\cabinet\articles\form.html:7
+msgid "Edit article"
+msgstr "Artikel bearbeiten"
+
+#: .\templates\cabinet\articles\form.html:3
+#: .\templates\cabinet\articles\form.html:7
+msgid "New article"
+msgstr "Neuer Artikel"
+
+#: .\templates\cabinet\articles\form.html:7
+msgid "All articles"
+msgstr "Alle Artikel"
+
+#: .\templates\cabinet\articles\form.html:8
+#: .\templates\cabinet\articles\list.html:22
+msgid "Open on site ↗"
+msgstr "Auf der Website öffnen ↗"
+
+#: .\templates\cabinet\articles\form.html:10
+msgid "The story is published. Saved changes appear on the site immediately."
+msgstr ""
+"Die Geschichte ist veröffentlicht. Gespeicherte Änderungen erscheinen sofort "
+"auf der Website."
+
+#: .\templates\cabinet\articles\form.html:10
+msgid "This draft is private. Publish it when the text and photos are ready."
+msgstr ""
+"Dieser Entwurf ist privat. Veröffentlichen Sie ihn, wenn Text und Fotos "
+"fertig sind."
+
+#: .\templates\cabinet\articles\form.html:11
+msgid "Editing language"
+msgstr "Bearbeitungssprache"
+
+#: .\templates\cabinet\articles\form.html:16
+msgid "The story could not be saved. Check the highlighted fields."
+msgstr ""
+"Die Geschichte konnte nicht gespeichert werden. Prüfen Sie die markierten "
+"Felder."
+
+#: .\templates\cabinet\articles\form.html:18
+msgid "Additional: search preview"
+msgstr "Zusätzlich: Suchvorschau"
+
+#: .\templates\cabinet\articles\form.html:18
+msgid "You can leave this empty; the title and introduction will be used."
+msgstr ""
+"Sie können dies leer lassen; dann werden Titel und Einleitung verwendet."
+
+#: .\templates\cabinet\articles\form.html:23
+msgid "Current photo"
+msgstr "Aktuelles Foto"
+
+#: .\templates\cabinet\articles\form.html:28
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: .\templates\cabinet\articles\form.html:28
+msgid "Save draft"
+msgstr "Entwurf speichern"
+
+#: .\templates\cabinet\articles\form.html:29
+msgid "Save and preview"
+msgstr "Speichern und Vorschau"
+
+#: .\templates\cabinet\articles\form.html:30
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+#: .\templates\cabinet\articles\form.html:33
+msgid "Unpublish"
+msgstr "Veröffentlichung aufheben"
+
+#: .\templates\cabinet\articles\list.html:7
+msgid "Your stories, from first draft to publication."
+msgstr "Ihre Geschichten vom ersten Entwurf bis zur Veröffentlichung."
+
+#: .\templates\cabinet\articles\list.html:8
+msgid "Create article"
+msgstr "Artikel erstellen"
+
+#: .\templates\cabinet\articles\list.html:10
+msgid "Article status"
+msgstr "Artikelstatus"
+
+#: .\templates\cabinet\articles\list.html:11
+msgid "All"
+msgstr "Alle"
+
+#: .\templates\cabinet\articles\list.html:12
+msgid "Drafts"
+msgstr "Entwürfe"
+
+#: .\templates\cabinet\articles\list.html:18
+msgid "Draft"
+msgstr "Entwurf"
+
+#: .\templates\cabinet\articles\list.html:20
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: .\templates\cabinet\articles\list.html:21
+msgid "Preview"
+msgstr "Vorschau"
+
+#: .\templates\cabinet\articles\list.html:25
+msgid "Start with your first story"
+msgstr "Beginnen Sie mit Ihrer ersten Geschichte"
+
+#: .\templates\cabinet\articles\list.html:25
+msgid "Add text and a photo. The story stays private until you publish it."
+msgstr ""
+"Fügen Sie Text und ein Foto hinzu. Die Geschichte bleibt privat, bis Sie sie "
+"veröffentlichen."
+
+#: .\templates\cabinet\articles\list.html:26
+msgid "List pages"
+msgstr "Listenseiten"
+
+#: .\templates\cabinet\articles\list.html:27
+#: .\templates\cabinet\resources\form.html:9
+msgid "Back"
+msgstr "Zurück"
+
+#: .\templates\cabinet\articles\list.html:29
+msgid "Next"
+msgstr "Weiter"
+
+#: .\templates\cabinet\messaging\detail.html:4
+#: .\templates\cabinet\messaging\detail.html:8
+#: .\templates\cabinet\messaging\inbox.html:4
+#: .\templates\cabinet\messaging\inbox.html:8
+msgid "Conversation"
+msgstr "Unterhaltung"
+
+#: .\templates\cabinet\messaging\detail.html:5
+msgid "Message details"
+msgstr "Nachrichtendetails"
+
+#: .\templates\cabinet\messaging\detail.html:18
+msgid "Reply ·"
 msgstr ""
 
-#: .\src\atlas\templates\errors\404.html:12
+#: .\templates\cabinet\messaging\inbox.html:5
+#: .\templates\cabinet\messaging\inbox.html:11
+msgid "Message inbox"
+msgstr "Posteingang"
+
+#: .\templates\cabinet\messaging\inbox.html:12
+msgid "Current status:"
+msgstr ""
+
+#: .\templates\cabinet\messaging\inbox.html:27
+#, fuzzy
+#| msgid "Your message has been sent."
+msgid "No messages yet."
+msgstr "Ihre Nachricht wurde gesendet."
+
+#: .\templates\cabinet\messaging\log.html:4
+msgid "Message delivery log"
+msgstr ""
+
+#: .\templates\cabinet\messaging\log.html:15
+msgid "Event"
+msgstr ""
+
+#: .\templates\cabinet\messaging\log.html:16
+msgid "Status"
+msgstr ""
+
+#: .\templates\cabinet\messaging\log.html:17
+msgid "Queued"
+msgstr ""
+
+#: .\templates\cabinet\messaging\log.html:30
+msgid "No delivery log entries yet."
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:4
+#: .\templates\cabinet\messaging\settings.html:11
+msgid "Message settings"
+msgstr "Nachrichteneinstellungen"
+
+#: .\templates\cabinet\messaging\settings.html:16
+msgid "From email"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:20
+#, fuzzy
+#| msgid "Send message"
+msgid "Sender name"
+msgstr "Nachricht senden"
+
+#: .\templates\cabinet\messaging\settings.html:28
+msgid "Site base URL"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:32
+msgid "Logo URL"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:36
+msgid "Confirmation path"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:40
+msgid "Cancellation path"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:44
+msgid "Rescheduling path"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:48
+msgid "Contact form path"
+msgstr ""
+
+#: .\templates\cabinet\messaging\settings.html:59
+msgid ""
+"SMTP credentials and provider secrets are kept in environment variables."
+msgstr ""
+
+#: .\templates\cabinet\messaging\templates.html:4
+#: .\templates\cabinet\messaging\templates.html:9
+msgid "Message templates"
+msgstr "Nachrichtenvorlagen"
+
+#: .\templates\cabinet\messaging\templates.html:10
+msgid ""
+"TALE currently uses rendered handlers for thread notifications. Template "
+"management can be expanded here later."
+msgstr ""
+
+#: .\templates\cabinet\resources\form.html:71
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: .\templates\cabinet\resources\partials\_form_field.html:14
+#: .\templates\cabinet\resources\partials\_form_field.html:27
+msgid "Field help"
+msgstr "Feldhilfe"
+
+#: .\templates\contacts\contact.html:11
+msgid "Tell us what you are planning"
+msgstr "Erzählen Sie uns von Ihren Plänen"
+
+#: .\templates\contacts\contact.html:12
+msgid ""
+"Send a note about editorial coverage, destination data, or partnership "
+"questions."
+msgstr ""
+"Schreiben Sie uns zu redaktionellen Themen, Reisezielen oder Partnerschaften."
+
+#: .\templates\contacts\contact.html:30
+msgid "Your message has been sent."
+msgstr "Ihre Nachricht wurde gesendet."
+
+#: .\templates\contacts\contact.html:35
+msgid "Send message"
+msgstr "Nachricht senden"
+
+#: .\templates\contacts\impressum.html:9 .\templates\contacts\privacy.html:9
+msgid "Legal"
+msgstr "Rechtliches"
+
+#: .\templates\contacts\impressum.html:11
+msgid "Contact person"
+msgstr "Ansprechperson"
+
+#: .\templates\contacts\impressum.html:13
+msgid "Address"
+msgstr "Adresse"
+
+#: .\templates\contacts\impressum.html:17 .\templates\contacts\privacy.html:12
+msgid "Contact TALE"
+msgstr "TALE kontaktieren"
+
+#: .\templates\contacts\privacy.html:10 .\templates\includes\_footer.html:53
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#: .\templates\contacts\privacy.html:11
+msgid ""
+"For privacy questions or requests, contact TALE through the contact page."
+msgstr "Bei Fragen oder Anliegen zum Datenschutz kontaktieren Sie TALE über die Kontaktseite."
+
+#: .\templates\content\blocks\_card_grid.html:16
+msgid "Read more"
+msgstr "Mehr lesen"
+
+#: .\templates\content\includes\article_cards.html:8
+msgid "Read the story"
+msgstr "Geschichte lesen"
+
+#: .\templates\content\includes\search_form.html:3
+msgid "City, place or story"
+msgstr "Stadt, Ort oder Geschichte"
+
+#: .\templates\content\includes\search_form.html:4
+#: .\templates\includes\_header.html:36
+msgid "Search"
+msgstr "Suchen"
+
+#: .\templates\content\page_city.html:4 .\templates\includes\_header.html:31
+#: .\templates\includes\_header.html:71
+msgid "Stories"
+msgstr "Geschichten"
+
+#: .\templates\content\page_city.html:7
+msgid "Stories about this city are on their way."
+msgstr "Geschichten über diese Stadt werden vorbereitet."
+
+#: .\templates\content\page_country.html:7
+msgid "Chapter of places and stories"
+msgstr "Kapitel über Orte und Geschichten"
+
+#: .\templates\content\page_country.html:8
+msgid "A landscape of stories."
+msgstr "Eine Landschaft voller Geschichten."
+
+#: .\templates\content\page_country.html:30
+#: .\templates\content\page_region.html:20
+msgid "Editor note"
+msgstr "Redaktioneller Hinweis"
+
+#: .\templates\content\page_country.html:32
+#: .\templates\content\page_region.html:22
+msgid "The land and its soul"
+msgstr "Das Land und seine Seele"
+
+#: .\templates\content\page_country.html:38
+msgid "TALE note"
+msgstr "TALE-Notiz"
+
+#: .\templates\content\page_country.html:38
+msgid ""
+"Start with the regions, then follow the route toward cities, castles, lakes, "
+"and squares."
+msgstr ""
+"Beginnen Sie mit den Regionen und folgen Sie der Route zu Städten, Burgen, "
+"Seen und Plätzen."
+
+#: .\templates\content\page_country.html:46
+msgid "The regions"
+msgstr "Die Regionen"
+
+#: .\templates\content\page_home.html:6 .\templates\includes\_footer.html:8
+msgid "Places and stories"
+msgstr "Orte und Geschichten"
+
+#: .\templates\content\page_home.html:7
+msgid "Every place<br>has a story."
+msgstr "Jeder Ort<br>hat eine Geschichte."
+
+#: .\templates\content\page_home.html:8
+msgid ""
+"Discover cities through their stories, details and people. Choose a place "
+"and see it with fresh eyes."
+msgstr ""
+"Entdecken Sie Städte durch ihre Geschichten, Details und Menschen. Wählen "
+"Sie einen Ort und sehen Sie ihn mit neuen Augen."
+
+#: .\templates\content\page_home.html:11
+msgid "Stories for your walk"
+msgstr "Geschichten für Ihren Spaziergang"
+
+#: .\templates\content\page_home.html:11
+msgid "All stories"
+msgstr "Alle Beiträge"
+
+#: .\templates\content\page_home.html:11
+msgid "Our first stories are on their way."
+msgstr "Die ersten Geschichten werden vorbereitet."
+
+#: .\templates\content\page_home.html:12
+msgid "Start with a city"
+msgstr "Beginnen Sie mit einer Stadt"
+
+#: .\templates\content\page_region.html:7
+msgid "A region of places and stories"
+msgstr "Eine Region voller Orte und Geschichten"
+
+#: .\templates\content\page_region.html:44
+msgid "Regional notes"
+msgstr "Notizen zur Region"
+
+#: .\templates\content\page_region.html:61
+#, python-format
+msgid "Start with %(name)s, one city at a time."
+msgstr "Beginnen Sie mit %(name)s, Stadt für Stadt."
+
+#: .\templates\content\page_region.html:62
+msgid "Discover the stories of this region, one city at a time."
+msgstr "Entdecken Sie die Geschichten dieser Region, Stadt für Stadt."
+
+#: .\templates\content\page_region.html:78
+msgid "Places of interest"
+msgstr "Sehenswertes"
+
+#: .\templates\content\page_story.html:5
+msgid "This is a private preview for the author."
+msgstr "Dies ist eine private Vorschau für den Autor."
+
+#: .\templates\content\page_story.html:5
+msgid "Back to editing"
+msgstr "Zurück zur Bearbeitung"
+
+#: .\templates\content\page_story.html:8 .\templates\includes\_footer.html:23
+msgid "Navigation"
+msgstr "Navigation"
+
+#: .\templates\content\page_story.html:9
+msgid "Stories of places"
+msgstr "Geschichten von Orten"
+
+#: .\templates\content\page_story.html:12
+#, python-format
+msgid "This story is currently available in %(language)s."
+msgstr "Dieser Beitrag ist derzeit auf %(language)s verfügbar."
+
+#: .\templates\content\page_story.html:21
+msgid "Open on map"
+msgstr "Auf der Karte öffnen"
+
+#: .\templates\content\page_story.html:23
+msgid "Keep exploring"
+msgstr "Weiter entdecken"
+
+#: .\templates\errors\400.html:5
+msgid "Bad request"
+msgstr "Ungültige Anfrage"
+
+#: .\templates\errors\400.html:6
+msgid "We could not understand that request."
+msgstr "Diese Anfrage konnte nicht verarbeitet werden."
+
+#: .\templates\errors\400.html:7 .\templates\errors\403.html:7
+msgid "Return home"
+msgstr "Zur Startseite"
+
+#: .\templates\errors\403.html:5
+msgid "Permission denied"
+msgstr "Zugriff verweigert"
+
+#: .\templates\errors\403.html:6
+msgid "You do not have permission to access this page."
+msgstr "Sie haben keine Berechtigung für diese Seite."
+
+#: .\templates\errors\404.html:4 .\templates\errors\404.html:11
+msgid "Page Not Found"
+msgstr "Seite nicht gefunden"
+
+#: .\templates\errors\404.html:12
 msgid "The page you are looking for does not exist."
 msgstr ""
 
-#: .\src\atlas\templates\errors\404.html:13
-#: .\src\atlas\templates\errors\500.html:13
+#: .\templates\errors\404.html:13 .\templates\errors\500.html:13
 msgid "Go Home"
-msgstr ""
+msgstr "Zur Startseite"
 
-#: .\src\atlas\templates\errors\500.html:4
-#: .\src\atlas\templates\errors\500.html:11
+#: .\templates\errors\500.html:4 .\templates\errors\500.html:11
 msgid "Server Error"
-msgstr ""
+msgstr "Serverfehler"
 
-#: .\src\atlas\templates\errors\500.html:12
+#: .\templates\errors\500.html:12
 msgid "Something went wrong on our end. Please try again later."
 msgstr ""
+"Auf unserer Seite ist ein Fehler aufgetreten. Bitte versuchen Sie es später "
+"erneut."
 
-#: .\src\atlas\templates\includes\_footer.html:7
-msgid "Atlas editorial shell"
-msgstr ""
+#: .\templates\includes\_footer.html:2
+msgid "Discover places through their stories, details and people."
+msgstr "Entdecken Sie Orte durch ihre Geschichten, Details und Menschen."
 
-#: .\src\atlas\templates\includes\_footer.html:21
-msgid "Navigation"
-msgstr ""
-
-#: .\src\atlas\templates\includes\_footer.html:50
+#: .\templates\includes\_footer.html:54
 msgid "Management"
-msgstr ""
+msgstr "Verwaltung"
 
-#: .\src\atlas\templates\includes\_header.html:14
+#: .\templates\includes\_header.html:11
 msgid "Primary navigation"
-msgstr ""
+msgstr "Hauptnavigation"
 
-#: .\src\atlas\templates\includes\_header.html:20
+#: .\templates\includes\_header.html:39
+msgid "Language"
+msgstr "Sprache"
+
+#: .\templates\includes\_header.html:42
 msgid "Open menu"
-msgstr ""
+msgstr "Menü öffnen"
 
-#: .\src\atlas\templates\includes\_header.html:36
+#: .\templates\includes\_header.html:58
 msgid "Close menu"
-msgstr ""
+msgstr "Menü schließen"
 
-#: .\src\atlas\templates\includes\_header.html:41
+#: .\templates\includes\_header.html:63
 msgid "Mobile navigation"
-msgstr ""
+msgstr "Mobile Navigation"
 
-#: .\src\atlas\templates\main\contacts.html:15
+#: .\templates\main\contacts.html:15
 msgid "Contact surface"
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:16
-msgid "A production-ready contact page shell for Atlas."
+#: .\templates\main\contacts.html:16
+msgid "A production-ready contact page shell for TALE."
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:18
+#: .\templates\main\contacts.html:18
 msgid ""
 "This page is still simple, but it now uses the same editorial foundation and "
 "is ready to receive HTMX-powered forms or CMS-driven contact blocks later."
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:24
+#: .\templates\main\contacts.html:24
 msgid "Reach the editorial team"
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:25
+#: .\templates\main\contacts.html:25
 msgid ""
 "Keep operational contact data in shared site settings today, then replace or "
 "extend this area with structured content and dynamic form fragments when the "
 "public platform grows."
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:32
+#: .\templates\main\contacts.html:32
 msgid "01"
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:44
+#: .\templates\main\contacts.html:44
 msgid "02"
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:56
+#: .\templates\main\contacts.html:56
 msgid "Form placeholder"
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:57
+#: .\templates\main\contacts.html:57
 msgid "Ready for an HTMX-backed form block"
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:58
+#: .\templates\main\contacts.html:58
 msgid ""
 "Keep the public view thin: render the shell here, and later load or submit "
 "the actual form through selectors, forms, and HTMX partials without pushing "
 "business logic into the view."
 msgstr ""
 
-#: .\src\atlas\templates\main\contacts.html:59
+#: .\templates\main\contacts.html:59
 msgid ""
 "When the real contact workflow arrives, this container can become the stable "
 "target for validation and success/error partial swaps."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:18
+#: .\templates\main\home.html:18
 msgid "Editorial travel atlas"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:20
+#: .\templates\main\home.html:20
 msgid "DB-driven foundation"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:24
+#: .\templates\main\home.html:24
 msgid "a living"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:25
+#: .\templates\main\home.html:25
 msgid "library of places."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:28
+#: .\templates\main\home.html:28
 msgid ""
 "Built for country, region, city, and place pages that will be rendered from "
 "content records instead of static prototype markup."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:31
+#: .\templates\main\home.html:31
 msgid "Open Contact Surface"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:32
+#: .\templates\main\home.html:32
 msgid "Inspect Internal Showcase"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:37
+#: .\templates\main\home.html:37
 msgid "Hierarchy levels"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:41
+#: .\templates\main\home.html:41
 msgid "Shared CSS entrypoint"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:45
+#: .\templates\main\home.html:45
 msgid "Reusable typed blocks"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:53
+#: .\templates\main\home.html:53
 msgid "Foundation card"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:54
-msgid "Atlas pattern"
+#: .\templates\main\home.html:54
+msgid "TALE pattern"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:56
+#: .\templates\main\home.html:56
 msgid "Prototype patterns, production architecture."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:58
+#: .\templates\main\home.html:58
 msgid ""
 "The design references now inform reusable navigation, editorial sections, "
 "cards, and utilities that can be dropped into future Django templates."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:69
+#: .\templates\main\home.html:69
 msgid "Why this layer matters"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:70
-msgid "Atlas now has a frontend foundation instead of demo-only styling."
+#: .\templates\main\home.html:70
+msgid "TALE now has a frontend foundation instead of demo-only styling."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:73
+#: .\templates\main\home.html:73
 msgid ""
 "Tokens, typography, layout rhythm, cards, navigation, and page shells now "
 "live in reusable CSS modules that stay compatible with the current Django "
 "template flow."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:79
+#: .\templates\main\home.html:79
 msgid "Implementation rule"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:80
+#: .\templates\main\home.html:80
 msgid ""
 "Production templates should render from Page records and typed blocks. The "
 "frontend layer now supports that direction without copying entire prototype "
 "pages."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:84
+#: .\templates\main\home.html:84
 msgid "An editorial system with room for dynamic content."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:86
+#: .\templates\main\home.html:86
 msgid ""
-"Atlas is moving away from generic starter visuals toward an editorial travel "
+"TALE is moving away from generic starter visuals toward an editorial travel "
 "language: warm paper surfaces, bronze interactions, dark forest sections, "
 "and typographic hierarchy shaped for narrative content."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:87
+#: .\templates\main\home.html:87
 msgid ""
 "The CSS architecture separates tokens, typography, layout, navigation, "
 "editorial blocks, cards, utilities, and page-level overrides. That makes "
@@ -1207,164 +1842,218 @@ msgid ""
 "compose from shared primitives."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:89
+#: .\templates\main\home.html:89
 msgid ""
 "The prototypes remain references. The runtime surface should be modular, DB-"
 "backed, and ready for fragment updates."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:90
-msgid "Atlas frontend direction"
+#: .\templates\main\home.html:90
+msgid "TALE frontend direction"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:102
+#: .\templates\main\home.html:102
 msgid "Reusable patterns"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:103
+#: .\templates\main\home.html:103
 msgid "Core blocks extracted from the design references."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:105
+#: .\templates\main\home.html:105
 msgid ""
 "These are not page copies. They are portable modules for future public-site "
 "templates."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:111
+#: .\templates\main\home.html:111
 msgid "Navigation foundation"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:112
+#: .\templates\main\home.html:112
 msgid ""
 "Sticky header, breadcrumb band, tab strips, and view switchers align with "
-"the Atlas editorial tone."
+"the TALE editorial tone."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:116
+#: .\templates\main\home.html:116
 msgid "Editorial composition"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:117
+#: .\templates\main\home.html:117
 msgid ""
 "Hero, long-form body, pull quote, margin note, and journey strip patterns "
 "are now reusable section-level primitives."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:121
+#: .\templates\main\home.html:121
 msgid "Dynamic-friendly shell"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:122
+#: .\templates\main\home.html:122
 msgid ""
 "HTMX hooks, Alpine bootstrap, and progressive enhancement utilities are "
 "prepared for future fragment-based templates."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:130
+#: .\templates\main\home.html:130
 msgid "Interaction layer"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:131
+#: .\templates\main\home.html:131
 msgid "Tabs and view state can now persist cleanly."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:133
+#: .\templates\main\home.html:133
 msgid ""
 "This foundation includes generic JS for tabs and view switchers so future "
 "templates do not need page-specific scripts for basic interaction."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:137
-msgid "Atlas lenses"
+#: .\templates\main\home.html:137
+msgid "TALE lenses"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:138
+#: .\templates\main\home.html:138
 msgid "Overview"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:139
+#: .\templates\main\home.html:139
 msgid "Content Blocks"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:145
+#: .\templates\main\home.html:145
 msgid "A stable shared UI layer"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:146
+#: .\templates\main\home.html:146
 msgid ""
 "The site shell keeps `app.css` as the compiled entrypoint, preserves Django "
 "includes, and moves visual logic into modular CSS files."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:148
+#: .\templates\main\home.html:148
 msgid ""
 "Use this as the base for future page templates rather than reintroducing one-"
 "off static CSS inside each page."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:153
+#: .\templates\main\home.html:153
 msgid "Designed for typed sections"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:155
+#: .\templates\main\home.html:155
 msgid "Hero bands and breadcrumb bars"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:156
+#: .\templates\main\home.html:156
 msgid "Editorial body, margin notes, pull quotes"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:157
+#: .\templates\main\home.html:157
 msgid "Card groups, CTA strips, contact and form shells"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:160
+#: .\templates\main\home.html:160
 msgid ""
 "These patterns map cleanly onto future block renderers and partial templates."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:165
+#: .\templates\main\home.html:165
 msgid "Prepared for HTMX and Alpine"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:167
+#: .\templates\main\home.html:167
 msgid "Local vendor copies replace placeholder files"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:168
+#: .\templates\main\home.html:168
 msgid "Response-target handling is enabled globally for fragment workflows"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:169
+#: .\templates\main\home.html:169
 msgid "Alpine state helpers can persist view modes across visits"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:172
+#: .\templates\main\home.html:172
 msgid ""
 "Interaction code is global and reusable instead of being embedded into "
 "individual prototype pages."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:180
+#: .\templates\main\home.html:180
 msgid "Next step"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:181
+#: .\templates\main\home.html:181
 msgid "Wire country, region, city, and place templates into this shared layer."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:184
+#: .\templates\main\home.html:184
 msgid ""
 "The frontend surface is now strong enough for dynamic page composition. The "
 "next work should happen in content selectors, typed block rendering, and "
 "page templates that consume real records."
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:186
+#: .\templates\main\home.html:186
 msgid "Review Contact Template"
 msgstr ""
 
-#: .\src\atlas\templates\main\home.html:187
+#: .\templates\main\home.html:187
 msgid "Open Showcase"
 msgstr ""
+
+#: .\templates\places\grid_view.html:9
+msgid "Grid view"
+msgstr "Rasteransicht"
+
+#: .\templates\places\grid_view.html:10
+msgid ""
+"Browse cities, castles, museums, parks, lakes, squares, and viewpoints as a "
+"collection of stories."
+msgstr ""
+"Entdecken Sie Städte, Burgen, Museen, Parks, Seen, Plätze und "
+"Aussichtspunkte als Sammlung von Geschichten."
+
+#: .\templates\places\map_view.html:9
+msgid "Map view"
+msgstr "Kartenansicht"
+
+#: .\templates\places\map_view.html:10
+msgid ""
+"Explore TALE geographically, from country chapters to the places that shape "
+"a route."
+msgstr ""
+"Erkunden Sie TALE geografisch, von Länderkapiteln bis zu den Orten, die eine "
+"Route prägen."
+
+#: .\templates\places\search.html:4
+msgid "Find your story"
+msgstr "Finden Sie Ihre Geschichte"
+
+#: .\templates\places\search.html:6
+msgid "Results"
+msgstr "Beiträge"
+
+#: .\templates\places\search.html:8
+msgid "No results. Try another city or place name."
+msgstr "Keine Ergebnisse. Versuchen Sie einen anderen Stadt- oder Ortsnamen."
+
+#: .\templates\places\search.html:9
+msgid "Pagination"
+msgstr "Seitennavigation"
+
+#~ msgid ""
+#~ "Operator details and legally required publication information will appear "
+#~ "here before launch."
+#~ msgstr ""
+#~ "Angaben zum Betreiber und gesetzlich erforderliche Informationen werden "
+#~ "vor dem Start hier veröffentlicht."
+
+#~ msgid ""
+#~ "Our privacy policy will explain how we handle contact requests, "
+#~ "analytics, cookies, and data before launch."
+#~ msgstr ""
+#~ "Unsere Datenschutzerklärung erläutert vor dem Start den Umgang mit "
+#~ "Anfragen, Analyse, Cookies und Daten."

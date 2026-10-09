@@ -3,20 +3,16 @@
 
 <header class="header" x-data="{ countriesOpen: false, mobileMenuOpen: false }" @keydown.escape.window="countriesOpen = false; mobileMenuOpen = false">
     <div class="header-inner">
-        <a href="{% url 'home' %}" class="logo-link" aria-label="{{ site_settings.company_name|default:'Atlas' }}">
-            {% if email_settings.logo_url %}
-                <img src="{{ email_settings.logo_url }}" alt="{{ site_settings.company_name }}" class="logo-img">
-            {% else %}
-                <span class="logo-mark" aria-hidden="true"></span>
-                <span class="logo-text">Atlas <em>Editorial</em></span>
-            {% endif %}
+        <a href="{% url 'home' %}" class="logo-link" aria-label="{{ public_brand }}">
+            <span class="logo-mark" aria-hidden="true"></span>
+            <span class="logo-text">{{ public_brand }}</span>
         </a>
 
         <nav class="nav-desktop" aria-label="{% trans 'Primary navigation' %}">
-            <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}active{% endif %}">{% trans "Home" %}</a>
+            <a href="{% url 'home' %}" class="nav-link {% if nav_is_home %}active{% endif %}">{% trans "Home" %}</a>
             {% if nav_countries %}
                 <div class="nav-dropdown" @click.outside="countriesOpen = false">
-                    <button class="nav-link nav-dropdown-toggle" type="button" @click="countriesOpen = !countriesOpen" :aria-expanded="countriesOpen.toString()" aria-controls="countries-menu">
+                    <button class="nav-link nav-dropdown-toggle{% if nav_active_country %} active{% endif %}" type="button" @click="countriesOpen = !countriesOpen" :aria-expanded="countriesOpen.toString()" aria-controls="countries-menu">
                         {% trans "Countries" %}
                         <span aria-hidden="true">⌄</span>
                     </button>
@@ -32,17 +28,17 @@
             {% if nav_regions_country %}
                 <a href="{{ nav_regions_country.page.absolute_path }}#regions" class="nav-link">{% trans "Regions" %}</a>
             {% endif %}
-            <a href="/places/search/" class="nav-link">{% trans "Places" %}</a>
-            <a href="{% url 'contacts' %}" class="nav-link {% if 'contacts' in request.path %}active{% endif %}">{% trans "About" %}</a>
+            <a href="{% url 'places-search' %}" class="nav-link {% if nav_is_stories %}active{% endif %}">{% trans "Stories" %}</a>
+            <a href="{% url 'contacts' %}" class="nav-link {% if nav_is_contacts %}active{% endif %}">{% trans "Contacts" %}</a>
         </nav>
 
         <div class="header-actions">
-            <a class="header-icon-link" href="/places/search/" aria-label="{% trans 'Search' %}">
+            <a class="header-icon-link" href="{% url 'places-search' %}" aria-label="{% trans 'Search' %}">
                 <span aria-hidden="true">⌕</span>
             </a>
-            <a class="header-icon-link" href="/germany/bavaria/munich/marienplatz/" aria-label="{% trans 'Featured place' %}">
-                <span aria-hidden="true">♡</span>
-            </a>
+            <nav class="header-language" aria-label="{% trans 'Language' %}">
+                {% for language in language_switcher %}<a href="{{ language.url }}" lang="{{ language.code }}" {% if language.is_active %}aria-current="true"{% endif %}>{{ language.code|upper }}</a>{% endfor %}
+            </nav>
             <button class="burger-btn" @click="mobileMenuOpen = true" :aria-expanded="mobileMenuOpen.toString()" aria-controls="atlas-mobile-menu" aria-label="{% trans 'Open menu' %}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -58,7 +54,7 @@
             <div class="mobile-menu-backdrop" @click="mobileMenuOpen = false" aria-hidden="true"></div>
             <div class="mobile-menu-panel">
                 <div class="mobile-menu-header">
-                    <span class="logo-text">{{ site_settings.company_name|default:"Atlas" }}</span>
+                    <span class="logo-text">{{ public_brand }}</span>
                     <button class="close-btn" @click="mobileMenuOpen = false" aria-label="{% trans 'Close menu' %}">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -72,8 +68,8 @@
                     {% if nav_regions_country %}
                         <a href="{{ nav_regions_country.page.absolute_path }}#regions" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Regions" %}</a>
                     {% endif %}
-                    <a href="/places/search/" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Places" %}</a>
-                    <a href="{% url 'contacts' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "About" %}</a>
+                    <a href="{% url 'places-search' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Stories" %}</a>
+                    <a href="{% url 'contacts' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Contacts" %}</a>
                 </nav>
 
                 <div class="mobile-menu-meta">

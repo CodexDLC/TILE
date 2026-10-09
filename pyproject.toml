@@ -2,6 +2,7 @@
 name = "atlas"
 version = "0.1.0"
 description = "My new project scaffolded with codex-django"
+requires-python = ">=3.14,<3.15"
 dependencies = [
     "django>=5.0",
     "python-dotenv",
@@ -9,8 +10,14 @@ dependencies = [
     "psycopg2-binary",
     "loguru",
     "redis>=5.0",
+    "arq>=0.25",
+    "aiosmtplib>=3.0",
+    "codex-ai[gemini]",
     "codex-core",
     "codex-django[cli]",
+    "codex-django-cli>=0.3.0,<0.4.0",
+    "codex-platform>=0.5.1,<1.0.0",
+    "codex-services>=0.1.3,<1.0.0",
     "django-unfold>=0.20.0",
     "django-modeltranslation>=0.20.0",
     "markdown-it-py>=4.0.0",
@@ -52,10 +59,12 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/atlas"]
+packages = ["src/atlas", "src/workers"]
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "atlas.core.settings.test"
+# Keep the library's development-mode Redis bypass active during local tests.
+django_debug_mode = true
 pythonpath = [".", "src", "src/atlas"]
 testpaths = ["tests"]
 

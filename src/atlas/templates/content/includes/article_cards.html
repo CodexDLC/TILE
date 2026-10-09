@@ -1,0 +1,10 @@
+{% load block_tags i18n %}
+<div class="story-grid">
+{% for item in cards %}<article class="story-card">
+{% article_cover item as image_url %}{% if image_url %}<a href="{{ item.absolute_path }}" tabindex="-1" aria-hidden="true"><img class="story-thumbnail" src="{{ image_url }}" alt="" loading="lazy"></a>{% endif %}
+<p class="section-label">{% if item.parent %}{{ item.parent.title }}{% else %}TALE{% endif %}</p>
+<h3><a href="{{ item.absolute_path }}">{{ item.title }}</a></h3>
+{% if item.intro %}<p>{{ item.intro|striptags|truncatewords:30 }}</p>{% endif %}
+<a class="story-more" href="{{ item.absolute_path }}">{% trans "Read the story" %} <span aria-hidden="true">→</span></a>
+</article>{% endfor %}
+</div>

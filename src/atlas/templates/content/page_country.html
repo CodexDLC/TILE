@@ -1,12 +1,15 @@
 {% extends "content/page_base.html" %}
+{% load i18n %}
 
 {% block body_class %}page page-country page-editorial-detail{% endblock body_class %}
 
 {% block page_content %}
+{% trans "Chapter of places and stories" as default_hero_eyebrow %}
+{% trans "A landscape of stories." as default_regions_heading %}
     <section class="editorial-hero editorial-hero-country">
         <div class="editorial-hero-bg"{% if domain_object.hero_image %} style="background-image: linear-gradient(to top, rgba(15, 24, 20, 0.86), rgba(15, 24, 20, 0.18)), url('{{ domain_object.hero_image.url }}');"{% endif %}></div>
         <div class="editorial-hero-content">
-            <div class="hero-meta">{{ hero.eyebrow|default:"Chapter Five / Central Europe" }}</div>
+            <div class="hero-meta">{{ hero.eyebrow|default:default_hero_eyebrow }}</div>
             <h1 class="hero-title">{{ hero.title|default:page.title }}</h1>
             <p class="hero-subtitle">{{ hero.subtitle|default:page.intro }}</p>
             {% with facts=facts_lists.0 %}
@@ -24,15 +27,15 @@
     {% with intro=rich_texts.0 regions=card_grids.0 cta=cta_strips.0 %}
         <section class="section">
             <div class="editorial">
-                <aside class="margin-note"><span class="margin-note-label">Marginalia № 01</span>{{ page.intro }}</aside>
+                <aside class="margin-note"><span class="margin-note-label">{% trans "Editor note" %}</span>{{ page.intro }}</aside>
                 <div class="editorial-body">
-                    <div class="section-label">The Land & Its Soul</div>
+                    <div class="section-label">{% trans "The land and its soul" %}</div>
                     <h2 class="article-title">{{ intro.heading|default:page.title }}</h2>
                     <div class="article-body">
                         <p class="drop-cap">{{ intro.body|default:page.intro }}</p>
                     </div>
                 </div>
-                <aside class="margin-note"><span class="margin-note-label">Atlas Note</span>Start with the regions, then let the route narrow toward cities, castles, lakes, and squares.</aside>
+                <aside class="margin-note"><span class="margin-note-label">{% trans "TALE note" %}</span>{% trans "Start with the regions, then follow the route toward cities, castles, lakes, and squares." %}</aside>
             </div>
         </section>
 
@@ -40,8 +43,8 @@
             <div class="section">
                 <div class="section-head">
                     <div class="section-head-left">
-                        <div class="section-label">The Regions</div>
-                        <h2 class="section-title">{{ regions.heading|default:"From the Alps to the Baltic." }}</h2>
+                        <div class="section-label">{% trans "The regions" %}</div>
+                        <h2 class="section-title">{{ regions.heading|default:default_regions_heading }}</h2>
                     </div>
                     {% if regions.intro %}<p class="section-desc">{{ regions.intro }}</p>{% endif %}
                 </div>
@@ -54,8 +57,8 @@
                                 <div class="region-num">N°{{ forloop.counter|stringformat:"02d" }} · {{ domain_object.name }}</div>
                                 <h3 class="region-name">{{ region.name }}</h3>
                                 <div class="region-meta">
-                                    <span><span class="region-dot"></span>{{ region.cities.count }} city</span>
-                                    <span><span class="region-dot"></span>{{ region.place_count }} places</span>
+                                    <span><span class="region-dot"></span>{% trans "Cities" %}: {{ region.cities.count }}</span>
+                                    <span><span class="region-dot"></span>{% trans "Places" %}: {{ region.place_count }}</span>
                                 </div>
                                 <p class="region-copy">{{ region.intro }}</p>
                             </div>

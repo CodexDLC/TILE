@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refactor Test First"
+  short_description: "Test new behavior before refactor."
+  default_prompt: "When refactoring an existing tested system, first create tests that define the new required behavior and prove the old code fails them; only then change production code until those tests pass."

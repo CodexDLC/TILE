@@ -1,0 +1,14 @@
+{
+  "cabinet": {
+    "margin": "60px",
+    "mainWidth": 330,
+    "inputWidth": 248,
+    "scrollHeight": 844,
+    "actionsY": 1827.40625
+  },
+  "menu": {
+    "focus": "<input id=\"atlas-query\" type=\"search\" name=\"q\" value=\"\" maxlength=\"200\">",
+    "inside": false,
+    "role": null
+  }
+}

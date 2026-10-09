@@ -1,0 +1,44 @@
+{% extends "cabinet/base_cabinet.html" %}
+{% load i18n %}
+{% block title %}{% if article %}{% trans "Edit article" %}{% else %}{% trans "New article" %}{% endif %}{% endblock %}
+{% block cabinet_content %}
+{% include "cabinet/includes/_messages.html" %}
+<div class="d-flex flex-wrap justify-content-between gap-3 mb-3">
+<div><a href="{% url 'cabinet:article_list' %}">← {% trans "All articles" %}</a><h1 class="mt-3">{% if article %}{% trans "Edit article" %}{% else %}{% trans "New article" %}{% endif %}</h1></div>
+{% if article.is_published %}<a href="{{ article.absolute_path }}" target="_blank" rel="noopener">{% trans "Open on site ↗" %}</a>{% endif %}
+</div>
+<p class="text-muted">{% if article.is_published %}{% trans "The story is published. Saved changes appear on the site immediately." %}{% else %}{% trans "This draft is private. Publish it when the text and photos are ready." %}{% endif %}</p>
+<nav class="d-flex gap-3 mb-4" aria-label="{% trans 'Editing language' %}">
+{% for code,label in languages %}<a href="?language={{ code }}" {% if code == language %}aria-current="page" class="fw-bold"{% endif %}>{{ label }}</a>{% endfor %}
+</nav>
+<form method="post" enctype="multipart/form-data" id="article-editor" class="card p-3 p-md-4">
+{% csrf_token %}{{ form.language }}
+{% if form.errors %}<div class="alert alert-danger" role="alert">{% trans "The story could not be saved. Check the highlighted fields." %} {{ form.non_field_errors }}</div>{% endif %}
+{% for field in form.visible_fields %}
+{% if field.name == 'seo_title' %}<details class="mb-3"><summary>{% trans "Additional: search preview" %}</summary><p class="text-muted mt-2">{% trans "You can leave this empty; the title and introduction will be used." %}</p>{% endif %}
+<div class="mb-4">
+<label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} *{% endif %}</label>
+{{ field }}{% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+{% for error in field.errors %}<div class="text-danger" role="alert">{{ error }}</div>{% endfor %}
+{% if field.name == 'image' and cover %}<figure class="mt-3"><img src="{{ cover.image.url }}" alt="{{ cover.alt_text }}" style="max-width:100%;max-height:240px;object-fit:contain"><figcaption>{% trans "Current photo" %}</figcaption></figure>{% endif %}
+</div>
+{% if field.name == 'seo_description' %}</details>{% endif %}
+{% endfor %}
+<div class="d-flex flex-wrap gap-2 border-top pt-3">
+<button class="btn btn-primary" name="action" value="save">{% if article.is_published %}{% trans "Save changes" %}{% else %}{% trans "Save draft" %}{% endif %}</button>
+<button class="btn btn-outline-secondary" name="action" value="preview">{% trans "Save and preview" %}</button>
+{% if not article.is_published %}<button class="btn btn-success" name="action" value="publish">{% trans "Publish" %}</button>{% endif %}
+</div>
+</form>
+{% if article.is_published %}<form method="post" class="mt-3">{% csrf_token %}<button class="btn btn-outline-danger" name="action" value="unpublish">{% trans "Unpublish" %}</button></form>{% endif %}
+<script>
+(() => {
+  const form = document.getElementById('article-editor');
+  let dirty = false;
+  form.addEventListener('input', () => { dirty = true; });
+  form.addEventListener('change', () => { dirty = true; });
+  form.addEventListener('submit', () => { dirty = false; });
+  window.addEventListener('beforeunload', event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
+})();
+</script>
+{% endblock %}

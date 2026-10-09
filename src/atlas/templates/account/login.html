@@ -1,0 +1,47 @@
+{% extends "cabinet/base_auth.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign in to TALE" %}{% endblock %}
+
+{% block cabinet_content %}
+<div class="cab-auth__wrap">
+  <div class="cab-auth__card">
+    <div class="cab-auth__logo">
+      <span class="cab-auth__logo-icon" aria-hidden="true">&#9670;</span>
+      <span class="cab-auth__logo-name">TALE</span>
+    </div>
+    <p class="cab-auth__title">{% trans "Sign in" %}</p>
+    <p class="cab-auth__subtitle">{% trans "Travel Atlas of Local Experiences" %}</p>
+
+    {% if form.non_field_errors %}<div class="cab-auth__alert">{{ form.non_field_errors }}</div>{% endif %}
+
+    <form class="cab-auth__form" method="post" action="{{ request.path }}">
+      {% csrf_token %}
+      {% for field in form.visible_fields %}
+        <div class="cab-auth__field">
+          <div class="cab-auth__label-row">
+            <label class="cab-auth__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+          </div>
+          <input
+            class="cab-auth__input{% if field.errors %} cab-auth__input--error{% endif %}"
+            type="{{ field.field.widget.input_type }}"
+            name="{{ field.html_name }}"
+            id="{{ field.id_for_label }}"
+            {% if field.field.widget.input_type == 'checkbox' %}value="1"{% if field.value %} checked{% endif %}{% elif field.field.widget.input_type != 'password' and field.value != None %}value="{{ field.value }}"{% endif %}
+            autocomplete="{{ field.field.widget.attrs.autocomplete|default:'' }}"
+            {% if field.field.required %}required{% endif %}
+          >
+          {% if field.errors %}<span class="cab-auth__error">{{ field.errors.0 }}</span>{% endif %}
+        </div>
+      {% endfor %}
+      {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name|default:'next' }}" value="{{ redirect_field_value }}">
+      {% elif next %}
+        <input type="hidden" name="next" value="{{ next }}">
+      {% endif %}
+      <button type="submit" class="cab-auth__submit">{% trans "Sign in" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

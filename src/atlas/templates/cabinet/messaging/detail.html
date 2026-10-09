@@ -1,9 +1,12 @@
 {% extends "cabinet/base_cabinet.html" %}
+{% load i18n %}
 
-{% block title %}Messaging Detail{% endblock %}
+{% trans "Conversation" as default_subject %}
+{% block title %}{% trans "Message details" %}{% endblock %}
 
 {% block cabinet_content %}
-<h1 class="h3 mb-4">{{ thread.subject|default:"Conversation" }}</h1>
+{% trans "Conversation" as default_subject %}
+<h1 class="h3 mb-4">{{ thread.subject|default:default_subject }}</h1>
 
 {% for message in thread.messages.all %}
   <div class="card border-0 shadow-sm mb-3">
@@ -12,7 +15,7 @@
       <div>{{ message.body|linebreaksbr }}</div>
       {% for reply in message.replies.all %}
         <hr>
-        <div class="small text-muted mb-2">Reply · {{ reply.sent_at }}</div>
+        <div class="small text-muted mb-2">{% trans "Reply ·" %} {{ reply.sent_at }}</div>
         <div>{{ reply.body|linebreaksbr }}</div>
       {% endfor %}
     </div>

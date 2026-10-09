@@ -3,7 +3,7 @@
 {% load i18n static %}
 
 {% block title %}
-    {{ site_settings.company_name|default:"Atlas" }} | {% trans "Home" %}
+    {{ public_brand }} | {% trans "Home" %}
 {% endblock title %}
 
 {% block body_class %}page-home{% endblock body_class %}
@@ -20,7 +20,7 @@
                         <span>{% trans "DB-driven foundation" %}</span>
                     </div>
                     <h1 class="hero-title anim-fade-up anim-delay-1">
-                        {{ site_settings.company_name|default:"Atlas" }},
+                        {{ public_brand }},
                         <span class="accent">{% trans "a living" %}</span>
                         {% trans "library of places." %}
                     </h1>
@@ -51,7 +51,7 @@
                     <div class="destination-card-body">
                         <div class="destination-card-meta">
                             <span>{% trans "Foundation card" %}</span>
-                            <span>{% trans "Atlas pattern" %}</span>
+                            <span>{% trans "TALE pattern" %}</span>
                         </div>
                         <h2 class="destination-card-title">{% trans "Prototype patterns, production architecture." %}</h2>
                         <p class="destination-card-copy">
@@ -67,7 +67,7 @@
         <div class="section-head">
             <div>
                 <span class="section-label">{% trans "Why this layer matters" %}</span>
-                <h2 class="section-title">{% trans "Atlas now has a frontend foundation instead of demo-only styling." %}</h2>
+                <h2 class="section-title">{% trans "TALE now has a frontend foundation instead of demo-only styling." %}</h2>
             </div>
             <p class="t-lead home-section-copy">
                 {% trans "Tokens, typography, layout rhythm, cards, navigation, and page shells now live in reusable CSS modules that stay compatible with the current Django template flow." %}
@@ -83,11 +83,11 @@
             <div class="editorial-body">
                 <h3 class="article-title">{% trans "An editorial system with room for dynamic content." %}</h3>
                 <div class="article-body">
-                    <p class="drop-cap">{% trans "Atlas is moving away from generic starter visuals toward an editorial travel language: warm paper surfaces, bronze interactions, dark forest sections, and typographic hierarchy shaped for narrative content." %}</p>
+                    <p class="drop-cap">{% trans "TALE is moving away from generic starter visuals toward an editorial travel language: warm paper surfaces, bronze interactions, dark forest sections, and typographic hierarchy shaped for narrative content." %}</p>
                     <p>{% trans "The CSS architecture separates tokens, typography, layout, navigation, editorial blocks, cards, utilities, and page-level overrides. That makes future country, region, city, place, grid, and search templates easier to compose from shared primitives." %}</p>
                     <div class="pull-quote">
                         {% trans "The prototypes remain references. The runtime surface should be modular, DB-backed, and ready for fragment updates." %}
-                        <cite>{% trans "Atlas frontend direction" %}</cite>
+                        <cite>{% trans "TALE frontend direction" %}</cite>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
             <article class="card col-span-4">
                 <span class="card-index">I</span>
                 <h3 class="card-title">{% trans "Navigation foundation" %}</h3>
-                <p class="card-description">{% trans "Sticky header, breadcrumb band, tab strips, and view switchers align with the Atlas editorial tone." %}</p>
+                <p class="card-description">{% trans "Sticky header, breadcrumb band, tab strips, and view switchers align with the TALE editorial tone." %}</p>
             </article>
             <article class="card col-span-4">
                 <span class="card-index">II</span>
@@ -134,7 +134,7 @@
         </div>
 
         <div class="home-layers" data-tabs data-persist-key="atlas-home-lens">
-            <div class="tabs-list" role="tablist" aria-label="{% trans 'Atlas lenses' %}">
+            <div class="tabs-list" role="tablist" aria-label="{% trans 'TALE lenses' %}">
                 <button type="button" class="layer-tab active" data-tab-button="overview" aria-selected="true" role="tab">{% trans "Overview" %}</button>
                 <button type="button" class="layer-tab" data-tab-button="content" aria-selected="false" role="tab">{% trans "Content Blocks" %}</button>
                 <button type="button" class="layer-tab" data-tab-button="delivery" aria-selected="false" role="tab">{% trans "Delivery" %}</button>

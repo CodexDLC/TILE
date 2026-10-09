@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block title %}
-    {{ site_settings.company_name|default:"Atlas" }} | {% trans "Contacts" %}
+    {{ public_brand }} | {% trans "Contacts" %}
 {% endblock title %}
 
 {% block body_class %}page-contacts{% endblock body_class %}
@@ -13,7 +13,7 @@
         <div class="section-head">
             <div>
                 <span class="section-label">{% trans "Contact surface" %}</span>
-                <h1 class="section-title">{% trans "A production-ready contact page shell for Atlas." %}</h1>
+                <h1 class="section-title">{% trans "A production-ready contact page shell for TALE." %}</h1>
             </div>
             <p class="t-lead">{% trans "This page is still simple, but it now uses the same editorial foundation and is ready to receive HTMX-powered forms or CMS-driven contact blocks later." %}</p>
         </div>

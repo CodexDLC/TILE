@@ -1,12 +1,23 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from system.models.mixins import SeoMixin, TimestampMixin
+from system.services.slugs import unique_slug
 
 
 class City(TimestampMixin, SeoMixin):
-    region = models.ForeignKey("places.Region", on_delete=models.CASCADE, related_name="cities", verbose_name=_("Регион"))
+    region = models.ForeignKey(
+        "places.Region",
+        on_delete=models.CASCADE,
+        related_name="cities",
+        verbose_name=_("Регион"),
+    )
     page = models.OneToOneField(
-        "content.Page", on_delete=models.SET_NULL, blank=True, null=True, related_name="city", verbose_name=_("Страница")
+        "content.Page",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="city",
+        verbose_name=_("Страница"),
     )
     slug = models.SlugField("Slug", max_length=255)
     name = models.CharField(_("Название"), max_length=255)
@@ -23,3 +34,14 @@ class City(TimestampMixin, SeoMixin):
 
     def __str__(self) -> str:
         return self.name
+
+    def save(self, *args, **kwargs) -> None:
+        if not self.slug:
+            self.slug = unique_slug(
+                type(self),
+                self.name,
+                scope={"region": self.region},
+                exclude_pk=self.pk,
+                fallback="city",
+            )
+        super().save(*args, **kwargs)

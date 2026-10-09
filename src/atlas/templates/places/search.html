@@ -1,13 +1,10 @@
 {% extends "base.html" %}
-
-{% block body_class %}page-search{% endblock body_class %}
-
-{% block content %}
-    <section class="section">
-        <div class="container places-placeholder">
-            <p class="eyebrow">Search</p>
-            <h1>Search Atlas</h1>
-            <p class="lead">Find country chapters, regional routes, city portraits, museums, parks, squares, castles, and other places worth reading before you go.</p>
-        </div>
-    </section>
-{% endblock content %}
+{% load i18n %}
+{% block content %}<section class="section"><div class="container">
+<h1>{% trans "Find your story" %}</h1>
+{% include "content/includes/search_form.html" %}
+<p class="search-summary">{% trans "Results" %}: {{ results.paginator.count }}{% if query %} · «{{ query }}»{% endif %}</p>
+{% include "content/includes/article_cards.html" with cards=results %}
+{% if not results %}<p>{% trans "No results. Try another city or place name." %}</p>{% endif %}
+<nav class="search-pagination" aria-label="{% trans 'Pagination' %}">{% if results.has_previous %}<a href="?q={{ query|urlencode }}&page={{ results.previous_page_number }}">←</a>{% endif %}<span>{{ results.number }} / {{ results.paginator.num_pages }}</span>{% if results.has_next %}<a href="?q={{ query|urlencode }}&page={{ results.next_page_number }}">→</a>{% endif %}</nav>
+</div></section>{% endblock %}

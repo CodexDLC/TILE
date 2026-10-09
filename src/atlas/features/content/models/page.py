@@ -3,9 +3,11 @@ from __future__ import annotations
 from typing import Any
 
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from system.models.mixins import OrderableMixin, SeoMixin, TimestampMixin
+from system.services.slugs import unique_slug
 
 
 class Page(TimestampMixin, OrderableMixin, SeoMixin):
@@ -51,7 +53,7 @@ class Page(TimestampMixin, OrderableMixin, SeoMixin):
 
     @property
     def absolute_path(self) -> str:
-        return "/" if not self.path else f"/{self.path}/"
+        return reverse("home") if not self.path else reverse("page-detail", kwargs={"path": self.path + "/"})
 
     def build_path(self) -> str:
         if self.page_type == self.PageType.HOME and not self.parent:
@@ -61,6 +63,14 @@ class Page(TimestampMixin, OrderableMixin, SeoMixin):
         return "/".join(part for part in (parent_path, slug) if part)
 
     def save(self, *args: Any, **kwargs: Any) -> None:
+        if not self.slug:
+            self.slug = unique_slug(
+                type(self),
+                self.title,
+                scope={"parent": self.parent},
+                exclude_pk=self.pk,
+                fallback="page",
+            )
         if self.is_published and self.published_at is None:
             self.published_at = timezone.now()
         self.path = self.build_path()

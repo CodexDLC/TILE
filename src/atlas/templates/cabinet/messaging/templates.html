@@ -1,12 +1,13 @@
 {% extends "cabinet/base_cabinet.html" %}
+{% load i18n %}
 
-{% block title %}Messaging Templates{% endblock %}
+{% block title %}{% trans "Message templates" %}{% endblock %}
 
 {% block cabinet_content %}
 <div class="card border-0 shadow-sm">
   <div class="card-body">
-    <h1 class="h3 mb-3">Messaging Templates</h1>
-    <p class="mb-0 text-muted">Atlas currently uses rendered handlers for thread notifications. Template management can be expanded here later.</p>
+    <h1 class="h3 mb-3">{% trans "Message templates" %}</h1>
+    <p class="mb-0 text-muted">{% trans "TALE currently uses rendered handlers for thread notifications. Template management can be expanded here later." %}</p>
   </div>
 </div>
 {% endblock %}

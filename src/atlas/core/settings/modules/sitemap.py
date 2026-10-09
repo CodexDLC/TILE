@@ -7,7 +7,7 @@ SITEMAP_STATIC_PAGES = [
     "home",
     "contacts",
     "impressum",
-    "datenschutz",
+    "privacy",
 ]
 
 # Default language for x-default in sitemap

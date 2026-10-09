@@ -1,0 +1,74 @@
+{% extends "cabinet/base_cabinet.html" %}
+{% load i18n %}
+{% load cabinet_tags %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block cabinet_content %}
+  {% include "cabinet/includes/_messages.html" %}
+  {% trans "Back" as back_label %}
+  {% include "cabinet/includes/_page_header.html" with title=title subtitle=resource.title btn_label=back_label btn_url=list_url btn_icon="bi-arrow-left" %}
+
+  <form method="post" enctype="multipart/form-data" class="cab-resource-form">
+    {% csrf_token %}
+
+    {% if translation_groups %}
+      <div class="row g-3">
+        {% for field in plain_fields %}
+          {% include "cabinet/resources/partials/_form_field.html" with field=field %}
+        {% endfor %}
+      </div>
+
+      <ul class="nav nav-tabs mt-4" role="tablist">
+        {% for group in translation_groups %}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link{% if forloop.first %} active{% endif %}"
+                    id="cab-lang-{{ group.code }}-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#cab-lang-{{ group.code }}"
+                    type="button"
+                    role="tab"
+                    aria-controls="cab-lang-{{ group.code }}"
+                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+              {{ group.label }}
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="tab-content border border-top-0 rounded-bottom bg-white p-3">
+        {% for group in translation_groups %}
+          <div class="tab-pane fade{% if forloop.first %} show active{% endif %}"
+               id="cab-lang-{{ group.code }}"
+               role="tabpanel"
+               aria-labelledby="cab-lang-{{ group.code }}-tab"
+               tabindex="0">
+            <div class="row g-3">
+              {% for field in group.fields %}
+                {% include "cabinet/resources/partials/_form_field.html" with field=field %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="row g-3">
+        {% for field in form %}
+          {% include "cabinet/resources/partials/_form_field.html" with field=field %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger mt-3">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <div class="d-flex gap-2 mt-4">
+      <button type="submit" class="btn btn-primary">
+        <i class="bi bi-check-lg"></i>
+        {% trans "Save" %}
+      </button>
+      <a href="{{ list_url }}" class="btn btn-outline-secondary">{% trans "Cancel" %}</a>
+    </div>
+  </form>
+{% endblock %}

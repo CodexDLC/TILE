@@ -6,7 +6,7 @@ from ..services import notify_new_message
 
 
 class ContactFormView(FormView):
-    template_name = "features/main/contacts.html"
+    template_name = "contacts/contact.html"
     form_class = ContactForm
 
     def get_success_url(self):

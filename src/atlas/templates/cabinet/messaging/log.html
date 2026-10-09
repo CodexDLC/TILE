@@ -1,19 +1,20 @@
 {% extends "cabinet/base_cabinet.html" %}
+{% load i18n %}
 
-{% block title %}Messaging Log{% endblock %}
+{% block title %}{% trans "Message delivery log" %}{% endblock %}
 
 {% block cabinet_content %}
 <div class="card border-0 shadow-sm">
   <div class="card-body">
-    <h1 class="h3 mb-3">Delivery Log</h1>
+    <h1 class="h3 mb-3">{% trans "Delivery log" %}</h1>
     <div class="table-responsive">
       <table class="table align-middle">
         <thead>
           <tr>
-            <th>Recipient</th>
-            <th>Event</th>
-            <th>Status</th>
-            <th>Queued</th>
+            <th>{% trans "Recipient" %}</th>
+            <th>{% trans "Event" %}</th>
+            <th>{% trans "Status" %}</th>
+            <th>{% trans "Queued" %}</th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +27,7 @@
             </tr>
           {% empty %}
             <tr>
-              <td colspan="4">No delivery log rows yet.</td>
+              <td colspan="4">{% trans "No delivery log entries yet." %}</td>
             </tr>
           {% endfor %}
         </tbody>

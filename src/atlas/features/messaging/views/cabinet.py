@@ -1,63 +1,139 @@
+from codex_django.messaging.cabinet import MessagingCabinetPresenter, MessagingCabinetWorkflowService
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
-from system.models import EmailSettings
 
-from ..models import EmailLog
-from ..selectors import get_paginated_threads, get_status_counts, get_thread_or_404
+from ..bridge import AtlasMessagingBridge
+from ..selectors import get_unread_count
+
+
+def _bridge() -> AtlasMessagingBridge:
+    return AtlasMessagingBridge()
+
+
+def _presenter() -> MessagingCabinetPresenter:
+    return MessagingCabinetPresenter()
+
+
+def _with_table_search(
+    request: HttpRequest,
+    context: dict[str, object],
+    table_key: str,
+) -> dict[str, object]:
+    table = context.get(table_key)
+    if table is not None:
+        table.search_query = request.GET.get("q", "").strip()
+        table.search_action = request.path
+    return context
+
+
+def _render_messaging(
+    request: HttpRequest,
+    template_name: str,
+    context: dict[str, object] | None = None,
+) -> HttpResponse:
+    request.cabinet_module = "messaging"  # type: ignore[attr-defined]
+    data = {
+        "unread_messages_count": get_unread_count(),
+        **(context or {}),
+    }
+    return render(request, template_name, data)
 
 
 @login_required
 def inbox_view(request: HttpRequest) -> HttpResponse:
-    status = request.GET.get("status", "all")
-    page_obj = get_paginated_threads(status=status, page=request.GET.get("page"))
-    context = {
-        "page_obj": page_obj,
-        "active_status": status,
-        "status_counts": get_status_counts(),
-    }
-    return render(request, "cabinet/messaging/inbox.html", context)
+    bridge = _bridge()
+    state = bridge.get_mailbox_state(
+        user=request.user,
+        folder=request.GET.get("folder", "inbox"),
+        filters=request.GET,
+    )
+    return _render_messaging(request, "cabinet/messaging/pages/mailbox.html", _presenter().mailbox_context(state))
 
 
 @login_required
 def detail_view(request: HttpRequest, pk: int) -> HttpResponse:
-    thread = get_thread_or_404(pk)
-    thread.is_read = True
-    thread.save(update_fields=["is_read", "last_activity_at"])
-    return render(request, "cabinet/messaging/detail.html", {"thread": thread})
+    bridge = _bridge()
+    MessagingCabinetWorkflowService(bridge).mark_read(user=request.user, thread_id=str(pk))
+    state = bridge.get_mailbox_state(
+        user=request.user,
+        folder=request.GET.get("folder", "inbox"),
+        thread_id=str(pk),
+        filters=request.GET,
+    )
+    return _render_messaging(request, "cabinet/messaging/pages/mailbox.html", _presenter().mailbox_context(state))
 
 
 @login_required
-def templates_view(request: HttpRequest) -> HttpResponse:
-    return render(request, "cabinet/messaging/templates.html")
+def thread_action_view(request: HttpRequest, pk: int, action: str) -> HttpResponse:
+    if request.method != "POST":
+        return redirect("cabinet:messaging_detail", pk=pk)
+    result = MessagingCabinetWorkflowService(_bridge()).dispatch(
+        action,
+        user=request.user,
+        thread_id=str(pk),
+        payload=request.POST,
+    )
+    if result.ok:
+        messages.success(request, result.message)
+    else:
+        messages.error(request, result.message)
+    if result.target_url:
+        return redirect(result.target_url)
+    return redirect("cabinet:messaging_detail", pk=pk)
 
 
 @login_required
-def log_view(request: HttpRequest) -> HttpResponse:
-    logs = EmailLog.objects.order_by("-queued_at")[:50]
-    return render(request, "cabinet/messaging/log.html", {"logs": logs})
+def campaigns_view(request: HttpRequest) -> HttpResponse:
+    state = _bridge().get_campaign_list_state(
+        user=request.user,
+        status=request.GET.get("status", "all"),
+        filters=request.GET,
+    )
+    context = _with_table_search(request, _presenter().campaign_list_context(state), "campaigns_table")
+    return _render_messaging(
+        request,
+        "cabinet/messaging/pages/campaigns.html",
+        context,
+    )
+
+
+@login_required
+def recipients_view(request: HttpRequest) -> HttpResponse:
+    state = _bridge().get_recipient_list_state(user=request.user, filters=request.GET)
+    context = _with_table_search(request, _presenter().recipient_list_context(state), "recipients_table")
+    return _render_messaging(
+        request,
+        "cabinet/messaging/pages/recipients.html",
+        context,
+    )
+
+
+@login_required
+def delivery_log_view(request: HttpRequest) -> HttpResponse:
+    state = _bridge().get_delivery_log_state(user=request.user, filters=request.GET)
+    context = _with_table_search(request, _presenter().delivery_log_context(state), "delivery_log_table")
+    return _render_messaging(
+        request,
+        "cabinet/messaging/pages/delivery_log.html",
+        context,
+    )
 
 
 @login_required
 def settings_view(request: HttpRequest) -> HttpResponse:
-    settings_obj = EmailSettings.load()
-    field_names = [
-        "email_from",
-        "email_sender_name",
-        "email_reply_to",
-        "site_base_url",
-        "logo_url",
-        "url_path_confirm",
-        "url_path_cancel",
-        "url_path_reschedule",
-        "url_path_contact_form",
-    ]
+    bridge = _bridge()
     if request.method == "POST":
-        for field_name in field_names:
-            setattr(settings_obj, field_name, request.POST.get(field_name, "").strip())
-        settings_obj.save()
-        messages.success(request, "Messaging settings saved.")
-        return redirect("cabinet:messaging_settings")
+        result = MessagingCabinetWorkflowService(bridge).save_settings(user=request.user, payload=request.POST)
+        if result.ok:
+            messages.success(request, result.message)
+            return redirect(result.target_url or "cabinet:messaging_settings")
+        messages.error(request, result.message)
 
-    return render(request, "cabinet/messaging/settings.html", {"email_settings": settings_obj})
+    state = bridge.get_settings_state(user=request.user)
+    return _render_messaging(
+        request,
+        "cabinet/messaging/pages/settings.html",
+        _presenter().settings_context(state),
+    )

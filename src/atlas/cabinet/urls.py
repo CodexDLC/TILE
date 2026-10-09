@@ -1,16 +1,23 @@
 from django.conf import settings
 from django.urls import include, path
+from features.content.views.editor import article_edit, article_list, article_preview
 
 from .views.analytics import AnalyticsReportsView, analytics_dashboard_view
 from .views.client import ClientHomeView
+from .views.resources import resource_edit_view
 from .views.site_settings import site_settings_tab_view, site_settings_view
 from .views.users import UserListView
 
 app_name = "cabinet"
 
 urlpatterns = [
+    path("articles/", article_list, name="article_list"),
+    path("articles/new/", article_edit, name="article_create"),
+    path("articles/<int:pk>/edit/", article_edit, name="article_edit"),
+    path("articles/<int:pk>/preview/", article_preview, name="article_preview"),
     path("site/settings/", site_settings_view, name="site_settings"),
     path("site/settings/<str:tab_slug>/", site_settings_tab_view, name="site_settings_tab"),
+    path("resources/<str:resource_key>/<str:pk>/edit/", resource_edit_view, name="resource_edit"),
     # Codex cabinet library: dashboard + generic routes
     path("", include("codex_django.cabinet.urls")),
     path("", include("cabinet.auth_urls")),

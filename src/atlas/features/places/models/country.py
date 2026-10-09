@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from system.models.mixins import SeoMixin, TimestampMixin
+from system.services.slugs import unique_slug
 
 
 class Country(TimestampMixin, SeoMixin):
@@ -24,3 +25,8 @@ class Country(TimestampMixin, SeoMixin):
 
     def __str__(self) -> str:
         return self.name
+
+    def save(self, *args, **kwargs) -> None:
+        if not self.slug:
+            self.slug = unique_slug(type(self), self.name, exclude_pk=self.pk, fallback="country")
+        super().save(*args, **kwargs)
