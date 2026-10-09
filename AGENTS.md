@@ -18,6 +18,7 @@ MVP 1: автор вручную создаёт, просматривает и �
 
 | Задача | Навык |
 | --- | --- |
+| Локальный запуск для автора, обновления и резервные копии | .agents/skills/atlas-local-operations/SKILL.md |
 | Определить область изменения/проверки | .agents/skills/atlas-change-triage/SKILL.md |
 | Модули, чтение/запись, модели, интеграции | .agents/skills/atlas-architecture/SKILL.md |
 | Статьи, языки, публикация, Page и блоки | .agents/skills/atlas-page-blocks/SKILL.md |
