@@ -1,3 +1,4 @@
+from cabinet.access import require_staff
 from codex_django.messaging.cabinet import MessagingCabinetPresenter, MessagingCabinetWorkflowService
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -33,6 +34,7 @@ def _render_messaging(
     template_name: str,
     context: dict[str, object] | None = None,
 ) -> HttpResponse:
+    request.cabinet_space = "staff"  # type: ignore[attr-defined]
     request.cabinet_module = "messaging"  # type: ignore[attr-defined]
     data = {
         "unread_messages_count": get_unread_count(),
@@ -43,6 +45,7 @@ def _render_messaging(
 
 @login_required
 def inbox_view(request: HttpRequest) -> HttpResponse:
+    require_staff(request.user)
     bridge = _bridge()
     state = bridge.get_mailbox_state(
         user=request.user,
@@ -54,6 +57,7 @@ def inbox_view(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def detail_view(request: HttpRequest, pk: int) -> HttpResponse:
+    require_staff(request.user)
     bridge = _bridge()
     MessagingCabinetWorkflowService(bridge).mark_read(user=request.user, thread_id=str(pk))
     state = bridge.get_mailbox_state(
@@ -67,6 +71,7 @@ def detail_view(request: HttpRequest, pk: int) -> HttpResponse:
 
 @login_required
 def thread_action_view(request: HttpRequest, pk: int, action: str) -> HttpResponse:
+    require_staff(request.user)
     if request.method != "POST":
         return redirect("cabinet:messaging_detail", pk=pk)
     result = MessagingCabinetWorkflowService(_bridge()).dispatch(
@@ -86,6 +91,7 @@ def thread_action_view(request: HttpRequest, pk: int, action: str) -> HttpRespon
 
 @login_required
 def campaigns_view(request: HttpRequest) -> HttpResponse:
+    require_staff(request.user)
     state = _bridge().get_campaign_list_state(
         user=request.user,
         status=request.GET.get("status", "all"),
@@ -101,6 +107,7 @@ def campaigns_view(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def recipients_view(request: HttpRequest) -> HttpResponse:
+    require_staff(request.user)
     state = _bridge().get_recipient_list_state(user=request.user, filters=request.GET)
     context = _with_table_search(request, _presenter().recipient_list_context(state), "recipients_table")
     return _render_messaging(
@@ -112,6 +119,7 @@ def recipients_view(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def delivery_log_view(request: HttpRequest) -> HttpResponse:
+    require_staff(request.user)
     state = _bridge().get_delivery_log_state(user=request.user, filters=request.GET)
     context = _with_table_search(request, _presenter().delivery_log_context(state), "delivery_log_table")
     return _render_messaging(
@@ -123,6 +131,7 @@ def delivery_log_view(request: HttpRequest) -> HttpResponse:
 
 @login_required
 def settings_view(request: HttpRequest) -> HttpResponse:
+    require_staff(request.user)
     bridge = _bridge()
     if request.method == "POST":
         result = MessagingCabinetWorkflowService(bridge).save_settings(user=request.user, payload=request.POST)

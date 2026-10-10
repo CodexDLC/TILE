@@ -11,6 +11,7 @@ from codex_django.cabinet import (
 from core.arq.client import arq_client
 from core.redis import redis_manager
 from django.conf import settings
+from django.core.exceptions import PermissionDenied
 from django.db import models
 
 from features.content.models import ContentSmartDraft, ContentSmartDraftEvent
@@ -30,6 +31,7 @@ class ContentSmartCreateHandler:
         base_language: str,
         target_languages: list[str] | tuple[str, ...],
     ) -> SmartCreateJobRef:
+        _require_enabled(resource)
         languages = list(target_languages) or _default_target_languages(base_language)
         stored_source_payload = _json_safe_payload(source_payload)
         draft = ContentSmartDraft.objects.create(
@@ -67,6 +69,7 @@ class ContentSmartCreateHandler:
         draft_id: str,
         user: Any,
     ) -> SmartCreateStatus:
+        _require_enabled(resource)
         draft = _get_user_draft(resource, draft_id, user)
         result_payload = _read_redis_json(_draft_result_key(draft_id))
         if result_payload:
@@ -95,6 +98,7 @@ class ContentSmartCreateHandler:
         user: Any,
         edited_payload: dict[str, Any],
     ) -> models.Model:
+        _require_enabled(resource)
         draft = _get_user_draft(resource, draft_id, user)
         result_payload = _read_redis_json(_draft_result_key(draft_id)) or draft.result_payload
         language_fields = _merge_edited_payload(result_payload.get("languages", []), edited_payload)
@@ -106,6 +110,11 @@ class ContentSmartCreateHandler:
         draft.mark_published(obj)
         ContentSmartDraftEvent.objects.create(draft=draft, status=draft.status, message="Draft published")
         return obj
+
+
+def _require_enabled(resource: CabinetResource) -> None:
+    if not resource.smart_create:
+        raise PermissionDenied("Automatic translation is disabled for this resource.")
 
 
 def _default_target_languages(base_language: str) -> list[str]:

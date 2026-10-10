@@ -600,19 +600,19 @@ msgstr "Главная"
 
 #: .\features\content\models\page.py:16
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 #: .\features\content\models\page.py:17
 msgid "Region"
-msgstr ""
+msgstr "Регион"
 
 #: .\features\content\models\page.py:19
 msgid "Place"
-msgstr ""
+msgstr "Место"
 
 #: .\features\content\models\page.py:20
 msgid "Story"
-msgstr ""
+msgstr "История"
 
 #: .\features\content\models\page.py:21
 msgid "Static"
@@ -2049,3 +2049,23 @@ msgstr "Навигация по страницам"
 #~ msgstr ""
 #~ "Политика конфиденциальности объяснит, как мы обрабатываем обращения, "
 #~ "аналитику, cookie и данные до запуска."
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open city"
+msgstr "Открыть город"
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open region"
+msgstr "Открыть регион"
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open country"
+msgstr "Открыть страну"
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open page"
+msgstr "Открыть страницу"

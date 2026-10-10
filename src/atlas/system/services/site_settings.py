@@ -1,18 +1,13 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 from codex_django.cabinet.services.site_settings import SiteSettingsService as LibrarySiteSettingsService
 
-if TYPE_CHECKING:
-    from django.http import HttpRequest
-
 
 class SiteSettingsService(LibrarySiteSettingsService):
-    @staticmethod
-    def save_context(request: HttpRequest) -> tuple[bool, str]:
-        return LibrarySiteSettingsService.save_context(request)  # type: ignore[no-any-return]
+    """TALE access policy; rendering and persistence belong to the library."""
 
-    @staticmethod
-    def get_context(request: HttpRequest) -> dict[str, Any]:
-        return LibrarySiteSettingsService.get_context(request)  # type: ignore[no-any-return]
+    @classmethod
+    def user_can_access(cls, user: Any) -> bool:
+        return bool(user.is_authenticated and user.is_active and (user.is_staff or user.is_superuser))

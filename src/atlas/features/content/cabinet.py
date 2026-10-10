@@ -97,7 +97,7 @@ cabinet_resource_registry.register(
                 "title",
                 label="Название",
                 role="title",
-                tooltip="Главный заголовок страницы. По нему автоматически создается URL и базовые тексты для переводов.",
+                tooltip="Главный заголовок страницы. По нему автоматически создается URL.",
             ),
             CabinetResourceField(
                 "intro",
@@ -125,7 +125,7 @@ cabinet_resource_registry.register(
         ],
         create_enabled=True,
         create_label="Создать страницу",
-        smart_create=True,
+        smart_create=False,
         smart_handler="features.content.services.smart_create.ContentSmartCreateHandler",
         base_language="ru",
         target_languages=("ru", "en", "de"),

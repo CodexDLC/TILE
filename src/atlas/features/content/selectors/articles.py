@@ -1,7 +1,7 @@
 """Read models shared by the author editor and public article pages."""
 
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import Case, IntegerField, Q, Value, When
 from django.shortcuts import get_object_or_404
 from django.utils.translation import get_language
 
@@ -51,6 +51,33 @@ def article_language(page, preferred=None):
         if body_source is None or raw_translation(body_source, body_field, code):
             return code
     return next((code for code in languages if raw_translation(page, "title", code)), "ru")
+
+
+def related_articles(page, language=None, limit=4):
+    """Offer same-city reading first, then other stories in the interface language."""
+    language = language or get_language()
+    candidates = (
+        articles()
+        .filter(is_published=True)
+        .exclude(pk=page.pk)
+        .exclude(**{f"title_{language}": ""})
+        .exclude(**{f"title_{language}__isnull": True})
+        .annotate(
+            reading_priority=Case(
+                When(parent_id=page.parent_id, then=Value(0)),
+                default=Value(1),
+                output_field=IntegerField(),
+            )
+        )
+        .order_by("reading_priority", "-published_at", "-pk")
+    )
+    selected = []
+    for candidate in candidates:
+        if article_language(candidate, preferred=language) == language:
+            selected.append(candidate)
+        if len(selected) == limit:
+            break
+    return selected
 
 
 def editor_initial(page, language):

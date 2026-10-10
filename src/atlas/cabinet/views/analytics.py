@@ -1,26 +1,30 @@
 from typing import Any
 
+from codex_django.cabinet import CabinetTemplateView, StaffRequiredMixin
 from codex_django.cabinet.views import dashboard_view
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.views.generic import TemplateView
 
+from ..access import require_staff
 from ..services.analytics import AnalyticsService
 
 
+@login_required
 def analytics_dashboard_view(request: Any) -> HttpResponse:
     """Wrapper for analytics dashboard to set active module."""
+    require_staff(request.user)
+    request.cabinet_space = "staff"
     request.cabinet_module = "analytics"
     return dashboard_view(request)
 
 
-class AnalyticsReportsView(TemplateView):
+class AnalyticsReportsView(StaffRequiredMixin, CabinetTemplateView):
     """Страница детальных отчетов."""
 
     template_name = "cabinet/analytics/reports.html"
 
-    def dispatch(self, request: Any, *args: Any, **kwargs: Any) -> Any:
-        request.cabinet_module = "analytics"
-        return super().dispatch(request, *args, **kwargs)
+    cabinet_space = "staff"
+    cabinet_module = "analytics"
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)

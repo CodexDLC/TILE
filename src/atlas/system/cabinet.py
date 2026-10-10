@@ -115,12 +115,6 @@ declare(
     space="client",
     sidebar=[
         SidebarItem(
-            label=str(_("My Appointments")),
-            url=reverse_lazy("cabinet:client_appointments"),
-            icon="bi-calendar2-check",
-            order=1,
-        ),
-        SidebarItem(
             label=str(_("My Corner")),
             url=reverse_lazy("cabinet:client_home"),
             icon="bi-person",

@@ -2,9 +2,9 @@
 <div class="story-grid">
 {% for item in cards %}<article class="story-card">
 {% article_cover item as image_url %}{% if image_url %}<a href="{{ item.absolute_path }}" tabindex="-1" aria-hidden="true"><img class="story-thumbnail" src="{{ image_url }}" alt="" loading="lazy"></a>{% endif %}
-<p class="section-label">{% if item.parent %}{{ item.parent.title }}{% else %}TALE{% endif %}</p>
+<p class="section-label">{% if item.page_type == 'city' %}{% trans "City" %}{% elif item.page_type == 'region' %}{% trans "Region" %}{% elif item.page_type == 'country' %}{% trans "Country" %}{% elif item.page_type == 'place' %}{% trans "Place" %}{% elif item.page_type == 'story' %}{% trans "Story" %}{% endif %}{% if item.parent %} · {{ item.parent.title }}{% endif %}</p>
 <h3><a href="{{ item.absolute_path }}">{{ item.title }}</a></h3>
 {% if item.intro %}<p>{{ item.intro|striptags|truncatewords:30 }}</p>{% endif %}
-<a class="story-more" href="{{ item.absolute_path }}">{% trans "Read the story" %} <span aria-hidden="true">→</span></a>
+<a class="story-more" href="{{ item.absolute_path }}">{% if item.page_type == 'city' %}{% trans "Open city" %}{% elif item.page_type == 'region' %}{% trans "Open region" %}{% elif item.page_type == 'country' %}{% trans "Open country" %}{% elif item.page_type == 'story' or item.page_type == 'place' %}{% trans "Read the story" %}{% else %}{% trans "Open page" %}{% endif %} <span aria-hidden="true">→</span></a>
 </article>{% endfor %}
 </div>

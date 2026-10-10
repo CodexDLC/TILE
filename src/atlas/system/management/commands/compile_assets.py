@@ -2,7 +2,7 @@ from pathlib import Path
 
 from django.apps import apps
 from django.conf import settings
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 
 
 class Command(BaseCommand):
@@ -32,7 +32,8 @@ class Command(BaseCommand):
             for config_path in sdir_path.rglob("compiler_config.json"):
                 compiled_any = True
                 self.stdout.write(f"  Compiling from: {config_path}")
-                compiler.compile_from_config(config_path)
+                if not compiler.compile_from_config(config_path):
+                    raise CommandError(f"Static asset compilation failed: {config_path}")
 
         if not compiled_any:
             self.stdout.write("  No compiler_config.json files found.")

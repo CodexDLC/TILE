@@ -2,7 +2,7 @@
 {% load block_tags i18n %}
 {% block page_content %}
 <header class="article-heading"><p class="section-label">{{ domain_object.region.country.name }} · {{ domain_object.region.name }}</p><h1>{{ page.title }}</h1><p class="article-lead">{{ page.intro }}</p><p>{% trans "Stories" %}: {{ city_articles|length }}</p></header>
+<section class="section"><div class="container"><h2>{% trans "Stories for your walk" %}</h2>{% if city_articles %}{% include "content/includes/article_cards.html" with cards=city_articles %}{% else %}<p>{% trans "Stories about this city are on their way." %}</p>{% endif %}</div></section>
 {% if domain_object.hero_image %}<figure class="article-cover"><img src="{{ domain_object.hero_image.url }}" alt="{{ page.title }}" fetchpriority="high"></figure>{% endif %}
 {% for slot in slots %}{% if slot.block_type != 'hero' %}{% render_block slot %}{% endif %}{% endfor %}
-<section class="section"><div class="container">{% if city_articles %}{% include "content/includes/article_cards.html" with cards=city_articles %}{% else %}<p>{% trans "Stories about this city are on their way." %}</p>{% endif %}</div></section>
 {% endblock %}

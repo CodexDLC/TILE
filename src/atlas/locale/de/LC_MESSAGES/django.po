@@ -600,19 +600,19 @@ msgstr "Startseite"
 
 #: .\features\content\models\page.py:16
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: .\features\content\models\page.py:17
 msgid "Region"
-msgstr ""
+msgstr "Region"
 
 #: .\features\content\models\page.py:19
 msgid "Place"
-msgstr ""
+msgstr "Ort"
 
 #: .\features\content\models\page.py:20
 msgid "Story"
-msgstr ""
+msgstr "Geschichte"
 
 #: .\features\content\models\page.py:21
 msgid "Static"
@@ -2057,3 +2057,23 @@ msgstr "Seitennavigation"
 #~ msgstr ""
 #~ "Unsere Datenschutzerklärung erläutert vor dem Start den Umgang mit "
 #~ "Anfragen, Analyse, Cookies und Daten."
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open city"
+msgstr "Stadt öffnen"
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open region"
+msgstr "Region öffnen"
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open country"
+msgstr "Land öffnen"
+
+
+#: templates/content/includes/article_cards.html
+msgid "Open page"
+msgstr "Seite öffnen"

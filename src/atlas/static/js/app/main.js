@@ -158,13 +158,98 @@
             return;
         }
 
-        const observer = new MutationObserver(() => {
-            const isOpen = menu.style.display !== "none" && !menu.hasAttribute("hidden");
-            document.body.classList.toggle("menu-open", isOpen);
+        const panel = menu.querySelector("[data-mobile-menu-panel]");
+        const closeButton = menu.querySelector("[data-mobile-menu-close]");
+        const opener = document.querySelector("[data-mobile-menu-opener]");
+        if (!panel || !closeButton || !opener) {
+            return;
+        }
+
+        let isOpen = false;
+        let returnFocus = null;
+        let bodyWasLocked = false;
+        const backgroundState = new Map();
+        const focusableElements = () => [...panel.querySelectorAll(
+            "a[href], button, input, select, textarea, [tabindex]"
+        )].filter((element) => !element.disabled && element.tabIndex >= 0 &&
+            !element.closest("[inert]") && element.getClientRects().length);
+
+        const lockBackground = () => {
+            [...document.body.children].forEach((element) => {
+                if (element === menu || backgroundState.has(element)) {
+                    return;
+                }
+                backgroundState.set(element, element.inert);
+                element.inert = true;
+            });
+        };
+
+        const syncState = () => {
+            const nextOpen = menu.style.display !== "none" && !menu.hasAttribute("hidden") &&
+                !menu.hasAttribute("x-cloak");
+            if (nextOpen === isOpen) {
+                return;
+            }
+            isOpen = nextOpen;
+            if (isOpen) {
+                returnFocus = opener;
+                bodyWasLocked = document.body.classList.contains("menu-open");
+                document.body.classList.add("menu-open");
+                (focusableElements()[0] || panel).focus({ preventScroll: true });
+                lockBackground();
+            } else {
+                backgroundState.forEach((wasInert, element) => { element.inert = wasInert; });
+                backgroundState.clear();
+                document.body.classList.toggle("menu-open", bodyWasLocked);
+                if (returnFocus && returnFocus.isConnected) {
+                    returnFocus.focus({ preventScroll: true });
+                }
+                returnFocus = null;
+            }
+        };
+
+        document.addEventListener("keydown", (event) => {
+            if (!isOpen) {
+                return;
+            }
+            if (event.key === "Escape") {
+                event.preventDefault();
+                closeButton.click();
+                return;
+            }
+            if (event.key !== "Tab") {
+                return;
+            }
+            const elements = focusableElements();
+            const first = elements[0] || panel;
+            const last = elements[elements.length - 1] || panel;
+            if (!elements.length || !panel.contains(document.activeElement) ||
+                (event.shiftKey && (document.activeElement === first || document.activeElement === panel)) ||
+                (!event.shiftKey && (document.activeElement === last || document.activeElement === panel))) {
+                event.preventDefault();
+                (event.shiftKey ? last : first).focus({ preventScroll: true });
+            }
+        }, true);
+
+        document.addEventListener("focusin", (event) => {
+            if (isOpen && !panel.contains(event.target)) {
+                (focusableElements()[0] || panel).focus({ preventScroll: true });
+            }
         });
 
-        observer.observe(menu, { attributes: true, attributeFilter: ["style", "hidden"] });
+        // Keep newly inserted UI (for example, consent prompts) outside the modal.
+        const backgroundObserver = new MutationObserver(() => {
+            if (isOpen) {
+                lockBackground();
+            }
+        });
+        backgroundObserver.observe(document.body, { childList: true });
+
+        const observer = new MutationObserver(syncState);
+
+        observer.observe(menu, { attributes: true, attributeFilter: ["style", "hidden", "x-cloak"] });
         menu.dataset.menuObserverBound = "true";
+        syncState();
     }
 
     function initHtmx() {

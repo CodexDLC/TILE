@@ -39,7 +39,7 @@
             <nav class="header-language" aria-label="{% trans 'Language' %}">
                 {% for language in language_switcher %}<a href="{{ language.url }}" lang="{{ language.code }}" {% if language.is_active %}aria-current="true"{% endif %}>{{ language.code|upper }}</a>{% endfor %}
             </nav>
-            <button class="burger-btn" @click="mobileMenuOpen = true" :aria-expanded="mobileMenuOpen.toString()" aria-controls="atlas-mobile-menu" aria-label="{% trans 'Open menu' %}">
+            <button class="burger-btn" type="button" data-mobile-menu-opener @click="mobileMenuOpen = true" :aria-expanded="mobileMenuOpen.toString()" aria-controls="atlas-mobile-menu" aria-label="{% trans 'Open menu' %}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -52,10 +52,10 @@
     <template x-teleport="body">
         <div id="atlas-mobile-menu" class="mobile-menu" x-show="mobileMenuOpen" x-cloak>
             <div class="mobile-menu-backdrop" @click="mobileMenuOpen = false" aria-hidden="true"></div>
-            <div class="mobile-menu-panel">
+            <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="{% trans 'Mobile navigation' %}" tabindex="-1" data-mobile-menu-panel>
                 <div class="mobile-menu-header">
                     <span class="logo-text">{{ public_brand }}</span>
-                    <button class="close-btn" @click="mobileMenuOpen = false" aria-label="{% trans 'Close menu' %}">
+                    <button class="close-btn" type="button" data-mobile-menu-close @click="mobileMenuOpen = false" aria-label="{% trans 'Close menu' %}">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>

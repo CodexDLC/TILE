@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "skill": "codex-services",
+  "package_version": "0.1.4",
+  "files": {
+    "SKILL.md": "25bdfb00d9178de839ae58f00e6a419059be3f6b561ca85153c7a04a38c82262",
+    "references/booking.md": "ee6689c0a0748205561faa6553d99d3d233508c35d42cc7822f580e450c5daf7",
+    "references/calendar.md": "405c5ce887263b11d490d6dd41dbb9e4e1ebaf982a1db1656bf1f859af060c32",
+    "references/slot-windows.md": "3b32b9538c11bcb679199413870bf9858bca1828a47effd1f572b0a57c386c37"
+  },
+  "agents_created": false
+}

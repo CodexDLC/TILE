@@ -1,18 +1,16 @@
 from typing import Any
 
+from codex_django.cabinet import CabinetTemplateView
 from django.contrib import messages
-from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from cabinet.services.client import ClientService
 
 
-class ClientHomeView(TemplateView):
+class ClientHomeView(LoginRequiredMixin, CabinetTemplateView):
     template_name = "cabinet/client/corner.html"
-
-    def dispatch(self, request: Any, *args: Any, **kwargs: Any) -> Any:
-        request.cabinet_space = "client"
-        request.cabinet_module = "client"
-        return super().dispatch(request, *args, **kwargs)
+    cabinet_space = "client"
+    cabinet_module = "client"
 
     def post(self, request: Any, *args: Any, **kwargs: Any) -> Any:
         success, message = ClientService.save_corner_profile(request)

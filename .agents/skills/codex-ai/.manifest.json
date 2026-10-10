@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "skill": "codex-ai",
+  "package_version": "0.2.6",
+  "files": {
+    "SKILL.md": "54faf5654e8973e200da99a6b3c9fd3650e94c2a61851d34673f70d0836a872a",
+    "references/installation.md": "81a79bc8e27b3cbcc23e8490f3085759e4e1a7fcf306edd193c172b25434d97f",
+    "references/legacy-router.md": "44fe6ad76eba0a9afa3db21a8e821b821321e9067875357ea68dd4b665053bad",
+    "references/providers.md": "13358fcdb22f1cb777df1e6e8cb52860fe0c5b01453032c82b2a9af1fc862b71"
+  },
+  "agents_created": false
+}

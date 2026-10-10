@@ -59,23 +59,21 @@ def get_page_context(page: Page) -> dict[str, Any]:
         "domain_object": domain_object,
     }
     if page.page_type in (Page.PageType.STORY, Page.PageType.PLACE):
-        from .articles import article_language, article_parts, articles, raw_translation
+        from .articles import article_language, article_parts, raw_translation, related_articles
 
         parts = article_parts(page)
         context.update(parts)
         context["article_language"] = article_language(page)
         context["article_title"] = raw_translation(page, "title", context["article_language"])
         context["article_intro"] = raw_translation(page, "intro", context["article_language"])
-        context["article_meta_title"] = (
-            raw_translation(page, "seo_title", context["article_language"])
-            or raw_translation(page, "title", context["article_language"])
-        )
-        context["article_meta_description"] = (
-            raw_translation(page, "seo_description", context["article_language"])
-            or raw_translation(page, "intro", context["article_language"])
-        )
+        context["article_meta_title"] = raw_translation(
+            page, "seo_title", context["article_language"]
+        ) or raw_translation(page, "title", context["article_language"])
+        context["article_meta_description"] = raw_translation(
+            page, "seo_description", context["article_language"]
+        ) or raw_translation(page, "intro", context["article_language"])
         context["article_extra_slots"] = [slot for slot in slots if slot.block_type != "hero"]
-        context["related_articles"] = articles().filter(is_published=True, parent=page.parent).exclude(pk=page.pk)[:4]
+        context["related_articles"] = related_articles(page)
     if page.page_type == Page.PageType.CITY:
         context["city_articles"] = Page.objects.filter(
             parent=page, is_published=True, page_type__in=("story", "place")
