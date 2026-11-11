@@ -20,6 +20,7 @@ def _redirect_to_search(request):
 
 class SearchView(TemplateView):
     template_name = "places/search.html"
+    articles_only = False
 
     def get_context_data(self, **kwargs):
         from django.core.paginator import Paginator
@@ -29,6 +30,9 @@ class SearchView(TemplateView):
         context = super().get_context_data(**kwargs)
         query = self.request.GET.get("q", "").strip()[:200]
         context["query"] = query
-        context["results"] = Paginator(search_pages(query), 18).get_page(self.request.GET.get("page"))
+        context["articles_only"] = self.articles_only
+        context["results"] = Paginator(search_pages(query, articles_only=self.articles_only), 18).get_page(
+            self.request.GET.get("page")
+        )
         return context
 

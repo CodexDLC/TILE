@@ -2077,3 +2077,153 @@ msgstr "Land öffnen"
 #: templates/content/includes/article_cards.html
 msgid "Open page"
 msgstr "Seite öffnen"
+
+#: templates/content/page_home.html
+msgid "A library of cities"
+msgstr "Eine Bibliothek der Städte"
+
+#: templates/content/page_home.html
+msgid "Every city is"
+msgstr "Jede Stadt ist"
+
+#: templates/content/page_home.html
+msgid "a book of stories."
+msgstr "ein Buch voller Geschichten."
+
+#: templates/content/page_home.html
+msgid "Choose a book. Step into a city. Discover the stories within."
+msgstr "Wählen Sie ein Buch. Entdecken Sie eine Stadt und ihre Geschichten."
+
+#: templates/content/page_home.html
+msgid "Find a city"
+msgstr "Stadt finden"
+
+#: templates/content/page_home.html
+msgid "Which city will you open?"
+msgstr "Welche Stadt schlagen wir auf?"
+
+#: templates/content/page_home.html
+msgid "City name"
+msgstr "Name der Stadt"
+
+#: templates/content/page_home.html
+msgid "Shelves by region"
+msgstr "Regale nach Region"
+
+#: templates/content/page_home.html
+msgid "All regions"
+msgstr "Alle Regionen"
+
+#: templates/content/page_home.html
+msgid "Or choose a book from the shelf"
+msgstr "Oder wählen Sie ein Buch aus dem Regal"
+
+#: templates/content/page_home.html
+msgid "Search all stories"
+msgstr "Alle Geschichten durchsuchen"
+
+#: templates/content/page_home.html
+msgid "Places, people, little discoveries"
+msgstr "Orte, Menschen, kleine Entdeckungen"
+
+#: templates/content/page_home.html
+msgid "The city library"
+msgstr "Die Städtebibliothek"
+
+#: templates/content/page_home.html
+msgid "Reset filters"
+msgstr "Filter zurücksetzen"
+
+#: templates/content/page_home.html
+msgid "No cities found"
+msgstr "Keine Städte gefunden"
+
+#: templates/content/page_home.html
+msgid "Try another city name or choose all regions."
+msgstr "Versuchen Sie einen anderen Stadtnamen oder wählen Sie alle Regionen."
+
+#: templates/content/page_home.html
+msgid "The first books are on their way"
+msgstr "Die ersten Bücher sind unterwegs"
+
+#: templates/content/page_home.html
+msgid "Published cities will appear on these shelves."
+msgstr "Hier erscheinen Städte mit veröffentlichten Seiten."
+
+#: templates/content/page_home.html
+msgid "City catalogue pages"
+msgstr "Seiten des Städtekatalogs"
+
+#: templates/content/page_home.html
+msgid "Previous"
+msgstr "Zurück"
+
+#: templates/content/page_home.html
+msgid "Page %(current)s of %(total)s"
+msgstr "Seite %(current)s von %(total)s"
+
+#: templates/content/page_home.html
+msgid "A city becomes a book. A story brings it to life."
+msgstr "Eine Stadt wird zum Buch. Eine Geschichte erweckt sie zum Leben."
+
+#: templates/content/includes/city_book.html
+msgid "story"
+msgid_plural "stories"
+msgstr[0] "Geschichte"
+msgstr[1] "Geschichten"
+
+#: templates/content/page_home.html
+msgid "A city's history is like a book"
+msgstr "Die Geschichte einer Stadt ist wie ein Buch,"
+
+#: templates/content/page_home.html
+msgid "written by time"
+msgstr "das die Zeit schreibt"
+
+#: templates/content/page_home.html
+msgid "Come along! I'll show you a story."
+msgstr "Komm mit! Ich zeige dir eine Geschichte."
+
+#: templates/content/page_home.html
+msgid "Library of German Cities"
+msgstr "Bibliothek deutscher Städte"
+
+#: templates/content/page_home.html
+msgid "written by time."
+msgstr "das die Zeit schreibt."
+
+#: templates/content/page_home.html
+msgid "Enter the city name"
+msgstr "Stadtnamen eingeben"
+
+#: templates/content/page_home.html
+msgid "Choose a region"
+msgstr "Region auswählen"
+
+#: templates/content/project_concept.html
+msgid "About the project"
+msgstr "Über das Projekt"
+
+#: templates/content/project_concept.html
+msgid "T.A.L.E. is a library of cities and the stories that bring them to life."
+msgstr "T.A.L.E. ist eine Bibliothek der Städte und der Geschichten, die sie lebendig machen."
+
+#: templates/content/project_concept.html
+msgid "Each book is a city. Its stories take you to particular streets, squares and buildings and introduce you to the people connected with them."
+msgstr "Jedes Buch ist eine Stadt. Seine Geschichten führen zu Straßen, Plätzen und Gebäuden und erzählen von den Menschen, die mit diesen Orten verbunden sind."
+
+#: templates/content/project_concept.html
+msgid "Find a city you know or pick a book from the shelf and see where its stories take you."
+msgstr "Finden Sie eine vertraute Stadt oder greifen Sie zu einem Buch und entdecken Sie, wohin seine Geschichten führen."
+
+#: templates/content/project_concept.html
+msgid "Back to the library"
+msgstr "Zurück zur Bibliothek"
+
+#: templates/content/includes/library_in_progress.html
+msgid "Dessau"
+msgstr "Dessau"
+
+#: templates/content/includes/library_in_progress.html
+msgid "In the works"
+msgstr "Entsteht gerade"

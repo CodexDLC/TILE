@@ -1,0 +1,19 @@
+{% load i18n static %}
+<li class="city-book-slot city-book-slot-{{ book.size }}">
+  <a class="city-book city-book-{{ book.size }} city-book-{{ book.tone }}{% if book.cover_art %} city-book-illustrated city-book-cover-{{ book.cover_key }}{% endif %}" href="{{ book.city.page.absolute_path }}">
+    <span class="city-book-surface">
+    {% if book.cover_art %}<span class="city-book-art-shell" aria-hidden="true"><img class="city-book-cover-art" src="{% static book.cover_art %}" alt="" loading="lazy"></span>{% endif %}
+    <span class="city-book-ornament" aria-hidden="true">❧</span>
+    {% if book.size != 'slim' and not book.cover_art %}<span class="city-book-relief city-book-relief-{{ book.relief_kind }}" aria-hidden="true">
+      {% if book.relief %}<img class="city-book-relief-art" src="{% static book.relief %}" alt="" loading="lazy" width="853" height="1280">
+      {% elif book.city.hero_image %}<img class="city-book-photo" src="{{ book.city.hero_image.url }}" alt="" loading="lazy">
+      {% else %}<span class="city-book-monogram">{{ book.city.name|first }}</span>{% endif %}
+    </span>{% endif %}
+    <span class="city-book-label">
+    <span class="city-book-title">{{ book.city.name }}</span>
+    <span class="city-book-count"><strong>{{ book.article_count }}</strong> <span>{% blocktrans count counter=book.article_count %}story{% plural %}stories{% endblocktrans %}</span></span>
+    </span>
+    <span class="city-book-foot" aria-hidden="true">✦</span>
+    </span>
+  </a>
+</li>

@@ -1,13 +1,76 @@
 {% extends "content/page_base.html" %}
-{% load i18n %}
-{% block body_class %}page page-home{% endblock %}
+{% load i18n static %}
+{% block app_css_revision %}?v=20261109-spine-contact{% endblock %}
+{% block body_class %}page page-home page-library{% endblock %}
 {% block page_content %}
-<section class="atlas-intro"><div class="container">
-<p class="section-label">TALE · {% trans "Places and stories" %}</p>
-<h1>{% blocktrans %}Every place<br>has a story.{% endblocktrans %}</h1>
-<p class="article-lead">{% trans "Discover cities through their stories, details and people. Choose a place and see it with fresh eyes." %}</p>
-{% include "content/includes/search_form.html" %}
-</div></section>
-{% if home_cities %}<section class="section section-paper" id="cities"><div class="container"><h2>{% trans "Start with a city" %}</h2><div class="story-grid">{% for city in home_cities %}<article class="story-card">{% if city.hero_image %}<img class="story-thumbnail" src="{{ city.hero_image.url }}" alt="{{ city.name }}" loading="lazy">{% endif %}<p class="section-label">{{ city.region.country.name }}</p><h3><a href="{{ city.page.absolute_path }}">{{ city.name }}</a></h3><p>{{ city.intro|striptags|truncatewords:25 }}</p></article>{% endfor %}</div></div></section>{% endif %}
-{% if home_articles %}<section class="section"><div class="container"><div class="section-head"><h2>{% trans "Stories for your walk" %}</h2><a href="{% url 'places-search' %}">{% trans "All stories" %} →</a></div>{% include "content/includes/article_cards.html" with cards=home_articles %}</div></section>{% else %}<section class="section"><div class="container"><p>{% trans "Our first stories are on their way." %}</p></div></section>{% endif %}
+<div class="library-room"><div class="library-furniture">
+<section class="library-intro">
+  <h1 class="library-plaque library-rack-title" id="library-heading">{% if library_is_german %}{% trans "Library of German Cities" %}{% else %}{% trans "The city library" %}{% endif %}</h1>
+  <div class="container">
+    <div class="library-folio">
+      <a class="library-folio-link" href="{% url 'project-concept' %}" title="{% trans 'About the project' %}">
+        <span class="sr-only">{% trans "About the project" %}</span>
+        {% include "content/includes/library_folio.html" %}
+      </a>
+    </div>
+    <form class="library-search" action="{% url 'home' %}#cities" method="get" role="search" aria-label="{% trans 'Find a city' %}">
+      {% include "content/includes/library_chest.html" %}
+      <div class="library-search-paper">
+      <div class="library-field library-field-city">
+        <label class="sr-only" for="library-city">{% trans "Enter the city name" %}</label>
+        <input id="library-city" type="search" name="city" value="{{ library_query }}" maxlength="120" placeholder="{% trans 'Enter the city name' %}" autocomplete="off">
+      </div>
+      <div class="library-field">
+        <label class="sr-only" for="library-region">{% trans "Choose a region" %}</label>
+        <select id="library-region" name="region">
+          <option value="">{% trans "Choose a region" %}</option>
+          {% for region in library_regions %}<option value="{{ region.pk }}" {% if library_region == region.pk %}selected{% endif %}>{{ region.name }} · {{ region.country.name }}</option>{% endfor %}
+        </select>
+      </div>
+      {% get_current_language as library_language %}
+      <button class="library-submit" type="submit">
+        {% if library_language == 'ru' %}
+          <span class="sr-only">{% trans "Find a city" %}</span>
+          <svg class="library-submit-art" viewBox="491 342 234 57" width="234" height="57" aria-hidden="true" focusable="false"><use href="#library-chest-photo"/></svg>
+        {% else %}{% trans "Find a city" %} ↗{% endif %}
+      </button>
+      {% if library_filtered %}<a class="library-search-reset" href="{% url 'home' %}#cities">{% trans "Reset filters" %} ↗</a>{% endif %}
+      </div>
+    </form>
+  </div>
+</section>
+<section class="library-catalogue" id="cities" aria-labelledby="library-heading">
+  <div class="container">
+    <div class="library-cabinet">
+    {% for shelf in library_shelves %}
+      <section class="city-shelf" aria-labelledby="shelf-{{ shelf.region.pk }}">
+        <div class="city-shelf-heading"><h2 class="library-plaque" id="shelf-{{ shelf.region.pk }}">{{ shelf.region.name }}</h2></div>
+        {% for row in shelf.rows %}<ul class="city-shelf-books" role="list">
+          {% for book in row %}{% include "content/includes/city_book.html" %}{% endfor %}
+          {% if library_in_progress and forloop.last and forloop.parentloop.last %}
+            {% include "content/includes/library_in_progress.html" %}
+          {% endif %}
+        </ul>
+        {% endfor %}
+      </section>
+    {% empty %}
+      <div class="library-empty"><span class="library-empty-ornament" aria-hidden="true">❧</span>
+      {% if library_filtered %}<h3>{% trans "No cities found" %}</h3><p>{% trans "Try another city name or choose all regions." %}</p><a href="{% url 'home' %}#cities">{% trans "Reset filters" %} →</a>
+      {% else %}<h3>{% trans "The first books are on their way" %}</h3><p>{% trans "Published cities will appear on these shelves." %}</p>{% endif %}</div>
+      {% if library_in_progress %}<ul class="city-shelf-books" role="list">{% include "content/includes/library_in_progress.html" %}</ul>{% endif %}
+    {% endfor %}
+    </div>
+    {% if library_page.has_other_pages %}<nav class="library-pagination" aria-label="{% trans 'City catalogue pages' %}">
+      {% if library_previous %}<a href="?{{ library_previous }}#cities">← {% trans "Previous" %}</a>{% endif %}
+      <span>{% blocktrans with current=library_page.number total=library_page.paginator.num_pages %}Page {{ current }} of {{ total }}{% endblocktrans %}</span>
+      {% if library_next %}<a href="?{{ library_next }}#cities">{% trans "Next" %} →</a>{% endif %}
+    </nav>{% endif %}
+    <p class="library-colophon">{% trans "A city becomes a book. A story brings it to life." %}</p>
+  </div>
+</section>
+</div></div>
+{% if home_articles %}<section class="section library-stories"><div class="container"><div class="section-head"><h2>{% trans "Stories for your walk" %}</h2><a href="{% url 'places-stories' %}">{% trans "All stories" %} →</a></div>{% include "content/includes/article_cards.html" with cards=home_articles %}</div></section>{% endif %}
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/app/library-shadows.js' %}" defer></script>
 {% endblock %}

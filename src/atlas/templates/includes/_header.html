@@ -1,38 +1,29 @@
 {% load static %}
 {% load i18n %}
 
-<header class="header" x-data="{ countriesOpen: false, mobileMenuOpen: false }" @keydown.escape.window="countriesOpen = false; mobileMenuOpen = false">
+{% trans "Country" as country_label %}
+{% trans "Region" as region_label %}
+<header class="header" x-data="{ mobileMenuOpen: false }" @keydown.escape.window="mobileMenuOpen = false">
     <div class="header-inner">
-        <a href="{% url 'home' %}" class="logo-link" aria-label="{{ public_brand }}">
+        <a href="{% url 'home' %}" class="logo-link">
             <span class="logo-mark" aria-hidden="true"></span>
-            <span class="logo-text">{{ public_brand }}</span>
+            <span class="logo-wordmark"><span class="logo-text">T.A.L.E.</span><span class="logo-subtitle" lang="en">{{ public_brand_full }}</span></span>
         </a>
 
         <nav class="nav-desktop" aria-label="{% trans 'Primary navigation' %}">
             <a href="{% url 'home' %}" class="nav-link {% if nav_is_home %}active{% endif %}">{% trans "Home" %}</a>
-            {% if nav_countries %}
-                <div class="nav-dropdown" @click.outside="countriesOpen = false">
-                    <button class="nav-link nav-dropdown-toggle{% if nav_active_country %} active{% endif %}" type="button" @click="countriesOpen = !countriesOpen" :aria-expanded="countriesOpen.toString()" aria-controls="countries-menu">
-                        {% trans "Countries" %}
-                        <span aria-hidden="true">⌄</span>
-                    </button>
-                    <div id="countries-menu" class="nav-dropdown-menu" x-show="countriesOpen" x-transition x-cloak>
-                        {% for country in nav_countries %}
-                            <a href="{{ country.page.absolute_path }}" class="nav-dropdown-link{% if request.path == country.page.absolute_path %} active{% endif %}" @click="countriesOpen = false">
-                                {{ country.name }}
-                            </a>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endif %}
-            {% if nav_regions_country %}
-                <a href="{{ nav_regions_country.page.absolute_path }}#regions" class="nav-link">{% trans "Regions" %}</a>
-            {% endif %}
-            <a href="{% url 'places-search' %}" class="nav-link {% if nav_is_stories %}active{% endif %}">{% trans "Stories" %}</a>
+            {% include "includes/_geography_dropdown.html" with entries=nav_countries label=country_label %}
+            {% include "includes/_geography_dropdown.html" with entries=nav_regions label=region_label %}
+            <a href="{% url 'places-stories' %}" class="nav-link {% if nav_is_stories %}active{% endif %}">{% trans "Stories" %}</a>
             <a href="{% url 'contacts' %}" class="nav-link {% if nav_is_contacts %}active{% endif %}">{% trans "Contacts" %}</a>
         </nav>
 
         <div class="header-actions">
+            <a class="header-icon-link header-project-link" href="{% url 'project-concept' %}" aria-label="{% trans 'About the project' %}" title="{% trans 'About the project' %}">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                    <path d="M12 6.5C9 4.5 6 4.5 3 5.5v13c3-1 6-1 9 1 3-2 6-2 9-1v-13c-3-1-6-1-9 1v13"/>
+                </svg>
+            </a>
             <a class="header-icon-link" href="{% url 'places-search' %}" aria-label="{% trans 'Search' %}">
                 <span aria-hidden="true">⌕</span>
             </a>
@@ -54,7 +45,7 @@
             <div class="mobile-menu-backdrop" @click="mobileMenuOpen = false" aria-hidden="true"></div>
             <div class="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="{% trans 'Mobile navigation' %}" tabindex="-1" data-mobile-menu-panel>
                 <div class="mobile-menu-header">
-                    <span class="logo-text">{{ public_brand }}</span>
+                    <span class="logo-wordmark"><span class="logo-text">T.A.L.E.</span><span class="logo-subtitle" lang="en">{{ public_brand_full }}</span></span>
                     <button class="close-btn" type="button" data-mobile-menu-close @click="mobileMenuOpen = false" aria-label="{% trans 'Close menu' %}">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -62,13 +53,9 @@
 
                 <nav class="mobile-nav" aria-label="{% trans 'Mobile navigation' %}">
                     <a href="{% url 'home' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Home" %}</a>
-                    {% for country in nav_countries %}
-                        <a href="{{ country.page.absolute_path }}" class="mobile-nav-link" @click="mobileMenuOpen = false">{{ country.name }}</a>
-                    {% endfor %}
-                    {% if nav_regions_country %}
-                        <a href="{{ nav_regions_country.page.absolute_path }}#regions" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Regions" %}</a>
-                    {% endif %}
-                    <a href="{% url 'places-search' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Stories" %}</a>
+                    {% include "includes/_geography_dropdown.html" with entries=nav_countries label=country_label %}
+                    {% include "includes/_geography_dropdown.html" with entries=nav_regions label=region_label %}
+                    <a href="{% url 'places-stories' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Stories" %}</a>
                     <a href="{% url 'contacts' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Contacts" %}</a>
                 </nav>
 

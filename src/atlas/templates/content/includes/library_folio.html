@@ -1,0 +1,29 @@
+{% load static %}
+<svg class="library-folio-cover" viewBox="175 323 770 975" width="770" height="975" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="folio-foot-shadow" x="-60%" y="-200%" width="240%" height="500%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="folio-cast-shadow" x="-30%" y="-150%" width="160%" height="400%">
+      <feGaussianBlur stdDeviation="11"/>
+    </filter>
+    <filter id="folio-foot-contact" x="-35%" y="-150%" width="170%" height="400%">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+  </defs>
+  <g fill="#211108" filter="url(#folio-cast-shadow)">
+    <path d="M266 1175 Q307 1156 391 1143 L761 1109 Q840 1102 902 1124 Q929 1141 891 1155 L548 1230 Q477 1246 420 1224 L278 1195Z" opacity=".65"/>
+    <ellipse cx="519" cy="1279" rx="67" ry="12" opacity=".64"/>
+    <ellipse cx="906" cy="1216" rx="42" ry="10" opacity=".62"/>
+  </g>
+  <g fill="#1a0b05" filter="url(#folio-foot-shadow)">
+    <ellipse cx="282" cy="1185" rx="26" ry="6" opacity=".86"/>
+    <ellipse cx="480" cy="1280" rx="39" ry="7" opacity=".9"/>
+    <ellipse cx="889" cy="1219" rx="34" ry="6" opacity=".89"/>
+  </g>
+  <g fill="#140702" filter="url(#folio-foot-contact)">
+    <ellipse cx="459" cy="1280" rx="28" ry="5" opacity=".96"/>
+    <ellipse cx="873" cy="1219" rx="24" ry="5" opacity=".96"/>
+  </g>
+  <image href="{% static 'images/library/folio-brass-stand.png' %}" width="1024" height="1536"/>
+</svg>

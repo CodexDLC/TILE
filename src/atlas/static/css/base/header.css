@@ -45,6 +45,21 @@
     color: var(--bronze);
 }
 
+.logo-wordmark {
+    display: grid;
+    gap: 2px;
+    padding-block: 6px;
+}
+
+.logo-wordmark .logo-text {
+    line-height: 1;
+}
+
+.logo-subtitle {
+    color: var(--ink-soft);
+    font: italic 600 .95rem/1.05 "TALE Cormorant", Georgia, serif;
+}
+
 .logo-img {
     max-height: 2.5rem;
     width: auto;
@@ -80,7 +95,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--sp-8);
+    gap: clamp(.9rem, 2vw, 2rem);
 }
 
 .nav-link {
@@ -127,8 +142,10 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    font: inherit;
+    list-style: none;
 }
+
+.nav-dropdown-toggle::-webkit-details-marker { display: none; }
 
 .nav-dropdown-menu {
     position: absolute;
@@ -137,6 +154,8 @@
     z-index: 100;
     display: grid;
     min-width: 12rem;
+    max-height: min(60vh, 24rem);
+    overflow-y: auto;
     padding: var(--sp-3);
     border: 1px solid var(--line);
     border-radius: 8px;
@@ -153,7 +172,7 @@
     font-weight: var(--fw-medium);
     letter-spacing: var(--ls-nav);
     text-transform: uppercase;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
 }
 
 .nav-dropdown-link:hover,
@@ -183,6 +202,13 @@
 .header-icon-link:hover {
     border-color: var(--bronze);
     color: var(--bronze);
+}
+
+.header-project-link { display: none; }
+
+@media (max-width: 600px) {
+    .header-project-link { display: inline-grid; }
+    .header-actions { flex-shrink: 0; }
 }
 
 .burger-btn,
@@ -229,6 +255,7 @@
     gap: var(--sp-8);
     width: min(100%, 24rem);
     height: 100%;
+    overflow-y: auto;
     padding: var(--sp-8);
     background: linear-gradient(180deg, rgba(250, 246, 236, 0.98), rgba(239, 231, 213, 0.98));
     border-left: 1px solid var(--line);
@@ -255,13 +282,30 @@
     color: var(--ink);
 }
 
+.mobile-nav .nav-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    padding-block: var(--sp-4);
+    border-bottom: 1px solid var(--line-soft);
+    font: 1.5rem var(--font-serif);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.mobile-nav .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    min-width: 0;
+    margin-top: var(--sp-2);
+}
+
 .mobile-menu-meta {
     margin-top: auto;
     display: grid;
     gap: var(--sp-5);
 }
 
-@media (max-width: 56rem) {
+@media (max-width: 64rem) {
     .nav-desktop {
         display: none;
     }
@@ -269,4 +313,13 @@
     .burger-btn {
         display: inline-flex;
     }
+}
+
+@media (max-width: 30rem) {
+    .header-inner { gap: .65rem; }
+    .logo-link { gap: .4rem; }
+    .logo-mark { flex: 0 0 auto; }
+    .logo-subtitle { font-size: .78rem; }
+    .header-actions { gap: .45rem; }
+    .header-actions .header-icon-link { width: 1.85rem; height: 1.85rem; }
 }

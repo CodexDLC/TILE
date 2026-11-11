@@ -4,7 +4,7 @@ from django.conf import settings
 from django.http import HttpRequest
 from django.urls import translate_url
 from django.utils.translation import get_language
-from features.places.models import Country
+from features.places.models import Country, Region
 
 from .models import EmailSettings, SiteSettings
 
@@ -24,11 +24,11 @@ def site_context(request: HttpRequest) -> dict[str, Any]:
         "LANGUAGES": settings.LANGUAGES,
         "language_switcher": _get_language_switcher(request),
         "nav_is_home": request.resolver_match and request.resolver_match.url_name == "home",
-        "nav_is_stories": request.resolver_match and request.resolver_match.url_name == "places-search",
+        "nav_is_stories": request.resolver_match and request.resolver_match.url_name in ("places-search", "places-stories"),
         "nav_is_contacts": request.resolver_match and request.resolver_match.url_name == "contacts",
         "nav_active_country": active_country,
         "nav_countries": countries,
-        "nav_regions_country": active_country,
+        "nav_regions": Region.objects.filter(page__is_published=True).select_related("page").order_by("name", "pk"),
         "site_settings": SiteSettings.load(),
     }
 

@@ -3,9 +3,41 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from features.content.models import Page, PageBlockSlot, RichTextBlock
+from features.places.models import Country, Region
 
 
 class LanguageNavigationTests(TestCase):
+    def test_header_links_to_published_countries_and_regions(self):
+        Page.objects.create(page_type="home", slug="", title_en="Home", is_published=True)
+        country_page = Page.objects.create(page_type="country", slug="germany", title_en="Germany", is_published=True)
+        country = Country.objects.create(page=country_page, slug="germany", name_en="Germany")
+        for slug, published in (("public-region", True), ("draft-region", False)):
+            region_page = Page.objects.create(
+                parent=country_page, page_type="region", slug=slug, title_en=slug, is_published=published
+            )
+            Region.objects.create(country=country, page=region_page, slug=slug, name_en=slug)
+
+        response = self.client.get("/de/")
+
+        self.assertContains(response, 'href="/de/germany/"')
+        self.assertContains(response, 'href="/de/germany/public-region/"')
+        self.assertNotContains(response, 'href="/de/germany/draft-region/"')
+        self.assertContains(response, 'href="/de/places/stories/"')
+
+    def test_story_index_sorts_displayed_titles_before_pagination(self):
+        city = Page.objects.create(page_type="city", slug="city", title_ru="Город", is_published=True)
+        late = Page.objects.create(page_type="story", slug="last", title_ru="Янтарь", is_published=True)
+        early = Page.objects.create(
+            parent=city, page_type="place", slug="first", title_ru="аббатство", is_published=True
+        )
+        Page.objects.create(page_type="story", slug="draft", title_ru="Архив")
+
+        stories = self.client.get("/ru/places/stories/")
+        search = self.client.get("/ru/places/search/")
+
+        self.assertEqual(list(stories.context["results"]), [early, late])
+        self.assertIn(city, search.context["results"])
+
     def test_search_language_links_preserve_query_and_pagination(self):
         response = self.client.get("/de/places/search/?q=alps&page=2")
 

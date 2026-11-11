@@ -2022,3 +2022,153 @@ msgstr "No results. Try another city or place name."
 #: .\templates\places\search.html:9
 msgid "Pagination"
 msgstr "Pagination"
+
+#: templates/content/page_home.html
+msgid "A library of cities"
+msgstr "A library of cities"
+
+#: templates/content/page_home.html
+msgid "Every city is"
+msgstr "Every city is"
+
+#: templates/content/page_home.html
+msgid "a book of stories."
+msgstr "a book of stories."
+
+#: templates/content/page_home.html
+msgid "Choose a book. Step into a city. Discover the stories within."
+msgstr "Choose a book. Step into a city. Discover the stories within."
+
+#: templates/content/page_home.html
+msgid "Find a city"
+msgstr "Find a city"
+
+#: templates/content/page_home.html
+msgid "Which city will you open?"
+msgstr "Which city will you open?"
+
+#: templates/content/page_home.html
+msgid "City name"
+msgstr "City name"
+
+#: templates/content/page_home.html
+msgid "Shelves by region"
+msgstr "Shelves by region"
+
+#: templates/content/page_home.html
+msgid "All regions"
+msgstr "All regions"
+
+#: templates/content/page_home.html
+msgid "Or choose a book from the shelf"
+msgstr "Or choose a book from the shelf"
+
+#: templates/content/page_home.html
+msgid "Search all stories"
+msgstr "Search all stories"
+
+#: templates/content/page_home.html
+msgid "Places, people, little discoveries"
+msgstr "Places, people, little discoveries"
+
+#: templates/content/page_home.html
+msgid "The city library"
+msgstr "The city library"
+
+#: templates/content/page_home.html
+msgid "Reset filters"
+msgstr "Reset filters"
+
+#: templates/content/page_home.html
+msgid "No cities found"
+msgstr "No cities found"
+
+#: templates/content/page_home.html
+msgid "Try another city name or choose all regions."
+msgstr "Try another city name or choose all regions."
+
+#: templates/content/page_home.html
+msgid "The first books are on their way"
+msgstr "The first books are on their way"
+
+#: templates/content/page_home.html
+msgid "Published cities will appear on these shelves."
+msgstr "Published cities will appear on these shelves."
+
+#: templates/content/page_home.html
+msgid "City catalogue pages"
+msgstr "City catalogue pages"
+
+#: templates/content/page_home.html
+msgid "Previous"
+msgstr "Previous"
+
+#: templates/content/page_home.html
+msgid "Page %(current)s of %(total)s"
+msgstr "Page %(current)s of %(total)s"
+
+#: templates/content/page_home.html
+msgid "A city becomes a book. A story brings it to life."
+msgstr "A city becomes a book. A story brings it to life."
+
+#: templates/content/includes/city_book.html
+msgid "story"
+msgid_plural "stories"
+msgstr[0] "story"
+msgstr[1] "stories"
+
+#: templates/content/page_home.html
+msgid "A city's history is like a book"
+msgstr "A city's history is like a book"
+
+#: templates/content/page_home.html
+msgid "written by time"
+msgstr "written by time"
+
+#: templates/content/page_home.html
+msgid "Come along! I'll show you a story."
+msgstr "Come along! I'll show you a story."
+
+#: templates/content/page_home.html
+msgid "Library of German Cities"
+msgstr "Library of German Cities"
+
+#: templates/content/page_home.html
+msgid "written by time."
+msgstr "written by time."
+
+#: templates/content/page_home.html
+msgid "Enter the city name"
+msgstr "Enter the city name"
+
+#: templates/content/page_home.html
+msgid "Choose a region"
+msgstr "Choose a region"
+
+#: templates/content/project_concept.html
+msgid "About the project"
+msgstr "About the project"
+
+#: templates/content/project_concept.html
+msgid "T.A.L.E. is a library of cities and the stories that bring them to life."
+msgstr "T.A.L.E. is a library of cities and the stories that bring them to life."
+
+#: templates/content/project_concept.html
+msgid "Each book is a city. Its stories take you to particular streets, squares and buildings and introduce you to the people connected with them."
+msgstr "Each book is a city. Its stories take you to particular streets, squares and buildings and introduce you to the people connected with them."
+
+#: templates/content/project_concept.html
+msgid "Find a city you know or pick a book from the shelf and see where its stories take you."
+msgstr "Find a city you know or pick a book from the shelf and see where its stories take you."
+
+#: templates/content/project_concept.html
+msgid "Back to the library"
+msgstr "Back to the library"
+
+#: templates/content/includes/library_in_progress.html
+msgid "Dessau"
+msgstr "Dessau"
+
+#: templates/content/includes/library_in_progress.html
+msgid "In the works"
+msgstr "In the works"

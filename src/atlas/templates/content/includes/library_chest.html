@@ -1,0 +1,64 @@
+{% load static %}
+{% comment %}The lid stretches around the real form. The crown, contents and body retain the proportions of the photograph.{% endcomment %}
+<svg class="library-chest-crown" viewBox="100 0 1020 118" width="1020" height="118" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="library-chest-silhouette" transform="translate(8 6) scale(.987)">
+      <path d="M176 102 Q166 60 196 45 Q226 32 306 38 L354 46 H429 Q449 31 487 32 L511 36 Q532 18 565 22 Q595 1 617 15 Q654 16 670 26 Q704 24 716 39 Q752 25 771 45 H851 Q891 33 965 37 Q1020 33 1033 56 Q1046 75 1041 105 L1010 478 L1082 539 L1079 742 Q1088 750 1085 779 Q1112 820 1110 844 Q1109 870 1084 869 L1031 869 Q1008 870 996 851 Q987 837 969 847 Q949 849 942 836 L886 836 Q872 836 863 825 H354 Q342 836 324 836 H269 Q262 852 244 847 Q236 841 229 853 Q220 870 190 870 H139 Q107 870 107 845 Q106 828 133 780 Q132 753 139 743 L131 546 L204 484 Q210 476 208 454 Z"/>
+    </clipPath>
+    <image id="library-chest-photo" href="{% static 'images/library/library-search-chest-ivory.jpg' %}" width="1210" height="880"/>
+    <linearGradient id="library-paper-blend" gradientUnits="userSpaceOnUse" x1="390" x2="833">
+      <stop stop-color="white" stop-opacity="0"/>
+      <stop offset=".08" stop-color="white"/>
+      <stop offset=".93" stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="library-paper-ends" x2="0" y2="1">
+      <stop stop-color="white" stop-opacity="0"/>
+      <stop offset=".045" stop-color="white"/>
+      <stop offset=".975" stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="library-paper-vertical" maskUnits="userSpaceOnUse" x="390" y="128" width="443" height="272">
+      <rect x="390" y="128" width="443" height="272" fill="url(#library-paper-ends)"/>
+    </mask>
+    <mask id="library-paper-patch" maskUnits="userSpaceOnUse" x="390" y="128" width="443" height="272">
+      <rect x="390" y="128" width="443" height="272" fill="url(#library-paper-blend)" mask="url(#library-paper-vertical)"/>
+    </mask>
+    <linearGradient id="library-chest-inner-shade" x2="0" y2="1">
+      <stop stop-color="#241209" stop-opacity=".58"/>
+      <stop offset="1" stop-color="#241209" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="library-chest-inner-blur" x="-10%" y="-80%" width="120%" height="260%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="library-chest-foot-shadow" x="-12%" y="-100%" width="124%" height="300%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="library-chest-foot-contact" x="-12%" y="-100%" width="124%" height="300%">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+  </defs>
+  <use href="#library-chest-photo" clip-path="url(#library-chest-silhouette)"/>
+</svg>
+<svg class="library-chest-lid" viewBox="100 118 1020 282" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <use href="#library-chest-photo" clip-path="url(#library-chest-silhouette)"/>
+  {% comment %}Sample clean paper from the photograph so the printed example can be replaced by translated controls.{% endcomment %}
+  <g mask="url(#library-paper-patch)">
+    <svg x="390" y="128" width="443" height="272" viewBox="307 132 100 257" preserveAspectRatio="none">
+      <use href="#library-chest-photo"/>
+    </svg>
+  </g>
+  <path d="M239 119 H969 L943 168 Q603 157 258 170 Z" fill="url(#library-chest-inner-shade)" filter="url(#library-chest-inner-blur)"/>
+</svg>
+<svg class="library-chest-base" viewBox="100 400 1020 480" width="1020" height="480" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <g fill="#1a0b05" filter="url(#library-chest-foot-shadow)">
+    <path d="M116 859 Q172 873 243 857 Q266 865 266 870 Q201 880 135 874Z" opacity=".9"/>
+    <path d="M985 858 Q1036 868 1103 857 L1118 869 Q1056 879 1008 872Z" opacity=".9"/>
+  </g>
+  <g fill="#140702" filter="url(#library-chest-foot-contact)">
+    <ellipse cx="176" cy="866" rx="56" ry="5" opacity=".96"/>
+    <ellipse cx="1060" cy="866" rx="54" ry="5" opacity=".96"/>
+  </g>
+  <use href="#library-chest-photo" clip-path="url(#library-chest-silhouette)"/>
+  <path d="M233 492 Q584 529 1007 494 L1052 527 H189 Z" fill="#2a160d" opacity=".26" filter="url(#library-chest-inner-blur)"/>
+</svg>

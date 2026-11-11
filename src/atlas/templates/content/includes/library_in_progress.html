@@ -1,0 +1,31 @@
+{% load i18n static %}
+<li class="library-in-progress-slot">
+  <figure class="library-in-progress">
+    <svg class="library-in-progress-art" viewBox="480 415 636 308" width="636" height="308" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="library-in-progress-cutout">
+          <path d="M488 556 Q486 515 496 482 Q498 469 511 463 L646 426 Q652 423 669 425 L1023 441 Q1030 442 1026 449 L1050 450 Q1056 452 1053 461 L1032 469 L1028 526 Q1040 530 1057 532 Q1062 533 1067 544 Q1084 586 1106 612 Q1109 616 1109 622 Q1041 615 978 612 Q973 611 963 595 L954 599 Q966 626 977 649 Q985 675 986 689 Q988 702 992 711 L971 700 L952 717 Q948 695 944 674 Q939 649 922 614 Q913 616 905 621 L890 620 L501 587 Q491 586 488 556Z"/>
+        </clipPath>
+        <filter id="library-in-progress-edge">
+          <feMorphology in="SourceAlpha" operator="erode" radius="1.8" result="inside"/>
+          <feComposite in="SourceGraphic" in2="inside" operator="in"/>
+        </filter>
+        <filter id="library-in-progress-shadow" x="-10%" y="-30%" width="120%" height="160%">
+          <feGaussianBlur stdDeviation="4"/>
+        </filter>
+      </defs>
+      <g fill="#1a0b05" filter="url(#library-in-progress-shadow)">
+        <path d="M491 584 Q678 598 905 616 L924 622 Q905 632 882 629 L504 595Z" opacity=".88"/>
+        <path d="M926 604 Q949 617 967 663 L998 716 L976 716 Q964 660 935 625Z" opacity=".64"/>
+        <path d="M972 605 L1106 616 L1113 628 L980 622Z" opacity=".62"/>
+      </g>
+      <g filter="url(#library-in-progress-edge)">
+        <image href="{% static 'images/library/in-progress-book.jpg' %}" width="1264" height="843" clip-path="url(#library-in-progress-cutout)"/>
+      </g>
+    </svg>
+    <figcaption class="library-in-progress-lettering">
+      <strong>{{ library_in_progress }}</strong>
+      <span>{% trans "In the works" %}</span>
+    </figcaption>
+  </figure>
+</li>

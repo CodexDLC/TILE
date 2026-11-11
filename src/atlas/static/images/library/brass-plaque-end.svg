@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 56" fill="none">
+  <defs>
+    <linearGradient id="brass" x2="0" y2="1">
+      <stop stop-color="#e1bf7a"/>
+      <stop offset="1" stop-color="#9a7038"/>
+    </linearGradient>
+  </defs>
+  <path d="M43 8H28C16 8 10 18 10 28S16 48 28 48h15V8Z" fill="#d3b47e"/>
+  <path d="M43 8H29C17 8 14 19 10 24L4 28l6 4c4 5 7 16 19 16h14" stroke="#422713" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M43 8H29C17 8 14 19 10 24L4 28l6 4c4 5 7 16 19 16h14" stroke="url(#brass)" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M43 12H30c-10 0-12 10-18 16 6 6 8 16 18 16h13" stroke="#785124" stroke-width="1.5"/>
+  <path d="M27 8c-3-9-15-7-14 0 .6 4 7 5 8 0M27 48c-3 9-15 7-14 0 .6-4 7-5 8 0M13 21C8 15 3 18 1 22l8 4m4 9C8 41 3 38 1 34l8-4" stroke="#4a2c13" stroke-width="4" stroke-linecap="round"/>
+  <path d="M27 8c-3-9-15-7-14 0 .6 4 7 5 8 0M27 48c-3 9-15 7-14 0 .6-4 7-5 8 0M13 21C8 15 3 18 1 22l8 4m4 9C8 41 3 38 1 34l8-4" stroke="url(#brass)" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -43,6 +43,17 @@ Atlas is an editorial travel product with:
 - Prefer texture, rhythm, and typography over heavy shadows or over-rounded cards.
 - Reuse component patterns from the prototype library before inventing new ones.
 
+## City Library — decision of 6 November 2026
+
+The first home variant is a city bookshelf, grouped by existing regions. Desktop/tablet shows upright spines, with reliefs on fuller volumes; below 768 px the same upright books become smaller and retain their reliefs. The author explicitly replaced the earlier horizontal-stack proposal on 6 November 2026. The current visual study uses a multi-level dark-walnut cabinet in a bright, softly lit reading room, with supplied binding images and independently rendered relief, title and count layers. Thickness and numbers reflect published stories, not city population. Search, region selection and pagination support a growing catalogue. Exact proximity and thematic selections are future work, not simulated controls. Existing editorial colors, templates and public routes remain in use. See [acceptance evidence](library-acceptance.md) and PR-10–PR-13 in [product requirements](../PRODUCT_REQUIREMENTS.md).
+
+### Book composition refinement of 6 November 2026
+
+The hero and search now form the cabinet's wooden crown and inset catalogue panel. The room is lighter, with a single soft sunbeam from the left spanning the complete furniture block. Local Cormorant Infant regular / italic provides the proposed historical book lettering; font files, OFL license and provenance are in `static/fonts/cormorant-infant/`. Spine artwork keeps its full height, with bowed rounded caps rather than clipped rectangular ends.
+
+
+Books touch with no horizontal gap and align left when a shelf is not full. A uniformly lit walnut bay replaces the previous per-row highlight; one diffuse light wash is applied over the entire cabinet, including books. Supplied complete city cover artwork can serve as the art layer for faithful relief proportions; live title and count sit on an independent plain leather label field, below a divider and clear of the gold bands. The reference for this arrangement is the supplied Quedlinburg cover. Upright smaller mobile books remain in use.
+
 ## Directory Map
 - `preview/` contains token and component examples
 - `ui-kit/web/` contains the page prototypes

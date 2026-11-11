@@ -6,4 +6,5 @@ urlpatterns = [
     path("grid/", GridView.as_view(), name="places-grid"),
     path("map/", MapView.as_view(), name="places-map"),
     path("search/", SearchView.as_view(), name="places-search"),
+    path("stories/", SearchView.as_view(articles_only=True), name="places-stories"),
 ]

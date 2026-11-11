@@ -1,5 +1,7 @@
 """Read models shared by the author editor and public article pages."""
 
+from unicodedata import combining, normalize
+
 from django.conf import settings
 from django.db.models import Case, IntegerField, Q, Value, When
 from django.shortcuts import get_object_or_404
@@ -102,12 +104,22 @@ def editor_initial(page, language):
     }
 
 
-def search_pages(query):
-    pages = Page.objects.filter(is_published=True).exclude(page_type="home").select_related("parent")
+def search_pages(query, *, articles_only=False):
+    if articles_only:
+        pages = articles().filter(is_published=True)
+    else:
+        pages = Page.objects.filter(is_published=True).exclude(page_type="home").select_related("parent")
     if query:
         conditions = Q()
         for code, _label in settings.LANGUAGES:
             for field in ("title", "intro", "parent__title", "parent__parent__title"):
                 conditions |= Q(**{f"{field}_{code}__icontains": query})
         pages = pages.filter(conditions)
+    if articles_only:
+        return sorted(pages.order_by("pk"), key=_article_title_key)
     return pages.order_by("-published_at", "-pk")
+
+
+def _article_title_key(page):
+    title = normalize("NFKD", page.title.casefold().strip())
+    return "".join(character for character in title if not combining(character))

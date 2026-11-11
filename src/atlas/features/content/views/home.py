@@ -2,6 +2,7 @@ from django.utils.translation import get_language
 from django.views.generic import TemplateView
 
 from features.content.selectors.pages import get_homepage, get_page_context, get_page_template
+from features.places.selectors.library import get_city_library
 
 
 class HomeView(TemplateView):
@@ -17,4 +18,11 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_page_context(self.get_page()))
+        context.update(
+            get_city_library(
+                query=self.request.GET.get("city", ""),
+                region=self.request.GET.get("region", ""),
+                page=self.request.GET.get("page", 1),
+            )
+        )
         return context

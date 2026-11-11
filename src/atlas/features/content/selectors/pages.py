@@ -76,7 +76,9 @@ def get_page_context(page: Page) -> dict[str, Any]:
         context["related_articles"] = related_articles(page)
     if page.page_type == Page.PageType.CITY:
         context["city_articles"] = Page.objects.filter(
-            parent=page, is_published=True, page_type__in=("story", "place")
+            Q(parent=page) | Q(parent__isnull=True, place__city__page=page),
+            is_published=True,
+            page_type__in=("story", "place"),
         ).order_by("-published_at", "title")
     if page.page_type == Page.PageType.REGION:
         context["region_cities"] = City.objects.filter(region=domain_object, page__is_published=True).select_related(

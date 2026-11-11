@@ -2069,3 +2069,155 @@ msgstr "Открыть страну"
 #: templates/content/includes/article_cards.html
 msgid "Open page"
 msgstr "Открыть страницу"
+
+#: templates/content/page_home.html
+msgid "A library of cities"
+msgstr "Библиотека городов"
+
+#: templates/content/page_home.html
+msgid "Every city is"
+msgstr "Каждый город —"
+
+#: templates/content/page_home.html
+msgid "a book of stories."
+msgstr "книга историй."
+
+#: templates/content/page_home.html
+msgid "Choose a book. Step into a city. Discover the stories within."
+msgstr "Выберите книгу. Откройте город. Познакомьтесь с его историями."
+
+#: templates/content/page_home.html
+msgid "Find a city"
+msgstr "Найти город"
+
+#: templates/content/page_home.html
+msgid "Which city will you open?"
+msgstr "Какой город откроем?"
+
+#: templates/content/page_home.html
+msgid "City name"
+msgstr "Название города"
+
+#: templates/content/page_home.html
+msgid "Shelves by region"
+msgstr "Полки по регионам"
+
+#: templates/content/page_home.html
+msgid "All regions"
+msgstr "Все регионы"
+
+#: templates/content/page_home.html
+msgid "Or choose a book from the shelf"
+msgstr "Или выберите книгу на полке"
+
+#: templates/content/page_home.html
+msgid "Search all stories"
+msgstr "Поиск по всем историям"
+
+#: templates/content/page_home.html
+msgid "Places, people, little discoveries"
+msgstr "Места, люди, маленькие открытия"
+
+#: templates/content/page_home.html
+msgid "The city library"
+msgstr "Библиотека городов"
+
+#: templates/content/page_home.html
+msgid "Reset filters"
+msgstr "Сбросить фильтры"
+
+#: templates/content/page_home.html
+msgid "No cities found"
+msgstr "Города не найдены"
+
+#: templates/content/page_home.html
+msgid "Try another city name or choose all regions."
+msgstr "Попробуйте другое название или выберите все регионы."
+
+#: templates/content/page_home.html
+msgid "The first books are on their way"
+msgstr "Первые книги уже в пути"
+
+#: templates/content/page_home.html
+msgid "Published cities will appear on these shelves."
+msgstr "На полках появятся города с опубликованными страницами."
+
+#: templates/content/page_home.html
+msgid "City catalogue pages"
+msgstr "Страницы библиотеки городов"
+
+#: templates/content/page_home.html
+msgid "Previous"
+msgstr "Назад"
+
+#: templates/content/page_home.html
+msgid "Page %(current)s of %(total)s"
+msgstr "Страница %(current)s из %(total)s"
+
+#: templates/content/page_home.html
+msgid "A city becomes a book. A story brings it to life."
+msgstr "Город становится книгой. История оживляет его."
+
+#: templates/content/includes/city_book.html
+msgid "story"
+msgid_plural "stories"
+msgstr[0] "история"
+msgstr[1] "истории"
+msgstr[2] "историй"
+msgstr[3] "истории"
+
+#: templates/content/page_home.html
+msgid "A city's history is like a book"
+msgstr "История города — как книга,"
+
+#: templates/content/page_home.html
+msgid "written by time"
+msgstr "которую пишет время"
+
+#: templates/content/page_home.html
+msgid "Come along! I'll show you a story."
+msgstr "Пойдём! Я покажу тебе историю."
+
+#: templates/content/page_home.html
+msgid "Library of German Cities"
+msgstr "Библиотека городов Германии"
+
+#: templates/content/page_home.html
+msgid "written by time."
+msgstr "которую пишет время."
+
+#: templates/content/page_home.html
+msgid "Enter the city name"
+msgstr "Напишите название города"
+
+#: templates/content/page_home.html
+msgid "Choose a region"
+msgstr "Выбрать регион"
+
+#: templates/content/project_concept.html
+msgid "About the project"
+msgstr "О проекте"
+
+#: templates/content/project_concept.html
+msgid "T.A.L.E. is a library of cities and the stories that bring them to life."
+msgstr "T.A.L.E. — библиотека городов и историй, которые оживляют их."
+
+#: templates/content/project_concept.html
+msgid "Each book is a city. Its stories take you to particular streets, squares and buildings and introduce you to the people connected with them."
+msgstr "Каждая книга — город. Её истории знакомят с улицами, площадями и зданиями, а также с людьми, чьи судьбы связаны с этими местами."
+
+#: templates/content/project_concept.html
+msgid "Find a city you know or pick a book from the shelf and see where its stories take you."
+msgstr "Найдите знакомый город или выберите книгу с полки и посмотрите, куда приведёт её история."
+
+#: templates/content/project_concept.html
+msgid "Back to the library"
+msgstr "Вернуться в библиотеку"
+
+#: templates/content/includes/library_in_progress.html
+msgid "Dessau"
+msgstr "Дессау"
+
+#: templates/content/includes/library_in_progress.html
+msgid "In the works"
+msgstr "Сейчас пишется"

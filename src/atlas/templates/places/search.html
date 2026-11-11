@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}<section class="section"><div class="container">
+{% if articles_only %}
+<h1>{% trans "Stories" %}</h1>
+{% url 'places-stories' as search_action %}
+{% include "content/includes/search_form.html" with search_action=search_action %}
+{% else %}
 <h1>{% trans "Find your story" %}</h1>
 {% include "content/includes/search_form.html" %}
+{% endif %}
 <p class="search-summary">{% trans "Results" %}: {{ results.paginator.count }}{% if query %} · «{{ query }}»{% endif %}</p>
 {% include "content/includes/article_cards.html" with cards=results %}
 {% if not results %}<p>{% trans "No results. Try another city or place name." %}</p>{% endif %}
