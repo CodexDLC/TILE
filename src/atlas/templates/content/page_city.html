@@ -1,8 +1,48 @@
 {% extends "content/page_base.html" %}
 {% load block_tags i18n %}
+
 {% block page_content %}
-<header class="article-heading"><p class="section-label">{{ domain_object.region.country.name }} · {{ domain_object.region.name }}</p><h1>{{ page.title }}</h1><p class="article-lead">{{ page.intro }}</p><p>{% trans "Stories" %}: {{ city_articles|length }}</p></header>
-<section class="section"><div class="container"><h2>{% trans "Stories for your walk" %}</h2>{% if city_articles %}{% include "content/includes/article_cards.html" with cards=city_articles %}{% else %}<p>{% trans "Stories about this city are on their way." %}</p>{% endif %}</div></section>
-{% if domain_object.hero_image %}<figure class="article-cover"><img src="{{ domain_object.hero_image.url }}" alt="{{ page.title }}" fetchpriority="high"></figure>{% endif %}
-{% for slot in slots %}{% if slot.block_type != 'hero' %}{% render_block slot %}{% endif %}{% endfor %}
+<section class="book-reading-room city-reading-room" aria-labelledby="city-book-title">
+    <div class="city-book-layout">
+        <a class="city-library-link" href="{% url 'home' %}#cities">← {% trans "Return the book to the shelf" %}</a>
+        <div class="book-spread city-spread">
+            <header class="book-leaf book-leaf-left city-title-page">
+                {% if domain_object %}
+                    <p class="city-book-location">{{ domain_object.region.country.name }} · {{ domain_object.region.name }}</p>
+                {% endif %}
+                <h1 id="city-book-title">{{ page.title }}</h1>
+                {% firstof page.intro domain_object.intro as city_intro %}
+                {% if city_intro %}<p class="city-book-intro">{{ city_intro }}</p>{% endif %}
+                {% if domain_object.hero_image %}
+                    <figure class="city-book-photo">
+                        <img src="{{ domain_object.hero_image.url }}" alt="{{ page.title }}" fetchpriority="high">
+                    </figure>
+                {% endif %}
+            </header>
+            <section class="book-leaf book-leaf-right city-contents-page" aria-labelledby="city-contents-title">
+                <h2 id="city-contents-title">{% trans "Table of contents" %}</h2>
+                <div class="city-contents-rule" aria-hidden="true"></div>
+                {% if city_articles %}
+                    <ol class="city-contents">
+                        {% for chapter in city_articles %}
+                            <li>
+                                <a href="{{ chapter.absolute_path }}">
+                                    <span class="city-chapter-title">{{ chapter.title }}</span>
+                                    {% if chapter.intro %}
+                                        <span class="city-chapter-intro">{{ chapter.intro|striptags|truncatewords:22 }}</span>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                {% else %}
+                    <p>{% trans "Stories about this city are on their way." %}</p>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+</section>
+{% for slot in city_extra_slots %}
+    {% render_block slot %}
+{% endfor %}
 {% endblock %}

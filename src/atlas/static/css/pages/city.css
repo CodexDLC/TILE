@@ -2,6 +2,106 @@
     min-height: 66vh;
 }
 
+.city-book-layout {
+    width: min(100%, var(--book-reading-width));
+    margin-inline: auto;
+}
+
+.city-library-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-bottom: .75rem;
+    color: #684322;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+}
+
+.city-spread { width: 100%; }
+
+.city-spread :is(h1, h2) {
+    margin: 0;
+    font-family: "TALE Cormorant", Georgia, serif;
+    font-weight: 700;
+    line-height: 1;
+    overflow-wrap: anywhere;
+}
+
+.city-spread h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); }
+.city-spread h2 { font-size: clamp(2rem, 3.5vw, 3.2rem); }
+
+.city-title-page { justify-content: center; }
+
+.city-book-location {
+    margin: 0 0 .9rem;
+    color: #76512f;
+    font-size: 1rem;
+}
+
+.city-book-intro {
+    max-width: 32ch;
+    margin: .85rem 0 0;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    line-height: 1.35;
+}
+
+.city-book-photo {
+    width: 100%;
+    margin: 1.45rem 0 .85rem;
+    padding: .35rem;
+    border: 1px solid #b79970;
+    border-radius: .3rem;
+}
+
+.city-book-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: .15rem;
+}
+
+.city-contents-rule {
+    border-top: 1px solid #b79970;
+    margin-top: 1.2rem;
+}
+
+.city-contents {
+    list-style: decimal outside;
+    margin: 0;
+    padding-inline-start: 1.65rem;
+}
+
+.city-contents li {
+    border-bottom: 1px solid #c5aa80;
+}
+
+.city-contents li::marker {
+    color: #76512f;
+    font-weight: 700;
+}
+
+.city-contents a {
+    display: grid;
+    align-content: center;
+    gap: .25rem;
+    min-height: 44px;
+    padding: .8rem .25rem .85rem 0;
+    color: inherit;
+    overflow-wrap: anywhere;
+}
+
+.city-contents a:hover .city-chapter-title,
+.city-contents a:focus-visible .city-chapter-title {
+    text-decoration: underline;
+    text-underline-offset: .18em;
+}
+
+.city-chapter-title { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 700; line-height: 1.15; }
+.city-chapter-intro { color: #60452f; font-size: 1.125rem; line-height: 1.3; }
+.city-contents-page > p { margin-top: .85rem; font-size: 1.2rem; }
+
 .city-layout,
 .place-layout {
     display: grid;

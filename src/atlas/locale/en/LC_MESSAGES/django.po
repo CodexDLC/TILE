@@ -2172,3 +2172,18 @@ msgstr "Dessau"
 #: templates/content/includes/library_in_progress.html
 msgid "In the works"
 msgstr "In the works"
+
+msgid "Choose a country"
+msgstr "Choose a country"
+
+msgid "Germany"
+msgstr "Germany"
+
+msgid "Table of contents"
+msgstr "Table of contents"
+
+msgid "Book pages"
+msgstr "Book pages"
+
+msgid "Return the book to the shelf"
+msgstr "Return the book to the shelf"

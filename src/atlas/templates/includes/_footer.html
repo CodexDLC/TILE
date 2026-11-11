@@ -1,7 +1,7 @@
 {% load i18n static %}
 {% trans "Discover places through their stories, details and people." as default_footer_description %}
 
-<footer class="footer">
+<footer class="footer{% if page.page_type == 'home' or page.page_type == 'city' or page.page_type == 'story' or page.page_type == 'place' %} footer-compact{% endif %}">
     <div class="footer-inner">
         <div class="footer-grid">
             <div class="footer-col">
@@ -49,6 +49,7 @@
         <div class="footer-bottom">
             <p class="footer-copyright">&copy; {% now "Y" %} {{ public_brand }}.</p>
             <div class="footer-legal">
+                <a href="{% url 'contacts' %}" class="footer-link footer-compact-contact">{% trans "Contacts" %}</a>
                 <a href="{% url 'impressum' %}" class="footer-link">{% trans "Impressum" %}</a>
                 <a href="{% url 'privacy' %}" class="footer-link">{% trans "Privacy" %}</a>
                 <a href="{% url 'cabinet:article_list' %}" class="footer-link">{% trans "Management" %}</a>

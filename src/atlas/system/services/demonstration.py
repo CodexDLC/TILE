@@ -321,29 +321,6 @@ def _city_blocks(city: City) -> list[JsonObject]:
                 "alignment": "left",
             },
         },
-        {
-            "type": "rich_text",
-            "fields": {
-                "heading": f"{city.name}, a first city chapter.",
-                "body": city.intro,
-            },
-        },
-        {
-            "type": "facts_list",
-            "fields": {
-                "heading": "City anchors",
-                "intro": "A minimal starter layer before the city receives a fuller editorial treatment.",
-            },
-            "items": [
-                {"label": "Country", "value": city.region.country.name, "note": ""},
-                {"label": "Region", "value": city.region.name, "note": ""},
-                {
-                    "label": "Editorial status",
-                    "value": "Starter city page",
-                    "note": "Places can be expanded from here.",
-                },
-            ],
-        },
     ]
 
 

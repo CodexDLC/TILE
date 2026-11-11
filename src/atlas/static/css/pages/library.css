@@ -1,8 +1,24 @@
 @font-face { font-family: "TALE Cormorant"; src: url('../fonts/cormorant-infant/CormorantInfant-Regular.ttf') format('truetype'); font-style: normal; font-weight: 300 700; font-display: swap; }
 @font-face { font-family: "TALE Cormorant"; src: url('../fonts/cormorant-infant/CormorantInfant-Italic.ttf') format('truetype'); font-style: italic; font-weight: 300 700; font-display: swap; }
 /* TALE reading room. Native binding art + relief + live title + live count. */
-.page-library { --library-gold: #f0d29b; --library-ink: #3b3328; --library-paper: #fcf9f1; --font-serif: "TALE Cormorant", Georgia, serif; background: var(--library-paper); }
-.library-room { padding: 30px 0 38px; background: radial-gradient(ellipse at 0 0, #fffef9, transparent 75%), #fcf8ef; }
+.page-library {
+  --library-gold: #f0d29b;
+  --library-ink: #3b3328;
+  --library-paper: #fcf9f1;
+  --library-cabinet-width: min(1360px, calc(100% - 64px));
+  --font-serif: "TALE Cormorant", Georgia, serif;
+  background: var(--library-paper);
+}
+.library-room { padding-bottom: 38px; background: radial-gradient(ellipse at 0 0, #fffef9, transparent 75%), #fcf8ef; }
+.page-library .header {
+  width: var(--library-cabinet-width);
+  margin-inline: auto;
+  border: 1px solid #3f2416;
+  border-bottom-color: #a57645;
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(#21120cd9, #291810d9),
+    #382419 url('../images/library/walnut-bay-v3.png') center 43% / 100% 480px;
+}
 .library-furniture .container { width: 100%; max-width: none; }
 .library-intro {
   --library-fascia-height: clamp(66px, 6vw, 88px);
@@ -138,9 +154,37 @@
 .library-submit-art { display: block; width: clamp(122px, 14vw, 170px); height: auto; mask-image: radial-gradient(ellipse 66% 72%, #000 57%, transparent 86%); }
 .library-search-reset { justify-self: center; color: #513414; padding: 2px 4px; font: 600 .85rem/1.1 var(--font-serif); text-decoration: underline; }
 .library-catalogue { padding: 0; background: #342217; color: #f2dfbd; scroll-margin-top: calc(var(--header-height) + 12px); }
+.library-countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  padding: 12px clamp(16px, 4vw, 52px);
+  border-block: 1px solid #875e39;
+  background: linear-gradient(180deg, #482e20, #2f1d13);
+}
+.library-country {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 5px clamp(12px, 2vw, 24px);
+  border: 1px solid #a0774c;
+  border-radius: 5px;
+  color: var(--library-gold);
+  font: 700 1.125rem/1.2 var(--font-serif);
+  text-decoration: none;
+}
+.library-country:hover { background: #5c3b26; color: #fff0cf; }
+.library-country[aria-current="true"] {
+  border-color: #e9c58b;
+  background: linear-gradient(180deg, #e6c994, #c6a36c);
+  color: #302014;
+}
+.library-countries .library-country:focus-visible { outline: 2px solid #f8db9f; outline-offset: 3px; }
 .library-catalogue a:focus-visible, .library-intro a:focus-visible, .library-submit:focus-visible { outline: 3px solid #9e7135; outline-offset: 5px; }
 .library-empty a { color: #69471f; text-decoration: underline; text-underline-offset: 4px; }
-.library-furniture { width: min(1360px, calc(100% - 64px)); margin: 0 auto; position: relative; isolation: isolate; border: 1px solid #3f2416; border-radius: 4px; box-shadow: 0 25px 35px -20px #38261799, 0 6px 11px #50341e36; overflow: hidden; }
+.library-furniture { width: var(--library-cabinet-width); margin: 0 auto; position: relative; isolation: isolate; border: 1px solid #3f2416; border-radius: 0 0 4px 4px; box-shadow: 0 25px 35px -20px #38261799, 0 6px 11px #50341e36; overflow: hidden; }
 .library-furniture::before, .library-furniture::after {
   content: "";
   position: absolute;
@@ -320,8 +364,8 @@
 .library-stories { background: #f7f1e5; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) { .city-book:hover { transform: translateY(-7px); } }
 @media (max-width: 767px) {
- .library-room { padding: 18px 0 24px; }
- .library-furniture { width: calc(100% - 24px); }
+ .page-library { --library-cabinet-width: calc(100% - 24px); }
+ .library-room { padding-bottom: 24px; }
  .library-intro { padding-inline: 22px; padding-bottom: 37px; }
  .library-catalogue { padding-top: 0; }
  .city-shelf-heading .library-plaque { min-height: 30px; max-width: 100%; font-size: 1.05rem; }

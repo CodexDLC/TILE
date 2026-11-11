@@ -21,6 +21,7 @@
 @import url("components/cards.css");
 @import url("components/editorial.css");
 @import url("components/blocks.css");
+@import url("components/book-spread.css");
 @import url("base/header.css");
 @import url("base/footer.css");
 
@@ -37,5 +38,6 @@
 @import url("pages/errors.css");
 
 @import url("pages/articles.css");
+@import url("pages/article-book.css");
 @import url("pages/library.css");
 @import url("pages/project-concept.css");

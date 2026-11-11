@@ -7,7 +7,7 @@ from features.places.models import Country, Region
 
 
 class LanguageNavigationTests(TestCase):
-    def test_header_links_to_published_countries_and_regions(self):
+    def test_geographic_pages_still_resolve_after_removing_header_dropdowns(self):
         Page.objects.create(page_type="home", slug="", title_en="Home", is_published=True)
         country_page = Page.objects.create(page_type="country", slug="germany", title_en="Germany", is_published=True)
         country = Country.objects.create(page=country_page, slug="germany", name_en="Germany")
@@ -19,10 +19,11 @@ class LanguageNavigationTests(TestCase):
 
         response = self.client.get("/de/")
 
-        self.assertContains(response, 'href="/de/germany/"')
-        self.assertContains(response, 'href="/de/germany/public-region/"')
-        self.assertNotContains(response, 'href="/de/germany/draft-region/"')
+        self.assertNotContains(response, 'class="nav-dropdown')
         self.assertContains(response, 'href="/de/places/stories/"')
+        self.assertEqual(self.client.get("/de/germany/").status_code, 200)
+        self.assertEqual(self.client.get("/de/germany/public-region/").status_code, 200)
+        self.assertEqual(self.client.get("/de/germany/draft-region/").status_code, 404)
 
     def test_story_index_sorts_displayed_titles_before_pagination(self):
         city = Page.objects.create(page_type="city", slug="city", title_ru="Город", is_published=True)

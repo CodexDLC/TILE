@@ -4,7 +4,6 @@ from django.conf import settings
 from django.http import HttpRequest
 from django.urls import translate_url
 from django.utils.translation import get_language
-from features.places.models import Country, Region
 
 from .models import EmailSettings, SiteSettings
 
@@ -14,8 +13,6 @@ def email_settings(request: HttpRequest) -> dict[str, Any]:
 
 
 def site_context(request: HttpRequest) -> dict[str, Any]:
-    countries = list(Country.objects.filter(page__is_published=True).select_related("page").order_by("name"))
-    active_country = _get_active_country(request, countries)
     return {
         "public_brand": "TALE",
         "SITE_NAME": "TALE",
@@ -24,15 +21,11 @@ def site_context(request: HttpRequest) -> dict[str, Any]:
         "LANGUAGES": settings.LANGUAGES,
         "language_switcher": _get_language_switcher(request),
         "nav_is_home": request.resolver_match and request.resolver_match.url_name == "home",
-        "nav_is_stories": request.resolver_match and request.resolver_match.url_name in ("places-search", "places-stories"),
+        "nav_is_stories": request.resolver_match
+        and request.resolver_match.url_name in ("places-search", "places-stories"),
         "nav_is_contacts": request.resolver_match and request.resolver_match.url_name == "contacts",
-        "nav_active_country": active_country,
-        "nav_countries": countries,
-        "nav_regions": Region.objects.filter(page__is_published=True).select_related("page").order_by("name", "pk"),
         "site_settings": SiteSettings.load(),
     }
-
-
 
 
 def _get_language_switcher(request: HttpRequest) -> list[dict[str, str | bool]]:
@@ -63,10 +56,3 @@ def _language_url(request: HttpRequest, language: str, *, is_preview: bool) -> s
     localized_path = path if path.startswith("/cabinet/") else translate_url(path, language)
     query = request.META.get("QUERY_STRING", "")
     return f"{localized_path}?{query}" if query else localized_path
-def _get_active_country(request: HttpRequest, countries: list[Country]) -> Country | None:
-    request_path = request.path
-    for country in countries:
-        country_path = country.page.absolute_path
-        if request_path == country_path or request_path.startswith(country_path):
-            return country
-    return None

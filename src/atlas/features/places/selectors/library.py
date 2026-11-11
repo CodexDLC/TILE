@@ -5,6 +5,7 @@ from urllib.parse import urlencode
 
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
 from features.places.models import City, Region
@@ -13,12 +14,28 @@ from features.places.models import City, Region
 ANNOUNCED_CITIES = (("germany", "dessau", _("Dessau")),)
 
 
-def get_city_library(*, query="", region="", page=1):
+def get_city_library(*, query="", country="", region="", page=1):
     query = query.strip()[:120]
     region = int(region) if str(region).isascii() and str(region).isdigit() and len(str(region)) < 10 else None
     cities = City.objects.filter(page__is_published=True, page__page_type="city")
-    regions = list(Region.objects.filter(cities__in=cities).distinct().select_related("country").order_by("name", "pk"))
-    if region not in {item.pk for item in regions}:
+    regions = list(
+        Region.objects.filter(cities__in=cities)
+        .distinct()
+        .select_related("country")
+        .order_by("country__name", "country_id", "name", "pk")
+    )
+    countries_by_slug = {item.country.slug: item.country for item in regions}
+    countries = sorted(countries_by_slug.values(), key=lambda item: item.slug != "germany")
+    selected = countries_by_slug.get(country)
+    selected_region = next((item for item in regions if item.pk == region), None)
+    if selected is None and selected_region is not None:
+        selected = selected_region.country
+    if selected is None and countries:
+        selected = countries[0]
+    if selected is not None:
+        cities = cities.filter(region__country=selected)
+        regions = [item for item in regions if item.country_id == selected.pk]
+    if selected_region not in regions:
         region = None
     total = cities.count()
     if query:
@@ -47,7 +64,7 @@ def get_city_library(*, query="", region="", page=1):
     )
     catalogue = Paginator(cities, 24).get_page(page)
     shelves = []
-    for _, group in groupby(catalogue.object_list, key=lambda city: city.region_id):
+    for _region_id, group in groupby(catalogue.object_list, key=lambda city: city.region_id):
         books = [_city_book(city) for city in group]
         shelves.append(
             {
@@ -56,17 +73,31 @@ def get_city_library(*, query="", region="", page=1):
                 "rows": [books[start : start + 6] for start in range(0, len(books), 6)],
             }
         )
-    filters = {key: value for key, value in (("city", query), ("region", region)) if value}
+    selected_slug = selected.slug if selected else ""
+    country_params = {"country": selected_slug} if selected_slug else {}
+    filters = {**country_params, **{key: value for key, value in (("city", query), ("region", region)) if value}}
+    translated_name_field = f"name_{get_language()}"
     return {
         "library_shelves": shelves,
         "library_page": catalogue,
         "library_total": total,
         "library_regions": regions,
-        "library_is_german": {item.country.slug for item in regions} == {"germany"},
+        "library_countries": [
+            {
+                "slug": item.slug,
+                "label": getattr(item, translated_name_field, "")
+                or (_("Germany") if item.slug == "germany" else item.name),
+            }
+            for item in countries
+        ],
+        "library_country": selected_slug,
+        "library_country_query": urlencode(country_params),
         "library_query": query,
         "library_region": region,
         "library_filtered": bool(query or region),
-        "library_in_progress": _next_announced_city() if not filters and catalogue.number == 1 else None,
+        "library_in_progress": _next_announced_city(selected_slug)
+        if not (query or region) and catalogue.number == 1
+        else None,
         "library_previous": urlencode({**filters, "page": catalogue.previous_page_number()})
         if catalogue.has_previous()
         else "",
@@ -74,19 +105,19 @@ def get_city_library(*, query="", region="", page=1):
     }
 
 
-def _next_announced_city():
-    if not ANNOUNCED_CITIES:
+def _next_announced_city(country):
+    announced = [(slug, title) for country_slug, slug, title in ANNOUNCED_CITIES if country_slug == country]
+    if not announced:
         return None
-    countries, slugs, _titles = zip(*ANNOUNCED_CITIES)
     published = set(
         City.objects.filter(
             page__is_published=True,
             page__page_type="city",
-            region__country__slug__in=countries,
-            slug__in=slugs,
-        ).values_list("region__country__slug", "slug")
+            region__country__slug=country,
+            slug__in=[slug for slug, _ in announced],
+        ).values_list("slug", flat=True)
     )
-    return next((title for country, slug, title in ANNOUNCED_CITIES if (country, slug) not in published), None)
+    return next((title for slug, title in announced if slug not in published), None)
 
 
 def _city_book(city):

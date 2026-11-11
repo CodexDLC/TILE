@@ -66,6 +66,8 @@
     font-size: var(--text-sub);
 }
 
+.block-fact-note { display: block; }
+
 .block-gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }

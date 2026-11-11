@@ -8,6 +8,8 @@ from django.http import Http404
 from features.content.models import Page, PageBlockSlot
 from features.places.models import City, Country, Place, Region
 
+from .city_blocks import get_city_extra_slots
+
 
 def normalize_page_path(path: str | None) -> str:
     return (path or "").strip("/")
@@ -75,6 +77,7 @@ def get_page_context(page: Page) -> dict[str, Any]:
         context["article_extra_slots"] = [slot for slot in slots if slot.block_type != "hero"]
         context["related_articles"] = related_articles(page)
     if page.page_type == Page.PageType.CITY:
+        context["city_extra_slots"] = get_city_extra_slots(slots, domain_object)
         context["city_articles"] = Page.objects.filter(
             Q(parent=page) | Q(parent__isnull=True, place__city__page=page),
             is_published=True,

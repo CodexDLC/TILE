@@ -2221,3 +2221,18 @@ msgstr "Дессау"
 #: templates/content/includes/library_in_progress.html
 msgid "In the works"
 msgstr "Сейчас пишется"
+
+msgid "Choose a country"
+msgstr "Выбрать страну"
+
+msgid "Germany"
+msgstr "Германия"
+
+msgid "Table of contents"
+msgstr "Оглавление"
+
+msgid "Book pages"
+msgstr "Страницы книги"
+
+msgid "Return the book to the shelf"
+msgstr "Вернуть книгу на полку"

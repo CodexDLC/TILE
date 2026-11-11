@@ -1,8 +1,5 @@
-{% load static %}
 {% load i18n %}
 
-{% trans "Country" as country_label %}
-{% trans "Region" as region_label %}
 <header class="header" x-data="{ mobileMenuOpen: false }" @keydown.escape.window="mobileMenuOpen = false">
     <div class="header-inner">
         <a href="{% url 'home' %}" class="logo-link">
@@ -12,10 +9,7 @@
 
         <nav class="nav-desktop" aria-label="{% trans 'Primary navigation' %}">
             <a href="{% url 'home' %}" class="nav-link {% if nav_is_home %}active{% endif %}">{% trans "Home" %}</a>
-            {% include "includes/_geography_dropdown.html" with entries=nav_countries label=country_label %}
-            {% include "includes/_geography_dropdown.html" with entries=nav_regions label=region_label %}
             <a href="{% url 'places-stories' %}" class="nav-link {% if nav_is_stories %}active{% endif %}">{% trans "Stories" %}</a>
-            <a href="{% url 'contacts' %}" class="nav-link {% if nav_is_contacts %}active{% endif %}">{% trans "Contacts" %}</a>
         </nav>
 
         <div class="header-actions">
@@ -53,10 +47,7 @@
 
                 <nav class="mobile-nav" aria-label="{% trans 'Mobile navigation' %}">
                     <a href="{% url 'home' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Home" %}</a>
-                    {% include "includes/_geography_dropdown.html" with entries=nav_countries label=country_label %}
-                    {% include "includes/_geography_dropdown.html" with entries=nav_regions label=region_label %}
                     <a href="{% url 'places-stories' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Stories" %}</a>
-                    <a href="{% url 'contacts' %}" class="mobile-nav-link" @click="mobileMenuOpen = false">{% trans "Contacts" %}</a>
                 </nav>
 
                 <div class="mobile-menu-meta">

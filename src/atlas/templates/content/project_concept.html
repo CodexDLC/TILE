@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block title %}{% trans "About the project" %} · T.A.L.E.{% endblock %}
-{% block app_css_revision %}?v=20261108-open-folio{% endblock %}
+{% block app_css_revision %}?v=20261111-book-spread{% endblock %}
 {% block body_class %}page page-project-concept{% endblock %}
 {% block content %}
-<section class="concept-reading-room" aria-labelledby="concept-title">
-  <div class="concept-book">
-    <header class="concept-leaf concept-leaf-left">
+<section class="book-reading-room" aria-labelledby="concept-title">
+  <div class="book-spread concept-book">
+    <header class="book-leaf book-leaf-left">
       <p class="concept-imprint" lang="en">
         <span>T.A.L.E.</span>
         <em>Travel Atlas of Local Experiences</em>
@@ -16,7 +16,7 @@
       <p class="concept-lead">{% trans "T.A.L.E. is a library of cities and the stories that bring them to life." %}</p>
       <span class="concept-folio-number" aria-hidden="true">1</span>
     </header>
-    <div class="concept-leaf concept-leaf-right">
+    <div class="book-leaf book-leaf-right">
       <p>{% trans "Each book is a city. Its stories take you to particular streets, squares and buildings and introduce you to the people connected with them." %}</p>
       <p>{% trans "Find a city you know or pick a book from the shelf and see where its stories take you." %}</p>
       <a class="concept-return" href="{% url 'home' %}#cities">← {% trans "Back to the library" %}</a>

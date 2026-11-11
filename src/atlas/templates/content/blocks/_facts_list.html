@@ -8,8 +8,7 @@
             {% for item in block.items.all %}
                 <div class="card block-fact">
                     <dt>{{ item.label }}</dt>
-                    <dd>{{ item.value }}</dd>
-                    {% if item.note %}<p>{{ item.note }}</p>{% endif %}
+                    <dd>{{ item.value }}{% if item.note %}<small class="block-fact-note">{{ item.note }}</small>{% endif %}</dd>
                 </div>
             {% endfor %}
         </dl>

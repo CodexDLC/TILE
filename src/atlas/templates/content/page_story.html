@@ -1,9 +1,10 @@
 {% extends "content/page_base.html" %}
-{% load i18n block_tags markdown_tags %}
+{% load i18n block_tags markdown_tags static %}
 {% block body_class %}page page-article{% endblock %}
 {% block page_content %}
 {% if is_preview %}<aside class="article-preview" role="status">{% trans "This is a private preview for the author." %} <a href="{% url 'cabinet:article_edit' page.pk %}?language={{ article_language }}">{% trans "Back to editing" %}</a></aside>{% endif %}
-<article lang="{{ article_language }}">
+<article lang="{{ article_language }}"{% if not is_preview %} class="article-book" data-article-book{% endif %}>
+{% if not is_preview %}<div class="article-book-frame"><div class="article-book-viewport" data-book-viewport tabindex="0"><div class="article-book-flow" data-book-flow>{% endif %}
 <header class="article-heading">
 <nav class="article-breadcrumb" aria-label="{% trans 'Navigation' %}"><a href="{% url 'home' %}">{% trans "Home" %}</a>{% if page.parent.is_published %} / <a href="{{ page.parent.absolute_path }}">{{ page.parent.title }}</a>{% endif %}</nav>
 <p class="section-label">{% trans "Stories of places" %} · {{ article_language|upper }}</p>
@@ -19,6 +20,15 @@
 {% for slot in article_extra_slots %}{% if slot.block_type == 'gallery' %}{% for photo in slot.content_object.images.all %}{% if photo.pk != cover.pk %}<figure class="article-cover"><img src="{{ photo.image.url }}" alt="{{ photo.alt_text|default:photo.caption }}" loading="lazy">{% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endif %}{% endfor %}{% endif %}{% endfor %}
 {% endlanguage %}
 {% if domain_object.latitude != None and domain_object.longitude != None %}{% if domain_object.latitude or domain_object.longitude %}{% load l10n %}<div class="article-reading"><a class="btn btn-outline" href="https://www.openstreetmap.org/?mlat={{ domain_object.latitude|unlocalize }}&mlon={{ domain_object.longitude|unlocalize }}#map=17/{{ domain_object.latitude|unlocalize }}/{{ domain_object.longitude|unlocalize }}" target="_blank" rel="noopener">{% trans "Open on map" %} ↗</a></div>{% endif %}{% endif %}
+{% if not is_preview %}
+</div></div></div>
+<nav class="article-book-controls" data-book-controls aria-label="{% trans 'Book pages' %}" hidden>
+    <button type="button" data-book-prev aria-label="{% trans 'Previous' %}">←</button>
+    <output data-book-status aria-live="polite"></output>
+    <button type="button" data-book-next aria-label="{% trans 'Next' %}">→</button>
+</nav>
+{% endif %}
 </article>
-{% if related_articles %}<section class="section"><div class="container"><h2>{% trans "Keep exploring" %}</h2>{% include "content/includes/article_cards.html" with cards=related_articles %}</div></section>{% endif %}
+{% if related_articles %}<section class="section article-book-related" data-book-related><div class="container"><h2>{% trans "Keep exploring" %}</h2>{% include "content/includes/article_cards.html" with cards=related_articles %}</div></section>{% endif %}
 {% endblock %}
+{% block scripts %}{% if not is_preview %}<script src="{% static 'js/app/article-book.js' %}" defer></script>{% endif %}{% endblock %}

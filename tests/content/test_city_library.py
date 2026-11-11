@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 from django.test import TestCase
-from features.content.models import Page
+from features.content.models import FactItem, FactsListBlock, Page, PageBlockSlot, RichTextBlock
 from features.places.models import City, Country, Place, Region
 
 
@@ -17,12 +17,71 @@ class CityLibraryTests(TestCase):
         page = Page.objects.create(page_type="city", slug=slug, title_en=slug, is_published=published)
         return City.objects.create(region=region or self.region, page=page, slug=slug, name_en=slug)
 
+    def test_switching_countries_scopes_shelves_regions_and_search(self):
+        austria = Country.objects.create(slug="austria", name_en="Austria", name_ru="Австрия")
+        vienna = Region.objects.create(country=austria, slug="vienna", name_en="Vienna")
+        self.city("magdeburg")
+        self.city("vienna-city", region=vienna)
+
+        germany = self.client.get("/ru/")
+        self.assertContains(germany, 'href="/ru/?country=germany#cities" aria-current="true">Германия</a>')
+        self.assertContains(germany, 'href="/ru/?country=austria#cities">Австрия</a>')
+        self.assertContains(germany, 'href="/ru/magdeburg/"')
+        self.assertNotContains(germany, 'href="/ru/vienna-city/"')
+
+        austria = self.client.get("/ru/", {"country": "austria", "region": self.region.pk})
+        self.assertContains(austria, 'href="/ru/?country=austria#cities" aria-current="true">Австрия</a>')
+        self.assertContains(austria, 'href="/ru/vienna-city/"')
+        self.assertNotContains(austria, 'href="/ru/magdeburg/"')
+        self.assertEqual(austria.context["library_regions"], [vienna])
+        self.assertIsNone(austria.context["library_in_progress"])
+        self.assertEqual(self.client.get("/", {"region": vienna.pk}).context["library_country"], "austria")
+        no_matches = self.client.get("/", {"country": "austria", "city": "magdeburg"})
+        self.assertContains(no_matches, 'href="/?country=austria#cities">Reset filters')
+        self.assertEqual(no_matches.context["library_page"].paginator.count, 0)
+
     def test_special_covers_remain_visible_with_few_published_stories(self):
         self.city("magdeburg")
         self.city("quedlinburg")
         response = self.client.get("/")
+        self.assertNotContains(response, 'class="library-countries"')
         self.assertContains(response, "images/library/magdeburg.jpg")
         self.assertContains(response, "images/library/quedlinburg.jpg")
+
+    def test_city_hides_only_unchanged_demonstration_blocks(self):
+        city = self.city("berlin")
+        city.intro_en = "City introduction"
+        city.save()
+        introduction = RichTextBlock.objects.create(
+            heading_en="berlin, a first city chapter.", body_en=city.intro_en
+        )
+        facts = FactsListBlock.objects.create(
+            heading_en="City anchors",
+            intro_en="A minimal starter layer before the city receives a fuller editorial treatment.",
+        )
+        for order, (label, value, note) in enumerate(
+            (
+                ("Country", city.region.country.name_en, ""),
+                ("Region", city.region.name_en, ""),
+                ("Editorial status", "Starter city page", "Places can be expanded from here."),
+            )
+        ):
+            FactItem.objects.create(block=facts, order=order, label_en=label, value_en=value, note_en=note)
+        PageBlockSlot.objects.create(page=city.page, content_object=introduction)
+        PageBlockSlot.objects.create(page=city.page, content_object=facts)
+        authored = FactsListBlock.objects.create(heading_en="City anchors", intro_en="Author's city guide")
+        PageBlockSlot.objects.create(page=city.page, content_object=authored)
+
+        response = self.client.get(city.page.absolute_path)
+        self.assertContains(response, "City introduction", count=1)
+        self.assertContains(response, "City anchors", count=1)
+        self.assertNotContains(response, "a first city chapter")
+        self.assertNotContains(response, "Starter city page")
+        self.assertContains(response, "Author&#x27;s city guide")
+
+        introduction.body_ru = "Авторское дополнение"
+        introduction.save()
+        self.assertContains(self.client.get("/ru/berlin/"), "Авторское дополнение")
 
     def test_horizontal_book_advances_when_the_announced_city_is_published(self):
         dessau = self.city("dessau", published=False)
@@ -49,13 +108,19 @@ class CityLibraryTests(TestCase):
         )
         Place.objects.create(city=city, page=station, slug="station", name_en="Station")
         Place.objects.create(city=city, page=direct, slug="square", name_en="Square")
+        Page.objects.create(parent=city.page, page_type="story", slug="draft", title_en="Unpublished chapter")
+        notes = RichTextBlock.objects.create(body_en="Additional city notes")
+        PageBlockSlot.objects.create(page=city.page, content_object=notes)
 
         library = self.client.get("/")
         book = library.context["library_shelves"][0]["books"][0]
         self.assertEqual(book["article_count"], 2)
         detail = self.client.get(city.page.absolute_path)
         self.assertEqual(set(detail.context["city_articles"]), {station, direct})
+        self.assertContains(detail, "Table of contents")
         self.assertContains(detail, 'href="/station/"')
+        self.assertContains(detail, "Additional city notes")
+        self.assertNotContains(detail, "Unpublished chapter")
         self.assertEqual(self.client.get("/station/").status_code, 200)
 
     def test_library_counts_only_published_stories_and_places(self):

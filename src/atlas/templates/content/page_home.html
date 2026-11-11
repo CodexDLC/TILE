@@ -1,11 +1,10 @@
 {% extends "content/page_base.html" %}
 {% load i18n static %}
-{% block app_css_revision %}?v=20261109-spine-contact{% endblock %}
 {% block body_class %}page page-home page-library{% endblock %}
 {% block page_content %}
 <div class="library-room"><div class="library-furniture">
 <section class="library-intro">
-  <h1 class="library-plaque library-rack-title" id="library-heading">{% if library_is_german %}{% trans "Library of German Cities" %}{% else %}{% trans "The city library" %}{% endif %}</h1>
+  <h1 class="library-plaque library-rack-title" id="library-heading">{% trans "The city library" %}</h1>
   <div class="container">
     <div class="library-folio">
       <a class="library-folio-link" href="{% url 'project-concept' %}" title="{% trans 'About the project' %}">
@@ -14,6 +13,7 @@
       </a>
     </div>
     <form class="library-search" action="{% url 'home' %}#cities" method="get" role="search" aria-label="{% trans 'Find a city' %}">
+      {% if library_country %}<input type="hidden" name="country" value="{{ library_country }}">{% endif %}
       {% include "content/includes/library_chest.html" %}
       <div class="library-search-paper">
       <div class="library-field library-field-city">
@@ -24,7 +24,7 @@
         <label class="sr-only" for="library-region">{% trans "Choose a region" %}</label>
         <select id="library-region" name="region">
           <option value="">{% trans "Choose a region" %}</option>
-          {% for region in library_regions %}<option value="{{ region.pk }}" {% if library_region == region.pk %}selected{% endif %}>{{ region.name }} · {{ region.country.name }}</option>{% endfor %}
+          {% for region in library_regions %}<option value="{{ region.pk }}" {% if library_region == region.pk %}selected{% endif %}>{{ region.name }}</option>{% endfor %}
         </select>
       </div>
       {% get_current_language as library_language %}
@@ -34,12 +34,19 @@
           <svg class="library-submit-art" viewBox="491 342 234 57" width="234" height="57" aria-hidden="true" focusable="false"><use href="#library-chest-photo"/></svg>
         {% else %}{% trans "Find a city" %} ↗{% endif %}
       </button>
-      {% if library_filtered %}<a class="library-search-reset" href="{% url 'home' %}#cities">{% trans "Reset filters" %} ↗</a>{% endif %}
+      {% if library_filtered %}<a class="library-search-reset" href="{% url 'home' %}{% if library_country_query %}?{{ library_country_query }}{% endif %}#cities">{% trans "Reset filters" %} ↗</a>{% endif %}
       </div>
     </form>
   </div>
 </section>
 <section class="library-catalogue" id="cities" aria-labelledby="library-heading">
+  {% if library_countries|length > 1 %}
+  <nav class="library-countries" aria-label="{% trans 'Choose a country' %}">
+    {% for country in library_countries %}
+      <a class="library-country" href="{% url 'home' %}?country={{ country.slug|urlencode }}#cities"{% if country.slug == library_country %} aria-current="true"{% endif %}>{{ country.label }}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
   <div class="container">
     <div class="library-cabinet">
     {% for shelf in library_shelves %}
@@ -55,7 +62,7 @@
       </section>
     {% empty %}
       <div class="library-empty"><span class="library-empty-ornament" aria-hidden="true">❧</span>
-      {% if library_filtered %}<h3>{% trans "No cities found" %}</h3><p>{% trans "Try another city name or choose all regions." %}</p><a href="{% url 'home' %}#cities">{% trans "Reset filters" %} →</a>
+      {% if library_filtered %}<h3>{% trans "No cities found" %}</h3><p>{% trans "Try another city name or choose all regions." %}</p><a href="{% url 'home' %}{% if library_country_query %}?{{ library_country_query }}{% endif %}#cities">{% trans "Reset filters" %} →</a>
       {% else %}<h3>{% trans "The first books are on their way" %}</h3><p>{% trans "Published cities will appear on these shelves." %}</p>{% endif %}</div>
       {% if library_in_progress %}<ul class="city-shelf-books" role="list">{% include "content/includes/library_in_progress.html" %}</ul>{% endif %}
     {% endfor %}

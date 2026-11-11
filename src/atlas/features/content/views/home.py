@@ -21,6 +21,7 @@ class HomeView(TemplateView):
         context.update(
             get_city_library(
                 query=self.request.GET.get("city", ""),
+                country=self.request.GET.get("country", ""),
                 region=self.request.GET.get("region", ""),
                 page=self.request.GET.get("page", 1),
             )
