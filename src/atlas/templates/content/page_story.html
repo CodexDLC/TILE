@@ -31,4 +31,4 @@
 </article>
 {% if related_articles %}<section class="section article-book-related" data-book-related><div class="container"><h2>{% trans "Keep exploring" %}</h2>{% include "content/includes/article_cards.html" with cards=related_articles %}</div></section>{% endif %}
 {% endblock %}
-{% block scripts %}{% if not is_preview %}<script src="{% static 'js/app/article-book.js' %}" defer></script>{% endif %}{% endblock %}
+{% block scripts %}{% if not is_preview %}<script src="{% static 'js/app/article-book.js' %}?v=20261112-book-spread" defer></script>{% endif %}{% endblock %}

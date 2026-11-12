@@ -58,7 +58,7 @@ class ArticleBook {
         const style = getComputedStyle(this.flow);
         this.columns = Number(style.columnCount);
         this.gap = Number.parseFloat(style.columnGap) || 0;
-        this.width = this.viewport.clientWidth;
+        this.width = this.viewport.getBoundingClientRect().width;
         if (this.width === 0) return;
         if (this.flow.scrollHeight > this.flow.clientHeight + 2) {
             // An oversized indivisible block needs the continuous article layout.
@@ -81,7 +81,7 @@ class ArticleBook {
 
     show(index) {
         this.index = Math.min(this.count - 1, Math.max(0, index));
-        this.flow.style.transform = `translateX(${-this.index * this.step}px)`;
+        this.positionFlow(this.index);
         this.previous.disabled = !this.canTurn(-1);
         this.next.disabled = !this.canTurn(1);
         this.status.value = `${this.index + 1} / ${this.count}`;
@@ -94,6 +94,10 @@ class ArticleBook {
         ) ?? null;
     }
 
+    positionFlow(index) {
+        this.flow.style.transform = `translateX(${-index * this.step}px)`;
+    }
+
     canTurn(direction) {
         const target = this.index + direction;
         return this.root.classList.contains("is-paged") && target >= 0 && target < this.count;
@@ -102,8 +106,8 @@ class ArticleBook {
     reveal(element) {
         if (!this.root.classList.contains("is-paged") || !this.step || !this.flow.contains(element)) return;
         const index = this.pageOf(element);
+        this.finishTurn?.();
         if (index !== this.index) {
-            this.finishTurn?.();
             this.show(index);
         }
     }
@@ -151,19 +155,44 @@ class ArticleBook {
         leaf.setAttribute("aria-hidden", "true");
         leaf.inert = true;
         leaf.append(this.leafFace(this.index, forward), this.leafFace(nextIndex, !forward));
-        this.viewport.parentElement.append(leaf);
-        this.show(nextIndex);
+        const shadow = document.createElement("div");
+        shadow.className = forward ? "book-turn-shadow" : "book-turn-shadow book-turn-shadow-back";
+        shadow.setAttribute("aria-hidden", "true");
+        const frame = this.viewport.parentElement;
+        const restingPage = this.columns === 2 ? this.leafFace(this.index, !forward) : null;
+        if (restingPage) {
+            restingPage.classList.add("book-turn-resting");
+            restingPage.setAttribute("aria-hidden", "true");
+            restingPage.inert = true;
+            frame.append(restingPage);
+        }
+        frame.append(shadow, leaf);
+        this.positionFlow(nextIndex);
+        const duration = 700;
         const animation = leaf.animate(
             [
                 { transform: "rotateY(0deg)" },
                 { transform: `rotateY(${direction * -180}deg)` },
             ],
-            { duration: 560, easing: "cubic-bezier(.24,.66,.36,1)" },
+            { duration, easing: "cubic-bezier(.36,.12,.38,1)" },
+        );
+        const shadowAnimation = shadow.animate(
+            [
+                { opacity: 0, offset: 0, easing: "ease-in-out" },
+                { opacity: 1, offset: .35, easing: "ease-in-out" },
+                { opacity: 0, offset: .94 },
+                { opacity: 0, offset: 1 },
+            ],
+            { duration },
         );
         this.finishTurn = () => {
             animation.cancel();
+            shadowAnimation.cancel();
             leaf.remove();
+            shadow.remove();
+            restingPage?.remove();
             this.finishTurn = null;
+            this.show(nextIndex);
         };
         animation.onfinish = () => {
             if (leaf.isConnected) this.finishTurn();
@@ -172,16 +201,16 @@ class ArticleBook {
 
     leafFace(index, right) {
         const face = document.createElement("div");
-        face.className = "book-turn-face";
+        face.className = `book-turn-face book-turn-face-${right ? "right" : "left"}`;
         const snapshot = this.flow.cloneNode(true);
         snapshot.removeAttribute("data-book-flow");
         snapshot.querySelectorAll("[id]").forEach(element => element.removeAttribute("id"));
         snapshot.classList.add("book-turn-snapshot");
         snapshot.style.width = `${this.width}px`;
         snapshot.style.transform = "none";
-        const innerPad = this.columns === 2 && right ? this.gap / 2 : this.viewport.offsetLeft;
+        const innerPad = this.columns === 2 && right ? `${this.gap / 2}px` : "var(--book-pad-inline)";
         const columnStep = this.columns === 2 && right ? this.step / 2 : 0;
-        snapshot.style.left = `${innerPad - index * this.step - columnStep}px`;
+        snapshot.style.left = `calc(${innerPad} - ${index * this.step + columnStep}px)`;
         face.append(snapshot);
         return face;
     }
